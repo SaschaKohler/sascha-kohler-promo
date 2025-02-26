@@ -8,6 +8,7 @@ import {
   Calendar,
   Check,
   ArrowUp,
+  Link,
 } from "lucide-react";
 import ColorSchemeSelector, {
   ColorScheme,
@@ -15,6 +16,9 @@ import ColorSchemeSelector, {
 } from "./ColorSchemeSelector";
 import ThanksSection from "./ThanksSection";
 import ValueCards from "./ValueCards";
+import GrowthJourneySection from "./GrowthJourneySection";
+import ThanksSectionFamily from "./ThanksSectionFamily";
+import ThanksPage from "@/pages/thanks";
 
 const SaschaKohlerWebsite: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("hero");
@@ -349,7 +353,6 @@ const SaschaKohlerWebsite: React.FC = () => {
                     className="object-cover"
                     priority
                   />
-                  <ValueCards colorScheme={colorScheme} />
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-lg shadow-lg">
                   <p
@@ -397,6 +400,14 @@ const SaschaKohlerWebsite: React.FC = () => {
         </div>
       </section>
 
+      <section
+        id="GrowthJourneySection"
+        className="py-20 min-h-screen flex items-center"
+      >
+        <div className="container mx-auto px-6">
+          <GrowthJourneySection />
+        </div>
+      </section>
       {/* Values Section */}
       <section
         id="values"
@@ -695,7 +706,7 @@ const SaschaKohlerWebsite: React.FC = () => {
         </div>
       </section>
       {/* Thanks Section */}
-      <ThanksSection colorScheme={colorScheme} />
+      <ThanksSectionFamily colorScheme={colorScheme} />
       {/* Footer */}
       <footer className="py-8 bg-gray-900 text-white">
         <div className="container mx-auto px-6">
@@ -708,11 +719,18 @@ const SaschaKohlerWebsite: React.FC = () => {
                 Inspiration für lebensbejahende Transformation
               </p>
             </div>
-
-            <div className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Sascha Kohler. Alle Rechte
-              vorbehalten.
-            </div>
+            <div className="text-gray-400 text-sm flex gap-4">
+              <span>
+                © {new Date().getFullYear()} Sascha Kohler. Alle Rechte
+                vorbehalten.
+              </span>
+              <Link
+                href="/thanks"
+                className="hover:text-gray-300 transition-colors"
+              >
+                Danksagungen
+              </Link>
+            </div>{" "}
           </div>
         </div>
       </footer>

@@ -317,7 +317,7 @@ const SaschaKohlerWebsite: React.FC = () => {
                     className="italic text-lg"
                     style={{ color: colorScheme.primary }}
                   >
-                    Speaker & Trainer
+                    Sascha Kohler
                   </p>
                 </div>
               </div>

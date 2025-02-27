@@ -1,10 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useColorScheme } from "@/contexts/ColorSchemeContext";
 
-const GrowthJourneySection = () => {
-  const { colorScheme } = useColorScheme();
+const InteractiveGrowthQuote = () => {
   const [activePhase, setActivePhase] = useState(null);
   const [expanded, setExpanded] = useState(false);
 
@@ -62,21 +60,6 @@ const GrowthJourneySection = () => {
     },
   ];
 
-  // Funktion, um die Farbe anhand des aktiven Farbschemas zu bestimmen
-  const getGradientColors = () => {
-    return {
-      from: colorScheme.primary,
-      to: colorScheme.accent,
-    };
-  };
-
-  // Funktion, um die Farbe anhand des aktiven Farbschemas zu bestimmen
-  const getGradientColorsBackgrounds = () => {
-    return {
-      from: colorScheme.background,
-      to: colorScheme.complement,
-    };
-  };
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -208,7 +191,6 @@ const GrowthJourneySection = () => {
   // Background particles animation
   const Particles = () => {
     const particles = Array.from({ length: 15 }, (_, i) => i);
-    const { from, to } = getGradientColors();
 
     return (
       <div className="absolute inset-0 overflow-hidden z-0">
@@ -245,7 +227,7 @@ const GrowthJourneySection = () => {
               background: `radial-gradient(circle, ${
                 activePhase
                   ? growthPhases.find((p) => p.id === activePhase)?.color + "30"
-                  : colorScheme.primary + "30"
+                  : "#64748b30"
               }, transparent 70%)`,
             }}
           />
@@ -254,18 +236,12 @@ const GrowthJourneySection = () => {
     );
   };
 
-  const { from, to } = getGradientColors();
-
   return (
     <motion.div
       className="relative bg-white rounded-xl p-10 shadow-md overflow-hidden"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      style={{
-        background: `linear-gradient(135deg, ${colorScheme.background},${colorScheme.background} )`,
-        boxShadow: `0 10px 30px ${colorScheme.primary}20`,
-      }}
     >
       <Particles />
 
@@ -273,11 +249,7 @@ const GrowthJourneySection = () => {
         {/* Quote Section */}
         <motion.div className="mb-12 text-center" variants={itemVariants}>
           <motion.h3
-            className="text-3xl font-bold mb-2 bg-clip-text"
-            style={{
-              backgroundImage: `linear-gradient(to right, ${from}, ${to})`,
-              color: colorScheme.primary,
-            }}
+            className="text-3xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500"
             variants={quoteVariants}
             initial="initial"
             whileHover="hover"
@@ -285,10 +257,7 @@ const GrowthJourneySection = () => {
             Das Leben ist keine Problemstellung,
           </motion.h3>
           <motion.h3
-            className="text-3xl font-bold mb-8 bg-clip-text text-transparent"
-            style={{
-              backgroundImage: `linear-gradient(to right, ${to}, ${from})`,
-            }}
+            className="text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-teal-400"
             variants={quoteVariants}
             initial="initial"
             whileHover="hover"
@@ -317,8 +286,8 @@ const GrowthJourneySection = () => {
                 stroke={
                   activePhase
                     ? growthPhases.find((p) => p.id === activePhase)?.color ||
-                      colorScheme.primary
-                    : colorScheme.primary
+                      "#3B82F6"
+                    : "#3B82F6"
                 }
                 strokeWidth="2"
                 strokeLinecap="round"
@@ -337,10 +306,7 @@ const GrowthJourneySection = () => {
                 <motion.button
                   className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center text-white font-semibold text-sm md:text-base relative z-10"
                   style={{
-                    backgroundColor:
-                      index % 2 === 0
-                        ? colorScheme.primary
-                        : colorScheme.accent,
+                    backgroundColor: phase.color,
                   }}
                   variants={circleVariants}
                   initial="initial"
@@ -357,12 +323,7 @@ const GrowthJourneySection = () => {
                   {/* Number indicator */}
                   <motion.div
                     className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-white text-xs flex items-center justify-center font-bold shadow"
-                    style={{
-                      color:
-                        index % 2 === 0
-                          ? colorScheme.primary
-                          : colorScheme.accent,
-                    }}
+                    style={{ color: phase.color }}
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{
@@ -383,11 +344,7 @@ const GrowthJourneySection = () => {
                     animate={{ height: 40, top: "100%" }}
                     transition={{ duration: 0.3 }}
                     style={{
-                      backgroundImage: `linear-gradient(to bottom, transparent, ${
-                        index % 2 === 0
-                          ? colorScheme.primary
-                          : colorScheme.accent
-                      })`,
+                      backgroundImage: `linear-gradient(to bottom, transparent, ${phase.color})`,
                     }}
                   />
                 )}
@@ -407,18 +364,15 @@ const GrowthJourneySection = () => {
               animate="visible"
               exit="exit"
               style={{
-                borderColor: colorScheme.primary + "40",
-                boxShadow: `0 4px 20px ${colorScheme.primary}20`,
+                borderColor:
+                  growthPhases.find((p) => p.id === activePhase)?.color + "40",
+                boxShadow: `0 4px 20px ${growthPhases.find((p) => p.id === activePhase)?.color}20`,
               }}
             >
               <motion.h4
                 className="font-semibold mb-6 text-xl flex items-center"
                 style={{
-                  color:
-                    growthPhases.findIndex((p) => p.id === activePhase) % 2 ===
-                    0
-                      ? colorScheme.primary
-                      : colorScheme.accent,
+                  color: growthPhases.find((p) => p.id === activePhase)?.color,
                 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -427,12 +381,9 @@ const GrowthJourneySection = () => {
                 <span
                   className="inline-block mr-3 w-8 h-8 rounded-full text-white font-bold flex items-center justify-center text-sm"
                   style={{
-                    backgroundColor:
-                      growthPhases.findIndex((p) => p.id === activePhase) %
-                        2 ===
-                      0
-                        ? colorScheme.primary
-                        : colorScheme.accent,
+                    backgroundColor: growthPhases.find(
+                      (p) => p.id === activePhase,
+                    )?.color,
                   }}
                 >
                   {growthPhases.findIndex((p) => p.id === activePhase) + 1}
@@ -452,14 +403,9 @@ const GrowthJourneySection = () => {
                       <motion.span
                         className="mr-3 mt-1.5 block w-2 h-2 rounded-full flex-shrink-0"
                         style={{
-                          backgroundColor:
-                            growthPhases.findIndex(
-                              (p) => p.id === activePhase,
-                            ) %
-                              2 ===
-                            0
-                              ? colorScheme.primary
-                              : colorScheme.accent,
+                          backgroundColor: growthPhases.find(
+                            (p) => p.id === activePhase,
+                          )?.color,
                         }}
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
@@ -479,25 +425,14 @@ const GrowthJourneySection = () => {
             className="text-sm font-medium py-2 px-4 rounded-full transition-colors duration-300"
             style={{
               color: activePhase
-                ? growthPhases.findIndex((p) => p.id === activePhase) % 2 === 0
-                  ? colorScheme.primary
-                  : colorScheme.accent
-                : colorScheme.primary,
-              border: `1px solid ${
-                activePhase
-                  ? growthPhases.findIndex((p) => p.id === activePhase) % 2 ===
-                    0
-                    ? colorScheme.primary + "40"
-                    : colorScheme.accent + "40"
-                  : colorScheme.primary + "40"
-              }`,
+                ? growthPhases.find((p) => p.id === activePhase)?.color
+                : "#64748b",
+              border: `1px solid ${activePhase ? growthPhases.find((p) => p.id === activePhase)?.color + "40" : "#64748b40"}`,
             }}
             whileHover={{
               backgroundColor: activePhase
-                ? growthPhases.findIndex((p) => p.id === activePhase) % 2 === 0
-                  ? colorScheme.primary + "10"
-                  : colorScheme.accent + "10"
-                : colorScheme.primary + "10",
+                ? growthPhases.find((p) => p.id === activePhase)?.color + "10"
+                : "#64748b10",
             }}
             whileTap={{ scale: 0.97 }}
             onClick={() => {
@@ -513,5 +448,4 @@ const GrowthJourneySection = () => {
   );
 };
 
-export default GrowthJourneySection;
-
+export default InteractiveGrowthQuote;

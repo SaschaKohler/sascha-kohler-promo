@@ -1,0 +1,272 @@
+/* 
+ * Enhanced Gradients for Sascha Kohler Website
+ * These gradients work with the colorScheme system and can be applied
+ * to different elements throughout the site.
+ */
+
+/* 
+ * BACKGROUND GRADIENTS
+ * Variations for different sections and color schemes
+ */
+
+/* Main background gradient - smooth transition from white to colorScheme.background */
+.main-bg-gradient {
+  background: linear-gradient(to bottom, white, var(--color-background));
+}
+
+/* Hero section gradient - adds depth and dimension */
+.hero-bg-gradient {
+  background: linear-gradient(135deg, var(--color-background), white);
+}
+
+/* Alternative section background with accent influence */
+.accent-bg-gradient {
+  background: linear-gradient(
+    to bottom right,
+    color-mix(in srgb, var(--color-background) 92%, var(--color-accent) 8%),
+    color-mix(in srgb, white 95%, var(--color-primary) 5%)
+  );
+}
+
+/* Footer section gradient - strong brand presence */
+.footer-bg-gradient {
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary-dark),
+    color-mix(in srgb, var(--color-primary-dark) 70%, black 30%)
+  );
+}
+
+/* 
+ * TEXT GRADIENTS
+ * Eye-catching text effects
+ */
+
+/* Primary text gradient for headlines */
+.text-gradient-primary {
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Vertical text gradient for special elements */
+.text-gradient-vertical {
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 
+ * BUTTON GRADIENTS
+ * Attractive and interactive button styles
+ */
+
+/* Primary button gradient */
+.button-gradient-primary {
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  transition: all 0.3s ease;
+}
+
+/* Button hover effect - brightens gradient */
+.button-gradient-primary:hover {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--color-primary) 85%, white 15%),
+    color-mix(in srgb, var(--color-accent) 85%, white 15%)
+  );
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Secondary button gradient - more subtle */
+.button-gradient-secondary {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--color-background) 90%, var(--color-primary) 10%),
+    color-mix(in srgb, var(--color-background) 90%, var(--color-accent) 10%)
+  );
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.button-gradient-secondary:hover {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--color-background) 80%, var(--color-primary) 20%),
+    color-mix(in srgb, var(--color-background) 80%, var(--color-accent) 20%)
+  );
+}
+
+/* 
+ * CARD & ELEMENT GRADIENTS
+ * For boxes, cards and UI components
+ */
+
+/* Feature card gradient - subtle background */
+.card-gradient {
+  background: linear-gradient(
+    145deg,
+    white,
+    color-mix(in srgb, white 97%, var(--color-primary) 3%)
+  );
+}
+
+/* Highlighted card gradient - stronger color presence */
+.card-gradient-highlight {
+  background: linear-gradient(
+    145deg,
+    white,
+    color-mix(in srgb, white 92%, var(--color-accent) 8%)
+  );
+}
+
+/* Border gradient - for elegant card borders */
+.border-gradient {
+  position: relative;
+  background: white;
+  border-radius: 0.5rem;
+  z-index: 1;
+}
+
+.border-gradient::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  background: linear-gradient(
+    to bottom right,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  border-radius: 0.6rem;
+  z-index: -1;
+}
+
+/* 
+ * OVERLAY GRADIENTS
+ * For image overlays and visual effects
+ */
+
+/* Image overlay gradient - vertical fade */
+.image-overlay-gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    color-mix(in srgb, var(--color-primary) 40%, transparent 60%)
+  );
+}
+
+/* Image overlay gradient - horizontal fade */
+.image-overlay-horizontal {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--color-primary) 40%, transparent 60%),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+/* 
+ * ANIMATION GRADIENTS
+ * More dynamic and animated gradient effects
+ */
+
+/* Animated gradient background */
+.animated-gradient-bg {
+  background-size: 400% 400%;
+  background-image: linear-gradient(
+    -45deg,
+    color-mix(in srgb, white 80%, var(--color-primary) 20%),
+    color-mix(in srgb, white 85%, var(--color-accent) 15%),
+    color-mix(in srgb, white, 10%),
+    color-mix(in srgb, white 85%, var(--color-primary) 15%)
+  );
+  animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Floating elements background */
+.floating-bg-element {
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-accent) 30%, transparent 70%),
+    transparent
+  );
+}
+
+/* 
+ * UTILITY CSS VARIABLES
+ * For easier theme integration with React inline styles
+ */
+
+:root {
+  /* Example of how to transform these into CSS variables */
+  --gradient-primary: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  --gradient-primary-vertical: linear-gradient(
+    to bottom,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  --gradient-button: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  --gradient-card: linear-gradient(
+    145deg,
+    white,
+    color-mix(in srgb, white 97%, var(--color-primary) 3%)
+  );
+  --gradient-background: linear-gradient(
+    to bottom,
+    white,
+    var(--color-background)
+  );
+  --gradient-accent-bg: linear-gradient(
+    to bottom right,
+    color-mix(in srgb, var(--color-background) 92%, var(--color-accent) 8%),
+    color-mix(in srgb, white 95%, var(--color-primary) 5%)
+  );
+  --gradient-footer: linear-gradient(
+    to bottom,
+    var(--color-primary-dark),
+    color-mix(in srgb, var(--color-primary-dark) 70%, black 30%)
+  );
+  --gradient-overlay: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    color-mix(in srgb, var(--color-primary) 40%, transparent 60%)
+  );
+}

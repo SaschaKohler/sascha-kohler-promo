@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useColorScheme } from "@/contexts/ColorSchemeContext";
 
-const GrowthJourneySection = () => {
+const InteractiveGrowthQuote = () => {
   const { colorScheme } = useColorScheme();
   const [activePhase, setActivePhase] = useState(null);
   const [expanded, setExpanded] = useState(false);
@@ -66,17 +66,10 @@ const GrowthJourneySection = () => {
   const getGradientColors = () => {
     return {
       from: colorScheme.primary,
-      to: colorScheme.accent,
+      to: colorScheme.accent
     };
   };
 
-  // Funktion, um die Farbe anhand des aktiven Farbschemas zu bestimmen
-  const getGradientColorsBackgrounds = () => {
-    return {
-      from: colorScheme.background,
-      to: colorScheme.complement,
-    };
-  };
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -262,10 +255,6 @@ const GrowthJourneySection = () => {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      style={{
-        background: `linear-gradient(135deg, ${colorScheme.background},${colorScheme.background} )`,
-        boxShadow: `0 10px 30px ${colorScheme.primary}20`,
-      }}
     >
       <Particles />
 
@@ -273,10 +262,9 @@ const GrowthJourneySection = () => {
         {/* Quote Section */}
         <motion.div className="mb-12 text-center" variants={itemVariants}>
           <motion.h3
-            className="text-3xl font-bold mb-2 bg-clip-text"
+            className="text-3xl font-bold mb-2 bg-clip-text text-transparent"
             style={{
               backgroundImage: `linear-gradient(to right, ${from}, ${to})`,
-              color: colorScheme.primary,
             }}
             variants={quoteVariants}
             initial="initial"
@@ -337,10 +325,7 @@ const GrowthJourneySection = () => {
                 <motion.button
                   className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center text-white font-semibold text-sm md:text-base relative z-10"
                   style={{
-                    backgroundColor:
-                      index % 2 === 0
-                        ? colorScheme.primary
-                        : colorScheme.accent,
+                    backgroundColor: index % 2 === 0 ? colorScheme.primary : colorScheme.accent,
                   }}
                   variants={circleVariants}
                   initial="initial"
@@ -357,12 +342,7 @@ const GrowthJourneySection = () => {
                   {/* Number indicator */}
                   <motion.div
                     className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-white text-xs flex items-center justify-center font-bold shadow"
-                    style={{
-                      color:
-                        index % 2 === 0
-                          ? colorScheme.primary
-                          : colorScheme.accent,
-                    }}
+                    style={{ color: index % 2 === 0 ? colorScheme.primary : colorScheme.accent }}
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{
@@ -384,9 +364,7 @@ const GrowthJourneySection = () => {
                     transition={{ duration: 0.3 }}
                     style={{
                       backgroundImage: `linear-gradient(to bottom, transparent, ${
-                        index % 2 === 0
-                          ? colorScheme.primary
-                          : colorScheme.accent
+                        index % 2 === 0 ? colorScheme.primary : colorScheme.accent
                       })`,
                     }}
                   />
@@ -414,11 +392,9 @@ const GrowthJourneySection = () => {
               <motion.h4
                 className="font-semibold mb-6 text-xl flex items-center"
                 style={{
-                  color:
-                    growthPhases.findIndex((p) => p.id === activePhase) % 2 ===
-                    0
-                      ? colorScheme.primary
-                      : colorScheme.accent,
+                  color: growthPhases.findIndex((p) => p.id === activePhase) % 2 === 0
+                    ? colorScheme.primary
+                    : colorScheme.accent,
                 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -427,12 +403,9 @@ const GrowthJourneySection = () => {
                 <span
                   className="inline-block mr-3 w-8 h-8 rounded-full text-white font-bold flex items-center justify-center text-sm"
                   style={{
-                    backgroundColor:
-                      growthPhases.findIndex((p) => p.id === activePhase) %
-                        2 ===
-                      0
-                        ? colorScheme.primary
-                        : colorScheme.accent,
+                    backgroundColor: growthPhases.findIndex((p) => p.id === activePhase) % 2 === 0
+                      ? colorScheme.primary
+                      : colorScheme.accent,
                   }}
                 >
                   {growthPhases.findIndex((p) => p.id === activePhase) + 1}
@@ -452,14 +425,9 @@ const GrowthJourneySection = () => {
                       <motion.span
                         className="mr-3 mt-1.5 block w-2 h-2 rounded-full flex-shrink-0"
                         style={{
-                          backgroundColor:
-                            growthPhases.findIndex(
-                              (p) => p.id === activePhase,
-                            ) %
-                              2 ===
-                            0
-                              ? colorScheme.primary
-                              : colorScheme.accent,
+                          backgroundColor: growthPhases.findIndex((p) => p.id === activePhase) % 2 === 0
+                            ? colorScheme.primary
+                            : colorScheme.accent,
                         }}
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
@@ -485,8 +453,7 @@ const GrowthJourneySection = () => {
                 : colorScheme.primary,
               border: `1px solid ${
                 activePhase
-                  ? growthPhases.findIndex((p) => p.id === activePhase) % 2 ===
-                    0
+                  ? growthPhases.findIndex((p) => p.id === activePhase) % 2 === 0
                     ? colorScheme.primary + "40"
                     : colorScheme.accent + "40"
                   : colorScheme.primary + "40"
@@ -513,5 +480,4 @@ const GrowthJourneySection = () => {
   );
 };
 
-export default GrowthJourneySection;
-
+export default InteractiveGrowthQuote;

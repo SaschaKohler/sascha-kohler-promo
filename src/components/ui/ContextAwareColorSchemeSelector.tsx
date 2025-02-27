@@ -1,18 +1,10 @@
 "use client";
 import React from "react";
 import { useColorScheme } from "@/contexts/ColorSchemeContext";
+import { colorSchemes } from "@/utils/colorSchemes";
 
-// Definiere den Typ für das Farbschema
-export interface ColorScheme {
-  name: string;
-  primary: string;
-  accent: string;
-  complement: string;
-  text: string;
-  background: string;
-}
-
-const ColorSchemeSelector: React.FC = () => {
+// Diese Komponente ist ein eigenständiger ColorSchemeSelector, der mit dem Context arbeitet
+const ContextAwareColorSchemeSelector: React.FC = () => {
   const { colorScheme, setColorScheme } = useColorScheme();
 
   return (
@@ -46,6 +38,12 @@ const ColorSchemeSelector: React.FC = () => {
       <div
         id="theme-panel"
         className="hidden bg-white p-4 rounded-lg shadow-xl"
+        style={{ 
+          maxHeight: "80vh", 
+          overflowY: "auto",
+          backgroundColor: colorScheme.name === "Elegantes Gold & Schwarz" ? "#272725" : "white",
+          border: colorScheme.name === "Elegantes Gold & Schwarz" ? `1px solid ${colorScheme.primary}40` : "none"
+        }}
       >
         <h3
           className="text-lg font-medium mb-3"
@@ -73,7 +71,13 @@ const ColorSchemeSelector: React.FC = () => {
                   background: `linear-gradient(135deg, ${scheme.primary}, ${scheme.accent})`,
                 }}
               ></div>
-              <span>{scheme.name}</span>
+              <span style={{
+                color: colorScheme.name === "Elegantes Gold & Schwarz" && scheme.name !== colorScheme.name 
+                  ? "#f0f0f0" 
+                  : scheme.primary
+              }}>
+                {scheme.name}
+              </span>
               {scheme.name === colorScheme.name && (
                 <svg
                   className="ml-auto"
@@ -98,4 +102,4 @@ const ColorSchemeSelector: React.FC = () => {
   );
 };
 
-export default ColorSchemeSelector;
+export default ContextAwareColorSchemeSelector;

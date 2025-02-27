@@ -10,15 +10,62 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
   const { colorScheme } = useColorScheme();
+  // Erstellen eines Textwechsel-Systems für den Hero-Bereich
+  const [isTextChanging, setIsTextChanging] = useState<boolean>(false);
+  const [heroTextIndex, setHeroTextIndex] = useState<number>(0);
 
-  // Array von Hero-Texten, die wöchentlich wechseln
+  // Array mit verschiedenen Texten für den Hero-Bereich
   const heroTexts = [
-    "SCHLÜSSEL ZUR SELBSTKONGRUENTEN TRANSFORMATION",
-    "IMPULSE FÜR NACHHALTIGE BEWUSSTSEINSENTWICKLUNG",
-    "BEWUSSTE TRANSFORMATION DURCH KONGRUENZ-METHODIK",
-    "VON MUSTERN ZU POTENZIALEN: BEWUSSTE LEBENSENTFALTUNG",
+    {
+      heading: "Schlüssel zur",
+      highlight: "Selbstkongruenten Transformation",
+      tagline:
+        "Entdecke mit mir den Weg zu einem kongruenten, bewussten und erfüllten Leben.",
+    },
+    {
+      heading: "Impulse für",
+      highlight: "nachhaltige Bewusstseinsentwicklung",
+      tagline:
+        "Lerne die Kraft deiner inneren Ressourcen kennen und nutze sie für deinen persönlichen Wandel.",
+    },
+    {
+      heading: "Bewusste Transformation durch",
+      highlight: "Kongruenz-Methodik\u00A9",
+      tagline:
+        "Erfahre, wie kleine Veränderungen im Denken zu großen Veränderungen im Leben führen können.",
+    },
+    {
+      heading: "Von Mustern zu",
+      highlight: "Potenzialen",
+      tagline:
+        "Mit NLP und ROK-Methodik* zu mehr Klarheit, Selbstbestimmung und Lebensfreude.",
+    },
   ];
 
+  // Timer für den Textwechsel alle 30 Sekunden
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsTextChanging(true);
+
+      setTimeout(() => {
+        setHeroTextIndex((prevIndex) => (prevIndex + 1) % heroTexts.length);
+
+        setTimeout(() => {
+          setIsTextChanging(false);
+        }, 50);
+      }, 500); // 30 Sekunden
+    }, 5000); // 30 Sekunden
+
+    return () => clearInterval(interval);
+  }, []);
+  // Array von Hero-Texten, die wöchentlich wechseln
+  // const heroTexts = [
+  //   "SCHLÜSSEL ZUR SELBSTKONGRUENTEN TRANSFORMATION",
+  //   "IMPULSE FÜR NACHHALTIGE BEWUSSTSEINSENTWICKLUNG",
+  //   "BEWUSSTE TRANSFORMATION DURCH KONGRUENZ-METHODIK",
+  //   "VON MUSTERN ZU POTENZIALEN: BEWUSSTE LEBENSENTFALTUNG",
+  // ];
+  //
   // Aktuelle Wochennummer bestimmen
   const getCurrentWeekNumber = () => {
     const now = new Date();
@@ -54,10 +101,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="text-center md:text-left md:w-3/5">
+          <div
+            className={`${isTextChanging ? "opacity-0" : "opacity-100"} text-center md:text-left md:w-3/5 transition-opacity duration-500`}
+          >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span style={{ color: colorScheme.primary }}>Inspiration</span>{" "}
-              für <br />
+              <span style={{ color: colorScheme.text }}>
+                {heroTexts[heroTextIndex].heading}
+              </span>
+              <br />
               {/* Gradient text with weekly rotation */}
               <span
                 className="bg-clip-text text-transparent bg-gradient-to-r transition-all duration-1000"
@@ -65,7 +116,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
                   backgroundImage: `linear-gradient(to right, ${colorScheme.complement}, ${colorScheme.accent})`,
                 }}
               >
-                {heroTexts[currentTextIndex]}
+                {/* {heroTexts[currentTextIndex]} */}
+                {heroTexts[heroTextIndex].highlight}
               </span>
             </h1>
 
@@ -73,8 +125,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
               className="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto md:mx-0 mb-8 leading-relaxed"
               style={{ color: colorScheme.text }}
             >
-              Entdecke DEINEN Weg zu einem kongruenten, bewussten und erfüllten
-              Leben.
+              {/* Entdecke DEINEN Weg zu einem kongruenten, bewussten und erfüllten */}
+              {/* Leben. */}
+              {heroTexts[heroTextIndex].tagline}
             </p>
 
             <button
@@ -84,7 +137,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
               }}
               onClick={() => scrollToSection("contact")}
             >
-              Lass uns sprechen
+              weitere Info
             </button>
           </div>
 
@@ -115,7 +168,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
                   alt="Sascha Kohler"
                   fill
                   sizes="(max-width: 768px) 288px, 384px"
-                  className="object-cover transform transition-transform duration-500"
+                  className="object-cover object-top transform transition-transform duration-500"
                   style={{
                     transform: isHovered ? "scale(1.05)" : "scale(1)",
                   }}

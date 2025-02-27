@@ -21,6 +21,7 @@ import { useActiveSection } from "@/hooks/useActiveSection";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 import Footer from "./layout/Footer";
 import ColorThemePoll from "./sections/ColorThemePoll";
+import ThanksSection from "./sections/ThanksSection";
 
 // Wachstums- und Transformationsprinzipien
 const transformationPrinciples = [
@@ -62,7 +63,8 @@ const transformationPrinciples = [
 const comingSoonFeatures = [
   {
     title: "Interaktive Werte-Karten",
-    description: "Entdecke, wie die mit interaktiven Elementen lebendig wird.",
+    description:
+      "Entdecke, wie die ROK-Methodik mit interaktiven Elementen lebendig wird.",
     icon: "💎",
   },
   {
@@ -194,7 +196,7 @@ const MaintenanceModeContent: React.FC = () => {
               SASCH
               <span
                 className="relative inline-block transform translate-y-[-3px] font-normal"
-                style={{ color: colorScheme.accent }}
+                style={{ color: colorScheme.complement }}
               >
                 A
               </span>
@@ -669,6 +671,7 @@ const MaintenanceModeContent: React.FC = () => {
       </main>
 
       {/* Footer */}
+      <ThanksSection colorScheme={colorScheme} />
       <Footer />
       {/* CSS for animations */}
       <style jsx>{`

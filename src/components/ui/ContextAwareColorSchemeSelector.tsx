@@ -38,11 +38,17 @@ const ContextAwareColorSchemeSelector: React.FC = () => {
       <div
         id="theme-panel"
         className="hidden bg-white p-4 rounded-lg shadow-xl"
-        style={{ 
-          maxHeight: "80vh", 
+        style={{
+          maxHeight: "80vh",
           overflowY: "auto",
-          backgroundColor: colorScheme.name === "Elegantes Gold & Schwarz" ? "#272725" : "white",
-          border: colorScheme.name === "Elegantes Gold & Schwarz" ? `1px solid ${colorScheme.primary}40` : "none"
+          backgroundColor:
+            colorScheme.name === "Elegantes Gold & Schwarz"
+              ? "#272725"
+              : "white",
+          border:
+            colorScheme.name === "Elegantes Gold & Schwarz"
+              ? `1px solid ${colorScheme.primary}40`
+              : "none",
         }}
       >
         <h3
@@ -63,7 +69,14 @@ const ContextAwareColorSchemeSelector: React.FC = () => {
                     : "transparent",
                 color: scheme.primary,
               }}
-              onClick={() => setColorScheme(scheme)}
+              onClick={() => {
+                const themePanel = document.getElementById("theme-panel");
+                if (themePanel) {
+                  themePanel.classList.toggle("hidden");
+                }
+
+                setColorScheme(scheme);
+              }}
             >
               <div
                 className="w-6 h-6 rounded-full mr-2 flex-shrink-0"
@@ -71,11 +84,15 @@ const ContextAwareColorSchemeSelector: React.FC = () => {
                   background: `linear-gradient(135deg, ${scheme.primary}, ${scheme.accent})`,
                 }}
               ></div>
-              <span style={{
-                color: colorScheme.name === "Elegantes Gold & Schwarz" && scheme.name !== colorScheme.name 
-                  ? "#f0f0f0" 
-                  : scheme.primary
-              }}>
+              <span
+                style={{
+                  color:
+                    colorScheme.name === "Elegantes Gold & Schwarz" &&
+                    scheme.name !== colorScheme.name
+                      ? "#f0f0f0"
+                      : scheme.primary,
+                }}
+              >
                 {scheme.name}
               </span>
               {scheme.name === colorScheme.name && (

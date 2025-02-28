@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "R.I.G.H.T. Kongruenz-Methode | Sascha Kohler | Coming Soon",
+  title: "K.L.A.R.E. Kongruenz-Methode | Sascha Kohler | Coming Soon",
   description:
-    "Entdecke die R.I.G.H.T. Kongruenz-Methode: In 5 Schritten zur vollständigen Übereinstimmung in allen Lebensbereichen. Reflexion, Identifikation, Gestaltung, Handlung, Transformation - Ein ganzheitlicher Ansatz von Sascha Kohler.",
+    "Entdecke die K.L.A.R.E. Kongruenz-Methode: In 5 Schritten zur vollständigen Übereinstimmung in allen Lebensbereichen. Reflexion, Identifikation, Gestaltung, Handlung, Transformation - Ein ganzheitlicher Ansatz von Sascha Kohler.",
   applicationName: "Sascha Kohler Website",
   authors: [{ name: "Sascha Kohler" }],
   creator: "Sascha Kohler",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "R.I.G.H.T. Kongruenz-Methode | Sascha Kohler",
+    title: "K.L.A.R.E. Kongruenz-Methode | Sascha Kohler",
     description:
       "Der 5-Schritte-Prozess für vollständige Kongruenz und natürliche Manifestation deiner Ziele. Eine für Menschen konzipierte Transformationsmethode.",
     url: "https://sascha-kohler.at",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "R.I.G.H.T. Kongruenz-Methode | Sascha Kohler",
+    title: "K.L.A.R.E. Kongruenz-Methode | Sascha Kohler",
     description:
       "Reflexion, Identifikation, Gestaltung, Handlung, Transformation - Der 5-Schritte-Prozess für vollständige Kongruenz in allen Lebensbereichen.",
     images: ["https://sascha-kohler.at/twitter-image.jpg"],
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   keywords: [
     "Kongruenz-Methode",
-    "R.I.G.H.T. Methode",
+    "K.L.A.R.E. Methode",
     "persönliche Transformation",
     "Sascha Kohler",
     "Coaching",

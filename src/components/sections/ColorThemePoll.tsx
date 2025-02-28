@@ -137,7 +137,7 @@ const ColorThemePoll: React.FC = () => {
                 style={{ color: colorScheme.primary }}
               />
               <h2
-                className="text-2xl font-semibold"
+                className="text-2xl font-light tracking-wider"
                 style={{ color: colorScheme.primary }}
               >
                 {isExpanded

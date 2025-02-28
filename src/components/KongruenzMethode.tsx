@@ -10,8 +10,8 @@ interface ColorScheme {
   text: string;
 }
 
-// Interface for the R.I.G.H.T. step type
-interface RightStep {
+// Interface for the KLARE step type
+interface KlareStep {
   id: number;
   letter: string;
   title: string;
@@ -30,45 +30,45 @@ const KongruenzMethode: React.FC<KongruenzMethodeProps> = ({ colorScheme }) => {
   const [activeStep, setActiveStep] = useState<number>(0);
   const [isDetailOpen, setIsDetailOpen] = useState<boolean>(false);
 
-  // Define the 5 steps of the R.I.G.H.T. method
-  const rightSteps: RightStep[] = [
+  // Define the 5 steps of the KLARE method
+  const klareSteps: KlareStep[] = [
     {
       id: 1,
-      letter: "R",
-      title: "Reflexion",
-      fullTitle: "Reflexion der aktuellen Situation",
+      letter: "K",
+      title: "Konfrontation",
+      fullTitle: "Konfrontation mit der aktuellen Situation",
       description:
-        "Erkenne deine großen Ziele und die inneren Widersprüche, die dich davon abhalten.",
+        "Erkenne deine großen Ziele und konfrontiere dich ehrlich mit deiner aktuellen Situation.",
       icon: "🔍",
       details: [
         "Identifizierung deiner wichtigsten Lebensziele",
-        "Analyse der aktuellen Blockaden und Hindernisse",
-        "Erkennen von unbewussten Mustern und Glaubenssätzen",
+        "Ehrliche Bestandsaufnahme der aktuellen Lebensrealität",
+        "Erkennen von Mustern und wiederkehrenden Themen",
         "Bewusstwerdung über den IST-Zustand in allen Lebensbereichen",
       ],
       color: "#6366F1", // Indigo
     },
     {
       id: 2,
-      letter: "I",
-      title: "Identifikation",
-      fullTitle: "Identifikation von Inkongruenzen",
+      letter: "L",
+      title: "Lücken",
+      fullTitle: "Lücken und Inkongruenzen erkennen",
       description:
         "Untersuche, in welchen Lebensbereichen Inkongruenzen zu deinen Zielen bestehen.",
       icon: "🤔",
       details: [
         "Tiefgehende Analyse der verschiedenen Lebensbereiche",
         "Identifikation von Widersprüchen zwischen Denken, Fühlen und Handeln",
-        "Erkennen von emotionalen und mentalen Inkongruenzen",
+        "Erkennen von emotionalen und mentalen Blockaden",
         "Bewusstwerdung über Selbstsabotage-Mechanismen",
       ],
       color: "#8B5CF6", // Violet
     },
     {
       id: 3,
-      letter: "G",
-      title: "Gestaltung",
-      fullTitle: "Gestaltung neuer Strategien",
+      letter: "A",
+      title: "Ausrichtung",
+      fullTitle: "Ausrichtung der Lebensbereiche",
       description:
         "Entwickle Strategien, um alle Lebensbereiche in Richtung deiner Ziele auszurichten.",
       icon: "🧭",
@@ -82,9 +82,9 @@ const KongruenzMethode: React.FC<KongruenzMethodeProps> = ({ colorScheme }) => {
     },
     {
       id: 4,
-      letter: "H",
-      title: "Handlung",
-      fullTitle: "Handlung durch Integration",
+      letter: "R",
+      title: "Realisierung",
+      fullTitle: "Realisierung im Alltag",
       description:
         "Setze die entwickelten Strategien in deinem Alltag um und integriere sie in dein Leben.",
       icon: "🔄",
@@ -98,11 +98,11 @@ const KongruenzMethode: React.FC<KongruenzMethodeProps> = ({ colorScheme }) => {
     },
     {
       id: 5,
-      letter: "T",
-      title: "Transformation",
-      fullTitle: "Transformation durch Kongruenz",
+      letter: "E",
+      title: "Entfaltung",
+      fullTitle: "Entfaltung durch vollständige Kongruenz",
       description:
-        "Erlebe, wie durch kongruentes Leben deine Ziele Wirklichkeit werden.",
+        "Erlebe, wie durch kongruentes Leben deine Ziele mit natürlicher Leichtigkeit Wirklichkeit werden.",
       icon: "✨",
       details: [
         "Erleben von Flow und Leichtigkeit durch Kongruenz",
@@ -144,9 +144,9 @@ const KongruenzMethode: React.FC<KongruenzMethodeProps> = ({ colorScheme }) => {
             </span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-4">
-            Die R.I.G.H.T.-Methode: In 5 Schritten zur vollständigen Kongruenz
-            in allen Lebensbereichen und zur natürlichen Manifestation deiner
-            Ziele.
+            Die KLARE Kongruenz-Methode: In 5 Schritten zur vollständigen
+            Übereinstimmung in allen Lebensbereichen und zur natürlichen
+            Manifestation deiner Ziele.
           </p>
           <p
             className="text-md text-gray-600 max-w-2xl mx-auto italic border-l-4 pl-4 py-2"
@@ -160,18 +160,18 @@ const KongruenzMethode: React.FC<KongruenzMethodeProps> = ({ colorScheme }) => {
           </p>
         </div>
 
-        {/* The R.I.G.H.T. steps display */}
+        {/* The KLARE steps display */}
         <div className="mb-12">
           <div className="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
             <h3
               className="text-xl md:text-2xl font-bold mb-6 text-center"
               style={{ color: colorScheme.primary }}
             >
-              Die R.I.G.H.T. Methode
+              Die KLARE Methode
             </h3>
 
             <div className="flex flex-wrap justify-center gap-4 mb-8">
-              {rightSteps.map((step) => (
+              {klareSteps.map((step) => (
                 <div
                   key={step.id}
                   className={`flex flex-col items-center cursor-pointer transition-all duration-300 transform ${activeStep === step.id - 1 ? "scale-110" : "hover:scale-105"}`}
@@ -201,9 +201,9 @@ const KongruenzMethode: React.FC<KongruenzMethodeProps> = ({ colorScheme }) => {
               ))}
             </div>
 
-            {/* R.I.G.H.T. acronym meaning */}
+            {/* KLARE acronym meaning */}
             <div className="flex flex-wrap justify-center gap-x-3 gap-y-2 mb-6">
-              {rightSteps.map((step) => (
+              {klareSteps.map((step) => (
                 <div key={step.id} className="flex items-center">
                   <span
                     className="font-bold text-lg mr-1"
@@ -212,7 +212,7 @@ const KongruenzMethode: React.FC<KongruenzMethodeProps> = ({ colorScheme }) => {
                     {step.letter}
                   </span>
                   <span className="text-gray-700">{step.title}</span>
-                  {step.id < rightSteps.length && (
+                  {step.id < klareSteps.length && (
                     <span className="text-gray-400 ml-1 mr-0 hidden sm:inline">
                       •
                     </span>
@@ -224,24 +224,24 @@ const KongruenzMethode: React.FC<KongruenzMethodeProps> = ({ colorScheme }) => {
             {/* Current step details */}
             <div
               className="bg-gray-50 rounded-lg p-6 border-l-4 relative"
-              style={{ borderColor: rightSteps[activeStep].color }}
+              style={{ borderColor: klareSteps[activeStep].color }}
             >
               <h4
                 className="text-lg font-semibold mb-2 flex items-center"
-                style={{ color: rightSteps[activeStep].color }}
+                style={{ color: klareSteps[activeStep].color }}
               >
                 <span className="w-8 h-8 rounded-full bg-white text-center flex items-center justify-center mr-3 shadow-sm">
-                  {rightSteps[activeStep].letter}
+                  {klareSteps[activeStep].letter}
                 </span>
-                {rightSteps[activeStep].fullTitle}
+                {klareSteps[activeStep].fullTitle}
               </h4>
 
               <p className="text-gray-700 mb-4">
-                {rightSteps[activeStep].description}
+                {klareSteps[activeStep].description}
               </p>
 
               <div className="space-y-2">
-                {rightSteps[activeStep].details.map((detail, index) => (
+                {klareSteps[activeStep].details.map((detail, index) => (
                   <div key={index} className="flex items-start">
                     <div className="mt-1 mr-2 flex-shrink-0">
                       <Check size={16} className="text-gray-400" />
@@ -260,13 +260,13 @@ const KongruenzMethode: React.FC<KongruenzMethodeProps> = ({ colorScheme }) => {
           <div
             className="absolute top-1/2 left-0 w-full h-1 -translate-y-1/2 transition-all duration-300"
             style={{
-              background: `linear-gradient(to right, ${rightSteps.map((step) => step.color).join(", ")})`,
+              background: `linear-gradient(to right, ${klareSteps.map((step) => step.color).join(", ")})`,
             }}
           />
 
           {/* Step circles with text below */}
           <div className="relative z-10 flex justify-between w-full">
-            {rightSteps.map((step) => (
+            {klareSteps.map((step) => (
               <div
                 key={step.id}
                 className={`relative flex flex-col items-center cursor-pointer transform transition-all duration-300 ${activeStep === step.id - 1 ? "scale-110" : "hover:scale-105"}`}
@@ -300,7 +300,7 @@ const KongruenzMethode: React.FC<KongruenzMethodeProps> = ({ colorScheme }) => {
         {/* Call to action */}
         <div className="text-center mt-12">
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Möchtest du herausfinden, wie die R.I.G.H.T. Methode dir helfen
+            Möchtest du herausfinden, wie die KLARE Kongruenz-Methode dir helfen
             kann, deinen eigenen Weg zur persönlichen Transformation zu gehen?
           </p>
           <button

@@ -102,37 +102,42 @@ const MaintenanceModeContent: React.FC = () => {
   const launchDate = new Date();
   launchDate.setDate(launchDate.getDate() + 56);
 
-  // Kongruenz-Methode steps
+  // KLARE Kongruenz-Methode steps
   const kongruenzSteps = [
     {
-      name: "Reflexion",
-      color: colorScheme.accent, // "#6366F1",
-      letter: "R", // "🔍",
-      description: "Erkenne deine Ziele & Hindernisse",
+      name: "Konfrontation",
+      letter: "K",
+      color: colorScheme.primary, // "#6366F1",
+      icon: "🔍",
+      description: "mit der aktuellen Situation",
     },
     {
-      name: "Identifikation",
-      color: colorScheme.accent, // "#8B5CF6",
-      letter: "I", // "🤔",
-      description: "Identifiziere Inkongruenzen",
+      name: "Lebendigkeit",
+      letter: "L",
+      color: colorScheme.primary, // "#8B5CF6",
+      icon: "🤔",
+      description: "und Ressourcen wiederentdecken",
     },
     {
-      name: "Gestaltung",
-      color: colorScheme.accent, // "#EC4899",
-      letter: "G", // "🧭",
-      description: "Entwickle Kongruenz-Strategien",
+      name: "Ausrichtung",
+      letter: "A",
+      color: colorScheme.primary, // "#EC4899",
+      icon: "🧭",
+      description: "der Lebensbereiche",
     },
     {
-      name: "Handlung",
-      color: colorScheme.accent, // "#F59E0B",
-      letter: "H", //  "🔄",
-      description: "Setze Strategien in die Praxis um",
+      name: "Realisierung",
+      letter: "R",
+      color: colorScheme.primary, // "#F59E0B",
+      icon: "🔄",
+      description: "im Alltag",
     },
     {
-      name: "Transformation",
-      color: colorScheme.accent, // "#10B981",
-      letter: "T", // "✨",
-      description: "Erlebe nachhaltigen Wandel",
+      name: "Entfaltung",
+      letter: "E",
+      color: colorScheme.primary, // "#10B981",
+      icon: "✨",
+      description: "durch vollständige Kongruenz",
     },
   ];
   // Update countdown timer
@@ -293,7 +298,7 @@ const MaintenanceModeContent: React.FC = () => {
             <p
               className={`${colorScheme.accent} text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-6 leading-relaxed`}
             >
-              Die R.I.G.H.T. Methode für vollständige Kongruenz in allen
+              Die K.L.A.R.E. Methode für vollständige Kongruenz in allen
               Lebensbereichen.
             </p>
 
@@ -547,7 +552,7 @@ const MaintenanceModeContent: React.FC = () => {
                   {activeStepIndex === 0 &&
                     "Erkenne deine größten Ziele und identifiziere die Hindernisse, die dich davon abhalten. Dieser Schritt schafft Klarheit über den IST-Zustand und den angestrebten SOLL-Zustand in allen Lebensbereichen."}
                   {activeStepIndex === 1 &&
-                    "Analysiere, in welchen Lebensbereichen Inkongruenzen zu deinen Zielen bestehen. Hier werden unbewusste Muster, Glaubenssätze und Verhaltensweisen aufgedeckt, die nicht mit deinem Ziel übereinstimmen."}
+                    "Entdecke die lebendige Energie in dir und verbinde dich mit deinen inneren Ressourcen. Dieser Schritt hilft dir, deine natürlichen Stärken und Fähigkeiten wiederzufinden, die für deine Transformation bereits in dir angelegt sind und nur darauf warten, aktiviert zu werden."}
                   {activeStepIndex === 2 &&
                     "Entwickle konkrete Strategien, um alle Lebensbereiche in Richtung deiner Ziele auszurichten. In diesem Schritt lernst du Techniken zur bewussten Ausrichtung deines Denkens, Fühlens und Handelns."}
                   {activeStepIndex === 3 &&
@@ -807,7 +812,7 @@ const MaintenanceModeContent: React.FC = () => {
                 </div>
               </div>
               <p className={`text-${colorScheme.background} text-sm mb-1`}>
-                Die R.I.G.H.T. Kongruenz-Methode{" "}
+                Die K.L.A.R.E. Kongruenz-Methode{" "}
               </p>
               <div className="flex flex-wrap gap-2 mt-3">
                 <span className="inline-block px-2 py-1 bg-gray-800 rounded-md text-xs text-gray-300">

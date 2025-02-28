@@ -50,8 +50,8 @@ const TransformationPathway: React.FC<TransformationPathwayProps> = ({
             <span style={{ color: colorScheme.primary }}>Transformation</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Der Kongruenz-Weg führt dich von inneren Widersprüchen zu einer
-            umfassenden Ausrichtung, bei der alle Aspekte deines Lebens
+            Die KLARE Kongruenz-Methode führt dich von inneren Widersprüchen zu
+            einer umfassenden Ausrichtung, bei der alle Aspekte deines Lebens
             harmonisch auf deine Ziele eingestimmt sind.
           </p>
         </div>
@@ -126,8 +126,8 @@ const TransformationPathway: React.FC<TransformationPathwayProps> = ({
             Starte deinen Kongruenz-Weg
           </button>
           <p className="text-gray-500 text-sm mt-4 max-w-xl mx-auto">
-            Die Kongruenz-Methode bietet einen klaren, strukturierten Weg, um
-            vom Ist-Zustand innerer Konflikte zum Soll-Zustand vollständiger
+            Die KLARE Kongruenz-Methode bietet einen strukturierten Weg, um vom
+            Ist-Zustand innerer Konflikte zum Soll-Zustand vollständiger
             Kongruenz zu gelangen – ein Prozess, der speziell auf Menschen und
             nicht auf Organisationen zugeschnitten ist.
           </p>

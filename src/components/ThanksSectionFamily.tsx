@@ -1,6 +1,6 @@
 import React from "react";
 import { Heart, ExternalLink } from "lucide-react";
-import { ColorScheme } from "./ColorSchemeSelector";
+import { ColorScheme } from "./ColorSchemeSelector.tsx.old";
 
 interface ThanksSectionProps {
   colorScheme: ColorScheme;

@@ -3,9 +3,6 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   Calendar,
-  Clock,
-  ArrowRight,
-  Star,
   Sparkles,
   Construction,
   ChevronDown,
@@ -16,10 +13,8 @@ import {
   useColorScheme,
 } from "@/contexts/ColorSchemeContext";
 import ContextAwareColorSchemeSelector from "./ui/ContextAwareColorSchemeSelector";
-import HeroSection from "./sections/HeroSection";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
-import Footer from "./layout/Footer";
 import ColorThemePoll from "./sections/ColorThemePoll";
 import ThanksSection from "./sections/ThanksSection";
 
@@ -59,30 +54,30 @@ const transformationPrinciples = [
   },
 ];
 
-// Coming soon feature teasers
+// Coming soon feature teasers - Focused on Kongruenz-Methode
 const comingSoonFeatures = [
   {
-    title: "Interaktive Werte-Karten",
+    title: "Die Kongruenz-Methode",
     description:
-      "Entdecke, wie die ROK-Methodik mit interaktiven Elementen lebendig wird.",
-    icon: "💎",
+      "Entdecke den 5-Schritte-Prozess für nachhaltige persönliche Transformation und vollständige Kongruenz.",
+    icon: "✨",
   },
   {
-    title: "Personalisierbare Farbschemata",
+    title: "Interaktiver Kongruenz-Check",
     description:
-      "Wähle aus verschiedenen Farbpaletten, die deine bevorzugte Stimmung widerspiegeln.",
-    icon: "🎨",
+      "Finde heraus, in welchen Lebensbereichen du bereits kongruent bist und wo noch Potenzial liegt.",
+    icon: "📊",
   },
   {
-    title: "Veranstaltungskalender",
+    title: "Transformation-Workshops",
     description:
-      "Bleibe informiert über kommende Workshops, Vorträge und Online-Events.",
+      "Erfahre von kommenden Workshops und Events zur Kongruenz-Methode.",
     icon: "📅",
   },
   {
     title: "Ressourcen-Bibliothek",
     description:
-      "Zugang zu Artikeln, Übungen und Werkzeugen für deine persönliche Transformation.",
+      "Zugang zu Artikeln, Übungen und Tools für deine persönliche Transformation.",
     icon: "📚",
   },
 ];
@@ -101,11 +96,45 @@ const MaintenanceModeContent: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const { activeSection, scrollToSection, mobileMenuOpen, setMobileMenuOpen } =
     useActiveSection();
-
+  const [activeStepIndex, setActiveStepIndex] = useState(0);
+  const [dailyQuote, setDailyQuote] = useState(transformationPrinciples[0]);
   // Set launch date to 4 weeks from now
   const launchDate = new Date();
-  launchDate.setDate(launchDate.getDate() + 28);
+  launchDate.setDate(launchDate.getDate() + 56);
 
+  // Kongruenz-Methode steps
+  const kongruenzSteps = [
+    {
+      name: "Reflexion",
+      color: colorScheme.accent, // "#6366F1",
+      letter: "R", // "🔍",
+      description: "Erkenne deine Ziele & Hindernisse",
+    },
+    {
+      name: "Identifikation",
+      color: colorScheme.accent, // "#8B5CF6",
+      letter: "I", // "🤔",
+      description: "Identifiziere Inkongruenzen",
+    },
+    {
+      name: "Gestaltung",
+      color: colorScheme.accent, // "#EC4899",
+      letter: "G", // "🧭",
+      description: "Entwickle Kongruenz-Strategien",
+    },
+    {
+      name: "Handlung",
+      color: colorScheme.accent, // "#F59E0B",
+      letter: "H", //  "🔄",
+      description: "Setze Strategien in die Praxis um",
+    },
+    {
+      name: "Transformation",
+      color: colorScheme.accent, // "#10B981",
+      letter: "T", // "✨",
+      description: "Erlebe nachhaltigen Wandel",
+    },
+  ];
   // Update countdown timer
   useEffect(() => {
     const interval = setInterval(() => {
@@ -147,7 +176,17 @@ const MaintenanceModeContent: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  //
+  // Auto-rotate active step
+  useEffect(() => {
+    const stepInterval = setInterval(() => {
+      setActiveStepIndex(
+        (prevIndex) => (prevIndex + 1) % kongruenzSteps.length,
+      );
+    }, 5000);
 
+    return () => clearInterval(stepInterval);
+  }, []);
   // Handle email subscription
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -234,30 +273,104 @@ const MaintenanceModeContent: React.FC = () => {
       {/* Main content */}
       <main className="flex-grow container mx-auto px-4 md:px-8  pb-12 flex flex-col">
         {/* Hero section */}
-        {/* <div className="text-center max-w-3xl mx-auto mb-10"> */}
-        <HeroSection onContactClick={() => scrollToSection("contact")} />
-        {/* </div> */}
+        <section className="min-h-[80vh] flex flex-col items-center justify-center pt-24">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              <span style={{ color: colorScheme.primary }}>Die Kongruenz</span>
+              <span
+                style={{
+                  backgroundImage: `linear-gradient(to right, ${colorScheme.primary}, ${colorScheme.accent})`,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
+                -Methode
+              </span>
+            </h1>
 
-        {/* Coming soon */}
-        <section
-          className="py-16 border-t"
-          style={{
-            borderColor: `${colorScheme.primary}20`,
-          }}
-        >
-          <div className="text-center mb-12">
-            <h2
-              className="text-3xl md:text-4xl font-light tracking-wider mb-4"
+            <p
+              className={`${colorScheme.accent} text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-6 leading-relaxed`}
+            >
+              Die R.I.G.H.T. Methode für vollständige Kongruenz in allen
+              Lebensbereichen.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-2 mb-8">
+              {kongruenzSteps.map((step, index) => (
+                <div
+                  key={index}
+                  className="flex items-center bg-white px-3 py-1 rounded-full shadow-sm"
+                >
+                  <span
+                    className="font-bold mr-1"
+                    style={{ color: step.color }}
+                  >
+                    {step.letter}
+                  </span>
+                  <span className="text-gray-700 text-sm">{step.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Daily principle */}
+          <div
+            className="w-full max-w-2xl mx-auto rounded-lg shadow-lg top-4 p-8 mb-12 relative"
+            style={{ backgroundColor: `${colorScheme.background}4` }}
+          >
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-white p-2 rounded-full shadow">
+              <Calendar size={24} style={{ color: colorScheme.accent }} />
+            </div>
+            <h2 className="text-xl font-medium mb-6 text-center">
+              Kongruenz-Prinzip des Tages
+            </h2>
+            <p
+              className="text-xl md:text-2xl italic mb-4"
               style={{ color: colorScheme.primary }}
             >
-              WEBSITE IM AUFBAU
+              "{dailyQuote.principle}"
+            </p>
+            <p className="text-right text-gray-600 flex items-center justify-end">
+              <span
+                className="inline-block px-3 py-1 rounded-full text-xs"
+                style={{
+                  backgroundColor: `${colorScheme.accent}20`,
+                  color: colorScheme.accent,
+                }}
+              >
+                {dailyQuote.focus}
+              </span>
+            </p>
+          </div>
+
+          <div className="flex justify-center">
+            <ChevronDown
+              size={32}
+              className="animate-bounce cursor-pointer"
+              style={{ color: colorScheme.accent }}
+            />
+          </div>
+        </section>
+
+        {/* Coming soon */}
+        <section className="py-16">
+          <div className="text-center mb-12">
+            <h2
+              className="text-3xl md:text-4xl font-bold mb-4"
+              style={{ color: colorScheme.primary }}
+            >
+              Entdecke die Kongruenz-Methode
             </h2>
             <p
               className="text-lg max-w-2xl mx-auto"
               style={{ color: colorScheme.text }}
             >
               Die neue Website von Sascha Kohler wird bald verfügbar sein. Hier
-              werden Sie Inspiration für lebensbejahende Transformation finden.
+              wirst du den vollständigen <em>5-Schritte-Prozess</em> zur
+              Entwicklung von Kongruenz in allen Lebensbereichen entdecken
+              können.
             </p>
           </div>
 
@@ -265,78 +378,66 @@ const MaintenanceModeContent: React.FC = () => {
           <div
             className="rounded-lg shadow-lg p-8 mb-16 max-w-3xl mx-auto"
             style={{
-              backgroundColor: `${colorScheme.background}30`,
-              borderBottom: `3px solid ${colorScheme.primary}`,
+              backgroundColor: `${colorScheme.background}20`,
+              borderLeft: `4px solid ${colorScheme.primary}`,
             }}
           >
             <h3
-              className="text-2xl font-light tracking-wider mb-8 text-center"
+              className="text-2xl font-semibold mb-8 text-center"
               style={{ color: colorScheme.primary }}
             >
-              LAUNCH IN
+              Launch in
             </h3>
             <div className="grid grid-cols-4 gap-4 text-center">
               <div className="flex flex-col">
                 <div
-                  className="text-3xl md:text-5xl font-light mb-2"
+                  className="text-3xl md:text-5xl font-bold mb-2"
                   style={{ color: colorScheme.primary }}
                 >
                   {countdown.days}
                 </div>
-                <div
-                  className="text-sm md:text-base uppercase tracking-wider"
-                  style={{ color: colorScheme.text }}
-                >
+                <div className={`${colorScheme.text} text-sm md:text-base`}>
                   Tage
                 </div>
               </div>
               <div className="flex flex-col">
                 <div
-                  className="text-3xl md:text-5xl font-light mb-2"
+                  className="text-3xl md:text-5xl font-bold mb-2"
                   style={{ color: colorScheme.accent }}
                 >
                   {countdown.hours}
                 </div>
-                <div
-                  className="text-sm md:text-base uppercase tracking-wider"
-                  style={{ color: colorScheme.text }}
-                >
+                <div className={`${colorScheme.text} text-sm md:text-base`}>
                   Stunden
                 </div>
               </div>
               <div className="flex flex-col">
                 <div
-                  className="text-3xl md:text-5xl font-light mb-2"
+                  className="text-3xl md:text-5xl font-bold mb-2"
                   style={{ color: colorScheme.primary }}
                 >
                   {countdown.minutes}
                 </div>
-                <div
-                  className="text-sm md:text-base uppercase tracking-wider"
-                  style={{ color: colorScheme.text }}
-                >
+                <div className={`${colorScheme.text} text-sm md:text-base`}>
                   Minuten
                 </div>
               </div>
               <div className="flex flex-col">
                 <div
-                  className="text-3xl md:text-5xl font-light mb-2"
+                  className="text-3xl md:text-5xl font-bold mb-2"
                   style={{ color: colorScheme.accent }}
                 >
                   {countdown.seconds}
                 </div>
-                <div
-                  className="text-sm md:text-base uppercase tracking-wider"
-                  style={{ color: colorScheme.text }}
-                >
+                <div className={`${colorScheme.text} text-sm md:text-base `}>
                   Sekunden
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <ColorThemePoll />
-        {/* Growth Journey Section Teaser */}
+
+        {/* Kongruenz-Methode Preview */}
         <section
           className="py-12 border-t"
           style={{
@@ -354,7 +455,7 @@ const MaintenanceModeContent: React.FC = () => {
               className="text-2xl font-light tracking-wider mb-6 text-center"
               style={{ color: colorScheme.primary }}
             >
-              VORSCHAU: DER WACHSTUMSPROZESS
+              VORSCHAU: DIE KONGRUENZ-METHODE
             </h2>
 
             <div className="flex flex-col items-center">
@@ -362,219 +463,224 @@ const MaintenanceModeContent: React.FC = () => {
                 className="mb-10 text-center max-w-2xl"
                 style={{ color: colorScheme.text }}
               >
-                Erleben Sie den transformativen Weg des persönlichen Wachstums
-                durch interaktive und anschauliche Darstellungen auf der
-                fertigen Website.
+                In 5 Schritten zur vollständigen Kongruenz in allen
+                Lebensbereichen. Entdecke den transformativen Prozess, der dir
+                hilft, alle Aspekte deines Lebens auf deine großen Ziele
+                auszurichten.
               </p>
 
-              {/* Growth Journey Path Preview with circles and text below */}
+              {/* Kongruenz-Steps Path Preview with circles and text below */}
               <div className="w-full max-w-3xl flex justify-between items-center relative mb-16 py-4">
-                {/* Path line - gradient with color scheme colors */}
+                {/* Path line - gradient with kongruenzSteps colors */}
                 <div
-                  className="absolute top-1/2 left-0 w-full h-1 -translate-y-1/2 transition-all duration-300"
+                  className="absolute top-1/2 left-0 w-full h-0.5 -translate-y-1/2 transition-all duration-300"
                   style={{
-                    background: `linear-gradient(to right, ${colorScheme.primary}, ${colorScheme.accent})`,
+                    background: `linear-gradient(to right, ${kongruenzSteps.map((step) => step.color).join(", ")})`,
                   }}
                 ></div>
 
                 {/* Phase circles with text below */}
                 <div className="relative z-10 flex justify-between w-full">
-                  {/* Phase 1 - Interactive */}
-                  <div
-                    className="relative flex flex-col items-center cursor-pointer transform transition-all duration-300 hover:scale-110"
-                    onClick={() =>
-                      alert(
-                        'In der fertigen Version werden Sie hier mehr über die Phase "Herausforderung" erfahren.',
-                      )
-                    }
-                  >
+                  {kongruenzSteps.map((step, index) => (
                     <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center text-white text-xs font-medium mb-2 shadow-md hover:shadow-lg transition-shadow"
-                      style={{
-                        backgroundColor: colorScheme.primary,
-                      }}
+                      key={index}
+                      className={`relative flex flex-col items-center cursor-pointer transform transition-all duration-300 ${activeStepIndex === index ? "scale-110" : ""}`}
+                      onClick={() => setActiveStepIndex(index)}
                     >
                       <div
-                        className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-white text-xs flex items-center justify-center font-bold border"
+                        className="w-16 h-16 rounded-full flex items-center justify-center text-white text-xl font-medium mb-2 shadow-md hover:shadow-lg transition-shadow"
                         style={{
-                          color: colorScheme.primary,
-                          borderColor: colorScheme.primary,
+                          backgroundColor: step.color,
+                          opacity: activeStepIndex === index ? 1 : 0.7,
                         }}
                       >
-                        1
+                        <span
+                          className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-white text-xs flex items-center justify-center font-bold border"
+                          style={{
+                            color: colorScheme.primary,
+                            borderColor: colorScheme.primary,
+                          }}
+                        >
+                          {step.letter}
+                        </span>
                       </div>
-                    </div>
-                    <span
-                      className="text-xs font-medium text-center"
-                      style={{ color: colorScheme.primary }}
-                    >
-                      Herausforderung
-                    </span>
-                  </div>
-
-                  {/* Phase 2 - Interactive */}
-                  <div
-                    className="relative flex flex-col items-center cursor-pointer transform transition-all duration-300 hover:scale-110"
-                    onClick={() =>
-                      alert(
-                        'In der fertigen Version werden Sie hier mehr über die Phase "Reflexion" erfahren.',
-                      )
-                    }
-                  >
-                    <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center text-white text-xs font-medium mb-2 shadow-md hover:shadow-lg transition-shadow"
-                      style={{
-                        backgroundColor: colorScheme.accent,
-                      }}
-                    >
-                      <div
-                        className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-white text-xs flex items-center justify-center font-bold border"
+                      <span
+                        className="text-xs font-medium text-center mb-1"
                         style={{
-                          color: colorScheme.accent,
-                          borderColor: colorScheme.accent,
+                          color:
+                            activeStepIndex === index ? step.color : "#666",
                         }}
                       >
-                        2
-                      </div>
-                    </div>
-                    <span
-                      className="text-xs font-medium text-center"
-                      style={{ color: colorScheme.accent }}
-                    >
-                      Reflexion
-                    </span>
-                  </div>
-
-                  {/* Phase 3 */}
-                  <div className="relative flex flex-col items-center">
-                    <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center text-white text-xs font-medium mb-2 opacity-60"
-                      style={{
-                        backgroundColor: `${colorScheme.primary}80`,
-                      }}
-                    >
-                      <div
-                        className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-white text-xs flex items-center justify-center font-bold border opacity-60"
-                        style={{
-                          color: colorScheme.primary,
-                          borderColor: colorScheme.primary,
-                        }}
+                        {step.name}
+                      </span>
+                      <span
+                        className="text-xs text-center hidden md:block max-w-[90px]"
+                        style={{ color: colorScheme.text }}
                       >
-                        3
-                      </div>
+                        {step.description}
+                      </span>
                     </div>
-                    <span
-                      className="text-xs font-medium text-center opacity-60"
-                      style={{ color: colorScheme.primary }}
-                    >
-                      Lernen
-                    </span>
-                  </div>
-
-                  {/* Phase 4 */}
-                  <div className="relative flex flex-col items-center">
-                    <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center text-white text-xs font-medium mb-2 opacity-60"
-                      style={{
-                        backgroundColor: `${colorScheme.accent}80`,
-                      }}
-                    >
-                      <div
-                        className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-white text-xs flex items-center justify-center font-bold border opacity-60"
-                        style={{
-                          color: colorScheme.accent,
-                          borderColor: colorScheme.accent,
-                        }}
-                      >
-                        4
-                      </div>
-                    </div>
-                    <span
-                      className="text-xs font-medium text-center opacity-60"
-                      style={{ color: colorScheme.accent }}
-                    >
-                      Integration
-                    </span>
-                  </div>
-
-                  {/* Phase 5 */}
-                  <div className="relative flex flex-col items-center">
-                    <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center text-white text-xs font-medium mb-2 opacity-60"
-                      style={{
-                        backgroundColor: `${colorScheme.primary}60`,
-                      }}
-                    >
-                      <div
-                        className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-white text-xs flex items-center justify-center font-bold border opacity-60"
-                        style={{
-                          color: colorScheme.primary,
-                          borderColor: colorScheme.primary,
-                        }}
-                      >
-                        5
-                      </div>
-                    </div>
-                    <span
-                      className="text-xs font-medium text-center opacity-60"
-                      style={{ color: colorScheme.primary }}
-                    >
-                      Wachstum
-                    </span>
-                  </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Teaser content */}
+              {/* Active step description */}
               <div
-                className="rounded-lg p-6 relative max-w-2xl mx-auto transition-colors duration-300 border-l-4"
-                style={{
-                  backgroundColor: `${colorScheme.background}30`,
-                  borderColor: colorScheme.primary,
-                }}
+                className={`${colorScheme.background} rounded-lg p-6 border-l-4 relative max-w-2xl mx-auto transition-colors duration-300`}
+                style={{ borderColor: kongruenzSteps[activeStepIndex].color }}
               >
                 <div
-                  className="absolute -top-3 -left-3 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs"
+                  className="absolute -top-3 -left-3 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs transition-colors duration-300"
                   style={{
-                    backgroundColor: colorScheme.primary,
+                    backgroundColor: kongruenzSteps[activeStepIndex].color,
                   }}
                 >
-                  !
+                  {kongruenzSteps[activeStepIndex].letter}
                 </div>
-                <p className="italic" style={{ color: colorScheme.text }}>
-                  "In der fertigen Version werden Sie durch jeden Schritt des
-                  Wachstumsprozesses geführt, mit interaktiven Elementen und
-                  tiefgehenden Einsichten zu jeder Phase der Transformation."
+                <h3
+                  className="font-medium mb-2"
+                  style={{ color: kongruenzSteps[activeStepIndex].color }}
+                >
+                  {kongruenzSteps[activeStepIndex].name}
+                </h3>
+                <p className={`${colorScheme.accent}80`}>
+                  {activeStepIndex === 0 &&
+                    "Erkenne deine größten Ziele und identifiziere die Hindernisse, die dich davon abhalten. Dieser Schritt schafft Klarheit über den IST-Zustand und den angestrebten SOLL-Zustand in allen Lebensbereichen."}
+                  {activeStepIndex === 1 &&
+                    "Analysiere, in welchen Lebensbereichen Inkongruenzen zu deinen Zielen bestehen. Hier werden unbewusste Muster, Glaubenssätze und Verhaltensweisen aufgedeckt, die nicht mit deinem Ziel übereinstimmen."}
+                  {activeStepIndex === 2 &&
+                    "Entwickle konkrete Strategien, um alle Lebensbereiche in Richtung deiner Ziele auszurichten. In diesem Schritt lernst du Techniken zur bewussten Ausrichtung deines Denkens, Fühlens und Handelns."}
+                  {activeStepIndex === 3 &&
+                    "Setze die entwickelten Strategien in deinem Alltag um und integriere sie nachhaltig in dein Leben. Hier werden unterstützende Strukturen und Routinen etabliert, die langfristige Veränderung ermöglichen."}
+                  {activeStepIndex === 4 &&
+                    "Erlebe, wie durch vollständige Kongruenz deine Ziele mit Leichtigkeit Wirklichkeit werden. In diesem finalen Schritt manifestiert sich deine Transformation in allen Lebensbereichen und du erlebst das Gefühl tiefer innerer Stimmigkeit."}
                 </p>
                 <div className="mt-4 text-right">
                   <span
-                    className="text-sm font-medium"
-                    style={{ color: colorScheme.accent }}
+                    className="text-sm font-medium transition-colors duration-300"
+                    style={{ color: kongruenzSteps[activeStepIndex].color }}
                   >
-                    DEMNÄCHST VERFÜGBAR
+                    Bald verfügbar
                   </span>
                 </div>
               </div>
 
-              {/* Preview overlay */}
+              {/* 'Learn more' Button */}
               <div className="mt-6 text-center">
                 <span
                   className="inline-flex items-center text-sm font-medium hover:opacity-80 transition-colors duration-300"
                   style={{ color: colorScheme.primary }}
                 >
-                  <span>MEHR ENTDECKEN</span>
+                  <span>Mehr über die Kongruenz-Methode erfahren</span>
                   <ChevronRight size={16} className="ml-1" />
                 </span>
               </div>
             </div>
           </div>
         </section>
+        {/* Transformation Path (Weg von - Hin zu) */}
+        <section className="py-12">
+          <h2
+            className="text-2xl font-light tracking-wider mb-6 text-center"
+            style={{ color: colorScheme.text }}
+          >
+            Der{" "}
+            <span style={{ color: colorScheme.primary }}>TRANSFORMATIONS</span>
+            pfad
+          </h2>
 
+          <div className="max-w-3xl mx-auto rounded-lg shadow-lg p-6 mb-8">
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-col md:flex-row gap-4 items-center">
+                <div className="flex-1 p-4 bg-red-50 rounded-lg border-l-4 border-red-400">
+                  <h3 className="font-medium text-red-700 mb-1">Weg von</h3>
+                  <p className="text-gray-700">
+                    Inneren Widersprüchen und Selbstsabotage
+                  </p>
+                </div>
+
+                <div className="hidden md:block">
+                  <ChevronRight
+                    size={32}
+                    style={{ color: colorScheme.primary }}
+                  />
+                </div>
+
+                <div className="block md:hidden">
+                  <ChevronDown
+                    size={32}
+                    style={{ color: colorScheme.primary }}
+                  />
+                </div>
+
+                <div
+                  className="flex-1 p-4 bg-green-50 rounded-lg border-l-4"
+                  style={{ borderColor: colorScheme.primary }}
+                >
+                  <h3
+                    className="font-medium mb-1"
+                    style={{ color: colorScheme.primary }}
+                  >
+                    Hin zu
+                  </h3>
+                  <p className="text-gray-700">
+                    Vollständiger Kongruenz und natürlicher Manifestation
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col md:flex-row gap-4 items-center">
+                <div className="flex-1 p-4 bg-red-50 rounded-lg border-l-4 border-red-400">
+                  <h3 className="font-medium text-red-700 mb-1">Weg von</h3>
+                  <p className="text-gray-700">
+                    Orientierung an externen Systemen und Normen
+                  </p>
+                </div>
+
+                <div className="hidden md:block">
+                  <ChevronRight
+                    size={32}
+                    style={{ color: colorScheme.primary }}
+                  />
+                </div>
+
+                <div className="block md:hidden">
+                  <ChevronDown
+                    size={32}
+                    style={{ color: colorScheme.primary }}
+                  />
+                </div>
+
+                <div
+                  className="flex-1 p-4 bg-green-50 rounded-lg border-l-4"
+                  style={{ borderColor: colorScheme.primary }}
+                >
+                  <h3
+                    className="font-medium mb-1"
+                    style={{ color: colorScheme.primary }}
+                  >
+                    Hin zu
+                  </h3>
+                  <p className="text-gray-700">
+                    Authentischer Entfaltung deines vollen Potentials
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p className={`${colorScheme.text} text-center max-w-2xl mx-auto`}>
+            Mit der Kongruenz-Methode durchläufst du einen strukturierten
+            Prozess, der dich vom aktuellen Zustand der Inkongruenz zu einem
+            Leben in vollständiger Harmonie führt – ein Ansatz, der für Menschen
+            und nicht für Unternehmen oder Systeme konzipiert ist.
+          </p>
+        </section>
         {/* Feature teasers */}
         <section className="py-12">
           <h2
-            className="text-2xl font-light tracking-wider mb-8 text-center"
-            style={{ color: colorScheme.primary }}
+            className="text-2xl font-light tracking-wider mb-6 text-center"
+            style={{ color: colorScheme.text }}
           >
             WAS SIE <span style={{ color: colorScheme.accent }}>ERWARTEN</span>{" "}
             KÖNNEN
@@ -585,23 +691,25 @@ const MaintenanceModeContent: React.FC = () => {
                 key={index}
                 className="rounded-lg shadow-md p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
                 style={{
-                  backgroundColor: `${colorScheme.background}20`,
-                  borderTop: `3px solid ${index % 2 === 0 ? colorScheme.primary : colorScheme.accent}`,
+                  backgroundColor: `${colorScheme.primary}20`,
+                  borderTop:
+                    index < 2 ? `3px solid ${colorScheme.primary}` : "",
+                  borderTopColor:
+                    index === 1 ? colorScheme.accent : colorScheme.primary,
                 }}
               >
                 <h3
                   className="text-xl font-medium mb-2 flex items-center"
                   style={{
-                    color:
-                      index % 2 === 0
-                        ? colorScheme.primary
-                        : colorScheme.accent,
+                    color: colorScheme.primary,
                   }}
                 >
                   <span className="mr-3 text-2xl">{feature.icon}</span>
                   {feature.title}
                 </h3>
-                <p style={{ color: colorScheme.text }}>{feature.description}</p>
+                <p className={`text-${colorScheme.primary}`}>
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
@@ -670,9 +778,74 @@ const MaintenanceModeContent: React.FC = () => {
         </section>
       </main>
 
-      {/* Footer */}
       <ThanksSection colorScheme={colorScheme} />
-      <Footer />
+
+      <ColorThemePoll />
+
+      {/* Footer */}
+      <footer
+        className="text-white py-8 px-4 md:px-8 mt-auto"
+        style={{ backgroundColor: colorScheme.text }}
+      >
+        <div className="container mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-6 md:mb-0">
+              {/* Logo in Footer */}
+              <div className="flex items-center mb-3">
+                <div
+                  className="h-8 w-8 rounded-full relative overflow-hidden flex items-center justify-center"
+                  style={{
+                    background: `linear-gradient(135deg, ${colorScheme.primary}, ${colorScheme.accent})`,
+                  }}
+                >
+                  <span className="text-white font-bold text-sm">SK</span>
+                  <div className="absolute bottom-0 w-full h-1/4 bg-white bg-opacity-20"></div>
+                </div>
+                <div className="ml-2 text-xl font-semibold">
+                  <span style={{ color: colorScheme.accent }}>Sascha</span>{" "}
+                  Kohler
+                </div>
+              </div>
+              <p className={`text-${colorScheme.background} text-sm mb-1`}>
+                Die R.I.G.H.T. Kongruenz-Methode{" "}
+              </p>
+              <div className="flex flex-wrap gap-2 mt-3">
+                <span className="inline-block px-2 py-1 bg-gray-800 rounded-md text-xs text-gray-300">
+                  LSB in A.u.SV.
+                </span>
+                <span className="inline-block px-2 py-1 bg-gray-800 rounded-md text-xs text-gray-300">
+                  NLP-Master
+                </span>
+                <span className="inline-block px-2 py-1 bg-gray-800 rounded-md text-xs text-gray-300">
+                  Speaker & Trainer
+                </span>
+              </div>
+            </div>
+
+            <div className="text-gray-500 text-sm text-center md:text-right">
+              <div className="mb-2">
+                © {new Date().getFullYear()} Sascha Kohler. Alle Rechte
+                vorbehalten.
+              </div>
+              <div className="text-xs text-gray-500">
+                Die Kongruenz-Methode | Vorträge | Workshops | Coaching
+              </div>
+              <div className="text-xs text-gray-500">
+                <span className="mr-2">
+                  Design & Entwicklung: Sascha Kohler
+                </span>
+                <a
+                  href="https://skit.sascha-kohler.at/"
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  IT-Dienstleistungen & Webentwicklung
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
       {/* CSS for animations */}
       <style jsx>{`
         @keyframes float {

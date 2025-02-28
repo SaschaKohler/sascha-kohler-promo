@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="64" height="64"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Hintergrund -->
+  <rect width="64" height="64" fill="#ffffff" rx="12" ry="12"></rect>
+  
+  <!-- Drei teilweise überlappende Kreise im Hintergrund -->
+  <circle cx="32" cy="32" r="26" fill="#f0f9ff" stroke="#6366F1" stroke-width="1.5" opacity="0.6"></circle>
+  <circle cx="26" cy="38" r="22" fill="#faf5ff" stroke="#8B5CF6" stroke-width="1.5" opacity="0.6"></circle>
+  <circle cx="38" cy="38" r="22" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5" opacity="0.6"></circle>
+  
+  <!-- Akzent-Kreis für die Initialen -->
+  <circle cx="32" cy="32" r="18" fill="#fef3c7" stroke="#F59E0B" stroke-width="2"></circle>
+  
+  <!-- Initialen SK -->
+  <text x="32" y="37" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1e293b" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}">SK</text>
+  
+  <!-- RIGHT Punktserie am unteren Rand -->
+  <g transform="translate(0,8)">
+    <circle cx="12" cy="54" r="3" fill="#6366F1"></circle>
+    <circle cx="22" cy="54" r="3" fill="#8B5CF6"></circle>
+    <circle cx="32" cy="54" r="3" fill="#EC4899"></circle>
+    <circle cx="42" cy="54" r="3" fill="#F59E0B"></circle>
+    <circle cx="52" cy="54" r="3" fill="#10B981"></circle>
+  </g>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>

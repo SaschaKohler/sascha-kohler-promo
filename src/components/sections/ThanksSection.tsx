@@ -28,13 +28,13 @@ const ThanksSection: React.FC<ThanksSectionProps> = ({ colorScheme }) => {
           </div>
 
           <h2
-            className="text-3xl font-bold mb-6"
+            className="text-2xl font-bold mb-6"
             style={{ color: colorScheme.text }}
           >
             Herzlichen Dank
           </h2>
 
-          <p className="text-lg mb-6">
+          <p className="text-md mb-6">
             Mein besonderer Dank gilt der{" "}
             <a
               href="https://www.rok-akademie.at"
@@ -60,7 +60,7 @@ const ThanksSection: React.FC<ThanksSectionProps> = ({ colorScheme }) => {
             style={{ background: `${colorScheme.accent}10` }}
           >
             <p
-              className="text-lg font-medium mb-2"
+              className="text-md font-medium mb-2"
               style={{ color: colorScheme.text }}
             >
               Spezieller Dank an René Otto Knor

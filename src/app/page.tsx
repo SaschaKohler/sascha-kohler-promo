@@ -1,6 +1,7 @@
 import "@/app/gradients.css";
 import MaintenanceMode from "@/components/MaintenanceMode";
 import SaschaKohlerWebsite from "@/components/SaschaKohlerWebsite";
+import SeoMetaData from "@/components/SeoMetaData";
 
 export default function Home() {
   // Hier könntest du einen Umschalter für den Wartungsmodus implementieren
@@ -9,6 +10,7 @@ export default function Home() {
 
   return (
     <main>
+      <SeoMetaData />
       {isMaintenanceMode ? <MaintenanceMode /> : <SaschaKohlerWebsite />}
     </main>
   );

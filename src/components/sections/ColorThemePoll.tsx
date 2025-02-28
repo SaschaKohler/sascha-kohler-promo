@@ -237,7 +237,10 @@ const ColorThemePoll: React.FC = () => {
                     })}
                   </div>
 
-                  <div className="mt-6 bg-gray-50 p-4 rounded-lg">
+                  <div
+                    className="mt-6 p-4 rounded-lg"
+                    style={{ backgroundColor: colorScheme.background }}
+                  >
                     <div className="flex items-start">
                       <Award
                         size={20}

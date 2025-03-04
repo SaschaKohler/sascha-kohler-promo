@@ -6,7 +6,7 @@ import {
   ChevronRight,
   ExternalLink,
 } from "lucide-react";
-import { ColorScheme } from "./ColorSchemeSelector";
+import { ColorScheme } from "../common/ColorSchemeSelector";
 
 interface ThanksSectionProps {
   colorScheme: ColorScheme;
@@ -111,7 +111,7 @@ const ThanksSection: React.FC<ThanksSectionProps> = ({ colorScheme }) => {
                 </p>
                 <p className={`text-${colorScheme.text}`}>
                   Für seine visionäre Führung, sein umfassendes Wissen und die
-                  Art und Weise, wie er Lebensfreude und Transformation
+                  Art und Weise, wie er Lebensfreude und Transformation h
                   miteinander verbindet. Seine Lehren haben meinen eigenen Weg
                   maßgeblich geprägt und bereichert.
                 </p>

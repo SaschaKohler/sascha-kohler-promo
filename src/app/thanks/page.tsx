@@ -5,7 +5,7 @@ import Link from "next/link";
 import {
   ColorScheme,
   colorSchemes,
-} from "../../components/ColorSchemeSelector.tsx.old";
+} from "../../data/components/common/ColorSchemeSelector";
 
 // Da wir keine Props von außen bekommen, nutzen wir ein Standard-Farbschema
 const defaultColorScheme = colorSchemes[0];

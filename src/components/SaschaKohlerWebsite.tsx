@@ -3,7 +3,7 @@ import React from "react";
 import Navigation from "./layout/Navigation";
 import Footer from "./layout/Footer";
 import ScrollToTop from "./layout/ScrollToTop";
-import HeroSection from "./sections/HeroSection";
+import HeroSection from "./klare-method/HeroSection";
 import ContextAwareColorSchemeSelector from "./ui/ContextAwareColorSchemeSelector";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 import { useActiveSection } from "@/hooks/useActiveSection";
@@ -141,4 +141,3 @@ const SaschaKohlerWebsite: React.FC = () => {
 };
 
 export default SaschaKohlerWebsite;
-

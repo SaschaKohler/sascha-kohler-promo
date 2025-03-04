@@ -15,7 +15,7 @@ import ColorSchemeSelector, {
   ColorScheme,
   colorSchemes,
 } from "./ColorSchemeSelector.tsx.old";
-import HeroSection from "./sections/HeroSection";
+import HeroSection from "./klare-method/HeroSection";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import ContextAwareColorSchemeSelector from "./ui/ContextAwareColorSchemeSelector";
 

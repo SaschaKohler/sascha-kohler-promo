@@ -16,43 +16,8 @@ import ContextAwareColorSchemeSelector from "./ui/ContextAwareColorSchemeSelecto
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 import ColorThemePoll from "./sections/ColorThemePoll";
-import ThanksSection from "./sections/ThanksSection";
-
-// Wachstums- und Transformationsprinzipien
-const transformationPrinciples = [
-  {
-    principle: "Kongruenz schafft Vertrauen - nach innen wie nach außen.",
-    focus: "Authentizität",
-  },
-  {
-    principle: "Wer die Muster erkennt, erkennt die Möglichkeiten.",
-    focus: "Bewusstsein",
-  },
-  {
-    principle:
-      "Die Qualität deiner Fragen bestimmt die Qualität deiner Erkenntnisse.",
-    focus: "Forschung",
-  },
-  {
-    principle: "Zwischen Reiz und Reaktion liegt der Raum der Freiheit.",
-    focus: "Selbstbestimmung",
-  },
-  {
-    principle:
-      "Vertraue deiner Intuition - sie ist die Summe all deiner unbewussten Erfahrungen.",
-    focus: "Weisheit",
-  },
-  {
-    principle:
-      "Flexibilität ist Stärke - wer die meisten Wahlmöglichkeiten hat, hat den größten Einfluss.",
-    focus: "Anpassungsfähigkeit",
-  },
-  {
-    principle:
-      "Jede Erfahrung hat eine positive Absicht und enthält ein Geschenk.",
-    focus: "Wachstum",
-  },
-];
+import ThanksSection from "./main-site/ThanksSection";
+import ZielgruppeSection from "./sections/ZielgruppeSection";
 
 // Coming soon feature teasers - Focused on Kongruenz-Methode
 const comingSoonFeatures = [
@@ -103,43 +68,6 @@ const MaintenanceModeContent: React.FC = () => {
   launchDate.setDate(launchDate.getDate() + 56);
 
   // KLARE Kongruenz-Methode steps
-  const kongruenzSteps = [
-    {
-      name: "Konfrontation",
-      letter: "K",
-      color: colorScheme.primary, // "#6366F1",
-      icon: "🔍",
-      description: "mit der aktuellen Situation",
-    },
-    {
-      name: "Lebendigkeit",
-      letter: "L",
-      color: colorScheme.primary, // "#8B5CF6",
-      icon: "🤔",
-      description: "und Ressourcen wiederentdecken",
-    },
-    {
-      name: "Ausrichtung",
-      letter: "A",
-      color: colorScheme.primary, // "#EC4899",
-      icon: "🧭",
-      description: "der Lebensbereiche",
-    },
-    {
-      name: "Realisierung",
-      letter: "R",
-      color: colorScheme.primary, // "#F59E0B",
-      icon: "🔄",
-      description: "im Alltag",
-    },
-    {
-      name: "Entfaltung",
-      letter: "E",
-      color: colorScheme.primary, // "#10B981",
-      icon: "✨",
-      description: "durch vollständige Kongruenz",
-    },
-  ];
   // Update countdown timer
   useEffect(() => {
     const interval = setInterval(() => {
@@ -442,6 +370,7 @@ const MaintenanceModeContent: React.FC = () => {
           </div>
         </section>
 
+        <ZielgruppeSection colorScheme={colorScheme} />
         {/* Kongruenz-Methode Preview */}
         <section
           className="py-12 border-t"
@@ -473,7 +402,6 @@ const MaintenanceModeContent: React.FC = () => {
                 hilft, alle Aspekte deines Lebens auf deine großen Ziele
                 auszurichten.
               </p>
-
               {/* Kongruenz-Steps Path Preview with circles and text below */}
               <div className="w-full max-w-3xl flex justify-between items-center relative mb-16 py-4">
                 {/* Path line - gradient with kongruenzSteps colors */}

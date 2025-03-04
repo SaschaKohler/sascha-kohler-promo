@@ -1,6 +1,6 @@
 import React from "react";
 import { AlertTriangle, User, Building2, X, Check } from "lucide-react";
-import { ColorScheme } from "./ColorSchemeSelector";
+import { ColorScheme } from "./common/ColorSchemeSelector";
 
 interface KongruenzDifferenzierungProps {
   colorScheme: ColorScheme;

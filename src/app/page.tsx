@@ -1,6 +1,6 @@
 import "@/app/styles/gradients.css";
 import "@/app/styles/animations.css";
-import KlareMaintenanceMode from "@/components/klare-method/KlareMaintenanceMode";
+import KlareMaintenanceMode from "@/components/klare-method/KlareMaintenanceModeShadecn";
 import MaintenanceMode from "@/data/components/MaintenanceMode";
 import SaschaKohlerWebsite from "@/components/SaschaKohlerWebsite";
 import SeoMetaData from "@/components/common/SeoMetaData";

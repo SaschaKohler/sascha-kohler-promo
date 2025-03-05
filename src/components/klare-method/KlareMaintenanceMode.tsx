@@ -1,34 +1,35 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import {
-  Calendar,
   Sparkles,
   Construction,
   ChevronDown,
-  ChevronRight,
   Heart,
   Target,
-  RefreshCcw,
   Check,
   Compass,
-  ArrowRight,
 } from "lucide-react";
 import {
   ColorSchemeProvider,
   useColorScheme,
 } from "@/contexts/ColorSchemeContext";
 import ContextAwareColorSchemeSelector from "../ui/ContextAwareColorSchemeSelector";
+import useScrollToSection from "@/hooks/useScrollToSection";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 import { comingSoonFeatures } from "@/data/comingSoonFeatures";
 import { inkongruenzTypen } from "@/data/inkongruenzTypen";
 import { kongruenzSteps, getStepColor } from "@/data/kongruenzSteps";
 import { transformationPathway } from "@/data/transformationPathway";
-import { transformationPrinciples } from "@/data/transformationPrinciples";
 import ThanksSection from "../main-site/ThanksSection";
 import MethodSteps from "./MethodSteps";
+import DailyPrinciple from "./dailyPrinciple";
+import TransformationPathway from "./TransformationPathway";
+import useElementVisibility from "@/hooks/useElementVisibility";
+import TargetPersonaIndicator from "./TargetPersonaIndicator";
+import KongruenzExplanation from "./KongruenzExplanation";
+import TeaserSection from "../sections/TeaserSection";
 
 const KlareMaintenanceModeContent: React.FC = () => {
-  const [dailyQuote, setDailyQuote] = useState(transformationPrinciples[0]);
   const [countdown, setCountdown] = useState({
     days: 0,
     hours: 0,
@@ -42,6 +43,11 @@ const KlareMaintenanceModeContent: React.FC = () => {
   const [activeInkongruenzIndex, setActiveInkongruenzIndex] = useState(0);
   const [activePathwayIndex, setActivePathwayIndex] = useState(0);
   const { colorScheme } = useColorScheme();
+  const scrollToSection = useScrollToSection();
+  const [footerRef, isFooterVisible] = useElementVisibility({
+    threshold: 0.2, // Trigger when 20% of the footer is visible
+    rootMargin: "0px 0px 0px 0px",
+  });
   // Set launch date to 4 weeks from now
   const launchDate = new Date();
   launchDate.setDate(launchDate.getDate() + 28);
@@ -67,16 +73,6 @@ const KlareMaintenanceModeContent: React.FC = () => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
-
-  // Set daily principle based on the day of the year
-  useEffect(() => {
-    const now = new Date();
-    const dayOfYear = Math.floor(
-      (now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24),
-    );
-    const principleIndex = dayOfYear % transformationPrinciples.length;
-    setDailyQuote(transformationPrinciples[principleIndex]);
   }, []);
 
   // Handle scroll events to update progress
@@ -144,7 +140,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Color Scheme Selector */}
-      <ContextAwareColorSchemeSelector />
+      <ContextAwareColorSchemeSelector isFooterVisible={isFooterVisible} />
 
       {/* Progress bar */}
       <div
@@ -207,97 +203,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
       {/* Main content */}
       <main className="flex-grow container mx-auto px-4 md:px-8 pt-24 pb-12 flex flex-col">
         {/* Hero section */}
-        <section className="min-h-[80vh] flex flex-col items-center justify-center pt-24">
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span style={{ color: colorScheme.primary }}>Die KLARE</span>
-              <span
-                style={{
-                  backgroundImage: `linear-gradient(to right, ${colorScheme.primary}, ${colorScheme.accent})`,
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  color: "transparent",
-                }}
-              >
-                -Methode
-              </span>
-            </h1>
-
-            <h2
-              className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6"
-              style={{ color: colorScheme.text }}
-            >
-              Kongruenz statt Optimierung
-            </h2>
-
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-6 leading-relaxed">
-              Der erste humanistische Ansatz für nachhaltige persönliche
-              Transformation, der Menschen ganzheitlich betrachtet – statt sie
-              wie Unternehmen zu optimieren.
-            </p>
-
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
-              {kongruenzSteps.map((step, index) => (
-                <div
-                  key={index}
-                  className="flex items-center bg-white px-3 py-1 rounded-full shadow-sm"
-                >
-                  <span
-                    className="font-bold mr-1"
-                    style={{ color: getStepColor(step, colorScheme) }}
-                  >
-                    {step.letter}
-                  </span>
-                  <span className="text-gray-700 text-sm">{step.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Transformation Pathway Showcase */}
-          <div className="w-full max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6 mb-8 transition-all duration-300">
-            <h3
-              className="text-xl font-medium mb-4 text-center"
-              style={{ color: colorScheme.primary }}
-            >
-              Der Weg zur inneren Stimmigkeit
-            </h3>
-
-            <div className="flex flex-col md:flex-row items-center gap-4 p-4">
-              <div className="bg-red-50 p-4 rounded-lg border-l-4 border-red-400 flex-1">
-                <h4 className="font-medium text-red-700 mb-1">Weg von</h4>
-                <p className="text-gray-700">
-                  {transformationPathway[activePathwayIndex].from}
-                </p>
-              </div>
-
-              <div className="hidden md:block">
-                <ArrowRight size={32} style={{ color: colorScheme.primary }} />
-              </div>
-
-              <div className="block md:hidden">
-                <ChevronDown size={32} style={{ color: colorScheme.primary }} />
-              </div>
-
-              <div
-                className="p-4 rounded-lg border-l-4 flex-1 bg-green-50"
-                style={{ borderColor: colorScheme.primary }}
-              >
-                <h4
-                  className="font-medium mb-1"
-                  style={{ color: colorScheme.primary }}
-                >
-                  Hin zu
-                </h4>
-                <p className="text-gray-700">
-                  {transformationPathway[activePathwayIndex].to}
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
+        <TeaserSection colorScheme={colorScheme} />
         {/* Inkongruenz Typen Section */}
         <section
           className="py-16"
@@ -418,11 +324,14 @@ const KlareMaintenanceModeContent: React.FC = () => {
             ))}
           </div>
         </section>
+
         {/* KLARE Kongruenz-Methode Preview */}
         <section className="py-12">
           <MethodSteps colorScheme={colorScheme} />
         </section>
-
+        <section className="py-12">
+          <DailyPrinciple colorScheme={colorScheme} />
+        </section>
         {/* Why Kongruenz Instead of Optimization */}
         <section
           className="py-12"
@@ -658,7 +567,10 @@ const KlareMaintenanceModeContent: React.FC = () => {
       </main>
       <ThanksSection colorScheme={colorScheme} />
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 px-4 md:px-8 mt-auto">
+      <footer
+        className="bg-gray-900 text-white py-8 px-4 md:px-8 mt-auto"
+        ref={footerRef as React.RefObject<HTMLDivElement>}
+      >
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
@@ -700,10 +612,10 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 vorbehalten.
               </div>
               <div className="mb-2 font-medium text-gray-300">
-                "Humanistische Transformation statt industrielle Optimierung"
+                "Entfalten Sie sich selbst, statt sich zu optimieren"
               </div>
               <div className="text-xs text-gray-500 mb-2">
-                Die Kongruenz-Methode | Vorträge | Workshops | Coaching
+                Die KLARE-Methode | Vorträge | Workshops | Coaching
               </div>
               <div className="text-xs text-gray-500">
                 <span className="mr-2">
@@ -720,47 +632,29 @@ const KlareMaintenanceModeContent: React.FC = () => {
           </div>
         </div>
       </footer>
+      {/* Target Persona Indicator - Verwende die neue ausgelagerte Komponente */}
+      <TargetPersonaIndicator
+        colorScheme={colorScheme}
+        isFooterVisible={isFooterVisible}
+      />
 
-      {/* Target Persona Indicator - Hidden on smaller screens */}
-      <div className="fixed bottom-8 right-8 hidden md:block">
-        <div className="bg-white rounded-lg shadow-md p-3 flex items-center max-w-xs transform transition-all duration-300 hover:scale-105">
-          <div
-            className="w-12 h-12 rounded-full flex items-center justify-center mr-3"
-            style={{
-              background: `linear-gradient(135deg, ${colorScheme.primary}, ${colorScheme.accent})`,
-            }}
-          >
-            <Target size={24} className="text-white" />
-          </div>
-          <div>
-            <p className="text-xs text-gray-500">Ideal für</p>
-            <p
-              className="text-sm font-medium"
-              style={{ color: colorScheme.primary }}
-            >
-              Menschen, die authentischen Erfolg statt bloßer Optimierung suchen
-            </p>
-          </div>
-        </div>
-      </div>
+      <style jsx>{`
+        @keyframes float {
+          0% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-20px) rotate(5deg);
+          }
+          100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+        }
 
-      {/* <style jsx>{` */}
-      {/*   @keyframes float { */}
-      {/*     0% { */}
-      {/*       transform: translateY(0px) rotate(0deg); */}
-      {/*     } */}
-      {/*     50% { */}
-      {/*       transform: translateY(-20px) rotate(5deg); */}
-      {/*     } */}
-      {/*     100% { */}
-      {/*       transform: translateY(0px) rotate(0deg); */}
-      {/*     } */}
-      {/*   } */}
-      {/**/}
-      {/*   .animate-float { */}
-      {/*     animation: float 15s ease-in-out infinite; */}
-      {/*   } */}
-      {/* `}</style> */}
+        .animate-float {
+          animation: float 15s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 };

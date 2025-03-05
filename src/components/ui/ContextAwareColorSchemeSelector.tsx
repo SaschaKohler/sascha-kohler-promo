@@ -3,12 +3,27 @@ import React from "react";
 import { useColorScheme } from "@/contexts/ColorSchemeContext";
 import { colorSchemes } from "@/utils/colorSchemes";
 
+interface ColorSchemeSelectorProps {
+  isFooterVisible?: boolean;
+}
+
 // Diese Komponente ist ein eigenständiger ColorSchemeSelector, der mit dem Context arbeitet
-const ContextAwareColorSchemeSelector: React.FC = () => {
+const ContextAwareColorSchemeSelector: React.FC<ColorSchemeSelectorProps> = ({
+  isFooterVisible = false,
+}) => {
   const { colorScheme, setColorScheme } = useColorScheme();
+  // Stile für das Ausblenden, wenn der Footer sichtbar ist
+  const visibilityStyle = {
+    opacity: isFooterVisible ? 0 : 1,
+    visibility: isFooterVisible
+      ? "hidden"
+      : ("visible" as "hidden" | "visible"),
+    transition: "opacity 0.5s ease, visibility 0.5s ease",
+  };
 
   return (
-    <div className="fixed bottom-8 left-8 z-50">
+    <div className="fixed bottom-8 left-8 z-50" style={visibilityStyle}>
+      <p>Eine andere Farbe?</p>
       <button
         className="p-2 rounded-full shadow-lg text-white mb-2"
         style={{ backgroundColor: colorScheme.primary }}

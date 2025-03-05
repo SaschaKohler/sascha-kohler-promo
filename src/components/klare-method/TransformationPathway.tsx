@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { ColorScheme } from "../common/ColorSchemeSelector";
+import { transformationPathway } from "@/data/transformationPathway";
+
+interface TransformationPathwayProps {
+  colorScheme: ColorScheme;
+}
 
 const TransformationPathway: React.FC<TransformationPathwayProps> = ({
   colorScheme,
 }) => {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-
+  const [activePathwayIndex, setActivePathwayIndex] = useState(0);
   // Auto-rotate active pathway
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex(
+      setActivePathwayIndex(
         (prevIndex) => (prevIndex + 1) % transformationPathway.length,
       );
     }, 6000);
@@ -42,7 +46,7 @@ const TransformationPathway: React.FC<TransformationPathwayProps> = ({
               <div className="flex-1 p-4 bg-red-50 rounded-lg border-l-4 border-red-400">
                 <h3 className="font-medium text-red-700 mb-1">Weg von</h3>
                 <p className="text-gray-700">
-                  {transformationPathway[activeIndex].from}
+                  {transformationPathway[activePathwayIndex].from}
                 </p>
               </div>
 
@@ -65,7 +69,7 @@ const TransformationPathway: React.FC<TransformationPathwayProps> = ({
                   Hin zu
                 </h3>
                 <p className="text-gray-700">
-                  {transformationPathway[activeIndex].to}
+                  {transformationPathway[activePathwayIndex].to}
                 </p>
               </div>
             </div>
@@ -78,9 +82,11 @@ const TransformationPathway: React.FC<TransformationPathwayProps> = ({
                   className="w-3 h-3 rounded-full transition-all duration-300"
                   style={{
                     backgroundColor:
-                      activeIndex === index ? colorScheme.primary : "#e5e7eb",
+                      activePathwayIndex === index
+                        ? colorScheme.primary
+                        : "#e5e7eb",
                   }}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => setActivePathwayIndex(index)}
                 />
               ))}
             </div>

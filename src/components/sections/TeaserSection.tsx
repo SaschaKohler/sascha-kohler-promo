@@ -14,8 +14,14 @@ interface TeaserSectionProps {
 const TeaserSection: React.FC<TeaserSectionProps> = ({ colorScheme }) => {
   const scrollToSection = useScrollToSection();
 
+  // Funktion für optimiertes Scrolling mit Offset für die Navigationsleiste
+  const handleScrollToSection = (sectionId: string) => {
+    // 60px Offset für die Navigationsleiste + etwas zusätzlichen Abstand
+    scrollToSection(sectionId, { offset: 80 });
+  };
+
   return (
-    <section className="min-h-[80vh] flex flex-col items-center justify-center pt-24">
+    <section className="min-h-[80vh] flex flex-col items-center justify-center pt-2">
       <div className="text-center max-w-4xl mx-auto mb-10">
         {/* Hero Layout mit Bild und Text nebeneinander auf größeren Bildschirmen */}
         <div className="flex flex-col md:flex-row items-center justify-between mb-10">
@@ -121,7 +127,8 @@ const TeaserSection: React.FC<TeaserSectionProps> = ({ colorScheme }) => {
             style={{
               background: `linear-gradient(to right, ${colorScheme.primary}, ${colorScheme.accent})`,
             }}
-            onClick={() => scrollToSection("launch-date")}
+            onClick={() => handleScrollToSection("launch-date")}
+            aria-label="Zum Launch-Countdown scrollen"
           >
             Website-Launch im April 2025
           </button>
@@ -133,7 +140,8 @@ const TeaserSection: React.FC<TeaserSectionProps> = ({ colorScheme }) => {
           size={32}
           className="animate-bounce cursor-pointer"
           style={{ color: colorScheme.accent }}
-          onClick={() => scrollToSection("newsletter")}
+          onClick={() => handleScrollToSection("newsletter")}
+          aria-label="Zum Newsletter scrollen"
         />
       </div>
 

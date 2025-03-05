@@ -5,7 +5,6 @@ import {
   Construction,
   ChevronDown,
   Heart,
-  Target,
   Check,
   Compass,
 } from "lucide-react";
@@ -18,15 +17,13 @@ import useScrollToSection from "@/hooks/useScrollToSection";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 import { comingSoonFeatures } from "@/data/comingSoonFeatures";
 import { inkongruenzTypen } from "@/data/inkongruenzTypen";
-import { kongruenzSteps, getStepColor } from "@/data/kongruenzSteps";
+import { kongruenzSteps } from "@/data/kongruenzSteps";
 import { transformationPathway } from "@/data/transformationPathway";
 import ThanksSection from "../main-site/ThanksSection";
 import MethodSteps from "./MethodSteps";
 import DailyPrinciple from "./dailyPrinciple";
-import TransformationPathway from "./TransformationPathway";
 import useElementVisibility from "@/hooks/useElementVisibility";
 import TargetPersonaIndicator from "./TargetPersonaIndicator";
-import KongruenzExplanation from "./KongruenzExplanation";
 import TeaserSection from "../sections/TeaserSection";
 
 const KlareMaintenanceModeContent: React.FC = () => {
@@ -108,16 +105,16 @@ const KlareMaintenanceModeContent: React.FC = () => {
       );
     }, 7000);
 
-    const pathwayInterval = setInterval(() => {
-      setActivePathwayIndex(
-        (prevIndex) => (prevIndex + 1) % transformationPathway.length,
-      );
-    }, 7000);
+    // const pathwayInterval = setInterval(() => {
+    //   setActivePathwayIndex(
+    //     (prevIndex) => (prevIndex + 1) % transformationPathway.length,
+    //   );
+    // }, 7000);
 
     return () => {
       clearInterval(stepInterval);
       clearInterval(inkongruenzInterval);
-      clearInterval(pathwayInterval);
+      // clearInterval(pathwayInterval);
     };
   }, []);
 
@@ -441,6 +438,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
 
         {/* Newsletter signup */}
         <section
+          id="newsletter"
           className="py-16"
           style={{
             background: `linear-gradient(to bottom, white, ${colorScheme.background}20)`,
@@ -501,6 +499,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
 
         {/* Countdown */}
         <section
+          id="launch-date"
           className="py-12"
           style={{
             background: `linear-gradient(to bottom, ${colorScheme.background}10, white)`,

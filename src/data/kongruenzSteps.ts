@@ -10,11 +10,11 @@ export interface KongruenzStep {
 
 export const kongruenzSteps: KongruenzStep[] = [
   {
-    name: "Konfrontation",
+    name: "Klarheit",
     letter: "K",
     colorFn: (colorScheme) => colorScheme.primary, // "#6366F1",
     icon: "🔍",
-    description: "mit der aktuellen Situation",
+    description: "über die aktuelle Situation",
   },
   {
     name: "Lebendigkeit",

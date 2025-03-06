@@ -17,6 +17,7 @@ import InkongruenzTypenSection from '../sections/InkongruenzTypenSection';
 import WhyKongruenzSection from '../sections/WhyKongruenzSection';
 import FeatureTeaserSection from '../sections/FeatureTeaserSection';
 import NewsletterSignup from './NewsletterSignup';
+import BackgroundAudio from '../BackgroundAudio';
 
 const KlareMaintenanceModeContent: React.FC = () => {
   const [countdown, setCountdown] = useState({

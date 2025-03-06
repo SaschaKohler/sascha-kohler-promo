@@ -304,7 +304,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 © {new Date().getFullYear()} Sascha Kohler. Alle Rechte vorbehalten.
               </div>
               <div className="mb-2 font-medium text-gray-300">
-                "Entfalte Dich selbst, statt Dich immer nur zu optimieren"
+                "Entfalten Sie sich selbst, statt sich immer nur zu optimieren"
               </div>
               <div className="text-xs text-gray-500 mb-2">
                 Die KLARE-Methode | Vorträge | Workshops | Coaching

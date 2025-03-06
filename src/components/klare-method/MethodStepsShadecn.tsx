@@ -306,7 +306,7 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
             style={{ color: colorScheme.primary }}
             onClick={() => handleScrollToSection('newsletter')}
           >
-            <span>Mehr über die KLARE Kongruenz-Methode erfahren</span>
+            <span>Mehr über die KLARE-Methode erfahren</span>
             <ChevronRight className="h-4 w-4" />
           </Button>
         </div>

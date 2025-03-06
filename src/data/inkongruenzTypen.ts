@@ -12,7 +12,7 @@ export const inkongruenzTypen: InkongruenzTyp[] = [
   {
     title: 'Kopf-Herz-Konflikt',
     description:
-      'Sie wissen rational, was sie tun solltest, aber emotional können sie sich nicht dazu überwinden. Dieser innere Widerspruch lähmt sie und verhindert Fortschritt in wichtigen Lebensbereichen.',
+      'Sie wissen rational, was sie tun sollten, aber emotional können sie sich nicht dazu überwinden. Dieser innere Widerspruch lähmt sie und verhindert Fortschritt in wichtigen Lebensbereichen.',
     examples: [
       'Sie wissen, dass eine Beziehung nicht gut für sie ist, können sich aber emotional nicht lösen',
       'Sie verstehen, dass bestimmte Gewohnheiten ihnen schaden, fühlen sich aber emotional an diese gebunden',

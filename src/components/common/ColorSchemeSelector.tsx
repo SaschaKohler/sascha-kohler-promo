@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { useColorScheme } from '@/contexts/ColorSchemeContext';
+import { colorSchemes } from '@/utils/colorSchemes';
 
 // Definiere den Typ für das Farbschema
 export interface ColorScheme {

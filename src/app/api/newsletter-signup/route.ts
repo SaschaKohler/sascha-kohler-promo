@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
     try {
       const response = await fetch(
         // "https://hook.eu2.make.com/cpcfe88m1c657r7qs3osjdfkp97nfnno",
-        webhookurl,
+        webhookUrl,
         {
           method: "POST",
           headers: {

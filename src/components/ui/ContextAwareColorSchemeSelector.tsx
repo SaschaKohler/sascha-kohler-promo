@@ -1,22 +1,18 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import { useColorScheme } from "@/contexts/ColorSchemeContext";
-import { colorSchemes, findSchemeByName } from "@/utils/colorSchemes";
-import { Settings, Check } from "lucide-react";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+'use client';
+import React, { useState, useEffect } from 'react';
+import { useColorScheme } from '@/contexts/ColorSchemeContext';
+import { colorSchemes, findSchemeByName } from '@/utils/colorSchemes';
+import { Settings, Check } from 'lucide-react';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 interface ColorSchemeSelectorProps {
   isFooterVisible?: boolean;
 }
 
 // Name des localStorage Keys
-const COLOR_SCHEME_STORAGE_KEY = "sascha-kohler-color-scheme";
+const COLOR_SCHEME_STORAGE_KEY = 'sascha-kohler-color-scheme';
 
 const ContextAwareColorSchemeSelector: React.FC<ColorSchemeSelectorProps> = ({
   isFooterVisible = false,
@@ -28,7 +24,7 @@ const ContextAwareColorSchemeSelector: React.FC<ColorSchemeSelectorProps> = ({
   useEffect(() => {
     const loadColorScheme = () => {
       // Prüfen, ob wir im Browser sind (für Next.js SSR)
-      if (typeof window !== "undefined") {
+      if (typeof window !== 'undefined') {
         try {
           const savedColorSchemeName = localStorage.getItem(COLOR_SCHEME_STORAGE_KEY);
           if (savedColorSchemeName) {
@@ -38,7 +34,7 @@ const ContextAwareColorSchemeSelector: React.FC<ColorSchemeSelectorProps> = ({
             }
           }
         } catch (error) {
-          console.error("Fehler beim Laden des Farbschemas:", error);
+          console.error('Fehler beim Laden des Farbschemas:', error);
         }
       }
     };
@@ -49,30 +45,25 @@ const ContextAwareColorSchemeSelector: React.FC<ColorSchemeSelectorProps> = ({
   // Stile für das Ausblenden, wenn der Footer sichtbar ist
   const visibilityStyle = {
     opacity: isFooterVisible ? 0 : 1,
-    visibility: isFooterVisible
-      ? "hidden"
-      : ("visible" as "hidden" | "visible"),
-    transition: "opacity 0.5s ease, visibility 0.5s ease",
+    visibility: isFooterVisible ? 'hidden' : ('visible' as 'hidden' | 'visible'),
+    transition: 'opacity 0.5s ease, visibility 0.5s ease',
   };
 
   // Funktion zum Ändern und Speichern des Farbschemas
-  const handleColorSchemeChange = (scheme) => {
+  const handleColorSchemeChange = scheme => {
     setColorScheme(scheme);
     setOpen(false);
-    
+
     // Im localStorage speichern
     try {
       localStorage.setItem(COLOR_SCHEME_STORAGE_KEY, scheme.name);
     } catch (error) {
-      console.error("Fehler beim Speichern des Farbschemas:", error);
+      console.error('Fehler beim Speichern des Farbschemas:', error);
     }
   };
 
   return (
-    <div
-      className="fixed bottom-3 left-3 z-50 md:bottom-5 md:right-5"
-      style={visibilityStyle}
-    >
+    <div className="fixed bottom-3 left-3 z-50 md:bottom-5 md:right-5" style={visibilityStyle}>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
@@ -87,27 +78,20 @@ const ContextAwareColorSchemeSelector: React.FC<ColorSchemeSelectorProps> = ({
             <Settings size={14} className="opacity-70" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent
-          className="w-56 p-2 mr-2 mb-2"
-          align="end"
-          alignOffset={-5}
-          sideOffset={5}
-        >
+        <PopoverContent className="w-56 p-2 mr-2 mb-2" align="end" alignOffset={-5} sideOffset={5}>
           <div className="space-y-1">
             <div className="px-1 py-1.5">
-              <p className="text-xs font-medium text-muted-foreground">
-                Farbschema wählen
-              </p>
+              <p className="text-xs font-medium text-muted-foreground">Farbschema wählen</p>
             </div>
 
             <div className="grid grid-cols-1 gap-1">
-              {colorSchemes.map((scheme) => (
+              {colorSchemes.map(scheme => (
                 <Button
                   key={scheme.name}
                   variant="ghost"
                   className={cn(
-                    "text-xs justify-start font-normal h-8",
-                    scheme.name === colorScheme.name && "bg-muted",
+                    'text-xs justify-start font-normal h-8',
+                    scheme.name === colorScheme.name && 'bg-muted'
                   )}
                   style={{ color: scheme.primary }}
                   onClick={() => handleColorSchemeChange(scheme)}
@@ -118,17 +102,11 @@ const ContextAwareColorSchemeSelector: React.FC<ColorSchemeSelectorProps> = ({
                       style={{
                         background: `linear-gradient(135deg, ${scheme.primary}, ${scheme.accent})`,
                         borderColor:
-                          scheme.name === colorScheme.name
-                            ? scheme.primary
-                            : "transparent",
+                          scheme.name === colorScheme.name ? scheme.primary : 'transparent',
                       }}
                     ></div>
-                    <span className="flex-1 text-left truncate">
-                      {scheme.name}
-                    </span>
-                    {scheme.name === colorScheme.name && (
-                      <Check className="h-3.5 w-3.5 ml-auto" />
-                    )}
+                    <span className="flex-1 text-left truncate">{scheme.name}</span>
+                    {scheme.name === colorScheme.name && <Check className="h-3.5 w-3.5 ml-auto" />}
                   </div>
                 </Button>
               ))}

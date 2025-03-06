@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import React from "react";
-import { ColorScheme } from "@/utils/colorSchemes";
-import { cn } from "@/lib/utils";
+import React from 'react';
+import { ColorScheme } from '@/utils/colorSchemes';
+import { cn } from '@/lib/utils';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from '@/components/ui/accordion';
 import {
   AlertTriangle,
   Battery,
@@ -18,54 +18,51 @@ import {
   Heart,
   UserCheck,
   Shapes,
-} from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+} from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface KongruenzAccordionProps {
   colorScheme: ColorScheme;
   className?: string;
 }
 
-const KongruenzAccordion: React.FC<KongruenzAccordionProps> = ({
-  colorScheme,
-  className,
-}) => {
+const KongruenzAccordion: React.FC<KongruenzAccordionProps> = ({ colorScheme, className }) => {
   // Definition der Inkongruenz- und Kongruenz-Items
   const inkongruenzItems = [
     {
       icon: AlertTriangle,
-      text: "Innere Konflikte und Widersprüche",
+      text: 'Innere Konflikte und Widersprüche',
     },
     {
       icon: Battery,
-      text: "Energieverlust im Alltag",
+      text: 'Energieverlust im Alltag',
     },
     {
       icon: ArrowUpCircle,
-      text: "Das Gefühl, gegen sich selbst zu arbeiten",
+      text: 'Das Gefühl, gegen sich selbst zu arbeiten',
     },
     {
       icon: Frown,
-      text: "Chronische Unzufriedenheit trotz äußerer Erfolge",
+      text: 'Chronische Unzufriedenheit trotz äußerer Erfolge',
     },
   ];
 
   const kongruenzItems = [
     {
       icon: Smile,
-      text: "Natürliche Motivation und Leichtigkeit",
+      text: 'Natürliche Motivation und Leichtigkeit',
     },
     {
       icon: Heart,
-      text: "Innere Ruhe und Klarheit",
+      text: 'Innere Ruhe und Klarheit',
     },
     {
       icon: UserCheck,
-      text: "Authentizität in allen Lebensbereichen",
+      text: 'Authentizität in allen Lebensbereichen',
     },
     {
       icon: Shapes,
-      text: "Harmonisches Zusammenspiel aller Aspekte des Lebens",
+      text: 'Harmonisches Zusammenspiel aller Aspekte des Lebens',
     },
   ];
 
@@ -73,7 +70,7 @@ const KongruenzAccordion: React.FC<KongruenzAccordionProps> = ({
     <Accordion
       type="single"
       collapsible
-      className={cn("w-full max-w-3xl mx-auto rounded-md shadow-sm", className)}
+      className={cn('w-full max-w-3xl mx-auto rounded-md shadow-sm', className)}
     >
       <AccordionItem
         value="kongruenz-definition"
@@ -87,16 +84,12 @@ const KongruenzAccordion: React.FC<KongruenzAccordionProps> = ({
           Was bedeutet Kongruenz?
         </AccordionTrigger>
         <AccordionContent>
-          <div
-            className="px-6 py-4 border-t"
-            style={{ borderColor: `${colorScheme.primary}20` }}
-          >
+          <div className="px-6 py-4 border-t" style={{ borderColor: `${colorScheme.primary}20` }}>
             <p className="text-muted-foreground mb-6">
-              <strong>Kongruenz</strong> bedeutet Übereinstimmung und
-              Stimmigkeit. In der KLARE-Methode steht Kongruenz für den Zustand,
-              in dem Ihr Denken, Fühlen und Handeln in allen Lebensbereichen
-              miteinander im Einklang sind – wenn Ihre äußere Realität mit Ihren
-              inneren Werten, Wünschen und Zielen übereinstimmt.
+              <strong>Kongruenz</strong> bedeutet Übereinstimmung und Stimmigkeit. In der
+              KLARE-Methode steht Kongruenz für den Zustand, in dem Ihr Denken, Fühlen und Handeln
+              in allen Lebensbereichen miteinander im Einklang sind – wenn Ihre äußere Realität mit
+              Ihren inneren Werten, Wünschen und Zielen übereinstimmt.
             </p>
 
             {/* Responsive Grid für die Karten */}
@@ -124,9 +117,7 @@ const KongruenzAccordion: React.FC<KongruenzAccordionProps> = ({
                         >
                           <item.icon size={18} />
                         </span>
-                        <span className="text-muted-foreground text-sm">
-                          {item.text}
-                        </span>
+                        <span className="text-muted-foreground text-sm">{item.text}</span>
                       </li>
                     ))}
                   </ul>
@@ -156,9 +147,7 @@ const KongruenzAccordion: React.FC<KongruenzAccordionProps> = ({
                         >
                           <item.icon size={18} />
                         </span>
-                        <span className="text-muted-foreground text-sm">
-                          {item.text}
-                        </span>
+                        <span className="text-muted-foreground text-sm">{item.text}</span>
                       </li>
                     ))}
                   </ul>
@@ -173,4 +162,3 @@ const KongruenzAccordion: React.FC<KongruenzAccordionProps> = ({
 };
 
 export default KongruenzAccordion;
-

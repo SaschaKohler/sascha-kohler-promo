@@ -1,22 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { ArrowRight, ChevronDown } from "lucide-react";
-import { ColorScheme } from "../common/ColorSchemeSelector";
-import { transformationPathway } from "@/data/transformationPathway";
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ColorScheme } from '../common/ColorSchemeSelector';
+import { transformationPathway } from '@/data/transformationPathway';
 
 interface TransformationPathwayProps {
   colorScheme: ColorScheme;
 }
 
-const TransformationPathway: React.FC<TransformationPathwayProps> = ({
-  colorScheme,
-}) => {
+const TransformationPathway: React.FC<TransformationPathwayProps> = ({ colorScheme }) => {
   const [activePathwayIndex, setActivePathwayIndex] = useState(0);
   // Auto-rotate active pathway
   useEffect(() => {
     const interval = setInterval(() => {
-      setActivePathwayIndex(
-        (prevIndex) => (prevIndex + 1) % transformationPathway.length,
-      );
+      setActivePathwayIndex(prevIndex => (prevIndex + 1) % transformationPathway.length);
     }, 6000);
 
     return () => clearInterval(interval);
@@ -34,8 +30,7 @@ const TransformationPathway: React.FC<TransformationPathwayProps> = ({
           className="text-2xl md:text-3xl font-bold mb-8 text-center"
           style={{ color: colorScheme.text }}
         >
-          Der{" "}
-          <span style={{ color: colorScheme.primary }}>Transformations</span>
+          Der <span style={{ color: colorScheme.primary }}>Transformations</span>
           pfad
         </h2>
 
@@ -45,9 +40,7 @@ const TransformationPathway: React.FC<TransformationPathwayProps> = ({
             <div className="flex flex-col md:flex-row gap-4 items-center">
               <div className="flex-1 p-4 bg-red-50 rounded-lg border-l-4 border-red-400">
                 <h3 className="font-medium text-red-700 mb-1">Weg von</h3>
-                <p className="text-gray-700">
-                  {transformationPathway[activePathwayIndex].from}
-                </p>
+                <p className="text-gray-700">{transformationPathway[activePathwayIndex].from}</p>
               </div>
 
               <div className="hidden md:block">
@@ -62,15 +55,10 @@ const TransformationPathway: React.FC<TransformationPathwayProps> = ({
                 className="flex-1 p-4 bg-green-50 rounded-lg border-l-4"
                 style={{ borderColor: colorScheme.primary }}
               >
-                <h3
-                  className="font-medium mb-1"
-                  style={{ color: colorScheme.primary }}
-                >
+                <h3 className="font-medium mb-1" style={{ color: colorScheme.primary }}>
                   Hin zu
                 </h3>
-                <p className="text-gray-700">
-                  {transformationPathway[activePathwayIndex].to}
-                </p>
+                <p className="text-gray-700">{transformationPathway[activePathwayIndex].to}</p>
               </div>
             </div>
 
@@ -81,10 +69,7 @@ const TransformationPathway: React.FC<TransformationPathwayProps> = ({
                   key={index}
                   className="w-3 h-3 rounded-full transition-all duration-300"
                   style={{
-                    backgroundColor:
-                      activePathwayIndex === index
-                        ? colorScheme.primary
-                        : "#e5e7eb",
+                    backgroundColor: activePathwayIndex === index ? colorScheme.primary : '#e5e7eb',
                   }}
                   onClick={() => setActivePathwayIndex(index)}
                 />
@@ -108,16 +93,14 @@ const TransformationPathway: React.FC<TransformationPathwayProps> = ({
                 <div className="w-16 h-16 rounded-full flex items-center justify-center relative">
                   <div
                     className="absolute inset-0 rounded-full border-4 border-gray-300 border-dashed animate-spin"
-                    style={{ animationDuration: "10s" }}
+                    style={{ animationDuration: '10s' }}
                   ></div>
                   <div className="w-10 h-10 rounded-full bg-gray-400 flex items-center justify-center text-white font-bold">
                     O
                   </div>
                 </div>
               </div>
-              <h4 className="text-lg font-medium mb-2 text-gray-700">
-                Herkömmliche Ansätze
-              </h4>
+              <h4 className="text-lg font-medium mb-2 text-gray-700">Herkömmliche Ansätze</h4>
               <ul className="text-sm text-gray-600 space-y-2 text-center">
                 <li>Behandeln Menschen wie Systeme</li>
                 <li>Optimieren isolierte Bereiche</li>
@@ -141,10 +124,7 @@ const TransformationPathway: React.FC<TransformationPathwayProps> = ({
                   K
                 </div>
               </div>
-              <h4
-                className="text-lg font-medium mb-2"
-                style={{ color: colorScheme.primary }}
-              >
+              <h4 className="text-lg font-medium mb-2" style={{ color: colorScheme.primary }}>
                 KLARE Kongruenz-Methode
               </h4>
               <ul className="text-sm text-gray-600 space-y-2 text-center">
@@ -162,9 +142,9 @@ const TransformationPathway: React.FC<TransformationPathwayProps> = ({
             style={{ backgroundColor: `${colorScheme.background}30` }}
           >
             <p className="text-gray-700">
-              Die KLARE Methode ist der erste humanistische Ansatz für
-              nachhaltige persönliche Transformation, der Menschen ganzheitlich
-              betrachtet – statt sie wie Unternehmen zu optimieren.
+              Die KLARE Methode ist der erste humanistische Ansatz für nachhaltige persönliche
+              Transformation, der Menschen ganzheitlich betrachtet – statt sie wie Unternehmen zu
+              optimieren.
             </p>
           </div>
         </div>

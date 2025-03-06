@@ -1,8 +1,8 @@
-"use client";
-import React from "react";
-import { Heart, ExternalLink, ArrowLeft } from "lucide-react";
-import Link from "next/link";
-import { colorSchemes } from "@/utils/colorSchemes";
+'use client';
+import React from 'react';
+import { Heart, ExternalLink, ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
+import { colorSchemes } from '@/utils/colorSchemes';
 
 // Da wir keine Props von außen bekommen, nutzen wir ein Standard-Farbschema
 const defaultColorScheme = colorSchemes[0];
@@ -42,9 +42,9 @@ export default function ThanksPage() {
               Herzlichen Dank
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Auf meinem Weg der persönlichen und beruflichen Entwicklung haben
-              mich viele wunderbare Menschen begleitet und unterstützt. Diesen
-              Menschen möchte ich hier meinen besonderen Dank aussprechen.
+              Auf meinem Weg der persönlichen und beruflichen Entwicklung haben mich viele
+              wunderbare Menschen begleitet und unterstützt. Diesen Menschen möchte ich hier meinen
+              besonderen Dank aussprechen.
             </p>
           </div>
 
@@ -59,7 +59,7 @@ export default function ThanksPage() {
 
             <div className="bg-white rounded-lg p-8 shadow-lg mb-8">
               <p className="text-lg mb-6">
-                Mein besonderer Dank gilt der{" "}
+                Mein besonderer Dank gilt der{' '}
                 <a
                   href="https://www.rok-akademie.at"
                   target="_blank"
@@ -68,17 +68,15 @@ export default function ThanksPage() {
                   style={{
                     color: defaultColorScheme.primary,
                     borderBottom: `1px solid ${defaultColorScheme.primary}`,
-                    transition: "opacity 0.3s",
+                    transition: 'opacity 0.3s',
                   }}
-                  onMouseOver={(e) => (e.currentTarget.style.opacity = "0.8")}
-                  onMouseOut={(e) => (e.currentTarget.style.opacity = "1")}
+                  onMouseOver={e => (e.currentTarget.style.opacity = '0.8')}
+                  onMouseOut={e => (e.currentTarget.style.opacity = '1')}
                 >
-                  ROK-Akademie in Wien{" "}
-                  <ExternalLink size={16} className="ml-1" />
-                </a>{" "}
-                für die wertvolle Ausbildung und die inspirierenden Methoden,
-                die mir neue Wege in der persönlichen Transformation eröffnet
-                haben.
+                  ROK-Akademie in Wien <ExternalLink size={16} className="ml-1" />
+                </a>{' '}
+                für die wertvolle Ausbildung und die inspirierenden Methoden, die mir neue Wege in
+                der persönlichen Transformation eröffnet haben.
               </p>
 
               <div
@@ -92,10 +90,9 @@ export default function ThanksPage() {
                   Spezieller Dank an René Otto Knor
                 </p>
                 <p className="text-gray-600">
-                  Für seine visionäre Führung, sein umfassendes Wissen und die
-                  Art und Weise, wie er Lebensfreude und Transformation
-                  miteinander verbindet. Seine Lehren haben meinen eigenen Weg
-                  maßgeblich geprägt und bereichert.
+                  Für seine visionäre Führung, sein umfassendes Wissen und die Art und Weise, wie er
+                  Lebensfreude und Transformation miteinander verbindet. Seine Lehren haben meinen
+                  eigenen Weg maßgeblich geprägt und bereichert.
                 </p>
               </div>
             </div>
@@ -112,9 +109,8 @@ export default function ThanksPage() {
 
             <div className="bg-white rounded-lg p-8 shadow-lg">
               <p className="text-lg mb-8 text-center">
-                Mein größter Dank gilt meiner Familie, die mich auf meinem Weg
-                stets unterstützt, inspiriert und mir die Kraft gibt, meine
-                Vision zu verwirklichen.
+                Mein größter Dank gilt meiner Familie, die mich auf meinem Weg stets unterstützt,
+                inspiriert und mir die Kraft gibt, meine Vision zu verwirklichen.
               </p>
 
               <div className="grid md:grid-cols-2 gap-12 mb-8">
@@ -137,9 +133,8 @@ export default function ThanksPage() {
                     Meine Frau Gerda
                   </h3>
                   <p className="text-gray-600 text-center mb-4">
-                    Expertin für Bachblüten & Mindset-Transformation, meine
-                    Partnerin in der Entwicklung neuer Perspektiven und meine
-                    größte Unterstützung.
+                    Expertin für Bachblüten & Mindset-Transformation, meine Partnerin in der
+                    Entwicklung neuer Perspektiven und meine größte Unterstützung.
                   </p>
                   <a
                     href="https://www.ja-zum-leben.at"
@@ -148,8 +143,7 @@ export default function ThanksPage() {
                     className="inline-flex items-center px-4 py-2 rounded-full text-white text-sm"
                     style={{ backgroundColor: defaultColorScheme.accent }}
                   >
-                    Ihre Expertise entdecken{" "}
-                    <ExternalLink size={14} className="ml-1" />
+                    Ihre Expertise entdecken <ExternalLink size={14} className="ml-1" />
                   </a>
                 </div>
 
@@ -172,25 +166,23 @@ export default function ThanksPage() {
                     Mein Sohn Tobias
                   </h3>
                   <p className="text-gray-600 text-center mb-4">
-                    Meine größte Inspiration und tägliche Freude. Durch seine
-                    Augen sehe ich die Welt immer wieder neu und mit
-                    Begeisterung.
+                    Meine größte Inspiration und tägliche Freude. Durch seine Augen sehe ich die
+                    Welt immer wieder neu und mit Begeisterung.
                   </p>
                 </div>
               </div>
 
               <p className="text-gray-600 italic text-center mt-8 mx-auto max-w-3xl">
-                "Wahre Transformation wurzelt in dem Netzwerk aus Beziehungen,
-                die uns stärken, herausfordern und uns zu den besten Versionen
-                von uns selbst machen."
+                "Wahre Transformation wurzelt in dem Netzwerk aus Beziehungen, die uns stärken,
+                herausfordern und uns zu den besten Versionen von uns selbst machen."
               </p>
             </div>
           </div>
 
           <div className="text-center mb-12">
             <p className="italic text-gray-600">
-              "Wahre Transformation beginnt, wenn wir das Leben in all seinen
-              Facetten annehmen und aus jeder Erfahrung wachsen."
+              "Wahre Transformation beginnt, wenn wir das Leben in all seinen Facetten annehmen und
+              aus jeder Erfahrung wachsen."
             </p>
           </div>
         </div>
@@ -199,10 +191,7 @@ export default function ThanksPage() {
       {/* Einfacher Footer */}
       <footer className="py-6 text-center text-gray-500 text-sm">
         <div className="container mx-auto px-6">
-          <p>
-            © {new Date().getFullYear()} Sascha Kohler. Alle Rechte
-            vorbehalten.
-          </p>
+          <p>© {new Date().getFullYear()} Sascha Kohler. Alle Rechte vorbehalten.</p>
         </div>
       </footer>
     </div>

@@ -1,31 +1,28 @@
-"use client";
+'use client';
 
-import React from "react";
-import { ColorScheme } from "@/utils/colorSchemes";
-import { cn } from "@/lib/utils";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { comingSoonFeatures } from "@/data/comingSoonFeatures";
-import { Sparkles, BarChart3, Calendar, BookOpen } from "lucide-react";
+import React from 'react';
+import { ColorScheme } from '@/utils/colorSchemes';
+import { cn } from '@/lib/utils';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { comingSoonFeatures } from '@/data/comingSoonFeatures';
+import { Sparkles, BarChart3, Calendar, BookOpen } from 'lucide-react';
 
 interface FeatureTeaserSectionProps {
   colorScheme: ColorScheme;
   className?: string;
 }
 
-const FeatureTeaserSection: React.FC<FeatureTeaserSectionProps> = ({
-  colorScheme,
-  className,
-}) => {
+const FeatureTeaserSection: React.FC<FeatureTeaserSectionProps> = ({ colorScheme, className }) => {
   // Mapping für Emoji zu Lucide Icons
   const getIconComponent = (emojiIcon: string) => {
     switch (emojiIcon) {
-      case "✨":
+      case '✨':
         return Sparkles;
-      case "📊":
+      case '📊':
         return BarChart3;
-      case "📅":
+      case '📅':
         return Calendar;
-      case "📚":
+      case '📚':
         return BookOpen;
       default:
         return Sparkles;
@@ -33,7 +30,7 @@ const FeatureTeaserSection: React.FC<FeatureTeaserSectionProps> = ({
   };
 
   return (
-    <section className={cn("py-12", className)}>
+    <section className={cn('py-12', className)}>
       <div className="container mx-auto px-4">
         <h2
           className="text-xl sm:text-2xl font-semibold mb-8 text-center"
@@ -46,9 +43,7 @@ const FeatureTeaserSection: React.FC<FeatureTeaserSectionProps> = ({
           {comingSoonFeatures.map((feature, index) => {
             const IconComponent = getIconComponent(feature.icon);
             const isOddFeature = index % 2 !== 0;
-            const cardColor = isOddFeature
-              ? colorScheme.accent
-              : colorScheme.primary;
+            const cardColor = isOddFeature ? colorScheme.accent : colorScheme.primary;
 
             return (
               <Card
@@ -80,4 +75,3 @@ const FeatureTeaserSection: React.FC<FeatureTeaserSectionProps> = ({
 };
 
 export default FeatureTeaserSection;
-

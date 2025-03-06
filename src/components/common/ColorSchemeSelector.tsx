@@ -1,6 +1,6 @@
-"use client";
-import React from "react";
-import { useColorScheme } from "@/contexts/ColorSchemeContext";
+'use client';
+import React from 'react';
+import { useColorScheme } from '@/contexts/ColorSchemeContext';
 
 // Definiere den Typ für das Farbschema
 export interface ColorScheme {
@@ -21,9 +21,9 @@ const ColorSchemeSelector: React.FC = () => {
         className="p-2 rounded-full shadow-lg text-white mb-2"
         style={{ backgroundColor: colorScheme.primary }}
         onClick={() => {
-          const themePanel = document.getElementById("theme-panel");
+          const themePanel = document.getElementById('theme-panel');
           if (themePanel) {
-            themePanel.classList.toggle("hidden");
+            themePanel.classList.toggle('hidden');
           }
         }}
       >
@@ -43,26 +43,18 @@ const ColorSchemeSelector: React.FC = () => {
         </svg>
       </button>
 
-      <div
-        id="theme-panel"
-        className="hidden bg-white p-4 rounded-lg shadow-xl"
-      >
-        <h3
-          className="text-lg font-medium mb-3"
-          style={{ color: colorScheme.primary }}
-        >
+      <div id="theme-panel" className="hidden bg-white p-4 rounded-lg shadow-xl">
+        <h3 className="text-lg font-medium mb-3" style={{ color: colorScheme.primary }}>
           Farbschema wählen
         </h3>
         <div className="space-y-2">
-          {colorSchemes.map((scheme) => (
+          {colorSchemes.map(scheme => (
             <button
               key={scheme.name}
               className="w-full text-left p-2 rounded transition-colors flex items-center"
               style={{
                 backgroundColor:
-                  scheme.name === colorScheme.name
-                    ? `${scheme.accent}20`
-                    : "transparent",
+                  scheme.name === colorScheme.name ? `${scheme.accent}20` : 'transparent',
                 color: scheme.primary,
               }}
               onClick={() => setColorScheme(scheme)}

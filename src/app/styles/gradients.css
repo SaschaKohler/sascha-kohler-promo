@@ -44,11 +44,7 @@
 
 /* Primary text gradient for headlines */
 .text-gradient-primary {
-  background-image: linear-gradient(
-    to right,
-    var(--color-primary),
-    var(--color-accent)
-  );
+  background-image: linear-gradient(to right, var(--color-primary), var(--color-accent));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -57,11 +53,7 @@
 
 /* Vertical text gradient for special elements */
 .text-gradient-vertical {
-  background-image: linear-gradient(
-    to bottom,
-    var(--color-primary),
-    var(--color-accent)
-  );
+  background-image: linear-gradient(to bottom, var(--color-primary), var(--color-accent));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -75,11 +67,7 @@
 
 /* Primary button gradient */
 .button-gradient-primary {
-  background: linear-gradient(
-    to right,
-    var(--color-primary),
-    var(--color-accent)
-  );
+  background: linear-gradient(to right, var(--color-primary), var(--color-accent));
   transition: all 0.3s ease;
 }
 
@@ -129,11 +117,7 @@
 
 /* Highlighted card gradient - stronger color presence */
 .card-gradient-highlight {
-  background: linear-gradient(
-    145deg,
-    white,
-    color-mix(in srgb, white 92%, var(--color-accent) 8%)
-  );
+  background: linear-gradient(145deg, white, color-mix(in srgb, white 92%, var(--color-accent) 8%));
 }
 
 /* Border gradient - for elegant card borders */
@@ -145,17 +129,13 @@
 }
 
 .border-gradient::before {
-  content: "";
+  content: '';
   position: absolute;
   top: -2px;
   right: -2px;
   bottom: -2px;
   left: -2px;
-  background: linear-gradient(
-    to bottom right,
-    var(--color-primary),
-    var(--color-accent)
-  );
+  background: linear-gradient(to bottom right, var(--color-primary), var(--color-accent));
   border-radius: 0.6rem;
   z-index: -1;
 }
@@ -229,31 +209,19 @@
 
 :root {
   /* Example of how to transform these into CSS variables */
-  --gradient-primary: linear-gradient(
-    to right,
-    var(--color-primary),
-    var(--color-accent)
-  );
+  --gradient-primary: linear-gradient(to right, var(--color-primary), var(--color-accent));
   --gradient-primary-vertical: linear-gradient(
     to bottom,
     var(--color-primary),
     var(--color-accent)
   );
-  --gradient-button: linear-gradient(
-    to right,
-    var(--color-primary),
-    var(--color-accent)
-  );
+  --gradient-button: linear-gradient(to right, var(--color-primary), var(--color-accent));
   --gradient-card: linear-gradient(
     145deg,
     white,
     color-mix(in srgb, white 97%, var(--color-primary) 3%)
   );
-  --gradient-background: linear-gradient(
-    to bottom,
-    white,
-    var(--color-background)
-  );
+  --gradient-background: linear-gradient(to bottom, white, var(--color-background));
   --gradient-accent-bg: linear-gradient(
     to bottom right,
     color-mix(in srgb, var(--color-background) 92%, var(--color-accent) 8%),

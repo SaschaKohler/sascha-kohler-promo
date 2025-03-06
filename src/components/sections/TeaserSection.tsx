@@ -1,10 +1,10 @@
-import React from "react";
-import Image from "next/image";
-import { ChevronDown } from "lucide-react";
-import { kongruenzSteps, getStepColor } from "@/data/kongruenzSteps";
-import useScrollToSection from "@/hooks/useScrollToSection";
-import { ColorScheme } from "@/utils/colorSchemes";
-import KongruenzAccordion from "../klare-method/KongruenzAccordion";
+import React from 'react';
+import Image from 'next/image';
+import { ChevronDown } from 'lucide-react';
+import { kongruenzSteps, getStepColor } from '@/data/kongruenzSteps';
+import useScrollToSection from '@/hooks/useScrollToSection';
+import { ColorScheme } from '@/utils/colorSchemes';
+import KongruenzAccordion from '../klare-method/KongruenzAccordion';
 
 interface TeaserSectionProps {
   colorScheme: ColorScheme;
@@ -57,10 +57,10 @@ const TeaserSection: React.FC<TeaserSectionProps> = ({ colorScheme }) => {
               <span
                 style={{
                   backgroundImage: `linear-gradient(to right, ${colorScheme.primary}, ${colorScheme.accent})`,
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  color: "transparent",
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  color: 'transparent',
                 }}
               >
                 -Methode
@@ -73,9 +73,8 @@ const TeaserSection: React.FC<TeaserSectionProps> = ({ colorScheme }) => {
               Kongruenz statt Optimierung
             </h2>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-              Schluss mit Selbstoptimierung! Die KLARE-Methode schafft
-              Kongruenz: Ihre Lebensbereiche endlich im Einklang mit Ihren
-              wahren Wünschen, Träumen und Zielen.
+              Schluss mit Selbstoptimierung! Die KLARE-Methode schafft Kongruenz: Ihre
+              Lebensbereiche endlich im Einklang mit Ihren wahren Wünschen, Träumen und Zielen.
             </p>
           </div>
         </div>
@@ -86,8 +85,8 @@ const TeaserSection: React.FC<TeaserSectionProps> = ({ colorScheme }) => {
         {/* K.L.A.R.E.-Methode Einführung */}
         <p className="text-md text-gray-600 mb-6 pt-3">
           Die <strong>K.L.A.R.E.</strong>-Methode steht für: <strong>K</strong>
-          larheit, <strong>L</strong>ebendigkeit, <strong>A</strong>usrichtung,{" "}
-          <strong>R</strong>ealisierung, <strong>E</strong>ntfaltung
+          larheit, <strong>L</strong>ebendigkeit, <strong>A</strong>usrichtung, <strong>R</strong>
+          ealisierung, <strong>E</strong>ntfaltung
         </p>
 
         {/* KLARE-Methode Steps mit verbesserten visuellen Elementen */}
@@ -104,15 +103,10 @@ const TeaserSection: React.FC<TeaserSectionProps> = ({ colorScheme }) => {
                   boxShadow: `0 4px 10px ${getStepColor(step, colorScheme)}40`,
                 }}
               >
-                <span className="text-white text-lg font-bold">
-                  {step.letter}
-                </span>
+                <span className="text-white text-lg font-bold">{step.letter}</span>
               </div>
               <div className="text-center">
-                <div
-                  className="font-semibold"
-                  style={{ color: getStepColor(step, colorScheme) }}
-                >
+                <div className="font-semibold" style={{ color: getStepColor(step, colorScheme) }}>
                   {step.name}
                 </div>
                 <div className="text-sm text-gray-600">{step.description}</div>
@@ -128,7 +122,7 @@ const TeaserSection: React.FC<TeaserSectionProps> = ({ colorScheme }) => {
             style={{
               background: `linear-gradient(to right, ${colorScheme.primary}, ${colorScheme.accent})`,
             }}
-            onClick={() => handleScrollToSection("launch-date")}
+            onClick={() => handleScrollToSection('launch-date')}
             aria-label="Zum Launch-Countdown scrollen"
           >
             Website-Launch im April 2025
@@ -141,7 +135,7 @@ const TeaserSection: React.FC<TeaserSectionProps> = ({ colorScheme }) => {
           size={32}
           className="animate-bounce cursor-pointer"
           style={{ color: colorScheme.accent }}
-          onClick={() => handleScrollToSection("newsletter")}
+          onClick={() => handleScrollToSection('newsletter')}
           aria-label="Zum Newsletter scrollen"
         />
       </div>

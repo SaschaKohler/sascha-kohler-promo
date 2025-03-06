@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { kongruenzSteps, getStepColor } from "@/data/kongruenzSteps";
-import { ColorScheme } from "@/utils/colorSchemes";
-import { ChevronRight } from "lucide-react";
+import React, { useState } from 'react';
+import { kongruenzSteps, getStepColor } from '@/data/kongruenzSteps';
+import { ColorScheme } from '@/utils/colorSchemes';
+import { ChevronRight } from 'lucide-react';
 
 interface MethodStepsProps {
   className?: string;
@@ -12,12 +12,11 @@ interface MethodStepsProps {
 }
 
 const MethodSteps: React.FC<MethodStepsProps> = ({
-  className = "",
+  className = '',
   colorScheme,
   initialActivStep = 0,
 }) => {
-  const [activeStepIndex, setActiveStepIndex] =
-    useState<number>(initialActivStep);
+  const [activeStepIndex, setActiveStepIndex] = useState<number>(initialActivStep);
 
   return (
     <div
@@ -36,9 +35,9 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
 
       <div className="flex flex-col items-center">
         <p className="text-gray-600 mb-6 sm:mb-8 md:mb-10 text-center max-w-2xl text-sm sm:text-base">
-          In 5 Schritten zur vollständigen Kongruenz in allen Lebensbereichen.
-          Entdecke den transformativen Prozess, der dir hilft, alle Aspekte
-          deines Lebens auf deine großen Ziele auszurichten.
+          In 5 Schritten zur vollständigen Kongruenz in allen Lebensbereichen. Entdecke den
+          transformativen Prozess, der dir hilft, alle Aspekte deines Lebens auf deine großen Ziele
+          auszurichten.
         </p>
 
         {/* Mobile Step Switcher (visible on small screens) */}
@@ -46,9 +45,7 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
           <div className="flex justify-between items-center bg-gray-50 rounded-lg overflow-hidden">
             <button
               className="p-2 text-gray-500 disabled:opacity-30"
-              onClick={() =>
-                setActiveStepIndex((prev) => Math.max(0, prev - 1))
-              }
+              onClick={() => setActiveStepIndex(prev => Math.max(0, prev - 1))}
               disabled={activeStepIndex === 0}
             >
               <ChevronRight className="transform rotate-180 w-4 h-4" />
@@ -57,22 +54,16 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
             <div
               className="text-center flex-1 py-2 font-medium"
               style={{
-                color: getStepColor(
-                  kongruenzSteps[activeStepIndex],
-                  colorScheme,
-                ),
+                color: getStepColor(kongruenzSteps[activeStepIndex], colorScheme),
               }}
             >
-              {kongruenzSteps[activeStepIndex].letter}:{" "}
-              {kongruenzSteps[activeStepIndex].name}
+              {kongruenzSteps[activeStepIndex].letter}: {kongruenzSteps[activeStepIndex].name}
             </div>
 
             <button
               className="p-2 text-gray-500 disabled:opacity-30"
               onClick={() =>
-                setActiveStepIndex((prev) =>
-                  Math.min(kongruenzSteps.length - 1, prev + 1),
-                )
+                setActiveStepIndex(prev => Math.min(kongruenzSteps.length - 1, prev + 1))
               }
               disabled={activeStepIndex === kongruenzSteps.length - 1}
             >
@@ -87,7 +78,7 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
           <div
             className="absolute top-1/2 left-0 w-full h-1 -translate-y-1/2 transition-all duration-300"
             style={{
-              background: `linear-gradient(to right, ${kongruenzSteps.map((step) => getStepColor(step, colorScheme)).join(", ")})`,
+              background: `linear-gradient(to right, ${kongruenzSteps.map(step => getStepColor(step, colorScheme)).join(', ')})`,
             }}
           ></div>
 
@@ -96,7 +87,7 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
             {kongruenzSteps.map((step, index) => (
               <div
                 key={index}
-                className={`relative flex flex-col items-center cursor-pointer transform transition-all duration-300 ${activeStepIndex === index ? "scale-110" : ""}`}
+                className={`relative flex flex-col items-center cursor-pointer transform transition-all duration-300 ${activeStepIndex === index ? 'scale-110' : ''}`}
                 onClick={() => setActiveStepIndex(index)}
               >
                 <div
@@ -107,22 +98,15 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
                   }}
                 >
                   <div className="flex flex-col items-center">
-                    <span className="text-lg md:text-xl font-bold">
-                      {step.letter}
-                    </span>
+                    <span className="text-lg md:text-xl font-bold">{step.letter}</span>
                     {/* <span>{step.icon}</span> */}
-                    <div className="mt-1">
-                      {React.createElement(step.icon, { size: 16 })}
-                    </div>
+                    <div className="mt-1">{React.createElement(step.icon, { size: 16 })}</div>
                   </div>
                 </div>
                 <span
                   className="text-xs font-medium text-center mb-1"
                   style={{
-                    color:
-                      activeStepIndex === index
-                        ? getStepColor(step, colorScheme)
-                        : "#666",
+                    color: activeStepIndex === index ? getStepColor(step, colorScheme) : '#666',
                   }}
                 >
                   {step.name}
@@ -143,9 +127,7 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
               className="w-2.5 h-2.5 rounded-full transition-all duration-300"
               style={{
                 backgroundColor:
-                  activeStepIndex === index
-                    ? getStepColor(step, colorScheme)
-                    : "#e5e7eb",
+                  activeStepIndex === index ? getStepColor(step, colorScheme) : '#e5e7eb',
               }}
               onClick={() => setActiveStepIndex(index)}
               aria-label={`Step ${index + 1}: ${step.name}`}
@@ -157,19 +139,13 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
         <div
           className="bg-white rounded-lg p-4 sm:p-6 border-l-4 relative max-w-2xl mx-auto transition-colors duration-300"
           style={{
-            borderColor: getStepColor(
-              kongruenzSteps[activeStepIndex],
-              colorScheme,
-            ),
+            borderColor: getStepColor(kongruenzSteps[activeStepIndex], colorScheme),
           }}
         >
           <div
             className="absolute -top-3 -left-3 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs transition-colors duration-300"
             style={{
-              backgroundColor: getStepColor(
-                kongruenzSteps[activeStepIndex],
-                colorScheme,
-              ),
+              backgroundColor: getStepColor(kongruenzSteps[activeStepIndex], colorScheme),
             }}
           >
             {kongruenzSteps[activeStepIndex].letter}
@@ -180,29 +156,25 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
               color: getStepColor(kongruenzSteps[activeStepIndex], colorScheme),
             }}
           >
-            {kongruenzSteps[activeStepIndex].name}{" "}
-            {kongruenzSteps[activeStepIndex].description}
+            {kongruenzSteps[activeStepIndex].name} {kongruenzSteps[activeStepIndex].description}
           </h3>
           <p className="text-gray-600 text-sm sm:text-base">
             {activeStepIndex === 0 &&
-              "Erkenne deine größten Ziele und konfrontiere dich ehrlich mit deiner aktuellen Situation. Dieser Schritt schafft Klarheit über den IST-Zustand und den angestrebten SOLL-Zustand in allen Lebensbereichen."}
+              'Erkenne deine größten Ziele und konfrontiere dich ehrlich mit deiner aktuellen Situation. Dieser Schritt schafft Klarheit über den IST-Zustand und den angestrebten SOLL-Zustand in allen Lebensbereichen.'}
             {activeStepIndex === 1 &&
-              "Entdecke die natürliche Lebendigkeit und Energie, die bereits in dir vorhanden ist. Hier lernst du, deine natürlichen Ressourcen und Kräfte zu erkennen und gezielt zu nutzen."}
+              'Entdecke die natürliche Lebendigkeit und Energie, die bereits in dir vorhanden ist. Hier lernst du, deine natürlichen Ressourcen und Kräfte zu erkennen und gezielt zu nutzen.'}
             {activeStepIndex === 2 &&
-              "Entwickle konkrete Strategien, um alle Lebensbereiche in Richtung deiner Ziele auszurichten. In diesem Schritt lernst du Techniken zur bewussten Ausrichtung deines Denkens, Fühlens und Handelns."}
+              'Entwickle konkrete Strategien, um alle Lebensbereiche in Richtung deiner Ziele auszurichten. In diesem Schritt lernst du Techniken zur bewussten Ausrichtung deines Denkens, Fühlens und Handelns.'}
             {activeStepIndex === 3 &&
-              "Setze die entwickelten Strategien in deinem Alltag um und integriere sie nachhaltig in dein Leben. Hier werden unterstützende Strukturen und Routinen etabliert, die langfristige Veränderung ermöglichen."}
+              'Setze die entwickelten Strategien in deinem Alltag um und integriere sie nachhaltig in dein Leben. Hier werden unterstützende Strukturen und Routinen etabliert, die langfristige Veränderung ermöglichen.'}
             {activeStepIndex === 4 &&
-              "Erlebe, wie durch vollständige Kongruenz deine Ziele mit natürlicher Leichtigkeit Wirklichkeit werden. In diesem finalen Schritt manifestiert sich deine Transformation in allen Lebensbereichen und du erlebst das Gefühl tiefer innerer Stimmigkeit."}
+              'Erlebe, wie durch vollständige Kongruenz deine Ziele mit natürlicher Leichtigkeit Wirklichkeit werden. In diesem finalen Schritt manifestiert sich deine Transformation in allen Lebensbereichen und du erlebst das Gefühl tiefer innerer Stimmigkeit.'}
           </p>
           <div className="mt-4 text-right">
             <span
               className="text-xs sm:text-sm font-medium transition-colors duration-300"
               style={{
-                color: getStepColor(
-                  kongruenzSteps[activeStepIndex],
-                  colorScheme,
-                ),
+                color: getStepColor(kongruenzSteps[activeStepIndex], colorScheme),
               }}
             >
               Bald verfügbar

@@ -1,53 +1,53 @@
-import React from "react";
-import KongruenzMethode from "./KongruenzMethode";
-import TransformationPathway from "./klare-method/TransformationPathway";
-import KongruenzDifferenzierung from "./KongruenzDifferenzierung";
-import { ColorScheme } from "./common/ColorSchemeSelector";
+import React from 'react';
+import KongruenzMethode from './KongruenzMethode';
+import TransformationPathway from './klare-method/TransformationPathway';
+import KongruenzDifferenzierung from './KongruenzDifferenzierung';
+import { ColorScheme } from './common/ColorSchemeSelector';
 
 // Sample expertise content focused on the Kongruenz-Methode
 const expertiseAreas = [
   {
-    title: "Die Kongruenz-Methode",
+    title: 'Die Kongruenz-Methode',
     description:
-      "Als Entwickler der Kongruenz-Methode biete ich einen strukturierten 5-Schritte-Prozess, um dir zu helfen, vollständige Kongruenz in allen Lebensbereichen zu erreichen.",
+      'Als Entwickler der Kongruenz-Methode biete ich einen strukturierten 5-Schritte-Prozess, um dir zu helfen, vollständige Kongruenz in allen Lebensbereichen zu erreichen.',
     items: [
-      "Individuelle Anwendung auf persönliche Ziele",
-      "Integration von NLP-Techniken",
-      "Wissenschaftlich fundierte Ansätze",
-      "Nachhaltige Transformationswerkzeuge",
+      'Individuelle Anwendung auf persönliche Ziele',
+      'Integration von NLP-Techniken',
+      'Wissenschaftlich fundierte Ansätze',
+      'Nachhaltige Transformationswerkzeuge',
     ],
   },
   {
-    title: "NLP & Kommunikation",
+    title: 'NLP & Kommunikation',
     description:
-      "Als zertifizierter NLP-Practitioner und Trainer bringe ich tiefes Verständnis für menschliche Kommunikationsmuster und Veränderungsprozesse mit.",
+      'Als zertifizierter NLP-Practitioner und Trainer bringe ich tiefes Verständnis für menschliche Kommunikationsmuster und Veränderungsprozesse mit.',
     items: [
-      "Meta-Modell der Sprache",
-      "Ankertechniken",
-      "Timeline-Arbeit",
-      "Change History Integration",
+      'Meta-Modell der Sprache',
+      'Ankertechniken',
+      'Timeline-Arbeit',
+      'Change History Integration',
     ],
   },
   {
-    title: "Vorträge & Workshops",
+    title: 'Vorträge & Workshops',
     description:
-      "Meine Vorträge zur Kongruenz-Methode verbinden inspirierende Inhalte mit praktischen Werkzeugen, die sofort anwendbar sind.",
+      'Meine Vorträge zur Kongruenz-Methode verbinden inspirierende Inhalte mit praktischen Werkzeugen, die sofort anwendbar sind.',
     items: [
-      "Interaktive Formate",
-      "Tiefgehende Impulse",
-      "Nachhaltige Integration",
-      "Maßgeschneiderte Inhalte",
+      'Interaktive Formate',
+      'Tiefgehende Impulse',
+      'Nachhaltige Integration',
+      'Maßgeschneiderte Inhalte',
     ],
   },
   {
-    title: "Ganzheitliche Perspektive",
+    title: 'Ganzheitliche Perspektive',
     description:
-      "Durch meinen Hintergrund als Pharmazeut bringe ich ein fundiertes Verständnis für die Verbindung von Körper, Geist und Emotion mit.",
+      'Durch meinen Hintergrund als Pharmazeut bringe ich ein fundiertes Verständnis für die Verbindung von Körper, Geist und Emotion mit.',
     items: [
-      "Neurobiologische Grundlagen",
-      "Stressregulation",
-      "Gesundheitsförderung",
-      "Ganzheitliches Wohlbefinden",
+      'Neurobiologische Grundlagen',
+      'Stressregulation',
+      'Gesundheitsförderung',
+      'Ganzheitliches Wohlbefinden',
     ],
   },
 ];
@@ -56,9 +56,7 @@ interface KongruenzIntegrationProps {
   colorScheme: ColorScheme;
 }
 
-const KongruenzIntegration: React.FC<KongruenzIntegrationProps> = ({
-  colorScheme,
-}) => {
+const KongruenzIntegration: React.FC<KongruenzIntegrationProps> = ({ colorScheme }) => {
   return (
     <div className="kongruenz-integration">
       {/* Hero Section - Modified for Kongruenz-Methode focus */}
@@ -96,16 +94,14 @@ const KongruenzIntegration: React.FC<KongruenzIntegrationProps> = ({
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="text-center md:text-left md:w-3/5">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                <span style={{ color: colorScheme.primary }}>
-                  Die Kongruenz
-                </span>
+                <span style={{ color: colorScheme.primary }}>Die Kongruenz</span>
                 <span
                   style={{
                     backgroundImage: `linear-gradient(to right, ${colorScheme.primary}, ${colorScheme.accent})`,
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    color: "transparent",
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    color: 'transparent',
                   }}
                 >
                   -Methode
@@ -113,8 +109,8 @@ const KongruenzIntegration: React.FC<KongruenzIntegrationProps> = ({
               </h1>
 
               <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto md:mx-0 mb-8 leading-relaxed">
-                Der 5-Schritte-Prozess für vollständige Kongruenz in allen
-                Lebensbereichen und die Verwirklichung deiner Ziele.
+                Der 5-Schritte-Prozess für vollständige Kongruenz in allen Lebensbereichen und die
+                Verwirklichung deiner Ziele.
               </p>
 
               <button
@@ -141,10 +137,7 @@ const KongruenzIntegration: React.FC<KongruenzIntegrationProps> = ({
                   />
                 </div>
                 <div className="absolute -bottom-4 -right-4 bg-white p-4 rounded-lg shadow-lg">
-                  <p
-                    className="italic text-lg"
-                    style={{ color: colorScheme.primary }}
-                  >
+                  <p className="italic text-lg" style={{ color: colorScheme.primary }}>
                     Entwickler der Kongruenz-Methode
                   </p>
                 </div>
@@ -171,49 +164,36 @@ const KongruenzIntegration: React.FC<KongruenzIntegrationProps> = ({
                   />
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-lg shadow-lg">
-                  <p
-                    className="italic font-serif text-lg"
-                    style={{ color: colorScheme.primary }}
-                  >
-                    "Kongruenz ist der Schlüssel zu einem Leben voller
-                    Leichtigkeit und Erfüllung."
+                  <p className="italic font-serif text-lg" style={{ color: colorScheme.primary }}>
+                    "Kongruenz ist der Schlüssel zu einem Leben voller Leichtigkeit und Erfüllung."
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="md:w-1/2">
-              <h2
-                className="text-4xl font-bold mb-6"
-                style={{ color: colorScheme.text }}
-              >
-                Über{" "}
-                <span style={{ color: colorScheme.primary }}>
-                  die Kongruenz-Methode
-                </span>
+              <h2 className="text-4xl font-bold mb-6" style={{ color: colorScheme.text }}>
+                Über <span style={{ color: colorScheme.primary }}>die Kongruenz-Methode</span>
               </h2>
 
               <div className="space-y-6 text-lg text-gray-600">
                 <p>
-                  Die Kongruenz-Methode ist ein von mir entwickelter
-                  5-Schritte-Prozess, der dir hilft, vollständige
-                  Übereinstimmung zwischen deinen Zielen und allen Aspekten
+                  Die Kongruenz-Methode ist ein von mir entwickelter 5-Schritte-Prozess, der dir
+                  hilft, vollständige Übereinstimmung zwischen deinen Zielen und allen Aspekten
                   deines Lebens zu erreichen.
                 </p>
 
                 <p>
-                  Aufbauend auf meinen vielfältigen Erfahrungen aus der ROK
-                  Akademie, meinen NLP-Zertifizierungen und meinem
-                  pharmazeutischen Hintergrund, bietet die Kongruenz-Methode
-                  einen strukturierten Weg für nachhaltige persönliche
+                  Aufbauend auf meinen vielfältigen Erfahrungen aus der ROK Akademie, meinen
+                  NLP-Zertifizierungen und meinem pharmazeutischen Hintergrund, bietet die
+                  Kongruenz-Methode einen strukturierten Weg für nachhaltige persönliche
                   Transformation.
                 </p>
 
                 <p>
-                  Der Kerngedanke: Wenn alle Lebensbereiche – dein Denken,
-                  Fühlen und Handeln – kongruent auf deine Ziele ausgerichtet
-                  sind, manifestieren sich diese mit einer natürlichen
-                  Leichtigkeit und Selbstverständlichkeit.
+                  Der Kerngedanke: Wenn alle Lebensbereiche – dein Denken, Fühlen und Handeln –
+                  kongruent auf deine Ziele ausgerichtet sind, manifestieren sich diese mit einer
+                  natürlichen Leichtigkeit und Selbstverständlichkeit.
                 </p>
 
                 <div
@@ -221,13 +201,11 @@ const KongruenzIntegration: React.FC<KongruenzIntegrationProps> = ({
                   style={{ borderColor: colorScheme.accent }}
                 >
                   <p className="text-base">
-                    <strong>Wichtig:</strong> Anders als unternehmensorientierte
-                    Kongruenz-Modelle betrachtet meine Methode den Menschen
-                    nicht als System oder Organisation. Sie respektiert die
-                    Einzigartigkeit jedes Individuums und arbeitet mit der
-                    natürlichen Integration von Körper, Geist und Seele – ein
-                    ganzheitlicher Ansatz für den Menschen in seiner vollen
-                    Komplexität.
+                    <strong>Wichtig:</strong> Anders als unternehmensorientierte Kongruenz-Modelle
+                    betrachtet meine Methode den Menschen nicht als System oder Organisation. Sie
+                    respektiert die Einzigartigkeit jedes Individuums und arbeitet mit der
+                    natürlichen Integration von Körper, Geist und Seele – ein ganzheitlicher Ansatz
+                    für den Menschen in seiner vollen Komplexität.
                   </p>
                 </div>
               </div>
@@ -248,10 +226,7 @@ const KongruenzIntegration: React.FC<KongruenzIntegrationProps> = ({
       {/* Expertise Section - Modified for Kongruenz focus */}
       <section id="expertise" className="py-20 min-h-screen flex items-center">
         <div className="container mx-auto px-6">
-          <h2
-            className="text-4xl font-bold mb-12 text-center"
-            style={{ color: colorScheme.text }}
-          >
+          <h2 className="text-4xl font-bold mb-12 text-center" style={{ color: colorScheme.text }}>
             Meine <span style={{ color: colorScheme.primary }}>Expertise</span>
           </h2>
 
@@ -261,10 +236,7 @@ const KongruenzIntegration: React.FC<KongruenzIntegrationProps> = ({
                 key={index}
                 className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <h3
-                  className="text-2xl font-semibold mb-4"
-                  style={{ color: colorScheme.primary }}
-                >
+                <h3 className="text-2xl font-semibold mb-4" style={{ color: colorScheme.primary }}>
                   {area.title}
                 </h3>
                 <p className="text-gray-600 mb-6">{area.description}</p>
@@ -294,32 +266,27 @@ const KongruenzIntegration: React.FC<KongruenzIntegrationProps> = ({
       {/* Testimonials Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
-          <h2
-            className="text-4xl font-bold mb-12 text-center"
-            style={{ color: colorScheme.text }}
-          >
-            Erfahrungen mit der{" "}
-            <span style={{ color: colorScheme.primary }}>
-              Kongruenz-Methode
-            </span>
+          <h2 className="text-4xl font-bold mb-12 text-center" style={{ color: colorScheme.text }}>
+            Erfahrungen mit der{' '}
+            <span style={{ color: colorScheme.primary }}>Kongruenz-Methode</span>
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 quote:
-                  "Die Kongruenz-Methode hat mir geholfen, meine beruflichen Ziele mit meinem Privatleben in Einklang zu bringen. Der 5-Schritte-Prozess ist klar strukturiert und führt zu erstaunlichen Ergebnissen.",
-                author: "Michaela K., Unternehmensberaterin",
+                  'Die Kongruenz-Methode hat mir geholfen, meine beruflichen Ziele mit meinem Privatleben in Einklang zu bringen. Der 5-Schritte-Prozess ist klar strukturiert und führt zu erstaunlichen Ergebnissen.',
+                author: 'Michaela K., Unternehmensberaterin',
               },
               {
                 quote:
-                  "Nach jahrelangem Kampf mit meinen Zielen habe ich durch die Kongruenz-Methode erkannt, wo meine Inkongruenzen lagen. Jetzt erlebe ich, wie sich meine Wünsche mit einer natürlichen Leichtigkeit manifestieren.",
-                author: "Thomas L., Selbständiger",
+                  'Nach jahrelangem Kampf mit meinen Zielen habe ich durch die Kongruenz-Methode erkannt, wo meine Inkongruenzen lagen. Jetzt erlebe ich, wie sich meine Wünsche mit einer natürlichen Leichtigkeit manifestieren.',
+                author: 'Thomas L., Selbständiger',
               },
               {
                 quote:
-                  "Der Workshop zur Kongruenz-Methode war ein Wendepunkt in meinem Leben. Sascha hat einen einzigartigen Ansatz entwickelt, der tiefgreifende und nachhaltige Veränderungen ermöglicht.",
-                author: "Julia M., Führungskraft",
+                  'Der Workshop zur Kongruenz-Methode war ein Wendepunkt in meinem Leben. Sascha hat einen einzigartigen Ansatz entwickelt, der tiefgreifende und nachhaltige Veränderungen ermöglicht.',
+                author: 'Julia M., Führungskraft',
               },
             ].map((testimonial, index) => (
               <div
@@ -336,10 +303,7 @@ const KongruenzIntegration: React.FC<KongruenzIntegrationProps> = ({
                   "
                 </div>
                 <p className="text-gray-600 mb-6 italic">{testimonial.quote}</p>
-                <p
-                  className="font-medium"
-                  style={{ color: colorScheme.primary }}
-                >
+                <p className="font-medium" style={{ color: colorScheme.primary }}>
                   {testimonial.author}
                 </p>
               </div>
@@ -360,9 +324,8 @@ const KongruenzIntegration: React.FC<KongruenzIntegrationProps> = ({
             Bereit für deine persönliche Transformation?
           </h2>
           <p className="text-white text-lg mb-8 max-w-3xl mx-auto opacity-90">
-            Entdecke, wie die Kongruenz-Methode dir helfen kann, vollständige
-            Übereinstimmung in allen Lebensbereichen zu erreichen und deine
-            Ziele mit Leichtigkeit zu manifestieren.
+            Entdecke, wie die Kongruenz-Methode dir helfen kann, vollständige Übereinstimmung in
+            allen Lebensbereichen zu erreichen und deine Ziele mit Leichtigkeit zu manifestieren.
           </p>
           <button
             className="bg-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"

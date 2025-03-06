@@ -1,6 +1,6 @@
-import React from "react";
-import { Star, ArrowRight } from "lucide-react";
-import { ColorScheme } from "./common/ColorSchemeSelector";
+import React from 'react';
+import { Star, ArrowRight } from 'lucide-react';
+import { ColorScheme } from './common/ColorSchemeSelector';
 
 interface CredoProps {
   colorScheme: ColorScheme;
@@ -35,11 +35,7 @@ const KongruenzCredo: React.FC<CredoProps> = ({ colorScheme }) => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <Star
-            size={36}
-            style={{ color: colorScheme.accent }}
-            className="mx-auto mb-4"
-          />
+          <Star size={36} style={{ color: colorScheme.accent }} className="mx-auto mb-4" />
 
           <h2
             className="text-3xl md:text-4xl font-bold mb-6"
@@ -67,20 +63,14 @@ const KongruenzCredo: React.FC<CredoProps> = ({ colorScheme }) => {
               className="text-xl md:text-2xl italic leading-relaxed mb-6"
               style={{ color: colorScheme.text }}
             >
-              Wir erschließen den Raum zwischen{" "}
-              <span style={{ color: colorScheme.primary }}>äußerem Erfolg</span>{" "}
-              und{" "}
-              <span style={{ color: colorScheme.accent }}>
-                innerer Erfüllung
-              </span>
-              , damit Menschen in allen Lebensphasen ihr wahres Potenzial in
-              vollständiger Kongruenz entfalten können.
+              Wir erschließen den Raum zwischen{' '}
+              <span style={{ color: colorScheme.primary }}>äußerem Erfolg</span> und{' '}
+              <span style={{ color: colorScheme.accent }}>innerer Erfüllung</span>, damit Menschen
+              in allen Lebensphasen ihr wahres Potenzial in vollständiger Kongruenz entfalten
+              können.
             </p>
 
-            <hr
-              className="my-6 border-t"
-              style={{ borderColor: `${colorScheme.primary}30` }}
-            />
+            <hr className="my-6 border-t" style={{ borderColor: `${colorScheme.primary}30` }} />
 
             <div className="flex flex-col md:flex-row justify-center items-center md:items-stretch gap-8 md:gap-12">
               <div className="flex-1 max-w-xs">
@@ -91,16 +81,12 @@ const KongruenzCredo: React.FC<CredoProps> = ({ colorScheme }) => {
                   >
                     <span style={{ color: colorScheme.primary }}>1</span>
                   </div>
-                  <h3
-                    className="font-semibold"
-                    style={{ color: colorScheme.primary }}
-                  >
+                  <h3 className="font-semibold" style={{ color: colorScheme.primary }}>
                     Wir öffnen Türen nach innen
                   </h3>
                 </div>
                 <p className="text-gray-600 text-sm">
-                  Durch Bewusstwerdung von persönlichen Werten, Mustern und
-                  inneren Konflikten
+                  Durch Bewusstwerdung von persönlichen Werten, Mustern und inneren Konflikten
                 </p>
               </div>
 
@@ -116,16 +102,12 @@ const KongruenzCredo: React.FC<CredoProps> = ({ colorScheme }) => {
                   >
                     <span style={{ color: colorScheme.accent }}>2</span>
                   </div>
-                  <h3
-                    className="font-semibold"
-                    style={{ color: colorScheme.accent }}
-                  >
+                  <h3 className="font-semibold" style={{ color: colorScheme.accent }}>
                     Wir öffnen Tore nach außen
                   </h3>
                 </div>
                 <p className="text-gray-600 text-sm">
-                  Durch kongruente Ausrichtung des Handelns mit den persönlichen
-                  Werten und Zielen
+                  Durch kongruente Ausrichtung des Handelns mit den persönlichen Werten und Zielen
                 </p>
               </div>
 
@@ -147,17 +129,17 @@ const KongruenzCredo: React.FC<CredoProps> = ({ colorScheme }) => {
                     className="font-semibold"
                     style={{
                       background: `linear-gradient(to right, ${colorScheme.primary}, ${colorScheme.accent})`,
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
                     }}
                   >
                     Wir schaffen vollständige Kongruenz
                   </h3>
                 </div>
                 <p className="text-gray-600 text-sm">
-                  Indem wir Brücken bauen zwischen persönlichem Wachstum und
-                  äußeren Erfolgen in allen Lebensbereichen
+                  Indem wir Brücken bauen zwischen persönlichem Wachstum und äußeren Erfolgen in
+                  allen Lebensbereichen
                 </p>
               </div>
             </div>

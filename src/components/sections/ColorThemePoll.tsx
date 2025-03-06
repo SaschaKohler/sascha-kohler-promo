@@ -1,12 +1,12 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import { ChevronRight, ThumbsUp, Award, BarChart3 } from "lucide-react";
-import { useColorScheme } from "@/contexts/ColorSchemeContext";
-import { colorSchemes } from "@/utils/colorSchemes";
+'use client';
+import React, { useState, useEffect } from 'react';
+import { ChevronRight, ThumbsUp, Award, BarChart3 } from 'lucide-react';
+import { useColorScheme } from '@/contexts/ColorSchemeContext';
+import { colorSchemes } from '@/utils/colorSchemes';
 
 // Lokaler Speicherort für die Votes (in echter Anwendung würde dies serverseitig gespeichert)
-const LOCAL_STORAGE_KEY = "sascha-kohler-color-poll";
-const USER_VOTED_KEY = "user-has-voted";
+const LOCAL_STORAGE_KEY = 'sascha-kohler-color-poll';
+const USER_VOTED_KEY = 'user-has-voted';
 
 interface ThemeVotes {
   [key: string]: number;
@@ -34,13 +34,13 @@ const ColorThemePoll: React.FC = () => {
         // Berechne Gesamtzahl der Votes
         const total = Object.values(parsedVotes).reduce(
           (sum: number, current: number) => sum + current,
-          0,
+          0
         );
         setTotalVotes(total);
       } else {
         // Initialisiere Votes für alle Farbschemata
         const initialVotes: ThemeVotes = {};
-        colorSchemes.forEach((scheme) => {
+        colorSchemes.forEach(scheme => {
           initialVotes[scheme.name] = Math.floor(Math.random() * 20) + 5; // Zufällige Anfangswerte für Demo
         });
         setVotes(initialVotes);
@@ -49,17 +49,17 @@ const ColorThemePoll: React.FC = () => {
         // Berechne Gesamtzahl der initialen Votes
         const total = Object.values(initialVotes).reduce(
           (sum: number, current: number) => sum + current,
-          0,
+          0
         );
         setTotalVotes(total);
       }
 
       // Prüfe, ob der User bereits abgestimmt hat
-      const hasVoted = localStorage.getItem(USER_VOTED_KEY) === "true";
+      const hasVoted = localStorage.getItem(USER_VOTED_KEY) === 'true';
       setUserVoted(hasVoted);
       setShowResults(hasVoted);
     } catch (error) {
-      console.error("Fehler beim Laden der Votes:", error);
+      console.error('Fehler beim Laden der Votes:', error);
     }
   }, []);
 
@@ -81,7 +81,7 @@ const ColorThemePoll: React.FC = () => {
 
         // Speichere im localStorage
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updatedVotes));
-        localStorage.setItem(USER_VOTED_KEY, "true");
+        localStorage.setItem(USER_VOTED_KEY, 'true');
 
         // Update State
         setVotes(updatedVotes);
@@ -89,7 +89,7 @@ const ColorThemePoll: React.FC = () => {
         setShowResults(true);
         setLoadingVote(false);
       } catch (error) {
-        console.error("Fehler beim Abstimmen:", error);
+        console.error('Fehler beim Abstimmen:', error);
         setLoadingVote(false);
       }
     }, 800); // 800ms Verzögerung für ein realistisches Gefühl
@@ -113,16 +113,14 @@ const ColorThemePoll: React.FC = () => {
 
   // Finde das Farbschema anhand des Namens
   const findSchemeByName = (name: string) => {
-    return (
-      colorSchemes.find((scheme) => scheme.name === name) || colorSchemes[0]
-    );
+    return colorSchemes.find(scheme => scheme.name === name) || colorSchemes[0];
   };
 
   return (
     <section className="py-16 transition-all duration-500">
       <div className="container mx-auto px-4 md:px-6">
         <div
-          className={` rounded-lg shadow-lg overflow-hidden transition-all duration-500 ${isExpanded ? "transform-none" : "hover:shadow-xl"}`}
+          className={` rounded-lg shadow-lg overflow-hidden transition-all duration-500 ${isExpanded ? 'transform-none' : 'hover:shadow-xl'}`}
         >
           {/* Header */}
           <div
@@ -131,23 +129,17 @@ const ColorThemePoll: React.FC = () => {
             style={{ borderBottom: `1px solid ${colorScheme.primary}20` }}
           >
             <div className="flex items-center">
-              <BarChart3
-                size={24}
-                className="mr-3"
-                style={{ color: colorScheme.primary }}
-              />
+              <BarChart3 size={24} className="mr-3" style={{ color: colorScheme.primary }} />
               <h2
                 className="text-2xl font-light tracking-wider"
                 style={{ color: colorScheme.primary }}
               >
-                {isExpanded
-                  ? "Farbthemen Umfrage"
-                  : "Welches Farbschema gefällt dir am besten?"}
+                {isExpanded ? 'Farbthemen Umfrage' : 'Welches Farbschema gefällt dir am besten?'}
               </h2>
             </div>
             <ChevronRight
               size={20}
-              className={`transition-transform duration-300 ${isExpanded ? "rotate-90" : ""}`}
+              className={`transition-transform duration-300 ${isExpanded ? 'rotate-90' : ''}`}
               style={{ color: colorScheme.accent }}
             />
           </div>
@@ -157,23 +149,20 @@ const ColorThemePoll: React.FC = () => {
             <div className="p-6">
               <p className="text-lg mb-8" style={{ color: colorScheme.text }}>
                 {userVoted
-                  ? "Danke für deine Stimme! Hier siehst du die aktuellen Ergebnisse."
-                  : "Hilf mir, die beliebtesten Farbschemata zu identifizieren! Wähle dein Lieblingsschema aus und stimme ab."}
+                  ? 'Danke für deine Stimme! Hier siehst du die aktuellen Ergebnisse.'
+                  : 'Hilf mir, die beliebtesten Farbschemata zu identifizieren! Wähle dein Lieblingsschema aus und stimme ab.'}
               </p>
 
               {/* Display vote UI or results */}
               {showResults ? (
                 <div className="space-y-6">
-                  <h3
-                    className="text-xl font-medium mb-4"
-                    style={{ color: colorScheme.primary }}
-                  >
+                  <h3 className="text-xl font-medium mb-4" style={{ color: colorScheme.primary }}>
                     Aktuelle Ergebnisse
                   </h3>
 
                   {/* Results visualization */}
                   <div className="space-y-4">
-                    {colorSchemes.map((scheme) => {
+                    {colorSchemes.map(scheme => {
                       const percentage = getPercentage(scheme.name);
                       const isTopThree = topThemes.indexOf(scheme.name) !== -1;
                       const rank = topThemes.indexOf(scheme.name) + 1;
@@ -188,22 +177,15 @@ const ColorThemePoll: React.FC = () => {
                                   background: `linear-gradient(135deg, ${scheme.primary}, ${scheme.accent})`,
                                 }}
                               />
-                              <span
-                                className="font-medium"
-                                style={{ color: colorScheme.text }}
-                              >
+                              <span className="font-medium" style={{ color: colorScheme.text }}>
                                 {scheme.name}
                                 {isTopThree && (
                                   <span
                                     className="ml-2 inline-flex items-center justify-center w-5 h-5 rounded-full text-xs font-bold"
                                     style={{
                                       backgroundColor:
-                                        rank === 1
-                                          ? "#FFD700"
-                                          : rank === 2
-                                            ? "#C0C0C0"
-                                            : "#CD7F32",
-                                      color: rank === 1 ? "#000" : "#fff",
+                                        rank === 1 ? '#FFD700' : rank === 2 ? '#C0C0C0' : '#CD7F32',
+                                      color: rank === 1 ? '#000' : '#fff',
                                     }}
                                   >
                                     {rank}
@@ -248,23 +230,13 @@ const ColorThemePoll: React.FC = () => {
                         style={{ color: colorScheme.accent }}
                       />
                       <div>
-                        <h4
-                          className="font-medium"
-                          style={{ color: colorScheme.primary }}
-                        >
+                        <h4 className="font-medium" style={{ color: colorScheme.primary }}>
                           Populärstes Farbschema
                         </h4>
-                        <p
-                          className="text-sm"
-                          style={{ color: colorScheme.text }}
-                        >
-                          "{topThemes[0]}" führt mit{" "}
-                          {getPercentage(topThemes[0])}% der Stimmen.
+                        <p className="text-sm" style={{ color: colorScheme.text }}>
+                          "{topThemes[0]}" führt mit {getPercentage(topThemes[0])}% der Stimmen.
                         </p>
-                        <p
-                          className="text-sm mt-2"
-                          style={{ color: `${colorScheme.text}90` }}
-                        >
+                        <p className="text-sm mt-2" style={{ color: `${colorScheme.text}90` }}>
                           Gesamt: {totalVotes} Stimmen
                         </p>
                       </div>
@@ -273,27 +245,21 @@ const ColorThemePoll: React.FC = () => {
                 </div>
               ) : (
                 <div className="space-y-6">
-                  <h3
-                    className="text-xl font-medium mb-4"
-                    style={{ color: colorScheme.primary }}
-                  >
+                  <h3 className="text-xl font-medium mb-4" style={{ color: colorScheme.primary }}>
                     Wähle dein Lieblingsschema
                   </h3>
 
                   {/* Theme selection */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {colorSchemes.map((scheme) => (
+                    {colorSchemes.map(scheme => (
                       <div
                         key={scheme.name}
-                        className={`p-4 rounded-lg cursor-pointer transition-all duration-300 ${selectedTheme === scheme.name ? "ring-2 shadow-md" : "hover:shadow-md"}`}
+                        className={`p-4 rounded-lg cursor-pointer transition-all duration-300 ${selectedTheme === scheme.name ? 'ring-2 shadow-md' : 'hover:shadow-md'}`}
                         style={{
                           background: `linear-gradient(145deg, white, ${scheme.background}30)`,
                           borderLeft: `3px solid ${scheme.primary}`,
                           ringColor: scheme.accent,
-                          transform:
-                            selectedTheme === scheme.name
-                              ? "scale(1.02)"
-                              : "scale(1)",
+                          transform: selectedTheme === scheme.name ? 'scale(1.02)' : 'scale(1)',
                         }}
                         onClick={() => setSelectedTheme(scheme.name)}
                       >
@@ -308,9 +274,7 @@ const ColorThemePoll: React.FC = () => {
                             className="font-medium text-base"
                             style={{
                               color:
-                                selectedTheme === scheme.name
-                                  ? scheme.primary
-                                  : colorScheme.text,
+                                selectedTheme === scheme.name ? scheme.primary : colorScheme.text,
                             }}
                           >
                             {scheme.name}
@@ -338,7 +302,7 @@ const ColorThemePoll: React.FC = () => {
                           <div
                             className="h-6 rounded border"
                             style={{
-                              background: "white",
+                              background: 'white',
                               borderColor: `${scheme.text}20`,
                             }}
                           />
@@ -350,7 +314,7 @@ const ColorThemePoll: React.FC = () => {
                   {/* Vote button */}
                   <div className="mt-8 flex justify-center">
                     <button
-                      className={`flex items-center px-6 py-3 rounded-full text-white font-semibold shadow-md transition-all duration-300 ${selectedTheme ? "opacity-100 hover:shadow-lg" : "opacity-60 cursor-not-allowed"}`}
+                      className={`flex items-center px-6 py-3 rounded-full text-white font-semibold shadow-md transition-all duration-300 ${selectedTheme ? 'opacity-100 hover:shadow-lg' : 'opacity-60 cursor-not-allowed'}`}
                       style={{
                         background: selectedTheme
                           ? `linear-gradient(to right, ${findSchemeByName(selectedTheme).primary}, ${findSchemeByName(selectedTheme).accent})`
@@ -408,9 +372,7 @@ const ColorThemePoll: React.FC = () => {
                     style={{ color: colorScheme.primary }}
                     onClick={() => setShowResults(!showResults)}
                   >
-                    {showResults
-                      ? "Abstimmungsoptionen anzeigen"
-                      : "Ergebnisse anzeigen"}
+                    {showResults ? 'Abstimmungsoptionen anzeigen' : 'Ergebnisse anzeigen'}
                   </button>
                 </div>
               )}

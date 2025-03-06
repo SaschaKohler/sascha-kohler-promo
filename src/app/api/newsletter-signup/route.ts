@@ -1,5 +1,5 @@
 // app/api/newsletter-signup/route.ts
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
@@ -10,30 +10,30 @@ export async function POST(request: NextRequest) {
 
     // Check if webhook URL is defined
     if (!webhookUrl) {
-      console.error("NEXT_PUBLIC_MAKE_WEBHOOK_URL is not defined");
+      console.error('NEXT_PUBLIC_MAKE_WEBHOOK_URL is not defined');
       return NextResponse.json(
-        { success: false, message: "Server configuration error" },
-        { status: 500 },
+        { success: false, message: 'Server configuration error' },
+        { status: 500 }
       );
     }
 
     // Send data to Make.com webhook
     const response = await fetch(webhookUrl, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         email,
-        type: "newsletter",
-        source: "maintenance-page",
+        type: 'newsletter',
+        source: 'maintenance-page',
         timestamp: new Date().toISOString(),
       }),
     });
     if (!email) {
       return NextResponse.json(
-        { success: false, message: "Email ist erforderlich" },
-        { status: 400 },
+        { success: false, message: 'Email ist erforderlich' },
+        { status: 400 }
       );
     }
 
@@ -41,8 +41,8 @@ export async function POST(request: NextRequest) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
-        { success: false, message: "Ungültiges Email-Format" },
-        { status: 400 },
+        { success: false, message: 'Ungültiges Email-Format' },
+        { status: 400 }
       );
     }
 
@@ -52,51 +52,48 @@ export async function POST(request: NextRequest) {
         // "https://hook.eu2.make.com/cpcfe88m1c657r7qs3osjdfkp97nfnno",
         webhookUrl,
         {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({
             email,
-            source: "website-newsletter",
+            source: 'website-newsletter',
             timestamp: new Date().toISOString(),
             // Optionale zusätzliche Informationen, die Sie erfassen möchten
             metadata: {
-              page: "launch-page",
+              page: 'launch-page',
             },
           }),
-        },
+        }
       );
 
       if (!response.ok) {
-        console.error("Webhook response status:", response.status);
-        throw new Error("Newsletter service returned an error");
+        console.error('Webhook response status:', response.status);
+        throw new Error('Newsletter service returned an error');
       }
 
       // Optionale Verarbeitung der Antwort
       const responseData = await response.json().catch(() => ({}));
-      console.log("Newsletter signup successful:", email);
+      console.log('Newsletter signup successful:', email);
 
       // Erfolgsmeldung
       return NextResponse.json({
         success: true,
-        message: "Vielen Dank für Ihre Anmeldung!",
+        message: 'Vielen Dank für Ihre Anmeldung!',
       });
     } catch (error) {
-      console.error("Error sending to newsletter service:", error);
+      console.error('Error sending to newsletter service:', error);
       return NextResponse.json(
         {
           success: false,
-          message: "Fehler bei der Verbindung zum Newsletter-Dienst",
+          message: 'Fehler bei der Verbindung zum Newsletter-Dienst',
         },
-        { status: 500 },
+        { status: 500 }
       );
     }
   } catch (error) {
-    console.error("Newsletter signup error:", error);
-    return NextResponse.json(
-      { success: false, message: "Serverfehler" },
-      { status: 500 },
-    );
+    console.error('Newsletter signup error:', error);
+    return NextResponse.json({ success: false, message: 'Serverfehler' }, { status: 500 });
   }
 }

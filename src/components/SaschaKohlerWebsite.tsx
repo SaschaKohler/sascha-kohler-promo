@@ -1,30 +1,26 @@
-"use client";
-import React from "react";
-import Navigation from "./layout/Navigation";
-import Footer from "./layout/Footer";
-import ScrollToTop from "./layout/ScrollToTop";
-import HeroSection from "./klare-method/HeroSection";
-import ContextAwareColorSchemeSelector from "./ui/ContextAwareColorSchemeSelector";
-import { useScrollProgress } from "@/hooks/useScrollProgress";
-import { useActiveSection } from "@/hooks/useActiveSection";
-import {
-  ColorSchemeProvider,
-  useColorScheme,
-} from "@/contexts/ColorSchemeContext";
-import GrowthJourneySection from "./GrowthJourneySection";
-import ThanksSectionFamily from "./ThanksSectionFamily";
+'use client';
+import React from 'react';
+import Navigation from './layout/Navigation';
+import Footer from './layout/Footer';
+import ScrollToTop from './layout/ScrollToTop';
+import HeroSection from './klare-method/HeroSection';
+import ContextAwareColorSchemeSelector from './ui/ContextAwareColorSchemeSelector';
+import { useScrollProgress } from '@/hooks/useScrollProgress';
+import { useActiveSection } from '@/hooks/useActiveSection';
+import { ColorSchemeProvider, useColorScheme } from '@/contexts/ColorSchemeContext';
+import GrowthJourneySection from './GrowthJourneySection';
+import ThanksSectionFamily from './ThanksSectionFamily';
 
 // Hauptkomponente
 const SaschaKohlerWebsiteContent: React.FC = () => {
   const { scrollProgress, showScrollTop } = useScrollProgress();
-  const { activeSection, scrollToSection, mobileMenuOpen, setMobileMenuOpen } =
-    useActiveSection();
+  const { activeSection, scrollToSection, mobileMenuOpen, setMobileMenuOpen } = useActiveSection();
 
   // Funktion zum Scrollen nach oben
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
@@ -45,7 +41,7 @@ const SaschaKohlerWebsiteContent: React.FC = () => {
       {showScrollTop && <ScrollToTop onClick={scrollToTop} />}
 
       {/* Hero-Sektion mit wöchentlich wechselnden Texten */}
-      <HeroSection onContactClick={() => scrollToSection("contact")} />
+      <HeroSection onContactClick={() => scrollToSection('contact')} />
 
       {/* About Section - Hier sollte die About-Sektion-Komponente eingebunden werden */}
       <section id="about" className="py-20 min-h-screen flex items-center">
@@ -59,10 +55,7 @@ const SaschaKohlerWebsiteContent: React.FC = () => {
       </section>
 
       {/* Growth Journey Section */}
-      <section
-        id="growth-journey"
-        className="py-20 min-h-screen flex items-center"
-      >
+      <section id="growth-journey" className="py-20 min-h-screen flex items-center">
         <div className="container mx-auto px-6">
           <GrowthJourneySection />
         </div>

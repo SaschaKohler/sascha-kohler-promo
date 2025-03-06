@@ -1,19 +1,11 @@
-"use client";
-import React from "react";
-import { useState } from "react";
-import { kongruenzSteps, getStepColor } from "@/data/kongruenzSteps";
-import { ColorScheme } from "@/utils/colorSchemes";
-import useScrollToSection from "@/hooks/useScrollToSection";
-import {
-  Search,
-  Zap,
-  Compass,
-  Hammer,
-  Sparkles,
-  ChevronRight,
-  ChevronLeft,
-} from "lucide-react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+'use client';
+import React from 'react';
+import { useState } from 'react';
+import { kongruenzSteps, getStepColor } from '@/data/kongruenzSteps';
+import { ColorScheme } from '@/utils/colorSchemes';
+import useScrollToSection from '@/hooks/useScrollToSection';
+import { Search, Zap, Compass, Hammer, Sparkles, ChevronRight, ChevronLeft } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   Card,
   CardContent,
@@ -21,14 +13,12 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+} from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 // Definiere LucideIcon Type direkt hier, um kongruenzSteps anzupassen
-type LucideIcon = React.ComponentType<
-  React.SVGProps<SVGSVGElement> & { size?: number }
->;
+type LucideIcon = React.ComponentType<React.SVGProps<SVGSVGElement> & { size?: number }>;
 
 // Aktualisierte KLARE-Methode Schritte mit Lucide-Icons
 const stepsWithIcons = [
@@ -36,31 +26,31 @@ const stepsWithIcons = [
     ...kongruenzSteps[0],
     icon: Search,
     content:
-      "Erkennen sie ihre größten Ziele und konfrontieren sie sich ehrlich mit ihrer aktuellen Situation. Dieser Schritt schafft Klarheit über den IST-Zustand und den angestrebten SOLL-Zustand in allen Lebensbereichen.",
+      'Erkennen sie ihre größten Ziele und konfrontieren sie sich ehrlich mit ihrer aktuellen Situation. Dieser Schritt schafft Klarheit über den IST-Zustand und den angestrebten SOLL-Zustand in allen Lebensbereichen.',
   },
   {
     ...kongruenzSteps[1],
     icon: Zap,
     content:
-      "Entdecken sie die natürliche Lebendigkeit und Energie, die bereits in ihnen vorhanden ist. Hier lernen sie, ihre natürlichen Ressourcen und Kräfte zu erkennen und gezielt zu nutzen.",
+      'Entdecken sie die natürliche Lebendigkeit und Energie, die bereits in ihnen vorhanden ist. Hier lernen sie, ihre natürlichen Ressourcen und Kräfte zu erkennen und gezielt zu nutzen.',
   },
   {
     ...kongruenzSteps[2],
     icon: Compass,
     content:
-      "Entwicklen sie konkrete Strategien, um alle Lebensbereiche in Richtung ihrer Ziele auszurichten. In diesem Schritt erlernen sie Techniken zur bewussten Ausrichtung ihres Denkens, Fühlens und Handelns.",
+      'Entwicklen sie konkrete Strategien, um alle Lebensbereiche in Richtung ihrer Ziele auszurichten. In diesem Schritt erlernen sie Techniken zur bewussten Ausrichtung ihres Denkens, Fühlens und Handelns.',
   },
   {
     ...kongruenzSteps[3],
     icon: Hammer,
     content:
-      "Setzen sie die entwickelten Strategien in ihrem Alltag um und integrieren sie diese nachhaltig in ihrem Leben. Hier werden unterstützende Strukturen und Routinen etabliert, die langfristige Veränderung ermöglichen.",
+      'Setzen sie die entwickelten Strategien in ihrem Alltag um und integrieren sie diese nachhaltig in ihrem Leben. Hier werden unterstützende Strukturen und Routinen etabliert, die langfristige Veränderung ermöglichen.',
   },
   {
     ...kongruenzSteps[4],
     icon: Sparkles,
     content:
-      "Erleben sie, wie durch vollständige Kongruenz ihren Ziele mit natürlicher Leichtigkeit Wirklichkeit werden. In diesem finalen Schritt manifestiert sich ihre Transformation in allen Lebensbereichen und sie erleben das Gefühl tiefer innerer Stimmigkeit.",
+      'Erleben sie, wie durch vollständige Kongruenz ihren Ziele mit natürlicher Leichtigkeit Wirklichkeit werden. In diesem finalen Schritt manifestiert sich ihre Transformation in allen Lebensbereichen und sie erleben das Gefühl tiefer innerer Stimmigkeit.',
   },
 ];
 
@@ -71,7 +61,7 @@ interface MethodStepsProps {
 }
 
 const MethodSteps: React.FC<MethodStepsProps> = ({
-  className = "",
+  className = '',
   colorScheme,
   initialActiveStep = 0,
 }) => {
@@ -81,15 +71,14 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
     scrollToSection(sectionId, { offset: 80 });
   };
 
-  const [activeStepIndex, setActiveStepIndex] =
-    useState<number>(initialActiveStep);
+  const [activeStepIndex, setActiveStepIndex] = useState<number>(initialActiveStep);
 
   const handlePrevStep = () => {
-    setActiveStepIndex((prev) => Math.max(0, prev - 1));
+    setActiveStepIndex(prev => Math.max(0, prev - 1));
   };
 
   const handleNextStep = () => {
-    setActiveStepIndex((prev) => Math.min(stepsWithIcons.length - 1, prev + 1));
+    setActiveStepIndex(prev => Math.min(stepsWithIcons.length - 1, prev + 1));
   };
 
   // Funktion um den CSS-Wert für den Fortschritt zu berechnen
@@ -100,23 +89,15 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
 
   return (
     <section id="methods-steps" className="py-12">
-      <div
-        className={cn(
-          "rounded-lg bg-card shadow-lg p-6 max-w-4xl mx-auto",
-          className,
-        )}
-      >
+      <div className={cn('rounded-lg bg-card shadow-lg p-6 max-w-4xl mx-auto', className)}>
         <CardHeader className="text-center pb-2">
-          <CardTitle
-            className="text-2xl font-semibold"
-            style={{ color: colorScheme.primary }}
-          >
+          <CardTitle className="text-2xl font-semibold" style={{ color: colorScheme.primary }}>
             Entdecke die KLARE Methode
           </CardTitle>
           <CardDescription className="text-muted-foreground max-w-2xl mx-auto">
-            In 5 Schritten zur vollständigen Kongruenz in allen Lebensbereichen.
-            Entdecken sie den transformativen Prozess, der ihnen hilft, alle
-            Aspekte ihres Lebens auf ihre Ziele auszurichten.
+            In 5 Schritten zur vollständigen Kongruenz in allen Lebensbereichen. Entdecken sie den
+            transformativen Prozess, der ihnen hilft, alle Aspekte ihres Lebens auf ihre Ziele
+            auszurichten.
           </CardDescription>
         </CardHeader>
 
@@ -139,10 +120,7 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
                   className="h-full rounded-full transition-all duration-300"
                   style={{
                     width: getProgressStyle(),
-                    backgroundColor: getStepColor(
-                      stepsWithIcons[activeStepIndex],
-                      colorScheme,
-                    ),
+                    backgroundColor: getStepColor(stepsWithIcons[activeStepIndex], colorScheme),
                   }}
                 />
               </div>
@@ -163,14 +141,10 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
                 className="inline-flex items-center px-3 py-1 text-sm font-medium rounded-full"
                 style={{
                   backgroundColor: `${getStepColor(stepsWithIcons[activeStepIndex], colorScheme)}20`,
-                  color: getStepColor(
-                    stepsWithIcons[activeStepIndex],
-                    colorScheme,
-                  ),
+                  color: getStepColor(stepsWithIcons[activeStepIndex], colorScheme),
                 }}
               >
-                {stepsWithIcons[activeStepIndex].letter}:{" "}
-                {stepsWithIcons[activeStepIndex].name}
+                {stepsWithIcons[activeStepIndex].letter}: {stepsWithIcons[activeStepIndex].name}
               </span>
             </div>
           </div>
@@ -180,7 +154,7 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
             <Tabs
               defaultValue={activeStepIndex.toString()}
               value={activeStepIndex.toString()}
-              onValueChange={(value) => setActiveStepIndex(parseInt(value))}
+              onValueChange={value => setActiveStepIndex(parseInt(value))}
               className="w-full"
             >
               <div className="relative mb-6">
@@ -195,16 +169,12 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
                         key={index}
                         value={index.toString()}
                         className={cn(
-                          "flex flex-col items-center gap-1 data-[state=active]:shadow-none bg-background border-2 rounded-full w-16 h-16 p-0",
-                          isActive
-                            ? "data-[state=active]:border-primary"
-                            : "border-transparent",
+                          'flex flex-col items-center gap-1 data-[state=active]:shadow-none bg-background border-2 rounded-full w-16 h-16 p-0',
+                          isActive ? 'data-[state=active]:border-primary' : 'border-transparent'
                         )}
                         style={{
-                          borderColor: isActive ? stepColor : "transparent",
-                          backgroundColor: isActive
-                            ? `${stepColor}10`
-                            : "white",
+                          borderColor: isActive ? stepColor : 'transparent',
+                          backgroundColor: isActive ? `${stepColor}10` : 'white',
                         }}
                       >
                         <div
@@ -214,12 +184,10 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
                             opacity: isActive ? 1 : 0.7,
                           }}
                         >
-                          <span className="text-white font-bold">
-                            {step.letter}
-                          </span>
+                          <span className="text-white font-bold">{step.letter}</span>
                           {React.createElement(step.icon as LucideIcon, {
                             size: 14,
-                            className: "text-white mt-1",
+                            className: 'text-white mt-1',
                           })}
                         </div>
                       </TabsTrigger>
@@ -237,7 +205,7 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
                       color:
                         activeStepIndex === index
                           ? getStepColor(step, colorScheme)
-                          : "var(--muted-foreground)",
+                          : 'var(--muted-foreground)',
                     }}
                   >
                     <span className="font-medium">{step.name}</span>
@@ -250,11 +218,7 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
 
               {/* Tabs Content */}
               {stepsWithIcons.map((step, index) => (
-                <TabsContent
-                  key={index}
-                  value={index.toString()}
-                  className="mt-6"
-                >
+                <TabsContent key={index} value={index.toString()} className="mt-6">
                   <Card>
                     <CardHeader
                       className="flex flex-row items-center gap-4 pb-2"
@@ -277,14 +241,9 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
                         </CardDescription>
                       </div>
                     </CardHeader>
-                    <CardContent className="text-muted-foreground">
-                      {step.content}
-                    </CardContent>
+                    <CardContent className="text-muted-foreground">{step.content}</CardContent>
                     <CardFooter className="justify-end text-sm">
-                      <span
-                        className="text-sm"
-                        style={{ color: getStepColor(step, colorScheme) }}
-                      >
+                      <span className="text-sm" style={{ color: getStepColor(step, colorScheme) }}>
                         Bald verfügbar
                       </span>
                     </CardFooter>
@@ -300,10 +259,7 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
               <CardHeader
                 className="flex flex-row items-center gap-3 pb-2"
                 style={{
-                  color: getStepColor(
-                    stepsWithIcons[activeStepIndex],
-                    colorScheme,
-                  ),
+                  color: getStepColor(stepsWithIcons[activeStepIndex], colorScheme),
                 }}
               >
                 <div
@@ -312,10 +268,9 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
                     backgroundColor: `${getStepColor(stepsWithIcons[activeStepIndex], colorScheme)}20`,
                   }}
                 >
-                  {React.createElement(
-                    stepsWithIcons[activeStepIndex].icon as LucideIcon,
-                    { size: 18 },
-                  )}
+                  {React.createElement(stepsWithIcons[activeStepIndex].icon as LucideIcon, {
+                    size: 18,
+                  })}
                 </div>
                 <div>
                   <CardTitle className="text-base">
@@ -333,10 +288,7 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
                 <span
                   className="text-xs"
                   style={{
-                    color: getStepColor(
-                      stepsWithIcons[activeStepIndex],
-                      colorScheme,
-                    ),
+                    color: getStepColor(stepsWithIcons[activeStepIndex], colorScheme),
                   }}
                 >
                   Bald verfügbar
@@ -352,7 +304,7 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
             variant="link"
             className="gap-1.5 font-medium"
             style={{ color: colorScheme.primary }}
-            onClick={() => handleScrollToSection("newsletter")}
+            onClick={() => handleScrollToSection('newsletter')}
           >
             <span>Mehr über die KLARE Kongruenz-Methode erfahren</span>
             <ChevronRight className="h-4 w-4" />

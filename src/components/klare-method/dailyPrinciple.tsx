@@ -1,8 +1,8 @@
-"use client";
-import { ColorScheme } from "@/utils/colorSchemes";
-import { Calendar, ChevronDown } from "lucide-react";
-import { useEffect, useState } from "react";
-import { transformationPrinciples } from "@/data/transformationPrinciples";
+'use client';
+import { ColorScheme } from '@/utils/colorSchemes';
+import { Calendar, ChevronDown } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { transformationPrinciples } from '@/data/transformationPrinciples';
 
 interface DailyQuoteProps {
   colorScheme: ColorScheme;
@@ -13,9 +13,7 @@ const DailyPrinciple: React.FC<DailyQuoteProps> = ({ colorScheme }) => {
 
   useEffect(() => {
     const now = new Date();
-    const dayOfYear = Math.floor(
-      (now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24),
-    );
+    const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
     const principleIndex = dayOfYear % transformationPrinciples.length;
     setDailyQuote(transformationPrinciples[principleIndex]);
   }, []);
@@ -26,13 +24,8 @@ const DailyPrinciple: React.FC<DailyQuoteProps> = ({ colorScheme }) => {
         <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-white p-2 rounded-full shadow">
           <Calendar size={24} style={{ color: colorScheme.accent }} />
         </div>
-        <h2 className="text-xl font-medium mb-6 text-center">
-          Kongruenz-Prinzip des Tages
-        </h2>
-        <p
-          className="text-xl md:text-2xl italic mb-4"
-          style={{ color: colorScheme.primary }}
-        >
+        <h2 className="text-xl font-medium mb-6 text-center">Kongruenz-Prinzip des Tages</h2>
+        <p className="text-xl md:text-2xl italic mb-4" style={{ color: colorScheme.primary }}>
           "{dailyQuote.principle}"
         </p>
         <p className="text-right text-gray-600 flex items-center justify-end">

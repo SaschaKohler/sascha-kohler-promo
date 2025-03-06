@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { ChevronRight } from "lucide-react";
-import { ColorScheme } from "../common/ColorSchemeSelector";
+import React, { useState, useEffect } from 'react';
+import { ChevronRight } from 'lucide-react';
+import { ColorScheme } from '../common/ColorSchemeSelector';
 
 interface KlareMethodStepsProps {
   colorScheme: ColorScheme;
@@ -9,49 +9,49 @@ interface KlareMethodStepsProps {
 // KLARE Kongruenz-Methode steps
 const kongruenzSteps = [
   {
-    name: "Konfrontation",
-    letter: "K",
-    color: "#6366F1",
-    icon: "🔍",
-    description: "mit der aktuellen Situation",
+    name: 'Konfrontation',
+    letter: 'K',
+    color: '#6366F1',
+    icon: '🔍',
+    description: 'mit der aktuellen Situation',
     longDescription:
-      "Erkenne deine größten Ziele und konfrontiere dich ehrlich mit deiner aktuellen Situation. Dieser Schritt schafft Klarheit über den IST-Zustand und den angestrebten SOLL-Zustand in allen Lebensbereichen.",
+      'Erkenne deine größten Ziele und konfrontiere dich ehrlich mit deiner aktuellen Situation. Dieser Schritt schafft Klarheit über den IST-Zustand und den angestrebten SOLL-Zustand in allen Lebensbereichen.',
   },
   {
-    name: "Lebendigkeit",
-    letter: "L",
-    color: "#8B5CF6",
-    icon: "🌱",
-    description: "erkennen und fördern",
+    name: 'Lebendigkeit',
+    letter: 'L',
+    color: '#8B5CF6',
+    icon: '🌱',
+    description: 'erkennen und fördern',
     longDescription:
-      "Entdecke die natürliche Lebendigkeit und Energie, die bereits in dir vorhanden ist. Hier lernst du, deine natürlichen Ressourcen und Kräfte zu erkennen und gezielt zu nutzen.",
+      'Entdecke die natürliche Lebendigkeit und Energie, die bereits in dir vorhanden ist. Hier lernst du, deine natürlichen Ressourcen und Kräfte zu erkennen und gezielt zu nutzen.',
   },
   {
-    name: "Ausrichtung",
-    letter: "A",
-    color: "#EC4899",
-    icon: "🧭",
-    description: "der Lebensbereiche",
+    name: 'Ausrichtung',
+    letter: 'A',
+    color: '#EC4899',
+    icon: '🧭',
+    description: 'der Lebensbereiche',
     longDescription:
-      "Entwickle konkrete Strategien, um alle Lebensbereiche in Richtung deiner Ziele auszurichten. In diesem Schritt lernst du Techniken zur bewussten Ausrichtung deines Denkens, Fühlens und Handelns.",
+      'Entwickle konkrete Strategien, um alle Lebensbereiche in Richtung deiner Ziele auszurichten. In diesem Schritt lernst du Techniken zur bewussten Ausrichtung deines Denkens, Fühlens und Handelns.',
   },
   {
-    name: "Realisierung",
-    letter: "R",
-    color: "#F59E0B",
-    icon: "🔄",
-    description: "im Alltag",
+    name: 'Realisierung',
+    letter: 'R',
+    color: '#F59E0B',
+    icon: '🔄',
+    description: 'im Alltag',
     longDescription:
-      "Setze die entwickelten Strategien in deinem Alltag um und integriere sie nachhaltig in dein Leben. Hier werden unterstützende Strukturen und Routinen etabliert, die langfristige Veränderung ermöglichen.",
+      'Setze die entwickelten Strategien in deinem Alltag um und integriere sie nachhaltig in dein Leben. Hier werden unterstützende Strukturen und Routinen etabliert, die langfristige Veränderung ermöglichen.',
   },
   {
-    name: "Entfaltung",
-    letter: "E",
-    color: "#10B981",
-    icon: "✨",
-    description: "durch vollständige Kongruenz",
+    name: 'Entfaltung',
+    letter: 'E',
+    color: '#10B981',
+    icon: '✨',
+    description: 'durch vollständige Kongruenz',
     longDescription:
-      "Erlebe, wie durch vollständige Kongruenz deine Ziele mit natürlicher Leichtigkeit Wirklichkeit werden. In diesem finalen Schritt manifestiert sich deine Transformation in allen Lebensbereichen und du erlebst das Gefühl tiefer innerer Stimmigkeit.",
+      'Erlebe, wie durch vollständige Kongruenz deine Ziele mit natürlicher Leichtigkeit Wirklichkeit werden. In diesem finalen Schritt manifestiert sich deine Transformation in allen Lebensbereichen und du erlebst das Gefühl tiefer innerer Stimmigkeit.',
   },
 ];
 
@@ -61,9 +61,7 @@ const KlareMethodSteps: React.FC<KlareMethodStepsProps> = ({ colorScheme }) => {
   // Auto-rotate active step
   useEffect(() => {
     const stepInterval = setInterval(() => {
-      setActiveStepIndex(
-        (prevIndex) => (prevIndex + 1) % kongruenzSteps.length,
-      );
+      setActiveStepIndex(prevIndex => (prevIndex + 1) % kongruenzSteps.length);
     }, 5000);
 
     return () => clearInterval(stepInterval);
@@ -87,9 +85,9 @@ const KlareMethodSteps: React.FC<KlareMethodStepsProps> = ({ colorScheme }) => {
 
         <div className="flex flex-col items-center">
           <p className="text-gray-600 mb-10 text-center max-w-2xl">
-            In 5 Schritten zur vollständigen Kongruenz in allen Lebensbereichen.
-            Entdecke den transformativen Prozess, der dir hilft, alle Aspekte
-            deines Lebens auf deine großen Ziele auszurichten.
+            In 5 Schritten zur vollständigen Kongruenz in allen Lebensbereichen. Entdecke den
+            transformativen Prozess, der dir hilft, alle Aspekte deines Lebens auf deine großen
+            Ziele auszurichten.
           </p>
 
           {/* Kongruenz-Steps Path Preview with circles and text below */}
@@ -98,7 +96,7 @@ const KlareMethodSteps: React.FC<KlareMethodStepsProps> = ({ colorScheme }) => {
             <div
               className="absolute top-1/2 left-0 w-full h-1 -translate-y-1/2 transition-all duration-300"
               style={{
-                background: `linear-gradient(to right, ${kongruenzSteps.map((step) => step.color).join(", ")})`,
+                background: `linear-gradient(to right, ${kongruenzSteps.map(step => step.color).join(', ')})`,
               }}
             ></div>
 
@@ -107,7 +105,7 @@ const KlareMethodSteps: React.FC<KlareMethodStepsProps> = ({ colorScheme }) => {
               {kongruenzSteps.map((step, index) => (
                 <div
                   key={index}
-                  className={`relative flex flex-col items-center cursor-pointer transform transition-all duration-300 ${activeStepIndex === index ? "scale-110" : ""}`}
+                  className={`relative flex flex-col items-center cursor-pointer transform transition-all duration-300 ${activeStepIndex === index ? 'scale-110' : ''}`}
                   onClick={() => setActiveStepIndex(index)}
                 >
                   <div
@@ -125,7 +123,7 @@ const KlareMethodSteps: React.FC<KlareMethodStepsProps> = ({ colorScheme }) => {
                   <span
                     className="text-xs font-medium text-center mb-1"
                     style={{
-                      color: activeStepIndex === index ? step.color : "#666",
+                      color: activeStepIndex === index ? step.color : '#666',
                     }}
                   >
                     {step.name}
@@ -153,12 +151,9 @@ const KlareMethodSteps: React.FC<KlareMethodStepsProps> = ({ colorScheme }) => {
               className="font-medium mb-2"
               style={{ color: kongruenzSteps[activeStepIndex].color }}
             >
-              {kongruenzSteps[activeStepIndex].name}{" "}
-              {kongruenzSteps[activeStepIndex].description}
+              {kongruenzSteps[activeStepIndex].name} {kongruenzSteps[activeStepIndex].description}
             </h3>
-            <p className="text-gray-600">
-              {kongruenzSteps[activeStepIndex].longDescription}
-            </p>
+            <p className="text-gray-600">{kongruenzSteps[activeStepIndex].longDescription}</p>
             <div className="mt-4 text-right">
               <span
                 className="text-sm font-medium transition-colors duration-300"

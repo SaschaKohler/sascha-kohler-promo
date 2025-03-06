@@ -1,25 +1,22 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import { Construction, ChevronDown } from "lucide-react";
-import {
-  ColorSchemeProvider,
-  useColorScheme,
-} from "@/contexts/ColorSchemeContext";
-import ContextAwareColorSchemeSelector from "../ui/ContextAwareColorSchemeSelector";
-import useScrollToSection from "@/hooks/useScrollToSection";
-import { useScrollProgress } from "@/hooks/useScrollProgress";
-import { inkongruenzTypen } from "@/data/inkongruenzTypen";
-import { kongruenzSteps } from "@/data/kongruenzSteps";
-import ThanksSection from "../main-site/ThanksSection";
-import MethodSteps from "./MethodStepsShadecn";
-import DailyPrinciple from "./dailyPrinciple";
-import useElementVisibility from "@/hooks/useElementVisibility";
-import TargetPersonaIndicator from "./TargetPersonaIndicator";
-import TeaserSection from "../sections/TeaserSection";
-import InkongruenzTypenSection from "../sections/InkongruenzTypenSection";
-import WhyKongruenzSection from "../sections/WhyKongruenzSection";
-import FeatureTeaserSection from "../sections/FeatureTeaserSection";
-import NewsletterSignup from "./NewsletterSignup";
+'use client';
+import React, { useState, useEffect } from 'react';
+import { Construction, ChevronDown } from 'lucide-react';
+import { ColorSchemeProvider, useColorScheme } from '@/contexts/ColorSchemeContext';
+import ContextAwareColorSchemeSelector from '../ui/ContextAwareColorSchemeSelector';
+import useScrollToSection from '@/hooks/useScrollToSection';
+import { useScrollProgress } from '@/hooks/useScrollProgress';
+import { inkongruenzTypen } from '@/data/inkongruenzTypen';
+import { kongruenzSteps } from '@/data/kongruenzSteps';
+import ThanksSection from '../main-site/ThanksSection';
+import MethodSteps from './MethodStepsShadecn';
+import DailyPrinciple from './dailyPrinciple';
+import useElementVisibility from '@/hooks/useElementVisibility';
+import TargetPersonaIndicator from './TargetPersonaIndicator';
+import TeaserSection from '../sections/TeaserSection';
+import InkongruenzTypenSection from '../sections/InkongruenzTypenSection';
+import WhyKongruenzSection from '../sections/WhyKongruenzSection';
+import FeatureTeaserSection from '../sections/FeatureTeaserSection';
+import NewsletterSignup from './NewsletterSignup';
 
 const KlareMaintenanceModeContent: React.FC = () => {
   const [countdown, setCountdown] = useState({
@@ -28,7 +25,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
     minutes: 0,
     seconds: 0,
   });
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [scrollProgress, setScrollProgress] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [activeStepIndex, setActiveStepIndex] = useState(0);
@@ -38,7 +35,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
   const scrollToSection = useScrollToSection();
   const [footerRef, isFooterVisible] = useElementVisibility({
     threshold: 0.2, // Trigger when 20% of the footer is visible
-    rootMargin: "0px 0px 0px 0px",
+    rootMargin: '0px 0px 0px 0px',
   });
   // Set launch date to 4 weeks from now
   const launchDate = new Date();
@@ -52,12 +49,8 @@ const KlareMaintenanceModeContent: React.FC = () => {
 
       if (difference > 0) {
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor(
-          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-        );
-        const minutes = Math.floor(
-          (difference % (1000 * 60 * 60)) / (1000 * 60),
-        );
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
         setCountdown({ days, hours, minutes, seconds });
@@ -82,22 +75,18 @@ const KlareMaintenanceModeContent: React.FC = () => {
       setScrollProgress(progress);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Auto-rotate active step, inkongruenz type and pathway
   useEffect(() => {
     const stepInterval = setInterval(() => {
-      setActiveStepIndex(
-        (prevIndex) => (prevIndex + 1) % kongruenzSteps.length,
-      );
+      setActiveStepIndex(prevIndex => (prevIndex + 1) % kongruenzSteps.length);
     }, 7000);
 
     const inkongruenzInterval = setInterval(() => {
-      setActiveInkongruenzIndex(
-        (prevIndex) => (prevIndex + 1) % inkongruenzTypen.length,
-      );
+      setActiveInkongruenzIndex(prevIndex => (prevIndex + 1) % inkongruenzTypen.length);
     }, 7000);
 
     // const pathwayInterval = setInterval(() => {
@@ -118,14 +107,14 @@ const KlareMaintenanceModeContent: React.FC = () => {
     e.preventDefault();
     // In a real application, this would connect to a mailing list service
     alert(`Danke! ${email} wurde für Updates registriert.`);
-    setEmail("");
+    setEmail('');
   };
 
   // Scroll to top function
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
@@ -174,9 +163,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
             style={{ color: `${colorScheme.primary}80` }}
           >
             <Construction size={20} />
-            <span className="hidden sm:inline text-sm tracking-wide">
-              WEBSITE IM AUFBAU
-            </span>
+            <span className="hidden sm:inline text-sm tracking-wide">WEBSITE IM AUFBAU</span>
           </div>
         </div>
       </nav>
@@ -250,9 +237,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 >
                   {countdown.hours}
                 </div>
-                <div className="text-gray-600 text-sm md:text-base">
-                  Stunden
-                </div>
+                <div className="text-gray-600 text-sm md:text-base">Stunden</div>
               </div>
               <div className="flex flex-col">
                 <div
@@ -261,9 +246,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 >
                   {countdown.minutes}
                 </div>
-                <div className="text-gray-600 text-sm md:text-base">
-                  Minuten
-                </div>
+                <div className="text-gray-600 text-sm md:text-base">Minuten</div>
               </div>
               <div className="flex flex-col">
                 <div
@@ -272,9 +255,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 >
                   {countdown.seconds}
                 </div>
-                <div className="text-gray-600 text-sm md:text-base">
-                  Sekunden
-                </div>
+                <div className="text-gray-600 text-sm md:text-base">Sekunden</div>
               </div>
             </div>
           </div>
@@ -301,8 +282,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
                   <div className="absolute bottom-0 w-full h-1/4 bg-white bg-opacity-20"></div>
                 </div>
                 <div className="ml-2 text-xl font-semibold">
-                  <span style={{ color: colorScheme.accent }}>Sascha</span>{" "}
-                  Kohler
+                  <span style={{ color: colorScheme.accent }}>Sascha</span> Kohler
                 </div>
               </div>
               <p className="text-gray-400 text-sm mb-1">Die KLARE-Methode</p>
@@ -321,8 +301,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
 
             <div className="text-gray-400 text-sm text-center md:text-right">
               <div className="mb-2">
-                © {new Date().getFullYear()} Sascha Kohler. Alle Rechte
-                vorbehalten.
+                © {new Date().getFullYear()} Sascha Kohler. Alle Rechte vorbehalten.
               </div>
               <div className="mb-2 font-medium text-gray-300">
                 "Entfalte Dich selbst, statt Dich immer nur zu optimieren"
@@ -331,9 +310,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 Die KLARE-Methode | Vorträge | Workshops | Coaching
               </div>
               <div className="text-xs text-gray-500">
-                <span className="mr-2">
-                  Design & Entwicklung: Sascha Kohler
-                </span>
+                <span className="mr-2">Design & Entwicklung: Sascha Kohler</span>
                 <a
                   href="https://sascha-kohler.at/it"
                   className="text-gray-400 hover:text-white transition-colors duration-300"
@@ -346,10 +323,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
         </div>
       </footer>
       {/* Target Persona Indicator - Verwende die neue ausgelagerte Komponente */}
-      <TargetPersonaIndicator
-        colorScheme={colorScheme}
-        isFooterVisible={isFooterVisible}
-      />
+      <TargetPersonaIndicator colorScheme={colorScheme} isFooterVisible={isFooterVisible} />
 
       <style jsx>{`
         @keyframes float {

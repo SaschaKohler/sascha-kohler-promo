@@ -1,8 +1,8 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import { ChevronDown } from "lucide-react";
-import { useColorScheme } from "@/contexts/ColorSchemeContext";
+'use client';
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { ChevronDown } from 'lucide-react';
+import { useColorScheme } from '@/contexts/ColorSchemeContext';
 
 interface HeroSectionProps {
   onContactClick: () => void;
@@ -17,28 +17,26 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
   // Array mit verschiedenen Texten für den Hero-Bereich
   const heroTexts = [
     {
-      heading: "Schlüssel zur",
-      highlight: "Selbstkongruenten Transformation",
-      tagline:
-        "Entdecke mit mir den Weg zu einem kongruenten, bewussten und erfüllten Leben.",
+      heading: 'Schlüssel zur',
+      highlight: 'Selbstkongruenten Transformation',
+      tagline: 'Entdecke mit mir den Weg zu einem kongruenten, bewussten und erfüllten Leben.',
     },
     {
-      heading: "Impulse für",
-      highlight: "nachhaltige Bewusstseinsentwicklung",
+      heading: 'Impulse für',
+      highlight: 'nachhaltige Bewusstseinsentwicklung',
       tagline:
-        "Lerne die Kraft deiner inneren Ressourcen kennen und nutze sie für deinen persönlichen Wandel.",
+        'Lerne die Kraft deiner inneren Ressourcen kennen und nutze sie für deinen persönlichen Wandel.',
     },
     {
-      heading: "Bewusste Transformation durch",
-      highlight: "Kongruenz-Methodik\u00A9",
+      heading: 'Bewusste Transformation durch',
+      highlight: 'Kongruenz-Methodik\u00A9',
       tagline:
-        "Erfahre, wie kleine Veränderungen im Denken zu großen Veränderungen im Leben führen können.",
+        'Erfahre, wie kleine Veränderungen im Denken zu großen Veränderungen im Leben führen können.',
     },
     {
-      heading: "Von Mustern zu",
-      highlight: "Potenzialen",
-      tagline:
-        "Mit NLP und ROK-Methodik* zu mehr Klarheit, Selbstbestimmung und Lebensfreude.",
+      heading: 'Von Mustern zu',
+      highlight: 'Potenzialen',
+      tagline: 'Mit NLP und ROK-Methodik* zu mehr Klarheit, Selbstbestimmung und Lebensfreude.',
     },
   ];
 
@@ -48,7 +46,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
       setIsTextChanging(true);
 
       setTimeout(() => {
-        setHeroTextIndex((prevIndex) => (prevIndex + 1) % heroTexts.length);
+        setHeroTextIndex(prevIndex => (prevIndex + 1) % heroTexts.length);
 
         setTimeout(() => {
           setIsTextChanging(false);
@@ -86,7 +84,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -102,12 +100,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div
-            className={`${isTextChanging ? "opacity-0" : "opacity-100"} text-center md:text-left md:w-3/5 transition-opacity duration-500`}
+            className={`${isTextChanging ? 'opacity-0' : 'opacity-100'} text-center md:text-left md:w-3/5 transition-opacity duration-500`}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span style={{ color: colorScheme.text }}>
-                {heroTexts[heroTextIndex].heading}
-              </span>
+              <span style={{ color: colorScheme.text }}>{heroTexts[heroTextIndex].heading}</span>
               <br />
               {/* Gradient text with weekly rotation */}
               <span
@@ -135,7 +131,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
               style={{
                 background: `linear-gradient(to right, ${colorScheme.primary}, ${colorScheme.accent})`,
               }}
-              onClick={() => scrollToSection("contact")}
+              onClick={() => scrollToSection('contact')}
             >
               weitere Info
             </button>
@@ -149,9 +145,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
               onMouseLeave={() => setIsHovered(false)}
               style={{
                 transform: isHovered
-                  ? "perspective(1000px) rotateY(-15deg) rotateX(10deg)"
-                  : "perspective(1000px) rotateY(0) rotateX(0)",
-                transition: "transform 0.5s ease",
+                  ? 'perspective(1000px) rotateY(-15deg) rotateX(10deg)'
+                  : 'perspective(1000px) rotateY(0) rotateX(0)',
+                transition: 'transform 0.5s ease',
               }}
             >
               <div
@@ -170,7 +166,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
                   sizes="(max-width: 768px) 288px, 384px"
                   className="object-cover object-top transform transition-transform duration-500"
                   style={{
-                    transform: isHovered ? "scale(1.05)" : "scale(1)",
+                    transform: isHovered ? 'scale(1.05)' : 'scale(1)',
                   }}
                   priority
                 />
@@ -179,27 +175,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
                   className="absolute inset-0 bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 transition-opacity duration-500"
                   style={{
                     opacity: isHovered ? 0.2 : 0,
-                    transform: "rotate(45deg)",
-                    backgroundSize: "200% 200%",
-                    animation: isHovered ? "shimmer 1.5s infinite" : "none",
+                    transform: 'rotate(45deg)',
+                    backgroundSize: '200% 200%',
+                    animation: isHovered ? 'shimmer 1.5s infinite' : 'none',
                   }}
                 />
               </div>
               <div
                 className="absolute -bottom-4 -right-2 bg-white p-4 rounded-lg shadow-lg transform transition-transform duration-500"
                 style={{
-                  transform: isHovered
-                    ? "translateY(-5px) scale(1.05)"
-                    : "translateY(0) scale(1)",
+                  transform: isHovered ? 'translateY(-5px) scale(1.05)' : 'translateY(0) scale(1)',
                   boxShadow: isHovered
                     ? `0 10px 25px -5px ${colorScheme.primary}40`
                     : `0 4px 6px -1px ${colorScheme.primary}20`,
                 }}
               >
-                <p
-                  className="italic text-lg"
-                  style={{ color: colorScheme.primary }}
-                >
+                <p className="italic text-lg" style={{ color: colorScheme.primary }}>
                   Sascha Kohler
                 </p>
               </div>
@@ -213,7 +204,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
           size={32}
           className="cursor-pointer"
           style={{ color: colorScheme.accent }}
-          onClick={() => scrollToSection("about")}
+          onClick={() => scrollToSection('about')}
         />
       </div>
 

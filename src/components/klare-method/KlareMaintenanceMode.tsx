@@ -1,30 +1,20 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import {
-  Sparkles,
-  Construction,
-  ChevronDown,
-  Heart,
-  Check,
-  Compass,
-} from "lucide-react";
-import {
-  ColorSchemeProvider,
-  useColorScheme,
-} from "@/contexts/ColorSchemeContext";
-import ContextAwareColorSchemeSelector from "../ui/ContextAwareColorSchemeSelector";
-import useScrollToSection from "@/hooks/useScrollToSection";
-import { useScrollProgress } from "@/hooks/useScrollProgress";
-import { comingSoonFeatures } from "@/data/comingSoonFeatures";
-import { inkongruenzTypen } from "@/data/inkongruenzTypen";
-import { kongruenzSteps } from "@/data/kongruenzSteps";
-import { transformationPathway } from "@/data/transformationPathway";
-import ThanksSection from "../main-site/ThanksSection";
-import MethodSteps from "./MethodSteps";
-import DailyPrinciple from "./dailyPrinciple";
-import useElementVisibility from "@/hooks/useElementVisibility";
-import TargetPersonaIndicator from "./TargetPersonaIndicator";
-import TeaserSection from "../sections/TeaserSection";
+'use client';
+import React, { useState, useEffect } from 'react';
+import { Sparkles, Construction, ChevronDown, Heart, Check, Compass } from 'lucide-react';
+import { ColorSchemeProvider, useColorScheme } from '@/contexts/ColorSchemeContext';
+import ContextAwareColorSchemeSelector from '../ui/ContextAwareColorSchemeSelector';
+import useScrollToSection from '@/hooks/useScrollToSection';
+import { useScrollProgress } from '@/hooks/useScrollProgress';
+import { comingSoonFeatures } from '@/data/comingSoonFeatures';
+import { inkongruenzTypen } from '@/data/inkongruenzTypen';
+import { kongruenzSteps } from '@/data/kongruenzSteps';
+import { transformationPathway } from '@/data/transformationPathway';
+import ThanksSection from '../main-site/ThanksSection';
+import MethodSteps from './MethodSteps';
+import DailyPrinciple from './dailyPrinciple';
+import useElementVisibility from '@/hooks/useElementVisibility';
+import TargetPersonaIndicator from './TargetPersonaIndicator';
+import TeaserSection from '../sections/TeaserSection';
 
 const KlareMaintenanceModeContent: React.FC = () => {
   const [countdown, setCountdown] = useState({
@@ -33,7 +23,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
     minutes: 0,
     seconds: 0,
   });
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [scrollProgress, setScrollProgress] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [activeStepIndex, setActiveStepIndex] = useState(0);
@@ -43,7 +33,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
   const scrollToSection = useScrollToSection();
   const [footerRef, isFooterVisible] = useElementVisibility({
     threshold: 0.2, // Trigger when 20% of the footer is visible
-    rootMargin: "0px 0px 0px 0px",
+    rootMargin: '0px 0px 0px 0px',
   });
   // Set launch date to 4 weeks from now
   const launchDate = new Date();
@@ -57,12 +47,8 @@ const KlareMaintenanceModeContent: React.FC = () => {
 
       if (difference > 0) {
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor(
-          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-        );
-        const minutes = Math.floor(
-          (difference % (1000 * 60 * 60)) / (1000 * 60),
-        );
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
         setCountdown({ days, hours, minutes, seconds });
@@ -87,22 +73,18 @@ const KlareMaintenanceModeContent: React.FC = () => {
       setScrollProgress(progress);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Auto-rotate active step, inkongruenz type and pathway
   useEffect(() => {
     const stepInterval = setInterval(() => {
-      setActiveStepIndex(
-        (prevIndex) => (prevIndex + 1) % kongruenzSteps.length,
-      );
+      setActiveStepIndex(prevIndex => (prevIndex + 1) % kongruenzSteps.length);
     }, 7000);
 
     const inkongruenzInterval = setInterval(() => {
-      setActiveInkongruenzIndex(
-        (prevIndex) => (prevIndex + 1) % inkongruenzTypen.length,
-      );
+      setActiveInkongruenzIndex(prevIndex => (prevIndex + 1) % inkongruenzTypen.length);
     }, 7000);
 
     // const pathwayInterval = setInterval(() => {
@@ -123,14 +105,14 @@ const KlareMaintenanceModeContent: React.FC = () => {
     e.preventDefault();
     // In a real application, this would connect to a mailing list service
     alert(`Danke! ${email} wurde für Updates registriert.`);
-    setEmail("");
+    setEmail('');
   };
 
   // Scroll to top function
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
@@ -179,9 +161,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
             style={{ color: `${colorScheme.primary}80` }}
           >
             <Construction size={20} />
-            <span className="hidden sm:inline text-sm tracking-wide">
-              WEBSITE IM AUFBAU
-            </span>
+            <span className="hidden sm:inline text-sm tracking-wide">WEBSITE IM AUFBAU</span>
           </div>
         </div>
       </nav>
@@ -216,8 +196,8 @@ const KlareMaintenanceModeContent: React.FC = () => {
               Erkennst du dich wieder?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-4">
-              Die KLARE Kongruenz-Methode hilft Menschen, die einen dieser
-              inneren Konflikte erleben:
+              Die KLARE Kongruenz-Methode hilft Menschen, die einen dieser inneren Konflikte
+              erleben:
             </p>
           </div>
 
@@ -246,19 +226,13 @@ const KlareMaintenanceModeContent: React.FC = () => {
             <div className="relative z-10">
               <div className="flex flex-col md:flex-row gap-6 items-center mb-6">
                 <div className="bg-gray-100 p-4 rounded-full">
-                  {React.createElement(
-                    inkongruenzTypen[activeInkongruenzIndex].icon,
-                    {
-                      size: 48,
-                      style: { color: colorScheme.primary },
-                    },
-                  )}
+                  {React.createElement(inkongruenzTypen[activeInkongruenzIndex].icon, {
+                    size: 48,
+                    style: { color: colorScheme.primary },
+                  })}
                 </div>
                 <div>
-                  <h3
-                    className="text-2xl font-semibold"
-                    style={{ color: colorScheme.primary }}
-                  >
+                  <h3 className="text-2xl font-semibold" style={{ color: colorScheme.primary }}>
                     {inkongruenzTypen[activeInkongruenzIndex].title}
                   </h3>
                 </div>
@@ -268,26 +242,21 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 {inkongruenzTypen[activeInkongruenzIndex].description}
               </p>
 
-              <h4
-                className="font-semibold mb-3"
-                style={{ color: colorScheme.accent }}
-              >
+              <h4 className="font-semibold mb-3" style={{ color: colorScheme.accent }}>
                 Kommt dir das bekannt vor?
               </h4>
               <ul className="space-y-3 mb-8">
-                {inkongruenzTypen[activeInkongruenzIndex].examples.map(
-                  (item, i) => (
-                    <li key={i} className="flex items-start">
-                      <span
-                        className="mr-2 mt-1 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center"
-                        style={{ background: colorScheme.primary }}
-                      >
-                        <Check size={12} className="text-white" />
-                      </span>
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ),
-                )}
+                {inkongruenzTypen[activeInkongruenzIndex].examples.map((item, i) => (
+                  <li key={i} className="flex items-start">
+                    <span
+                      className="mr-2 mt-1 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center"
+                      style={{ background: colorScheme.primary }}
+                    >
+                      <Check size={12} className="text-white" />
+                    </span>
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
               </ul>
 
               <div
@@ -295,10 +264,9 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 style={{ borderColor: colorScheme.accent }}
               >
                 <p className="text-gray-700">
-                  <strong>Die KLARE Methode:</strong> Ein strukturierter
-                  5-Schritte-Prozess, der dir hilft, diesen inneren Konflikt zu
-                  lösen und ein stimmiges Leben zu führen – ohne komplizierte
-                  Theorien, sondern mit praktischen Werkzeugen für den Alltag.
+                  <strong>Die KLARE Methode:</strong> Ein strukturierter 5-Schritte-Prozess, der dir
+                  hilft, diesen inneren Konflikt zu lösen und ein stimmiges Leben zu führen – ohne
+                  komplizierte Theorien, sondern mit praktischen Werkzeugen für den Alltag.
                 </p>
               </div>
             </div>
@@ -312,9 +280,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 className="w-3 h-3 rounded-full transition-all duration-300"
                 style={{
                   backgroundColor:
-                    activeInkongruenzIndex === index
-                      ? colorScheme.primary
-                      : "#e5e7eb",
+                    activeInkongruenzIndex === index ? colorScheme.primary : '#e5e7eb',
                 }}
                 onClick={() => setActiveInkongruenzIndex(index)}
               />
@@ -340,8 +306,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
             className="text-2xl font-semibold mb-8 text-center"
             style={{ color: colorScheme.text }}
           >
-            Warum <span style={{ color: colorScheme.primary }}>Kongruenz</span>{" "}
-            statt Optimierung?
+            Warum <span style={{ color: colorScheme.primary }}>Kongruenz</span> statt Optimierung?
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto px-4">
@@ -357,16 +322,14 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 Menschen sind keine Unternehmen
               </h3>
               <p className="text-gray-600 mb-4">
-                Viele Transformationsansätze behandeln Menschen wie Systeme oder
-                Unternehmen, die "optimiert" werden müssen. Die KLARE Methode
-                respektiert dich als einzigartiges Individuum mit komplexen
-                Bedürfnissen und Emotionen.
+                Viele Transformationsansätze behandeln Menschen wie Systeme oder Unternehmen, die
+                "optimiert" werden müssen. Die KLARE Methode respektiert dich als einzigartiges
+                Individuum mit komplexen Bedürfnissen und Emotionen.
               </p>
               <div className="bg-gray-50 p-3 rounded">
                 <p className="text-sm italic text-gray-600">
-                  "Ich habe jahrelang versucht, mich wie eine Maschine zu
-                  optimieren. Die Kongruenz-Methode hat mir gezeigt, dass wahre
-                  Transformation von innen kommt."
+                  "Ich habe jahrelang versucht, mich wie eine Maschine zu optimieren. Die
+                  Kongruenz-Methode hat mir gezeigt, dass wahre Transformation von innen kommt."
                 </p>
               </div>
             </div>
@@ -383,16 +346,15 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 Ganzheitliche Integration
               </h3>
               <p className="text-gray-600 mb-4">
-                Statt einzelne Lebensbereiche isoliert zu verbessern, bringt die
-                KLARE Methode dein gesamtes Leben in Einklang. Das Ergebnis:
-                Natürliche Leichtigkeit statt Erschöpfung durch fragmentierte
-                Ziele.
+                Statt einzelne Lebensbereiche isoliert zu verbessern, bringt die KLARE Methode dein
+                gesamtes Leben in Einklang. Das Ergebnis: Natürliche Leichtigkeit statt Erschöpfung
+                durch fragmentierte Ziele.
               </p>
               <div className="bg-gray-50 p-3 rounded">
                 <p className="text-sm italic text-gray-600">
-                  "Der größte Unterschied: Ich muss mich nicht mehr zwischen
-                  meinem beruflichen Erfolg und meinem Familienleben
-                  entscheiden. Beide Bereiche nähren sich gegenseitig."
+                  "Der größte Unterschied: Ich muss mich nicht mehr zwischen meinem beruflichen
+                  Erfolg und meinem Familienleben entscheiden. Beide Bereiche nähren sich
+                  gegenseitig."
                 </p>
               </div>
             </div>
@@ -405,8 +367,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
             className="text-2xl font-semibold mb-8 text-center"
             style={{ color: colorScheme.text }}
           >
-            Was dich{" "}
-            <span style={{ color: colorScheme.primary }}>erwartet</span>
+            Was dich <span style={{ color: colorScheme.primary }}>erwartet</span>
           </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto px-4">
             {comingSoonFeatures.map((feature, index) => (
@@ -414,17 +375,14 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 key={index}
                 className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
                 style={{
-                  borderTop:
-                    index < 2 ? `3px solid ${colorScheme.primary}` : "",
-                  borderTopColor:
-                    index === 1 ? colorScheme.accent : colorScheme.primary,
+                  borderTop: index < 2 ? `3px solid ${colorScheme.primary}` : '',
+                  borderTopColor: index === 1 ? colorScheme.accent : colorScheme.primary,
                 }}
               >
                 <h3
                   className="text-xl font-medium mb-2 flex items-center"
                   style={{
-                    color:
-                      index === 1 ? colorScheme.accent : colorScheme.primary,
+                    color: index === 1 ? colorScheme.accent : colorScheme.primary,
                   }}
                 >
                   <span className="mr-3 text-2xl">{feature.icon}</span>
@@ -452,27 +410,17 @@ const KlareMaintenanceModeContent: React.FC = () => {
             }}
           >
             <div className="text-center mb-6">
-              <Sparkles
-                size={28}
-                style={{ color: colorScheme.accent }}
-                className="mx-auto mb-4"
-              />
-              <h2
-                className="text-2xl font-semibold"
-                style={{ color: colorScheme.primary }}
-              >
+              <Sparkles size={28} style={{ color: colorScheme.accent }} className="mx-auto mb-4" />
+              <h2 className="text-2xl font-semibold" style={{ color: colorScheme.primary }}>
                 Erfahre als Erster vom Launch
               </h2>
               <p className="text-gray-600 mt-2">
-                Melde dich für den Newsletter an und erhalte exklusive Einblicke
-                in die KLARE Kongruenz-Methode.
+                Melde dich für den Newsletter an und erhalte exklusive Einblicke in die KLARE
+                Kongruenz-Methode.
               </p>
             </div>
 
-            <form
-              onSubmit={handleSubscribe}
-              className="flex flex-col md:flex-row gap-4"
-            >
+            <form onSubmit={handleSubscribe} className="flex flex-col md:flex-row gap-4">
               <input
                 type="email"
                 placeholder="Deine E-Mail-Adresse"
@@ -481,7 +429,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
                   borderColor: `${colorScheme.primary}40`,
                 }}
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={e => setEmail(e.target.value)}
                 required
               />
               <button
@@ -534,9 +482,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 >
                   {countdown.hours}
                 </div>
-                <div className="text-gray-600 text-sm md:text-base">
-                  Stunden
-                </div>
+                <div className="text-gray-600 text-sm md:text-base">Stunden</div>
               </div>
               <div className="flex flex-col">
                 <div
@@ -545,9 +491,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 >
                   {countdown.minutes}
                 </div>
-                <div className="text-gray-600 text-sm md:text-base">
-                  Minuten
-                </div>
+                <div className="text-gray-600 text-sm md:text-base">Minuten</div>
               </div>
               <div className="flex flex-col">
                 <div
@@ -556,9 +500,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 >
                   {countdown.seconds}
                 </div>
-                <div className="text-gray-600 text-sm md:text-base">
-                  Sekunden
-                </div>
+                <div className="text-gray-600 text-sm md:text-base">Sekunden</div>
               </div>
             </div>
           </div>
@@ -585,13 +527,10 @@ const KlareMaintenanceModeContent: React.FC = () => {
                   <div className="absolute bottom-0 w-full h-1/4 bg-white bg-opacity-20"></div>
                 </div>
                 <div className="ml-2 text-xl font-semibold">
-                  <span style={{ color: colorScheme.accent }}>Sascha</span>{" "}
-                  Kohler
+                  <span style={{ color: colorScheme.accent }}>Sascha</span> Kohler
                 </div>
               </div>
-              <p className="text-gray-400 text-sm mb-1">
-                Die KLARE Kongruenz-Methode
-              </p>
+              <p className="text-gray-400 text-sm mb-1">Die KLARE Kongruenz-Methode</p>
               <div className="flex flex-wrap gap-2 mt-3">
                 <span className="inline-block px-2 py-1 bg-gray-800 rounded-md text-xs text-gray-300">
                   LSB in A.
@@ -607,8 +546,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
 
             <div className="text-gray-400 text-sm text-center md:text-right">
               <div className="mb-2">
-                © {new Date().getFullYear()} Sascha Kohler. Alle Rechte
-                vorbehalten.
+                © {new Date().getFullYear()} Sascha Kohler. Alle Rechte vorbehalten.
               </div>
               <div className="mb-2 font-medium text-gray-300">
                 "Entfalten Sie sich selbst, statt sich zu optimieren"
@@ -617,9 +555,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 Die KLARE-Methode | Vorträge | Workshops | Coaching
               </div>
               <div className="text-xs text-gray-500">
-                <span className="mr-2">
-                  Design & Entwicklung: Sascha Kohler
-                </span>
+                <span className="mr-2">Design & Entwicklung: Sascha Kohler</span>
                 <a
                   href="https://sascha-kohler.at/it"
                   className="text-gray-400 hover:text-white transition-colors duration-300"
@@ -632,10 +568,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
         </div>
       </footer>
       {/* Target Persona Indicator - Verwende die neue ausgelagerte Komponente */}
-      <TargetPersonaIndicator
-        colorScheme={colorScheme}
-        isFooterVisible={isFooterVisible}
-      />
+      <TargetPersonaIndicator colorScheme={colorScheme} isFooterVisible={isFooterVisible} />
 
       <style jsx>{`
         @keyframes float {

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { X, Info } from "lucide-react";
-import { ColorScheme } from "@/utils/colorSchemes";
+import React, { useState, useEffect } from 'react';
+import { X, Info } from 'lucide-react';
+import { ColorScheme } from '@/utils/colorSchemes';
 
 interface KongruenzPopupProps {
   colorScheme: ColorScheme;
@@ -27,26 +27,26 @@ const KongruenzPopup: React.FC<KongruenzPopupProps> = ({ colorScheme }) => {
   // Verhindern des Scrollens des Hintergrunds, wenn das Modal geöffnet ist
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     }
 
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     };
   }, [isOpen]);
 
   // Handler für Escape-Taste zum Schließen
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
+      if (e.key === 'Escape' && isOpen) {
         closePopup();
       }
     };
 
-    window.addEventListener("keydown", handleEscape);
-    return () => window.removeEventListener("keydown", handleEscape);
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
   }, [isOpen]);
 
   return (
@@ -67,9 +67,9 @@ const KongruenzPopup: React.FC<KongruenzPopupProps> = ({ colorScheme }) => {
           {/* Backdrop mit verstärkter Animation */}
           <div
             className={`fixed inset-0 z-40 backdrop-blur-sm transition-all duration-400 ease-in-out ${
-              isAnimating ? "opacity-100" : "opacity-0"
+              isAnimating ? 'opacity-100' : 'opacity-0'
             }`}
-            style={{ backgroundColor: "rgba(0, 0, 0, 0.65)" }}
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.65)' }}
             onClick={closePopup}
           />
 
@@ -77,8 +77,8 @@ const KongruenzPopup: React.FC<KongruenzPopupProps> = ({ colorScheme }) => {
           <div
             className={`fixed top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg z-50 max-w-md w-11/12 transition-all duration-400 ease-in-out ${
               isAnimating
-                ? "opacity-100 scale-100 translate-y-0"
-                : "opacity-0 scale-90 translate-y-8"
+                ? 'opacity-100 scale-100 translate-y-0'
+                : 'opacity-0 scale-90 translate-y-8'
             }`}
             style={{
               boxShadow: `0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)`,
@@ -117,9 +117,8 @@ const KongruenzPopup: React.FC<KongruenzPopupProps> = ({ colorScheme }) => {
             {/* Content - vereinfacht und fokussiert */}
             <div className="p-6">
               <p className="text-gray-700 text-center mb-6">
-                <strong>Kongruenz</strong> bedeutet, dass Ihr Denken, Fühlen und
-                Handeln im Einklang sind. Wenn Ihre äußere Realität mit Ihren
-                inneren Werten und Zielen übereinstimmt.
+                <strong>Kongruenz</strong> bedeutet, dass Ihr Denken, Fühlen und Handeln im Einklang
+                sind. Wenn Ihre äußere Realität mit Ihren inneren Werten und Zielen übereinstimmt.
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-6">
@@ -178,4 +177,3 @@ const KongruenzPopup: React.FC<KongruenzPopupProps> = ({ colorScheme }) => {
 };
 
 export default KongruenzPopup;
-

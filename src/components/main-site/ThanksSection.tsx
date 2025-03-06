@@ -1,12 +1,6 @@
-import React, { useState } from "react";
-import {
-  Heart,
-  X,
-  ChevronLeft,
-  ChevronRight,
-  ExternalLink,
-} from "lucide-react";
-import { ColorScheme } from "../common/ColorSchemeSelector";
+import React, { useState } from 'react';
+import { Heart, X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { ColorScheme } from '../common/ColorSchemeSelector';
 
 interface ThanksSectionProps {
   colorScheme: ColorScheme;
@@ -24,13 +18,11 @@ const ThanksSection: React.FC<ThanksSectionProps> = ({ colorScheme }) => {
       {/* Trigger Button - nur sichtbar wenn Panel geschlossen ist */}
       <button
         className={`fixed right-0 top-1/2 -translate-y-1/2 z-30 p-3 shadow-lg rounded-l-lg transition-all duration-300 ${
-          isOpen
-            ? "opacity-0 pointer-events-none translate-x-20"
-            : "opacity-100 translate-x-0"
+          isOpen ? 'opacity-0 pointer-events-none translate-x-20' : 'opacity-100 translate-x-0'
         }`}
         style={{
           backgroundColor: colorScheme.primary,
-          color: "white",
+          color: 'white',
         }}
         onClick={togglePanel}
         aria-label="Danksagungen öffnen"
@@ -42,10 +34,10 @@ const ThanksSection: React.FC<ThanksSectionProps> = ({ colorScheme }) => {
       {/* Slide-in Panel */}
       <div
         className={`fixed top-0 right-0 h-full max-w-md w-full shadow-lg z-40 transition-transform duration-500 ease-in-out transform ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+          isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{
-          backgroundColor: "white",
+          backgroundColor: 'white',
           borderLeft: `4px solid ${colorScheme.accent}`,
         }}
       >
@@ -69,15 +61,12 @@ const ThanksSection: React.FC<ThanksSectionProps> = ({ colorScheme }) => {
                 />
               </div>
 
-              <h2
-                className="text-2xl font-bold mb-6"
-                style={{ color: colorScheme.text }}
-              >
+              <h2 className="text-2xl font-bold mb-6" style={{ color: colorScheme.text }}>
                 Herzlichen Dank
               </h2>
 
               <p className="text-md mb-6">
-                Mein besonderer Dank gilt der{" "}
+                Mein besonderer Dank gilt der{' '}
                 <a
                   href="https://www.rok-akademie.at"
                   target="_blank"
@@ -86,34 +75,28 @@ const ThanksSection: React.FC<ThanksSectionProps> = ({ colorScheme }) => {
                   style={{
                     color: colorScheme.primary,
                     borderBottom: `1px solid ${colorScheme.primary}`,
-                    transition: "opacity 0.3s",
+                    transition: 'opacity 0.3s',
                   }}
-                  onMouseOver={(e) => (e.currentTarget.style.opacity = "0.8")}
-                  onMouseOut={(e) => (e.currentTarget.style.opacity = "1")}
+                  onMouseOver={e => (e.currentTarget.style.opacity = '0.8')}
+                  onMouseOut={e => (e.currentTarget.style.opacity = '1')}
                 >
-                  ROK-Akademie in Wien{" "}
-                  <ExternalLink size={16} className="ml-1" />
-                </a>{" "}
-                für die wertvolle Ausbildung und die inspirierenden Methoden,
-                die mir neue Wege in der persönlichen Transformation eröffnet
-                haben.
+                  ROK-Akademie in Wien <ExternalLink size={16} className="ml-1" />
+                </a>{' '}
+                für die wertvolle Ausbildung und die inspirierenden Methoden, die mir neue Wege in
+                der persönlichen Transformation eröffnet haben.
               </p>
 
               <div
                 className="p-6 rounded-lg mb-6 z-10"
                 style={{ background: `${colorScheme.accent}10` }}
               >
-                <p
-                  className="text-md font-medium mb-2"
-                  style={{ color: colorScheme.text }}
-                >
+                <p className="text-md font-medium mb-2" style={{ color: colorScheme.text }}>
                   Spezieller Dank an René Otto Knor
                 </p>
                 <p className={`text-${colorScheme.text}`}>
-                  Für seine visionäre Führung, sein umfassendes Wissen und die
-                  Art und Weise, wie er Lebensfreude und Transformation
-                  miteinander verbindet. Seine Lehren haben meinen eigenen Weg
-                  maßgeblich geprägt und bereichert.
+                  Für seine visionäre Führung, sein umfassendes Wissen und die Art und Weise, wie er
+                  Lebensfreude und Transformation miteinander verbindet. Seine Lehren haben meinen
+                  eigenen Weg maßgeblich geprägt und bereichert.
                 </p>
                 <p className={`italic pt-2 text-${colorScheme.accent}`}>
                   "WIRKLICHKEIT IST DAS WAS WIRKT"
@@ -124,33 +107,25 @@ const ThanksSection: React.FC<ThanksSectionProps> = ({ colorScheme }) => {
                 className="p-5 rounded-lg"
                 style={{ backgroundColor: `${colorScheme.background}` }}
               >
-                <h3
-                  className="text-xl font-semibold mb-2"
-                  style={{ color: colorScheme.primary }}
-                >
+                <h3 className="text-xl font-semibold mb-2" style={{ color: colorScheme.primary }}>
                   Meine Familie
                 </h3>
                 <p className="text-gray-700">
-                  Tiefe Dankbarkeit für meine Familie, die mich auf meinem Weg
-                  stets unterstützt und mir den Raum gibt, mich kontinuierlich
-                  weiterzuentwickeln.
+                  Tiefe Dankbarkeit für meine Familie, die mich auf meinem Weg stets unterstützt und
+                  mir den Raum gibt, mich kontinuierlich weiterzuentwickeln.
                 </p>
               </div>
               <div
                 className="p-5 rounded-lg"
                 style={{ backgroundColor: `${colorScheme.background}` }}
               >
-                <h3
-                  className="text-xl font-semibold mb-2"
-                  style={{ color: colorScheme.primary }}
-                >
+                <h3 className="text-xl font-semibold mb-2" style={{ color: colorScheme.primary }}>
                   NLP-Community
                 </h3>
                 <p className="text-gray-700">
-                  Herzlichen Dank an meine NLP-Trainer und Ausbildungsgruppe für
-                  den wertvollen Austausch und die gemeinsamen Lernerfahrungen,
-                  die mein Verständnis von Kommunikation und Veränderung
-                  tiefgreifend geprägt haben.
+                  Herzlichen Dank an meine NLP-Trainer und Ausbildungsgruppe für den wertvollen
+                  Austausch und die gemeinsamen Lernerfahrungen, die mein Verständnis von
+                  Kommunikation und Veränderung tiefgreifend geprägt haben.
                 </p>
               </div>
 
@@ -158,17 +133,13 @@ const ThanksSection: React.FC<ThanksSectionProps> = ({ colorScheme }) => {
                 className="p-5 rounded-lg"
                 style={{ backgroundColor: `${colorScheme.background}` }}
               >
-                <h3
-                  className="text-xl font-semibold mb-2"
-                  style={{ color: colorScheme.primary }}
-                >
+                <h3 className="text-xl font-semibold mb-2" style={{ color: colorScheme.primary }}>
                   Klienten & Teilnehmer
                 </h3>
                 <p className="text-gray-700">
-                  Ein herzliches Dankeschön an alle Klienten und
-                  Workshop-Teilnehmer für ihr Vertrauen und ihre Offenheit, die
-                  es mir ermöglichen, gemeinsam wachstumsreiche Erfahrungen zu
-                  gestalten.
+                  Ein herzliches Dankeschön an alle Klienten und Workshop-Teilnehmer für ihr
+                  Vertrauen und ihre Offenheit, die es mir ermöglichen, gemeinsam wachstumsreiche
+                  Erfahrungen zu gestalten.
                 </p>
               </div>
             </div>
@@ -178,13 +149,11 @@ const ThanksSection: React.FC<ThanksSectionProps> = ({ colorScheme }) => {
         {/* Close trigger on the left side of panel - nur sichtbar wenn Panel geöffnet ist */}
         <button
           className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full p-3 shadow-lg rounded-l-lg transition-all duration-500 ${
-            isOpen
-              ? "opacity-100"
-              : "opacity-0 pointer-events-none translate-x-0"
+            isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none translate-x-0'
           }`}
           style={{
             backgroundColor: colorScheme.primary,
-            color: "white",
+            color: 'white',
           }}
           onClick={togglePanel}
           aria-label="Danksagungen schließen"

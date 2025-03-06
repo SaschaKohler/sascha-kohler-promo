@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, RefObject } from "react";
+import { useState, useEffect, useRef, RefObject } from 'react';
 
 /**
  * Hook to detect when an element is visible in the viewport.
@@ -6,7 +6,7 @@ import { useState, useEffect, useRef, RefObject } from "react";
  * @returns A tuple with a ref to attach to the element and a boolean indicating visibility
  */
 const useElementVisibility = (
-  options: IntersectionObserverInit = { threshold: 0.1 },
+  options: IntersectionObserverInit = { threshold: 0.1 }
 ): [RefObject<HTMLElement>, boolean] => {
   const elementRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);

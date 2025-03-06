@@ -1,7 +1,7 @@
-"use client";
-import React from "react";
-import { ArrowUp } from "lucide-react";
-import { useColorScheme } from "@/contexts/ColorSchemeContext";
+'use client';
+import React from 'react';
+import { ArrowUp } from 'lucide-react';
+import { useColorScheme } from '@/contexts/ColorSchemeContext';
 
 interface ScrollToTopProps {
   onClick: () => void;

@@ -1,30 +1,21 @@
-"use client";
+'use client';
 
-import React from "react";
-import { Compass, Heart } from "lucide-react";
-import { ColorScheme } from "@/utils/colorSchemes";
-import { cn } from "@/lib/utils";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardFooter,
-} from "@/components/ui/card";
+import React from 'react';
+import { Compass, Heart } from 'lucide-react';
+import { ColorScheme } from '@/utils/colorSchemes';
+import { cn } from '@/lib/utils';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 
 interface WhyKongruenzSectionProps {
   colorScheme: ColorScheme;
   className?: string;
 }
 
-const WhyKongruenzSection: React.FC<WhyKongruenzSectionProps> = ({
-  colorScheme,
-  className,
-}) => {
+const WhyKongruenzSection: React.FC<WhyKongruenzSectionProps> = ({ colorScheme, className }) => {
   // Kongruenz vs Optimierung Karten-Daten
   const comparisonCards = [
     {
-      title: "Menschen sind keine Unternehmen",
+      title: 'Menschen sind keine Unternehmen',
       description:
         'Viele Transformationsansätze behandeln Menschen wie Systeme oder Unternehmen, die "optimiert" werden müssen. Die KLARE Methode respektiert sie als einzigartiges Individuum mit komplexen Bedürfnissen und Emotionen.',
       quote:
@@ -33,9 +24,9 @@ const WhyKongruenzSection: React.FC<WhyKongruenzSectionProps> = ({
       color: colorScheme.primary,
     },
     {
-      title: "Ganzheitliche Integration",
+      title: 'Ganzheitliche Integration',
       description:
-        "Statt einzelne Lebensbereiche isoliert zu verbessern, bringt die KLARE Methode ihr gesamtes Leben in Einklang. Das Ergebnis: Natürliche Leichtigkeit statt Erschöpfung durch fragmentierte Ziele.",
+        'Statt einzelne Lebensbereiche isoliert zu verbessern, bringt die KLARE Methode ihr gesamtes Leben in Einklang. Das Ergebnis: Natürliche Leichtigkeit statt Erschöpfung durch fragmentierte Ziele.',
       quote:
         '"Der größte Unterschied: Ich muss mich nicht mehr zwischen meinem beruflichen Erfolg und meinem Familienleben entscheiden. Beide Bereiche nähren sich gegenseitig."',
       icon: Heart,
@@ -45,7 +36,7 @@ const WhyKongruenzSection: React.FC<WhyKongruenzSectionProps> = ({
 
   return (
     <section
-      className={cn("py-12", className)}
+      className={cn('py-12', className)}
       style={
         {
           // background: `linear-gradient(to bottom, ${colorScheme.background}40, white)`,
@@ -57,8 +48,7 @@ const WhyKongruenzSection: React.FC<WhyKongruenzSectionProps> = ({
           className="text-xl sm:text-2xl font-semibold mb-8 text-center"
           style={{ color: colorScheme.text }}
         >
-          Warum <span style={{ color: colorScheme.primary }}>Kongruenz</span>{" "}
-          statt Optimierung?
+          Warum <span style={{ color: colorScheme.primary }}>Kongruenz</span> statt Optimierung?
         </h2>
 
         <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -84,9 +74,7 @@ const WhyKongruenzSection: React.FC<WhyKongruenzSectionProps> = ({
               </CardContent>
               <CardFooter>
                 <blockquote className="bg-muted/50 p-3 rounded w-full">
-                  <p className="text-xs sm:text-sm italic text-muted-foreground">
-                    {card.quote}
-                  </p>
+                  <p className="text-xs sm:text-sm italic text-muted-foreground">{card.quote}</p>
                 </blockquote>
               </CardFooter>
             </Card>
@@ -98,4 +86,3 @@ const WhyKongruenzSection: React.FC<WhyKongruenzSectionProps> = ({
 };
 
 export default WhyKongruenzSection;
-

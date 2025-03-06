@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { Check } from "lucide-react";
-import { ColorScheme } from "@/utils/colorSchemes";
-import { inkongruenzTypen } from "@/data/inkongruenzTypen";
+import React, { useState } from 'react';
+import { Check } from 'lucide-react';
+import { ColorScheme } from '@/utils/colorSchemes';
+import { inkongruenzTypen } from '@/data/inkongruenzTypen';
 import {
   Card,
   CardContent,
@@ -11,8 +11,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+} from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
 interface InkongruenzTypenSectionProps {
   colorScheme: ColorScheme;
@@ -20,29 +20,26 @@ interface InkongruenzTypenSectionProps {
   initialActiveIndex?: number;
 }
 
-export const InkongruenzTypenSection: React.FC<
-  InkongruenzTypenSectionProps
-> = ({ colorScheme, className, initialActiveIndex = 0 }) => {
-  const [activeInkongruenzIndex, setActiveInkongruenzIndex] =
-    useState<number>(initialActiveIndex);
+export const InkongruenzTypenSection: React.FC<InkongruenzTypenSectionProps> = ({
+  colorScheme,
+  className,
+  initialActiveIndex = 0,
+}) => {
+  const [activeInkongruenzIndex, setActiveInkongruenzIndex] = useState<number>(initialActiveIndex);
 
   return (
     <section
-      className={cn("py-16", className)}
+      className={cn('py-16', className)}
       style={{
         background: `linear-gradient(to bottom, white, ${colorScheme.background}30)`,
       }}
     >
       <div className="text-center mb-12">
-        <h2
-          className="text-3xl md:text-4xl font-bold mb-4"
-          style={{ color: colorScheme.primary }}
-        >
+        <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: colorScheme.primary }}>
           Erkennen Sie sich wieder?
         </h2>
         <CardDescription className="text-lg max-w-2xl mx-auto mb-4">
-          Die KLARE Kongruenz-Methode hilft Ihnen, wenn sie einen dieser inneren
-          Konflikte erleben:
+          Die KLARE Kongruenz-Methode hilft Ihnen, wenn sie einen dieser inneren Konflikte erleben:
         </CardDescription>
       </div>
 
@@ -75,13 +72,10 @@ export const InkongruenzTypenSection: React.FC<
                 className="p-4 rounded-full"
                 style={{ backgroundColor: `${colorScheme.primary}15` }}
               >
-                {React.createElement(
-                  inkongruenzTypen[activeInkongruenzIndex].icon,
-                  {
-                    size: 48,
-                    style: { color: colorScheme.primary },
-                  },
-                )}
+                {React.createElement(inkongruenzTypen[activeInkongruenzIndex].icon, {
+                  size: 48,
+                  style: { color: colorScheme.primary },
+                })}
               </div>
               <div>
                 <CardTitle
@@ -99,26 +93,21 @@ export const InkongruenzTypenSection: React.FC<
               {inkongruenzTypen[activeInkongruenzIndex].description}
             </p>
 
-            <h4
-              className="font-semibold mb-3"
-              style={{ color: colorScheme.accent }}
-            >
+            <h4 className="font-semibold mb-3" style={{ color: colorScheme.accent }}>
               Kommt Ihnen das bekannt vor?
             </h4>
             <ul className="space-y-3 mb-8">
-              {inkongruenzTypen[activeInkongruenzIndex].examples.map(
-                (item, i) => (
-                  <li key={i} className="flex items-start">
-                    <span
-                      className="mr-2 mt-1 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center"
-                      style={{ background: colorScheme.primary }}
-                    >
-                      <Check size={12} className="text-white" />
-                    </span>
-                    <span className="text-muted-foreground">{item}</span>
-                  </li>
-                ),
-              )}
+              {inkongruenzTypen[activeInkongruenzIndex].examples.map((item, i) => (
+                <li key={i} className="flex items-start">
+                  <span
+                    className="mr-2 mt-1 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center"
+                    style={{ background: colorScheme.primary }}
+                  >
+                    <Check size={12} className="text-white" />
+                  </span>
+                  <span className="text-muted-foreground">{item}</span>
+                </li>
+              ))}
             </ul>
 
             <div
@@ -126,10 +115,9 @@ export const InkongruenzTypenSection: React.FC<
               style={{ borderColor: colorScheme.accent }}
             >
               <p className="text-muted-foreground">
-                <strong>Die KLARE Methode:</strong> Ein strukturierter
-                5-Schritte-Prozess, der ihnen hilft, diesen inneren Konflikt zu
-                lösen und ein stimmiges Leben zu führen – ohne komplizierte
-                Theorien, sondern mit praktischen Werkzeugen für den Alltag.
+                <strong>Die KLARE Methode:</strong> Ein strukturierter 5-Schritte-Prozess, der ihnen
+                hilft, diesen inneren Konflikt zu lösen und ein stimmiges Leben zu führen – ohne
+                komplizierte Theorien, sondern mit praktischen Werkzeugen für den Alltag.
               </p>
             </div>
           </CardContent>
@@ -144,9 +132,7 @@ export const InkongruenzTypenSection: React.FC<
             className="w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
             style={{
               backgroundColor:
-                activeInkongruenzIndex === index
-                  ? colorScheme.primary
-                  : "hsl(var(--muted))",
+                activeInkongruenzIndex === index ? colorScheme.primary : 'hsl(var(--muted))',
               outlineColor: colorScheme.primary,
             }}
             onClick={() => setActiveInkongruenzIndex(index)}

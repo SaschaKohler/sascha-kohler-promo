@@ -1,9 +1,14 @@
-"use client";
+'use client';
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
-import { ColorScheme, maintenanceTheme, colorSchemes, findSchemeByName } from '@/utils/colorSchemes';
+import {
+  ColorScheme,
+  maintenanceTheme,
+  colorSchemes,
+  findSchemeByName,
+} from '@/utils/colorSchemes';
 
 // Name des localStorage Keys
-const COLOR_SCHEME_STORAGE_KEY = "sascha-kohler-color-scheme";
+const COLOR_SCHEME_STORAGE_KEY = 'sascha-kohler-color-scheme';
 
 // Kontext mit Defaultwerten
 type ColorSchemeContextType = {
@@ -24,13 +29,13 @@ export const ColorSchemeProvider: React.FC<{
   children: ReactNode;
   scrollProgress?: number;
   initialColorScheme?: ColorScheme; // Optional: Erlaube die Übergabe eines initialen Farbschemas
-}> = ({ 
-  children, 
-  scrollProgress = 0, 
-  initialColorScheme = maintenanceTheme // Standard: Wartungsmodus-Farbschema
+}> = ({
+  children,
+  scrollProgress = 0,
+  initialColorScheme = maintenanceTheme, // Standard: Wartungsmodus-Farbschema
 }) => {
   const [colorScheme, setColorScheme] = useState<ColorScheme>(initialColorScheme);
-  
+
   // Beim ersten Laden, versuche das Farbschema aus dem localStorage zu laden
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -47,16 +52,17 @@ export const ColorSchemeProvider: React.FC<{
       }
     }
   }, []);
-  
+
   return (
     <ColorSchemeContext.Provider value={{ colorScheme, setColorScheme }}>
       <div
         className="relative font-sans"
         style={{
           color: colorScheme.text,
-          background: colorScheme.name === "Elegantes Gold & Schwarz" 
-            ? `radial-gradient(circle at top right, #272725, ${colorScheme.background} 70%)`
-            : `linear-gradient(to bottom, white, ${colorScheme.background})`,
+          background:
+            colorScheme.name === 'Elegantes Gold & Schwarz'
+              ? `radial-gradient(circle at top right, #272725, ${colorScheme.background} 70%)`
+              : `linear-gradient(to bottom, white, ${colorScheme.background})`,
         }}
       >
         {/* Progress bar */}
@@ -67,7 +73,7 @@ export const ColorSchemeProvider: React.FC<{
             background: `linear-gradient(to right, ${colorScheme.primary}, ${colorScheme.accent})`,
           }}
         />
-        
+
         {children}
       </div>
     </ColorSchemeContext.Provider>

@@ -1,7 +1,7 @@
-"use client";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useColorScheme } from "@/contexts/ColorSchemeContext";
+'use client';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useColorScheme } from '@/contexts/ColorSchemeContext';
 
 const GrowthJourneySection = () => {
   const { colorScheme } = useColorScheme();
@@ -11,53 +11,53 @@ const GrowthJourneySection = () => {
   // Die verschiedenen Wachstumsphasen mit zugehörigen Gedanken/Einsichten
   const growthPhases = [
     {
-      id: "challenge",
-      label: "Herausforderung",
-      color: "#6366F1", // Indigo
+      id: 'challenge',
+      label: 'Herausforderung',
+      color: '#6366F1', // Indigo
       insights: [
-        "Jede Herausforderung enthält ein verborgenes Geschenk",
-        "Schwierigkeiten sind Einladungen zur Selbstreflexion",
-        "In der Herausforderung liegt ungenutztes Potenzial",
+        'Jede Herausforderung enthält ein verborgenes Geschenk',
+        'Schwierigkeiten sind Einladungen zur Selbstreflexion',
+        'In der Herausforderung liegt ungenutztes Potenzial',
       ],
     },
     {
-      id: "reflection",
-      label: "Reflexion",
-      color: "#8B5CF6", // Violet
+      id: 'reflection',
+      label: 'Reflexion',
+      color: '#8B5CF6', // Violet
       insights: [
-        "Bewusstes Innehalten schafft Klarheit und Perspektive",
-        "Durch Reflexion entdecken wir neue Möglichkeiten",
-        "Einsicht entsteht, wenn wir einen Schritt zurücktreten",
+        'Bewusstes Innehalten schafft Klarheit und Perspektive',
+        'Durch Reflexion entdecken wir neue Möglichkeiten',
+        'Einsicht entsteht, wenn wir einen Schritt zurücktreten',
       ],
     },
     {
-      id: "learning",
-      label: "Lernen",
-      color: "#EC4899", // Pink
+      id: 'learning',
+      label: 'Lernen',
+      color: '#EC4899', // Pink
       insights: [
-        "Lernen ist der Prozess, uns selbst neu kennenzulernen",
-        "Jede neue Erkenntnis erweitert unser Bewusstsein",
-        "Lernen geschieht, wenn wir offen für das Unbekannte sind",
+        'Lernen ist der Prozess, uns selbst neu kennenzulernen',
+        'Jede neue Erkenntnis erweitert unser Bewusstsein',
+        'Lernen geschieht, wenn wir offen für das Unbekannte sind',
       ],
     },
     {
-      id: "integration",
-      label: "Integration",
-      color: "#F59E0B", // Amber
+      id: 'integration',
+      label: 'Integration',
+      color: '#F59E0B', // Amber
       insights: [
-        "Integration verbindet neue Erkenntnisse mit unserer Identität",
-        "Das Neue wird Teil unseres erweiterten Selbst",
-        "Durch Integration entsteht nachhaltige Veränderung",
+        'Integration verbindet neue Erkenntnisse mit unserer Identität',
+        'Das Neue wird Teil unseres erweiterten Selbst',
+        'Durch Integration entsteht nachhaltige Veränderung',
       ],
     },
     {
-      id: "growth",
-      label: "Wachstum",
-      color: "#10B981", // Emerald
+      id: 'growth',
+      label: 'Wachstum',
+      color: '#10B981', // Emerald
       insights: [
-        "Wachstum ist die Summe bewusst integrierter Erfahrungen",
-        "Persönliches Wachstum verändert unsere Beziehung zum Leben",
-        "Im Wachstum erkennen wir tiefere Bedeutung und Sinn",
+        'Wachstum ist die Summe bewusst integrierter Erfahrungen',
+        'Persönliches Wachstum verändert unsere Beziehung zum Leben',
+        'Im Wachstum erkennen wir tiefere Bedeutung und Sinn',
       ],
     },
   ];
@@ -83,10 +83,10 @@ const GrowthJourneySection = () => {
     visible: {
       opacity: 1,
       transition: {
-        when: "beforeChildren",
+        when: 'beforeChildren',
         staggerChildren: 0.3,
         duration: 0.6,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
@@ -98,7 +98,7 @@ const GrowthJourneySection = () => {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
@@ -110,7 +110,7 @@ const GrowthJourneySection = () => {
       transition: {
         duration: 0.3,
         yoyo: Infinity,
-        ease: "easeInOut",
+        ease: 'easeInOut',
       },
     },
   };
@@ -118,31 +118,31 @@ const GrowthJourneySection = () => {
   const circleVariants = {
     initial: {
       scale: 1,
-      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+      boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
     },
     hover: {
       scale: 1.05,
-      boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.15)",
+      boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.15)',
       transition: {
         duration: 0.3,
-        ease: "easeInOut",
+        ease: 'easeInOut',
       },
     },
     tap: {
       scale: 0.98,
-      boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+      boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
       transition: {
         duration: 0.1,
-        ease: "easeInOut",
+        ease: 'easeInOut',
       },
     },
     active: {
       scale: 1.1,
-      boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
+      boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.2)',
       y: -5,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
@@ -157,7 +157,7 @@ const GrowthJourneySection = () => {
       opacity: 1,
       transition: {
         duration: 1.5,
-        ease: "easeInOut",
+        ease: 'easeInOut',
       },
     },
   };
@@ -171,11 +171,11 @@ const GrowthJourneySection = () => {
     visible: {
       opacity: 1,
       y: 0,
-      height: "auto",
+      height: 'auto',
       transition: {
         duration: 0.6,
-        ease: "easeOut",
-        when: "beforeChildren",
+        ease: 'easeOut',
+        when: 'beforeChildren',
         staggerChildren: 0.2,
       },
     },
@@ -185,7 +185,7 @@ const GrowthJourneySection = () => {
       height: 0,
       transition: {
         duration: 0.4,
-        ease: "easeIn",
+        ease: 'easeIn',
       },
     },
   };
@@ -200,7 +200,7 @@ const GrowthJourneySection = () => {
       x: 0,
       transition: {
         duration: 0.4,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
@@ -212,40 +212,32 @@ const GrowthJourneySection = () => {
 
     return (
       <div className="absolute inset-0 overflow-hidden z-0">
-        {particles.map((i) => (
+        {particles.map(i => (
           <motion.div
             key={i}
             className="absolute rounded-full opacity-20"
             initial={{
-              x: Math.random() * 100 + "%",
-              y: Math.random() * 100 + "%",
+              x: Math.random() * 100 + '%',
+              y: Math.random() * 100 + '%',
               scale: Math.random() * 0.4 + 0.6,
             }}
             animate={{
-              y: [
-                Math.random() * 100 + "%",
-                Math.random() * 100 + "%",
-                Math.random() * 100 + "%",
-              ],
-              x: [
-                Math.random() * 100 + "%",
-                Math.random() * 100 + "%",
-                Math.random() * 100 + "%",
-              ],
+              y: [Math.random() * 100 + '%', Math.random() * 100 + '%', Math.random() * 100 + '%'],
+              x: [Math.random() * 100 + '%', Math.random() * 100 + '%', Math.random() * 100 + '%'],
               rotate: [0, Math.random() * 360],
             }}
             transition={{
               duration: Math.random() * 20 + 20,
               repeat: Infinity,
-              ease: "linear",
+              ease: 'linear',
             }}
             style={{
-              width: Math.random() * 100 + 50 + "px",
-              height: Math.random() * 100 + 50 + "px",
+              width: Math.random() * 100 + 50 + 'px',
+              height: Math.random() * 100 + 50 + 'px',
               background: `radial-gradient(circle, ${
                 activePhase
-                  ? growthPhases.find((p) => p.id === activePhase)?.color + "30"
-                  : colorScheme.primary + "30"
+                  ? growthPhases.find(p => p.id === activePhase)?.color + '30'
+                  : colorScheme.primary + '30'
               }, transparent 70%)`,
             }}
           />
@@ -316,8 +308,7 @@ const GrowthJourneySection = () => {
                 d="M0,1 L100,1"
                 stroke={
                   activePhase
-                    ? growthPhases.find((p) => p.id === activePhase)?.color ||
-                      colorScheme.primary
+                    ? growthPhases.find(p => p.id === activePhase)?.color || colorScheme.primary
                     : colorScheme.primary
                 }
                 strokeWidth="2"
@@ -329,24 +320,17 @@ const GrowthJourneySection = () => {
 
             {/* Phase circles */}
             {growthPhases.map((phase, index) => (
-              <motion.div
-                key={phase.id}
-                className="relative z-10"
-                variants={itemVariants}
-              >
+              <motion.div key={phase.id} className="relative z-10" variants={itemVariants}>
                 <motion.button
                   className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center text-white font-semibold text-sm md:text-base relative z-10"
                   style={{
-                    backgroundColor:
-                      index % 2 === 0
-                        ? colorScheme.primary
-                        : colorScheme.accent,
+                    backgroundColor: index % 2 === 0 ? colorScheme.primary : colorScheme.accent,
                   }}
                   variants={circleVariants}
                   initial="initial"
                   whileHover="hover"
                   whileTap="tap"
-                  animate={activePhase === phase.id ? "active" : "initial"}
+                  animate={activePhase === phase.id ? 'active' : 'initial'}
                   onClick={() => {
                     setActivePhase(phase.id);
                     setExpanded(true);
@@ -358,17 +342,14 @@ const GrowthJourneySection = () => {
                   <motion.div
                     className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-white text-xs flex items-center justify-center font-bold shadow"
                     style={{
-                      color:
-                        index % 2 === 0
-                          ? colorScheme.primary
-                          : colorScheme.accent,
+                      color: index % 2 === 0 ? colorScheme.primary : colorScheme.accent,
                     }}
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{
                       delay: 0.3 + index * 0.1,
                       duration: 0.4,
-                      type: "spring",
+                      type: 'spring',
                     }}
                   >
                     {index + 1}
@@ -379,14 +360,12 @@ const GrowthJourneySection = () => {
                 {activePhase === phase.id && (
                   <motion.div
                     className="absolute left-1/2 -translate-x-1/2 w-px bg-gradient-to-b from-transparent"
-                    initial={{ height: 0, top: "100%" }}
-                    animate={{ height: 40, top: "100%" }}
+                    initial={{ height: 0, top: '100%' }}
+                    animate={{ height: 40, top: '100%' }}
                     transition={{ duration: 0.3 }}
                     style={{
                       backgroundImage: `linear-gradient(to bottom, transparent, ${
-                        index % 2 === 0
-                          ? colorScheme.primary
-                          : colorScheme.accent
+                        index % 2 === 0 ? colorScheme.primary : colorScheme.accent
                       })`,
                     }}
                   />
@@ -407,7 +386,7 @@ const GrowthJourneySection = () => {
               animate="visible"
               exit="exit"
               style={{
-                borderColor: colorScheme.primary + "40",
+                borderColor: colorScheme.primary + '40',
                 boxShadow: `0 4px 20px ${colorScheme.primary}20`,
               }}
             >
@@ -415,8 +394,7 @@ const GrowthJourneySection = () => {
                 className="font-semibold mb-6 text-xl flex items-center"
                 style={{
                   color:
-                    growthPhases.findIndex((p) => p.id === activePhase) % 2 ===
-                    0
+                    growthPhases.findIndex(p => p.id === activePhase) % 2 === 0
                       ? colorScheme.primary
                       : colorScheme.accent,
                 }}
@@ -428,36 +406,26 @@ const GrowthJourneySection = () => {
                   className="inline-block mr-3 w-8 h-8 rounded-full text-white font-bold flex items-center justify-center text-sm"
                   style={{
                     backgroundColor:
-                      growthPhases.findIndex((p) => p.id === activePhase) %
-                        2 ===
-                      0
+                      growthPhases.findIndex(p => p.id === activePhase) % 2 === 0
                         ? colorScheme.primary
                         : colorScheme.accent,
                   }}
                 >
-                  {growthPhases.findIndex((p) => p.id === activePhase) + 1}
+                  {growthPhases.findIndex(p => p.id === activePhase) + 1}
                 </span>
-                {growthPhases.find((p) => p.id === activePhase)?.label}
+                {growthPhases.find(p => p.id === activePhase)?.label}
               </motion.h4>
 
               <motion.ul className="space-y-4">
                 {growthPhases
-                  .find((p) => p.id === activePhase)
+                  .find(p => p.id === activePhase)
                   ?.insights.map((insight, i) => (
-                    <motion.li
-                      key={i}
-                      className="flex items-start"
-                      variants={insightItemVariants}
-                    >
+                    <motion.li key={i} className="flex items-start" variants={insightItemVariants}>
                       <motion.span
                         className="mr-3 mt-1.5 block w-2 h-2 rounded-full flex-shrink-0"
                         style={{
                           backgroundColor:
-                            growthPhases.findIndex(
-                              (p) => p.id === activePhase,
-                            ) %
-                              2 ===
-                            0
+                            growthPhases.findIndex(p => p.id === activePhase) % 2 === 0
                               ? colorScheme.primary
                               : colorScheme.accent,
                         }}
@@ -479,25 +447,24 @@ const GrowthJourneySection = () => {
             className="text-sm font-medium py-2 px-4 rounded-full transition-colors duration-300"
             style={{
               color: activePhase
-                ? growthPhases.findIndex((p) => p.id === activePhase) % 2 === 0
+                ? growthPhases.findIndex(p => p.id === activePhase) % 2 === 0
                   ? colorScheme.primary
                   : colorScheme.accent
                 : colorScheme.primary,
               border: `1px solid ${
                 activePhase
-                  ? growthPhases.findIndex((p) => p.id === activePhase) % 2 ===
-                    0
-                    ? colorScheme.primary + "40"
-                    : colorScheme.accent + "40"
-                  : colorScheme.primary + "40"
+                  ? growthPhases.findIndex(p => p.id === activePhase) % 2 === 0
+                    ? colorScheme.primary + '40'
+                    : colorScheme.accent + '40'
+                  : colorScheme.primary + '40'
               }`,
             }}
             whileHover={{
               backgroundColor: activePhase
-                ? growthPhases.findIndex((p) => p.id === activePhase) % 2 === 0
-                  ? colorScheme.primary + "10"
-                  : colorScheme.accent + "10"
-                : colorScheme.primary + "10",
+                ? growthPhases.findIndex(p => p.id === activePhase) % 2 === 0
+                  ? colorScheme.primary + '10'
+                  : colorScheme.accent + '10'
+                : colorScheme.primary + '10',
             }}
             whileTap={{ scale: 0.97 }}
             onClick={() => {
@@ -505,7 +472,7 @@ const GrowthJourneySection = () => {
               setExpanded(false);
             }}
           >
-            {expanded ? "Zurücksetzen" : "Entdecke den Wachstumsprozess"}
+            {expanded ? 'Zurücksetzen' : 'Entdecke den Wachstumsprozess'}
           </motion.button>
         </motion.div>
       </div>
@@ -514,4 +481,3 @@ const GrowthJourneySection = () => {
 };
 
 export default GrowthJourneySection;
-

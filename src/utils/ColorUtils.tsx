@@ -1,4 +1,4 @@
-import { ColorScheme } from "./ColorSchemeSelector";
+import { ColorScheme } from './ColorSchemeSelector';
 
 /**
  * Utility functions for working with colors and gradients
@@ -68,17 +68,17 @@ export const createGradientStyles = (colorScheme: ColorScheme) => {
       background: `linear-gradient(to right, ${lightenColor(colorScheme.primary, 0.15)}, ${lightenColor(colorScheme.accent, 0.15)})`,
     },
     card: {
-      background: `linear-gradient(145deg, white, ${mixColors("white", colorScheme.primary, 0.03)})`,
+      background: `linear-gradient(145deg, white, ${mixColors('white', colorScheme.primary, 0.03)})`,
     },
     highlightedCard: {
-      background: `linear-gradient(145deg, white, ${mixColors("white", colorScheme.accent, 0.08)})`,
+      background: `linear-gradient(145deg, white, ${mixColors('white', colorScheme.accent, 0.08)})`,
     },
     textGradient: {
       backgroundImage: `linear-gradient(to right, ${colorScheme.primary}, ${colorScheme.accent})`,
-      WebkitBackgroundClip: "text",
-      backgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      color: "transparent",
+      WebkitBackgroundClip: 'text',
+      backgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      color: 'transparent',
     },
     floatingElement: {
       background: `radial-gradient(circle, ${colorScheme.accent}30, transparent)`,
@@ -93,12 +93,12 @@ export function darkenColor(color: string, amount: number): string {
   // Convert hex to RGB
   let r, g, b;
 
-  if (color.startsWith("#")) {
+  if (color.startsWith('#')) {
     color = color.substring(1);
     r = parseInt(color.substring(0, 2), 16);
     g = parseInt(color.substring(2, 4), 16);
     b = parseInt(color.substring(4, 6), 16);
-  } else if (color.startsWith("rgb")) {
+  } else if (color.startsWith('rgb')) {
     const matches = color.match(/\d+/g);
     if (!matches || matches.length < 3) return color;
     r = parseInt(matches[0]);
@@ -114,7 +114,7 @@ export function darkenColor(color: string, amount: number): string {
   b = Math.max(0, Math.floor(b * (1 - amount)));
 
   // Convert back to hex
-  return `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
+  return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
 }
 
 /**
@@ -124,12 +124,12 @@ export function lightenColor(color: string, amount: number): string {
   // Convert hex to RGB
   let r, g, b;
 
-  if (color.startsWith("#")) {
+  if (color.startsWith('#')) {
     color = color.substring(1);
     r = parseInt(color.substring(0, 2), 16);
     g = parseInt(color.substring(2, 4), 16);
     b = parseInt(color.substring(4, 6), 16);
-  } else if (color.startsWith("rgb")) {
+  } else if (color.startsWith('rgb')) {
     const matches = color.match(/\d+/g);
     if (!matches || matches.length < 3) return color;
     r = parseInt(matches[0]);
@@ -145,7 +145,7 @@ export function lightenColor(color: string, amount: number): string {
   b = Math.min(255, Math.floor(b + (255 - b) * amount));
 
   // Convert back to hex
-  return `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
+  return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
 }
 
 /**
@@ -154,11 +154,7 @@ export function lightenColor(color: string, amount: number): string {
  * @param color2 - Second color (hex or rgb format)
  * @param weight - Weight of the second color (0 to 1)
  */
-export function mixColors(
-  color1: string,
-  color2: string,
-  weight: number,
-): string {
+export function mixColors(color1: string, color2: string, weight: number): string {
   // Convert colors to RGB
   const c1 = parseColor(color1);
   const c2 = parseColor(color2);
@@ -171,13 +167,13 @@ export function mixColors(
   const g = Math.round(c1.g * (1 - w) + c2.g * w);
   const b = Math.round(c1.b * (1 - w) + c2.b * w);
 
-  return `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
+  return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
 }
 
 // Helper to parse color to RGB object
 function parseColor(color: string): { r: number; g: number; b: number } | null {
   // Parse hex color
-  if (color.startsWith("#")) {
+  if (color.startsWith('#')) {
     const hex = color.substring(1);
     return {
       r: parseInt(hex.substring(0, 2), 16),
@@ -186,7 +182,7 @@ function parseColor(color: string): { r: number; g: number; b: number } | null {
     };
   }
   // Parse rgb/rgba color
-  else if (color.startsWith("rgb")) {
+  else if (color.startsWith('rgb')) {
     const matches = color.match(/\d+/g);
     if (!matches || matches.length < 3) return null;
     return {
@@ -201,11 +197,7 @@ function parseColor(color: string): { r: number; g: number; b: number } | null {
 /**
  * Create a CSS gradient with the given colors and optional angle
  */
-export function createGradient(
-  color1: string,
-  color2: string,
-  angle: string = "to right",
-): string {
+export function createGradient(color1: string, color2: string, angle: string = 'to right'): string {
   return `linear-gradient(${angle}, ${color1}, ${color2})`;
 }
 
@@ -214,7 +206,7 @@ export function createGradient(
  */
 export function createRadialGradient(
   centerColor: string,
-  outerColor: string = "transparent",
+  outerColor: string = 'transparent'
 ): string {
   return `radial-gradient(circle, ${centerColor}, ${outerColor})`;
 }

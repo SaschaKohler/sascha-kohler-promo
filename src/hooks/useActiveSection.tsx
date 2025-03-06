@@ -1,15 +1,15 @@
-"use client";
+'use client';
 import { useState, useEffect } from 'react';
 
 export function useActiveSection() {
   const [activeSection, setActiveSection] = useState('hero');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
       const sections = ['hero', 'about', 'values', 'expertise', 'contact'];
-      
+
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -21,11 +21,11 @@ export function useActiveSection() {
         }
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
+
   const scrollToSection = (sectionId: string) => {
     setMobileMenuOpen(false);
     const element = document.getElementById(sectionId);
@@ -33,11 +33,11 @@ export function useActiveSection() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
-  
-  return { 
-    activeSection, 
+
+  return {
+    activeSection,
     scrollToSection,
     mobileMenuOpen,
-    setMobileMenuOpen 
+    setMobileMenuOpen,
   };
 }

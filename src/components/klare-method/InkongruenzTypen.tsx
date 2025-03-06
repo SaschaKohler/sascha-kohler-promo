@@ -1,15 +1,6 @@
-import React, { useState } from "react";
-import {
-  Heart,
-  Target,
-  RefreshCcw,
-  Check,
-  Compass,
-  Zap,
-  Activity,
-  Brain,
-} from "lucide-react";
-import { ColorScheme } from "@/utils/colorSchemes";
+import React, { useState } from 'react';
+import { Heart, Target, RefreshCcw, Check, Compass, Zap, Activity, Brain } from 'lucide-react';
+import { ColorScheme } from '@/utils/colorSchemes';
 
 interface InkongruenzTypenProps {
   colorScheme: ColorScheme;
@@ -18,103 +9,97 @@ interface InkongruenzTypenProps {
 // Drei Haupttypen von Inkongruenz, die Menschen erleben
 const inkongruenzTypen = [
   {
-    id: "werte-handlung",
-    title: "Der Zwiespalt zwischen Werten und Handeln",
+    id: 'werte-handlung',
+    title: 'Der Zwiespalt zwischen Werten und Handeln',
     icon: Heart,
     description:
-      "Du weißt genau, was dir wichtig ist – aber dein tägliches Handeln sieht ganz anders aus. Dieser Zwiespalt erzeugt einen inneren Druck, der sich in Unzufriedenheit, Stress oder sogar gesundheitlichen Problemen äußern kann.",
+      'Du weißt genau, was dir wichtig ist – aber dein tägliches Handeln sieht ganz anders aus. Dieser Zwiespalt erzeugt einen inneren Druck, der sich in Unzufriedenheit, Stress oder sogar gesundheitlichen Problemen äußern kann.',
     examples: [
-      "Du stehst für Nachhaltigkeit, aber dein Beruf zwingt dich zu umweltschädlichen Entscheidungen",
-      "Du schätzt Familienleben, verbringst aber kaum Zeit mit deinen Liebsten",
-      "Du glaubst an Gesundheit, kommst aber nie dazu, für dich zu sorgen",
+      'Du stehst für Nachhaltigkeit, aber dein Beruf zwingt dich zu umweltschädlichen Entscheidungen',
+      'Du schätzt Familienleben, verbringst aber kaum Zeit mit deinen Liebsten',
+      'Du glaubst an Gesundheit, kommst aber nie dazu, für dich zu sorgen',
     ],
     benefits: [
       {
         icon: Compass,
-        title: "Klarheit schaffen",
-        description: "Erkenne, wo genau der Zwiespalt in deinem Leben liegt",
+        title: 'Klarheit schaffen',
+        description: 'Erkenne, wo genau der Zwiespalt in deinem Leben liegt',
       },
       {
         icon: Zap,
-        title: "Druck auflösen",
-        description: "Befreie dich von der Last der inneren Unstimmigkeit",
+        title: 'Druck auflösen',
+        description: 'Befreie dich von der Last der inneren Unstimmigkeit',
       },
       {
         icon: RefreshCcw,
-        title: "Neue Wege finden",
-        description:
-          "Entdecke Lösungen, die dein Handeln mit deinen Werten in Einklang bringen",
+        title: 'Neue Wege finden',
+        description: 'Entdecke Lösungen, die dein Handeln mit deinen Werten in Einklang bringen',
       },
     ],
   },
   {
-    id: "selbstbild-fremdbild",
-    title: "Die Maske: Anders wirken als du dich fühlst",
+    id: 'selbstbild-fremdbild',
+    title: 'Die Maske: Anders wirken als du dich fühlst',
     icon: Target,
     description:
-      "Nach außen spielst du eine Rolle, die nicht zu deinem wahren Selbst passt. Diese ständige Schauspielerei kostet enorm viel Kraft und verhindert echte Beziehungen und Erfüllung.",
+      'Nach außen spielst du eine Rolle, die nicht zu deinem wahren Selbst passt. Diese ständige Schauspielerei kostet enorm viel Kraft und verhindert echte Beziehungen und Erfüllung.',
     examples: [
-      "Du wirkst nach außen selbstsicher, fühlst dich aber innerlich oft unsicher",
-      "Du zeigst dich stark und unabhängig, sehnst dich aber nach Unterstützung",
-      "Du stellst deine Erfolge zur Schau, zweifelst aber innerlich an deren Wert",
+      'Du wirkst nach außen selbstsicher, fühlst dich aber innerlich oft unsicher',
+      'Du zeigst dich stark und unabhängig, sehnst dich aber nach Unterstützung',
+      'Du stellst deine Erfolge zur Schau, zweifelst aber innerlich an deren Wert',
     ],
     benefits: [
       {
         icon: Brain,
-        title: "Selbsterkenntnis",
-        description:
-          "Verstehe, warum du eine Maske trägst und was du wirklich brauchst",
+        title: 'Selbsterkenntnis',
+        description: 'Verstehe, warum du eine Maske trägst und was du wirklich brauchst',
       },
       {
         icon: Heart,
-        title: "Authentizität entwickeln",
-        description:
-          "Lerne, dein wahres Selbst zu zeigen, ohne Angst vor Ablehnung",
+        title: 'Authentizität entwickeln',
+        description: 'Lerne, dein wahres Selbst zu zeigen, ohne Angst vor Ablehnung',
       },
       {
         icon: Activity,
-        title: "Energie freisetzen",
+        title: 'Energie freisetzen',
         description:
-          "Erlebe, wie viel Kraft du gewinnst, wenn du nicht mehr zwei Personen sein musst",
+          'Erlebe, wie viel Kraft du gewinnst, wenn du nicht mehr zwei Personen sein musst',
       },
     ],
   },
   {
-    id: "lebensbereich-konflikt",
-    title: "Zerrissen zwischen verschiedenen Lebensbereichen",
+    id: 'lebensbereich-konflikt',
+    title: 'Zerrissen zwischen verschiedenen Lebensbereichen',
     icon: RefreshCcw,
     description:
-      "Du führst quasi mehrere Leben parallel, die nicht zusammenpassen. Diese Zerrissenheit führt zu ständigen inneren Konflikten und dem Gefühl, nirgends wirklich ganz präsent zu sein.",
+      'Du führst quasi mehrere Leben parallel, die nicht zusammenpassen. Diese Zerrissenheit führt zu ständigen inneren Konflikten und dem Gefühl, nirgends wirklich ganz präsent zu sein.',
     examples: [
-      "Im Beruf bist du ein anderer Mensch als in der Familie oder im Freundeskreis",
-      "Deine Freizeit und dein Arbeitsleben fühlen sich an wie zwei getrennte Welten",
-      "Du wechselst ständig zwischen verschiedenen Rollen und verlierst dabei dein wahres Ich",
+      'Im Beruf bist du ein anderer Mensch als in der Familie oder im Freundeskreis',
+      'Deine Freizeit und dein Arbeitsleben fühlen sich an wie zwei getrennte Welten',
+      'Du wechselst ständig zwischen verschiedenen Rollen und verlierst dabei dein wahres Ich',
     ],
     benefits: [
       {
         icon: Target,
-        title: "Ganzheitliche Sicht",
-        description: "Erkenne, dass alle Lebensbereiche Teil eines Ganzen sind",
+        title: 'Ganzheitliche Sicht',
+        description: 'Erkenne, dass alle Lebensbereiche Teil eines Ganzen sind',
       },
       {
         icon: Compass,
-        title: "Verbindungen schaffen",
-        description:
-          "Finde Brücken zwischen den scheinbar getrennten Teilen deines Lebens",
+        title: 'Verbindungen schaffen',
+        description: 'Finde Brücken zwischen den scheinbar getrennten Teilen deines Lebens',
       },
       {
         icon: Zap,
-        title: "Innere Einheit",
+        title: 'Innere Einheit',
         description:
-          "Erlebe die befreiende Kraft, wenn alle Lebensbereiche in eine Richtung wirken",
+          'Erlebe die befreiende Kraft, wenn alle Lebensbereiche in eine Richtung wirken',
       },
     ],
   },
 ];
 
-const InkongruenzTypenSection: React.FC<InkongruenzTypenProps> = ({
-  colorScheme,
-}) => {
+const InkongruenzTypenSection: React.FC<InkongruenzTypenProps> = ({ colorScheme }) => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   return (
@@ -126,11 +111,7 @@ const InkongruenzTypenSection: React.FC<InkongruenzTypenProps> = ({
     >
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-12">
-          <Heart
-            size={36}
-            style={{ color: colorScheme.accent }}
-            className="mx-auto mb-4"
-          />
+          <Heart size={36} style={{ color: colorScheme.accent }} className="mx-auto mb-4" />
           <h2
             className="text-3xl md:text-4xl font-bold mb-4"
             style={{ color: colorScheme.primary }}
@@ -138,8 +119,8 @@ const InkongruenzTypenSection: React.FC<InkongruenzTypenProps> = ({
             Findest du dich hier wieder?
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-            Die KLARE Methode hilft Menschen, die einen dieser inneren Konflikte
-            erleben. Erkennst du dich in einer dieser Beschreibungen?
+            Die KLARE Methode hilft Menschen, die einen dieser inneren Konflikte erleben. Erkennst
+            du dich in einer dieser Beschreibungen?
           </p>
 
           {/* Kongruenz-Credo */}
@@ -150,10 +131,7 @@ const InkongruenzTypenSection: React.FC<InkongruenzTypenProps> = ({
               border: `1px solid ${colorScheme.primary}30`,
             }}
           >
-            <h3
-              className="text-xl font-semibold mb-3"
-              style={{ color: colorScheme.primary }}
-            >
+            <h3 className="text-xl font-semibold mb-3" style={{ color: colorScheme.primary }}>
               Unser Leitgedanke
             </h3>
             <p className="text-lg italic" style={{ color: colorScheme.text }}>
@@ -168,20 +146,17 @@ const InkongruenzTypenSection: React.FC<InkongruenzTypenProps> = ({
                 key={index}
                 className={`px-4 py-2 rounded-full transition-all duration-300 flex items-center ${
                   activeTab === index
-                    ? "text-white shadow-md"
-                    : "text-gray-600 bg-gray-100 hover:bg-gray-200"
+                    ? 'text-white shadow-md'
+                    : 'text-gray-600 bg-gray-100 hover:bg-gray-200'
                 }`}
                 style={{
-                  backgroundColor:
-                    activeTab === index ? colorScheme.primary : undefined,
+                  backgroundColor: activeTab === index ? colorScheme.primary : undefined,
                 }}
                 onClick={() => setActiveTab(index)}
               >
                 <typ.icon size={16} className="mr-2" />
                 <span className="hidden md:inline">
-                  {typ.title.length > 20
-                    ? typ.title.substring(0, 20) + "..."
-                    : typ.title}
+                  {typ.title.length > 20 ? typ.title.substring(0, 20) + '...' : typ.title}
                 </span>
                 <span className="md:hidden">Typ {index + 1}</span>
               </button>
@@ -194,7 +169,7 @@ const InkongruenzTypenSection: React.FC<InkongruenzTypenProps> = ({
           <div
             key={index}
             className={`bg-white rounded-lg shadow-lg p-8 mb-12 max-w-4xl mx-auto overflow-hidden relative transition-all duration-500 ${
-              activeTab === index ? "opacity-100" : "opacity-0 hidden"
+              activeTab === index ? 'opacity-100' : 'opacity-0 hidden'
             }`}
             style={{
               borderLeft: `5px solid ${colorScheme.primary}`,
@@ -221,10 +196,7 @@ const InkongruenzTypenSection: React.FC<InkongruenzTypenProps> = ({
                   <typ.icon size={48} style={{ color: colorScheme.primary }} />
                 </div>
                 <div>
-                  <h3
-                    className="text-2xl font-semibold"
-                    style={{ color: colorScheme.primary }}
-                  >
+                  <h3 className="text-2xl font-semibold" style={{ color: colorScheme.primary }}>
                     {typ.title}
                   </h3>
                 </div>
@@ -234,10 +206,7 @@ const InkongruenzTypenSection: React.FC<InkongruenzTypenProps> = ({
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4
-                    className="font-semibold mb-3"
-                    style={{ color: colorScheme.accent }}
-                  >
+                  <h4 className="font-semibold mb-3" style={{ color: colorScheme.accent }}>
                     Kommt dir das bekannt vor?
                   </h4>
                   <ul className="space-y-3">
@@ -256,31 +225,20 @@ const InkongruenzTypenSection: React.FC<InkongruenzTypenProps> = ({
                 </div>
 
                 <div>
-                  <h4
-                    className="font-semibold mb-3"
-                    style={{ color: colorScheme.accent }}
-                  >
+                  <h4 className="font-semibold mb-3" style={{ color: colorScheme.accent }}>
                     Wie die KLARE Methode dir hilft:
                   </h4>
                   <div className="space-y-4">
                     {typ.benefits.map((benefit, i) => (
                       <div key={i} className="flex">
                         <div className="mr-4">
-                          <benefit.icon
-                            size={24}
-                            style={{ color: colorScheme.primary }}
-                          />
+                          <benefit.icon size={24} style={{ color: colorScheme.primary }} />
                         </div>
                         <div>
-                          <p
-                            className="font-medium"
-                            style={{ color: colorScheme.primary }}
-                          >
+                          <p className="font-medium" style={{ color: colorScheme.primary }}>
                             {benefit.title}
                           </p>
-                          <p className="text-gray-600 text-sm">
-                            {benefit.description}
-                          </p>
+                          <p className="text-gray-600 text-sm">{benefit.description}</p>
                         </div>
                       </div>
                     ))}
@@ -293,10 +251,9 @@ const InkongruenzTypenSection: React.FC<InkongruenzTypenProps> = ({
                 style={{ borderColor: colorScheme.accent }}
               >
                 <p className="text-gray-700">
-                  <strong>Die KLARE Methode:</strong> Ein strukturierter
-                  5-Schritte-Prozess, der dir hilft, diesen inneren Konflikt zu
-                  lösen und ein stimmiges Leben zu führen – ohne komplizierte
-                  Theorien, sondern mit praktischen Werkzeugen für den Alltag.
+                  <strong>Die KLARE Methode:</strong> Ein strukturierter 5-Schritte-Prozess, der dir
+                  hilft, diesen inneren Konflikt zu lösen und ein stimmiges Leben zu führen – ohne
+                  komplizierte Theorien, sondern mit praktischen Werkzeugen für den Alltag.
                 </p>
               </div>
             </div>
@@ -305,10 +262,7 @@ const InkongruenzTypenSection: React.FC<InkongruenzTypenProps> = ({
 
         {/* Call to action */}
         <div className="text-center">
-          <p
-            className="text-lg font-medium mb-4"
-            style={{ color: colorScheme.primary }}
-          >
+          <p className="text-lg font-medium mb-4" style={{ color: colorScheme.primary }}>
             Bist du bereit für ein Leben mit mehr innerer Stimmigkeit?
           </p>
           <button

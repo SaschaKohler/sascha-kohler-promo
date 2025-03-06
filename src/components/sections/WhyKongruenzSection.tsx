@@ -26,7 +26,7 @@ const WhyKongruenzSection: React.FC<WhyKongruenzSectionProps> = ({
     {
       title: "Menschen sind keine Unternehmen",
       description:
-        'Viele Transformationsansätze behandeln Menschen wie Systeme oder Unternehmen, die "optimiert" werden müssen. Die KLARE Methode respektiert dich als einzigartiges Individuum mit komplexen Bedürfnissen und Emotionen.',
+        'Viele Transformationsansätze behandeln Menschen wie Systeme oder Unternehmen, die "optimiert" werden müssen. Die KLARE Methode respektiert sie als einzigartiges Individuum mit komplexen Bedürfnissen und Emotionen.',
       quote:
         '"Ich habe jahrelang versucht, mich wie eine Maschine zu optimieren. Die Kongruenz-Methode hat mir gezeigt, dass wahre Transformation von innen kommt."',
       icon: Compass,
@@ -35,7 +35,7 @@ const WhyKongruenzSection: React.FC<WhyKongruenzSectionProps> = ({
     {
       title: "Ganzheitliche Integration",
       description:
-        "Statt einzelne Lebensbereiche isoliert zu verbessern, bringt die KLARE Methode dein gesamtes Leben in Einklang. Das Ergebnis: Natürliche Leichtigkeit statt Erschöpfung durch fragmentierte Ziele.",
+        "Statt einzelne Lebensbereiche isoliert zu verbessern, bringt die KLARE Methode ihr gesamtes Leben in Einklang. Das Ergebnis: Natürliche Leichtigkeit statt Erschöpfung durch fragmentierte Ziele.",
       quote:
         '"Der größte Unterschied: Ich muss mich nicht mehr zwischen meinem beruflichen Erfolg und meinem Familienleben entscheiden. Beide Bereiche nähren sich gegenseitig."',
       icon: Heart,

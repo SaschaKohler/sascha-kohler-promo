@@ -19,12 +19,7 @@ import {
   UserCheck,
   Shapes,
 } from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface KongruenzAccordionProps {
   colorScheme: ColorScheme;
@@ -80,36 +75,39 @@ const KongruenzAccordion: React.FC<KongruenzAccordionProps> = ({
       collapsible
       className={cn("w-full max-w-3xl mx-auto rounded-md shadow-sm", className)}
     >
-      <AccordionItem 
+      <AccordionItem
         value="kongruenz-definition"
         className="border-0 overflow-hidden"
         style={{ borderLeft: `3px solid ${colorScheme.primary}` }}
       >
-        <AccordionTrigger 
+        <AccordionTrigger
           className="px-6 py-4 hover:bg-muted/40 text-lg font-medium"
           style={{ color: colorScheme.primary }}
         >
           Was bedeutet Kongruenz?
         </AccordionTrigger>
         <AccordionContent>
-          <div className="px-6 py-4 border-t" style={{ borderColor: `${colorScheme.primary}20` }}>
+          <div
+            className="px-6 py-4 border-t"
+            style={{ borderColor: `${colorScheme.primary}20` }}
+          >
             <p className="text-muted-foreground mb-6">
-              <strong>Kongruenz</strong> bedeutet Übereinstimmung und Stimmigkeit. In der
-              KLARE-Methode steht sie für den Zustand, in dem Ihr Denken, Fühlen
-              und Handeln in allen Lebensbereichen miteinander im Einklang sind –
-              wenn Ihre äußere Realität mit Ihren inneren Werten, Wünschen und
-              Zielen übereinstimmt.
+              <strong>Kongruenz</strong> bedeutet Übereinstimmung und
+              Stimmigkeit. In der KLARE-Methode steht Kongruenz für den Zustand,
+              in dem Ihr Denken, Fühlen und Handeln in allen Lebensbereichen
+              miteinander im Einklang sind – wenn Ihre äußere Realität mit Ihren
+              inneren Werten, Wünschen und Zielen übereinstimmt.
             </p>
 
             {/* Responsive Grid für die Karten */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Inkongruenz-Karte */}
-              <Card 
+              <Card
                 className="border-0 shadow-sm"
                 style={{ backgroundColor: `${colorScheme.primary}10` }}
               >
                 <CardHeader className="pb-2">
-                  <CardTitle 
+                  <CardTitle
                     className="text-base font-medium"
                     style={{ color: colorScheme.primary }}
                   >
@@ -136,12 +134,12 @@ const KongruenzAccordion: React.FC<KongruenzAccordionProps> = ({
               </Card>
 
               {/* Kongruenz-Karte */}
-              <Card 
+              <Card
                 className="border-0 shadow-sm"
                 style={{ backgroundColor: `${colorScheme.accent}10` }}
               >
                 <CardHeader className="pb-2">
-                  <CardTitle 
+                  <CardTitle
                     className="text-base font-medium"
                     style={{ color: colorScheme.accent }}
                   >
@@ -175,3 +173,4 @@ const KongruenzAccordion: React.FC<KongruenzAccordionProps> = ({
 };
 
 export default KongruenzAccordion;
+

@@ -1,8 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useColorScheme } from "@/contexts/ColorSchemeContext";
-import { colorSchemes } from "@/utils/colorSchemes";
-import { Palette, Check, Settings } from "lucide-react";
+import { colorSchemes, findSchemeByName } from "@/utils/colorSchemes";
+import { Settings, Check } from "lucide-react";
 import {
   Popover,
   PopoverContent,
@@ -15,11 +15,36 @@ interface ColorSchemeSelectorProps {
   isFooterVisible?: boolean;
 }
 
+// Name des localStorage Keys
+const COLOR_SCHEME_STORAGE_KEY = "sascha-kohler-color-scheme";
+
 const ContextAwareColorSchemeSelector: React.FC<ColorSchemeSelectorProps> = ({
   isFooterVisible = false,
 }) => {
   const { colorScheme, setColorScheme } = useColorScheme();
   const [open, setOpen] = useState(false);
+
+  // Beim ersten Laden des Components das gespeicherte Farbschema aus localStorage laden
+  useEffect(() => {
+    const loadColorScheme = () => {
+      // Prüfen, ob wir im Browser sind (für Next.js SSR)
+      if (typeof window !== "undefined") {
+        try {
+          const savedColorSchemeName = localStorage.getItem(COLOR_SCHEME_STORAGE_KEY);
+          if (savedColorSchemeName) {
+            const savedScheme = findSchemeByName(savedColorSchemeName);
+            if (savedScheme) {
+              setColorScheme(savedScheme);
+            }
+          }
+        } catch (error) {
+          console.error("Fehler beim Laden des Farbschemas:", error);
+        }
+      }
+    };
+
+    loadColorScheme();
+  }, [setColorScheme]);
 
   // Stile für das Ausblenden, wenn der Footer sichtbar ist
   const visibilityStyle = {
@@ -28,6 +53,19 @@ const ContextAwareColorSchemeSelector: React.FC<ColorSchemeSelectorProps> = ({
       ? "hidden"
       : ("visible" as "hidden" | "visible"),
     transition: "opacity 0.5s ease, visibility 0.5s ease",
+  };
+
+  // Funktion zum Ändern und Speichern des Farbschemas
+  const handleColorSchemeChange = (scheme) => {
+    setColorScheme(scheme);
+    setOpen(false);
+    
+    // Im localStorage speichern
+    try {
+      localStorage.setItem(COLOR_SCHEME_STORAGE_KEY, scheme.name);
+    } catch (error) {
+      console.error("Fehler beim Speichern des Farbschemas:", error);
+    }
   };
 
   return (
@@ -72,10 +110,7 @@ const ContextAwareColorSchemeSelector: React.FC<ColorSchemeSelectorProps> = ({
                     scheme.name === colorScheme.name && "bg-muted",
                   )}
                   style={{ color: scheme.primary }}
-                  onClick={() => {
-                    setColorScheme(scheme);
-                    setOpen(false);
-                  }}
+                  onClick={() => handleColorSchemeChange(scheme)}
                 >
                   <div className="flex items-center w-full">
                     <div

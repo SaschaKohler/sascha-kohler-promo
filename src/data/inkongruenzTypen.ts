@@ -12,55 +12,55 @@ export const inkongruenzTypen: InkongruenzTyp[] = [
   {
     title: "Kopf-Herz-Konflikt",
     description:
-      "Du weißt rational, was du tun solltest, aber emotional kannst du dich nicht dazu überwinden. Dieser innere Widerspruch lähmt dich und verhindert Fortschritt in wichtigen Lebensbereichen.",
+      "Sie wissen rational, was sie tun solltest, aber emotional können sie sich nicht dazu überwinden. Dieser innere Widerspruch lähmt sie und verhindert Fortschritt in wichtigen Lebensbereichen.",
     examples: [
-      "Du weißt, dass eine Beziehung nicht gut für dich ist, kannst dich aber emotional nicht lösen",
-      "Du verstehst, dass bestimmte Gewohnheiten dir schaden, fühlst dich aber emotional an sie gebunden",
-      "Du erkennst, dass ein Karrierewechsel logisch wäre, hast aber emotional Angst vor der Veränderung",
+      "Sie wissen, dass eine Beziehung nicht gut für sie ist, können sich aber emotional nicht lösen",
+      "Sie verstehen, dass bestimmte Gewohnheiten ihnen schaden, fühlen sich aber emotional an diese gebunden",
+      "Sie erkennen, dass ein Karrierewechsel logisch wäre, haben aber emotional Angst vor der Veränderung",
     ],
     icon: Brain,
   },
   {
     title: "Werte-Handlungs-Konflikt",
     description:
-      "Du lebst im Widerspruch zu deinen eigenen Werten und Überzeugungen. Diese Diskrepanz erzeugt ein Gefühl der Unaufrichtigkeit und untergräbt dein Selbstwertgefühl.",
+      "Sie leben im Widerspruch zu ihren eigenen Werten und Überzeugungen. Diese Diskrepanz erzeugt ein Gefühl der Unaufrichtigkeit und untergräbt ihr Selbstwertgefühl.",
     examples: [
-      "Du schätzt Ehrlichkeit, ertappst dich aber regelmäßig dabei, kleine Lügen zu erzählen",
-      "Du wünschst dir mehr Tiefe in Beziehungen, bleibst aber in oberflächlichen Kontakten stecken",
-      "Du glaubst an Umweltschutz, triffst aber kaum nachhaltige Entscheidungen im Alltag",
+      "Sie schätzen Ehrlichkeit, ertappen sich aber regelmäßig dabei, selbst unehrlich sein zu müssen",
+      "Sie wünschen sich mehr Tiefe in Beziehungen, bleiben aber in oberflächlichen Kontakten stecken",
+      "Sie glauben an Umweltschutz, treffen aber kaum nachhaltige Entscheidungen im Alltag",
     ],
     icon: Heart,
   },
   {
     title: "Fragmentierte Lebensbereiche",
     description:
-      "Deine verschiedenen Lebensbereiche stehen in Konflikt zueinander. Was in einem Bereich funktioniert, schadet einem anderen – ein Zustand, der dich emotional und energetisch erschöpft.",
+      "Ihre verschiedenen Lebensbereiche stehen in Konflikt zueinander. Was in einem Bereich funktioniert, schadet einem anderen – ein Zustand, der sie emotional und energetisch erschöpft.",
     examples: [
-      "Dein beruflicher Erfolg geht auf Kosten deiner Gesundheit oder Beziehungen",
-      "Deine familiären Verpflichtungen behindern deine persönliche Entwicklung",
-      "Deine sozialen Aktivitäten und deine finanziellen Ziele stehen im Widerspruch",
+      "Ihr beruflicher Erfolg geht auf Kosten ihrer Gesundheit oder Beziehungen",
+      "Ihre familiären Verpflichtungen behindern ihre persönliche Entwicklung",
+      "Ihre sozialen Aktivitäten und ihre finanziellen Ziele stehen im Widerspruch",
     ],
     icon: Puzzle,
   },
   {
     title: "Selbstbild-Realitäts-Diskrepanz",
     description:
-      "Wie du dich siehst und wie du tatsächlich lebst, passt nicht zusammen. Diese Inkongruenz erzeugt ein ständiges Gefühl der Unzulänglichkeit und Selbstkritik.",
+      "Wie sie sich sehen und wie sie tatsächlich leben, passt nicht zusammen. Diese Inkongruenz erzeugt ein ständiges Gefühl der Unzulänglichkeit und Selbstkritik.",
     examples: [
-      "Du siehst dich als diszipliniert, hast aber Schwierigkeiten, Pläne umzusetzen",
-      "Du hältst dich für großzügig, bist aber oft zurückhaltend, wenn es ums Teilen geht",
-      "Du glaubst, ein positiver Mensch zu sein, wirst aber von negativen Gedanken dominiert",
+      "Sie sehen sich als diszipliniert, haben aber Schwierigkeiten, Pläne umzusetzen",
+      "Sie halten sich für großzügig, sind aber oft zurückhaltend, wenn es ums Teilen geht",
+      "Sie glauben, ein positiver Mensch zu sein, werden aber von negativen Gedanken dominiert",
     ],
     icon: ArrowUpDown,
   },
   {
     title: "Ziel-Weg-Konflikt",
     description:
-      "Deine Ziele sind klar, aber die Wege, die du einschlägst, führen nicht dorthin. Diese Inkongruenz führt zu Frustration und dem Gefühl, trotz Anstrengung nicht voranzukommen.",
+      "Ihre Ziele sind klar, aber die Wege, die sie einschlagen, führen nicht dorthin. Diese Inkongruenz führt zu Frustration und dem Gefühl, trotz Anstrengung nicht voranzukommen.",
     examples: [
-      "Du willst finanzielle Freiheit, aber deine täglichen Entscheidungen führen zu mehr Schulden",
-      "Du strebst nach beruflichem Aufstieg, investierst aber kaum in deine Fähigkeiten",
-      "Du wünschst dir tiefe Beziehungen, vermeidest aber echte Verletzlichkeit",
+      "Sie wollen finanzielle Freiheit, aber ihre täglichen Entscheidungen führen zu mehr Schulden",
+      "Sie strebes nach beruflichem Aufstieg, investieres aber kaum in ihre Fähigkeiten",
+      "Sie wünschen sich tiefe Beziehungen, vermeiden aber echte Verletzlichkeit",
     ],
     icon: RefreshCcw,
   },

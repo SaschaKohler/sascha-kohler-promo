@@ -111,15 +111,14 @@ const ThanksSection: React.FC<ThanksSectionProps> = ({ colorScheme }) => {
                 </p>
                 <p className={`text-${colorScheme.text}`}>
                   Für seine visionäre Führung, sein umfassendes Wissen und die
-                  Art und Weise, wie er Lebensfreude und Transformation h
+                  Art und Weise, wie er Lebensfreude und Transformation
                   miteinander verbindet. Seine Lehren haben meinen eigenen Weg
                   maßgeblich geprägt und bereichert.
                 </p>
+                <p className={`italic pt-2 text-${colorScheme.accent}`}>
+                  "WIRKLICHKEIT IST DAS WAS WIRKT"
+                </p>
               </div>
-
-              <p className={`italic text-${colorScheme.accent}`}>
-                "WIRKLICHKEIT IST DAS WAS WIRKT"
-              </p>
 
               <div
                 className="p-5 rounded-lg"

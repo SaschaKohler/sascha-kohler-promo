@@ -241,11 +241,11 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 className="text-2xl font-semibold"
                 style={{ color: colorScheme.primary }}
               >
-                Erfahre als Erster vom Launch
+                Erfahren Sie hier mehr zum Launch
               </h2>
               <p className="text-gray-600 mt-2">
-                Melde dich für den Newsletter an und erhalte exklusive Einblicke
-                in die KLARE Kongruenz-Methode.
+                Melde Sie sich für den Newsletter an und erhalten sie schon
+                jetzt exklusive Einblicke in die KLARE-Methode.
               </p>
             </div>
 
@@ -255,7 +255,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
             >
               <input
                 type="email"
-                placeholder="Deine E-Mail-Adresse"
+                placeholder="Ihre E-Mail-Adresse"
                 className="flex-grow px-4 py-3 rounded-md border transition-all duration-300"
                 style={{
                   borderColor: `${colorScheme.primary}40`,

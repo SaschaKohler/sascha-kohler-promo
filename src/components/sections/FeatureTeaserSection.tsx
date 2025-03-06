@@ -39,16 +39,17 @@ const FeatureTeaserSection: React.FC<FeatureTeaserSectionProps> = ({
           className="text-xl sm:text-2xl font-semibold mb-8 text-center"
           style={{ color: colorScheme.text }}
         >
-          Was dich{" "}
-          <span style={{ color: colorScheme.primary }}>erwartet</span>
+          Was Sie <span style={{ color: colorScheme.primary }}>erwartet</span>
         </h2>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {comingSoonFeatures.map((feature, index) => {
             const IconComponent = getIconComponent(feature.icon);
             const isOddFeature = index % 2 !== 0;
-            const cardColor = isOddFeature ? colorScheme.accent : colorScheme.primary;
-            
+            const cardColor = isOddFeature
+              ? colorScheme.accent
+              : colorScheme.primary;
+
             return (
               <Card
                 key={index}
@@ -79,3 +80,4 @@ const FeatureTeaserSection: React.FC<FeatureTeaserSectionProps> = ({
 };
 
 export default FeatureTeaserSection;
+

@@ -38,10 +38,10 @@ export const InkongruenzTypenSection: React.FC<
           className="text-3xl md:text-4xl font-bold mb-4"
           style={{ color: colorScheme.primary }}
         >
-          Erkennst du dich wieder?
+          Erkennen Sie sich wieder?
         </h2>
         <CardDescription className="text-lg max-w-2xl mx-auto mb-4">
-          Die KLARE Kongruenz-Methode hilft Menschen, die einen dieser inneren
+          Die KLARE Kongruenz-Methode hilft Ihnen, wenn sie einen dieser inneren
           Konflikte erleben:
         </CardDescription>
       </div>
@@ -103,7 +103,7 @@ export const InkongruenzTypenSection: React.FC<
               className="font-semibold mb-3"
               style={{ color: colorScheme.accent }}
             >
-              Kommt dir das bekannt vor?
+              Kommt Ihnen das bekannt vor?
             </h4>
             <ul className="space-y-3 mb-8">
               {inkongruenzTypen[activeInkongruenzIndex].examples.map(
@@ -127,7 +127,7 @@ export const InkongruenzTypenSection: React.FC<
             >
               <p className="text-muted-foreground">
                 <strong>Die KLARE Methode:</strong> Ein strukturierter
-                5-Schritte-Prozess, der dir hilft, diesen inneren Konflikt zu
+                5-Schritte-Prozess, der ihnen hilft, diesen inneren Konflikt zu
                 lösen und ein stimmiges Leben zu führen – ohne komplizierte
                 Theorien, sondern mit praktischen Werkzeugen für den Alltag.
               </p>

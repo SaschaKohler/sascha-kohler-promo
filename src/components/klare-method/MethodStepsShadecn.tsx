@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { kongruenzSteps, getStepColor } from "@/data/kongruenzSteps";
 import { ColorScheme } from "@/utils/colorSchemes";
+import useScrollToSection from "@/hooks/useScrollToSection";
 import {
   Search,
   Zap,
@@ -35,31 +36,31 @@ const stepsWithIcons = [
     ...kongruenzSteps[0],
     icon: Search,
     content:
-      "Erkenne deine größten Ziele und konfrontiere dich ehrlich mit deiner aktuellen Situation. Dieser Schritt schafft Klarheit über den IST-Zustand und den angestrebten SOLL-Zustand in allen Lebensbereichen.",
+      "Erkennen sie ihre größten Ziele und konfrontieren sie sich ehrlich mit ihrer aktuellen Situation. Dieser Schritt schafft Klarheit über den IST-Zustand und den angestrebten SOLL-Zustand in allen Lebensbereichen.",
   },
   {
     ...kongruenzSteps[1],
     icon: Zap,
     content:
-      "Entdecke die natürliche Lebendigkeit und Energie, die bereits in dir vorhanden ist. Hier lernst du, deine natürlichen Ressourcen und Kräfte zu erkennen und gezielt zu nutzen.",
+      "Entdecken sie die natürliche Lebendigkeit und Energie, die bereits in ihnen vorhanden ist. Hier lernen sie, ihre natürlichen Ressourcen und Kräfte zu erkennen und gezielt zu nutzen.",
   },
   {
     ...kongruenzSteps[2],
     icon: Compass,
     content:
-      "Entwickle konkrete Strategien, um alle Lebensbereiche in Richtung deiner Ziele auszurichten. In diesem Schritt lernst du Techniken zur bewussten Ausrichtung deines Denkens, Fühlens und Handelns.",
+      "Entwicklen sie konkrete Strategien, um alle Lebensbereiche in Richtung ihrer Ziele auszurichten. In diesem Schritt erlernen sie Techniken zur bewussten Ausrichtung ihres Denkens, Fühlens und Handelns.",
   },
   {
     ...kongruenzSteps[3],
     icon: Hammer,
     content:
-      "Setze die entwickelten Strategien in deinem Alltag um und integriere sie nachhaltig in dein Leben. Hier werden unterstützende Strukturen und Routinen etabliert, die langfristige Veränderung ermöglichen.",
+      "Setzen sie die entwickelten Strategien in ihrem Alltag um und integrieren sie diese nachhaltig in ihrem Leben. Hier werden unterstützende Strukturen und Routinen etabliert, die langfristige Veränderung ermöglichen.",
   },
   {
     ...kongruenzSteps[4],
     icon: Sparkles,
     content:
-      "Erlebe, wie durch vollständige Kongruenz deine Ziele mit natürlicher Leichtigkeit Wirklichkeit werden. In diesem finalen Schritt manifestiert sich deine Transformation in allen Lebensbereichen und du erlebst das Gefühl tiefer innerer Stimmigkeit.",
+      "Erleben sie, wie durch vollständige Kongruenz ihren Ziele mit natürlicher Leichtigkeit Wirklichkeit werden. In diesem finalen Schritt manifestiert sich ihre Transformation in allen Lebensbereichen und sie erleben das Gefühl tiefer innerer Stimmigkeit.",
   },
 ];
 
@@ -74,6 +75,12 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
   colorScheme,
   initialActiveStep = 0,
 }) => {
+  const scrollToSection = useScrollToSection();
+
+  const handleScrollToSection = (sectionId: string) => {
+    scrollToSection(sectionId, { offset: 80 });
+  };
+
   const [activeStepIndex, setActiveStepIndex] =
     useState<number>(initialActiveStep);
 
@@ -108,8 +115,8 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
           </CardTitle>
           <CardDescription className="text-muted-foreground max-w-2xl mx-auto">
             In 5 Schritten zur vollständigen Kongruenz in allen Lebensbereichen.
-            Entdecke den transformativen Prozess, der dir hilft, alle Aspekte
-            deines Lebens auf deine großen Ziele auszurichten.
+            Entdecken sie den transformativen Prozess, der ihnen hilft, alle
+            Aspekte ihres Lebens auf ihre Ziele auszurichten.
           </CardDescription>
         </CardHeader>
 
@@ -345,6 +352,7 @@ const MethodSteps: React.FC<MethodStepsProps> = ({
             variant="link"
             className="gap-1.5 font-medium"
             style={{ color: colorScheme.primary }}
+            onClick={() => handleScrollToSection("newsletter")}
           >
             <span>Mehr über die KLARE Kongruenz-Methode erfahren</span>
             <ChevronRight className="h-4 w-4" />

@@ -5,7 +5,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { email } = body;
-    const url = import.meta.env.MAKE_WEBHOOK_URL;
+    const webhookurl = process.env.MAKE_WEBHOOK_URL;
 
     if (!email) {
       return NextResponse.json(
@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     try {
       const response = await fetch(
         // "https://hook.eu2.make.com/cpcfe88m1c657r7qs3osjdfkp97nfnno",
-        url,
+        webhookurl,
         {
           method: "POST",
           headers: {

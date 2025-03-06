@@ -12,8 +12,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Enable SWC minification for smaller bundle sizes
-  swcMinify: true,
 };
 
 export default nextConfig;

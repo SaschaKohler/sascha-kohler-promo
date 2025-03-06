@@ -15,7 +15,7 @@ import {
   Zap,
   BarChart,
 } from 'lucide-react';
-import { ColorScheme } from './ColorSchemeSelector';
+import { ColorScheme } from '@/utils/colorSchemes';
 
 interface ZielgruppeProps {
   colorScheme: ColorScheme;

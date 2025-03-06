@@ -1,9 +1,9 @@
-import { ColorScheme } from './ColorSchemeSelector';
-
 /**
  * Utility functions for working with colors and gradients
  * These functions help create consistent gradients based on the selected color scheme
  */
+
+import { ColorScheme } from './colorSchemes';
 
 /**
  * Creates CSS variables for a given color scheme

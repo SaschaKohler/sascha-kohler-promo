@@ -6,6 +6,7 @@ import { Settings, Check } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { ColorScheme } from '../common/ColorSchemeSelector';
 
 interface ColorSchemeSelectorProps {
   isFooterVisible?: boolean;
@@ -50,7 +51,7 @@ const ContextAwareColorSchemeSelector: React.FC<ColorSchemeSelectorProps> = ({
   };
 
   // Funktion zum Ändern und Speichern des Farbschemas
-  const handleColorSchemeChange = scheme => {
+  const handleColorSchemeChange = (scheme: ColorScheme) => {
     setColorScheme(scheme);
     setOpen(false);
 

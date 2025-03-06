@@ -13,7 +13,9 @@ const DailyPrinciple: React.FC<DailyQuoteProps> = ({ colorScheme }) => {
 
   useEffect(() => {
     const now = new Date();
-    const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+    const dayOfYear = Math.floor(
+      (now.getTime() - new Date(now.getFullYear(), 0, 0).getTime()) / (1000 * 60 * 60 * 24)
+    );
     const principleIndex = dayOfYear % transformationPrinciples.length;
     setDailyQuote(transformationPrinciples[principleIndex]);
   }, []);

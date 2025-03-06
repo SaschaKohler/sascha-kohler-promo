@@ -32,8 +32,8 @@ const ColorThemePoll: React.FC = () => {
         setVotes(parsedVotes);
 
         // Berechne Gesamtzahl der Votes
-        const total = Object.values(parsedVotes).reduce(
-          (sum: number, current: number) => sum + current,
+        const total = (Object.values(parsedVotes) as number[]).reduce(
+          (sum, current) => sum + current,
           0
         );
         setTotalVotes(total);
@@ -258,7 +258,6 @@ const ColorThemePoll: React.FC = () => {
                         style={{
                           background: `linear-gradient(145deg, white, ${scheme.background}30)`,
                           borderLeft: `3px solid ${scheme.primary}`,
-                          ringColor: scheme.accent,
                           transform: selectedTheme === scheme.name ? 'scale(1.02)' : 'scale(1)',
                         }}
                         onClick={() => setSelectedTheme(scheme.name)}

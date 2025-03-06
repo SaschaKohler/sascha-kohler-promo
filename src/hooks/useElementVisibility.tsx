@@ -7,7 +7,7 @@ import { useState, useEffect, useRef, RefObject } from 'react';
  */
 const useElementVisibility = (
   options: IntersectionObserverInit = { threshold: 0.1 }
-): [RefObject<HTMLElement>, boolean] => {
+): [RefObject<HTMLElement | null>, boolean] => {
   const elementRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 

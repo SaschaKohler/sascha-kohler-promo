@@ -24,4 +24,4 @@ jobs:
           push: true
           tags: ghcr.io/saschakohler/sascha-kohler-website:latest
           build-args: |
-            WEBHOOK_URL=${{ secrets.WEBHOOK_URL }}
+            NEWSLETTER_API_KEY=${{ secrets.NEWSLETTER_API_KEY }}

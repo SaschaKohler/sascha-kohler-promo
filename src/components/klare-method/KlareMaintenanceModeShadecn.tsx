@@ -27,6 +27,7 @@ import TeaserSection from "../sections/TeaserSection";
 import InkongruenzTypenSection from "../sections/InkongruenzTypenSection";
 import WhyKongruenzSection from "../sections/WhyKongruenzSection";
 import FeatureTeaserSection from "../sections/FeatureTeaserSection";
+import NewsletterSignup from "./NewsletterSignup";
 
 const KlareMaintenanceModeContent: React.FC = () => {
   const [countdown, setCountdown] = useState({
@@ -217,66 +218,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
         <FeatureTeaserSection colorScheme={colorScheme} />
 
         {/* Newsletter signup */}
-        <section
-          id="newsletter"
-          className="py-16"
-          style={{
-            // background: `linear-gradient(to bottom, white, ${colorScheme.background}20)`,
-            borderTop: `1px solid ${colorScheme.primary}20`,
-          }}
-        >
-          <div
-            className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto"
-            style={{
-              borderRight: `4px solid ${colorScheme.accent}`,
-            }}
-          >
-            <div className="text-center mb-6">
-              <Sparkles
-                size={28}
-                style={{ color: colorScheme.accent }}
-                className="mx-auto mb-4"
-              />
-              <h2
-                className="text-2xl font-semibold"
-                style={{ color: colorScheme.primary }}
-              >
-                Erfahren Sie hier mehr zum Launch
-              </h2>
-              <p className="text-gray-600 mt-2">
-                Melde Sie sich für den Newsletter an und erhalten sie schon
-                jetzt exklusive Einblicke in die KLARE-Methode.
-              </p>
-            </div>
-
-            <form
-              onSubmit={handleSubscribe}
-              className="flex flex-col md:flex-row gap-4"
-            >
-              <input
-                type="email"
-                placeholder="Ihre E-Mail-Adresse"
-                className="flex-grow px-4 py-3 rounded-md border transition-all duration-300"
-                style={{
-                  borderColor: `${colorScheme.primary}40`,
-                }}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 rounded-md text-white font-medium transition-all duration-300 hover:shadow-md"
-                style={{
-                  backgroundColor: colorScheme.primary,
-                }}
-              >
-                Anmelden
-              </button>
-            </form>
-          </div>
-        </section>
-
+        <NewsletterSignup colorScheme={colorScheme} />
         {/* Countdown */}
         <section
           id="launch-date"

@@ -33,7 +33,7 @@ export default function NewsletterSignup({
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubscribe = async (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!email) return;
@@ -61,7 +61,7 @@ export default function NewsletterSignup({
       } else {
         throw new Error(data.message || 'Ein Fehler ist aufgetreten.');
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast({
         title: 'Anmeldung fehlgeschlagen',
         description: error.message || 'Bitte versuchen Sie es später erneut.',

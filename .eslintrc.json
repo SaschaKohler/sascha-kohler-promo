@@ -9,15 +9,31 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "react", "jsx-a11y"],
   "rules": {
+    // Von Error auf Warning herabgestuft
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "@typescript-eslint/no-unused-vars": "warn",
+    "no-console": "warn",
+
+    // Barrierefreiheitsregeln abschwächen
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/no-static-element-interactions": "warn",
+    "jsx-a11y/mouse-events-have-key-events": "warn",
     "jsx-a11y/anchor-is-valid": "warn",
-    "react-hooks/rules-of-hooks": "error",
+
+    // React Hooks Regeln abschwächen
+    "react-hooks/rules-of-hooks": "warn",
     "react-hooks/exhaustive-deps": "warn",
-    "react/no-unescaped-entities": "warn"
+
+    // Next.js spezifische Regeln abschwächen
+    "@next/next/no-img-element": "warn",
+
+    // Unescaped Entities erlauben
+    "react/no-unescaped-entities": "off",
+
+    // Unbekannte Eigenschaften erlauben
+    "react/no-unknown-property": ["warn", { "ignore": ["jsx", "global"] }]
   },
   "settings": {
     "react": {

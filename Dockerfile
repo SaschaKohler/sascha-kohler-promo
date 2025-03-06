@@ -13,26 +13,36 @@ RUN npm ci
 # Copy all files
 COPY . .
 
-# Build the Next.js application with the webhook URL
-# This can be overridden during the build process
-# ARG WEBHOOK_URL=https://hook.eu1.make.com/your-webhook-path
-RUN MAKE_WEBHOOK_URL=https://hook.eu2.make.com/cpcfe88m1c657r7qs3osjdfkp97nfnno npm run build
+# Build the Next.js application
+RUN npm run build
 
-# Production stage with Nginx
-FROM nginx:alpine
+# Production stage
+FROM node:18-alpine AS runner
 
-# Install some useful tools
-RUN apk add --no-cache vim curl
+# Set working directory
+WORKDIR /app
 
-# Copy nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Set environment to production
+ENV NODE_ENV production
 
-# Copy the built app from the builder stage
-# For Next.js static export
-COPY --from=builder /app/out /usr/share/nginx/html
+# Create a non-root user
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-# Expose port 3000 as in your skit project
+# Copy built application from builder stage
+COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+
+# Set proper permissions
+RUN chown -R nextjs:nodejs /app
+
+# Switch to non-root user
+USER nextjs
+
+# Expose port for the application
 EXPOSE 3000
 
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+# Set the command to run the server
+CMD ["node", "server.js"]

@@ -18,13 +18,15 @@ import { useScrollProgress } from "@/hooks/useScrollProgress";
 import { comingSoonFeatures } from "@/data/comingSoonFeatures";
 import { inkongruenzTypen } from "@/data/inkongruenzTypen";
 import { kongruenzSteps } from "@/data/kongruenzSteps";
-import { transformationPathway } from "@/data/transformationPathway";
 import ThanksSection from "../main-site/ThanksSection";
 import MethodSteps from "./MethodStepsShadecn";
 import DailyPrinciple from "./dailyPrinciple";
 import useElementVisibility from "@/hooks/useElementVisibility";
 import TargetPersonaIndicator from "./TargetPersonaIndicator";
 import TeaserSection from "../sections/TeaserSection";
+import InkongruenzTypenSection from "../sections/InkongruenzTypenSection";
+import WhyKongruenzSection from "../sections/WhyKongruenzSection";
+import FeatureTeaserSection from "../sections/FeatureTeaserSection";
 
 const KlareMaintenanceModeContent: React.FC = () => {
   const [countdown, setCountdown] = useState({
@@ -201,247 +203,25 @@ const KlareMaintenanceModeContent: React.FC = () => {
       <main className="flex-grow container mx-auto px-4 md:px-8 pt-24 pb-12 flex flex-col">
         {/* Hero section */}
         <TeaserSection colorScheme={colorScheme} />
-        {/* Inkongruenz Typen Section */}
-        <section
-          className="py-16"
-          style={{
-            background: `linear-gradient(to bottom, white, ${colorScheme.background}30)`,
-          }}
-        >
-          <div className="text-center mb-12">
-            <h2
-              className="text-3xl md:text-4xl font-bold mb-4"
-              style={{ color: colorScheme.primary }}
-            >
-              Erkennst du dich wieder?
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-4">
-              Die KLARE Kongruenz-Methode hilft Menschen, die einen dieser
-              inneren Konflikte erleben:
-            </p>
-          </div>
-
-          {/* Inkongruenz Type Cards */}
-          <div
-            className="bg-white rounded-lg shadow-lg p-8 mb-16 max-w-4xl mx-auto overflow-hidden relative transition-all duration-300"
-            style={{
-              borderLeft: `5px solid ${colorScheme.primary}`,
-              borderRight: `5px solid ${colorScheme.accent}`,
-            }}
-          >
-            {/* Decorative elements */}
-            <div
-              className="absolute -top-12 -right-12 w-24 h-24 rounded-full"
-              style={{
-                background: `linear-gradient(135deg, ${colorScheme.primary}30, ${colorScheme.accent}30)`,
-              }}
-            />
-            <div
-              className="absolute -bottom-12 -left-12 w-24 h-24 rounded-full"
-              style={{
-                background: `linear-gradient(135deg, ${colorScheme.accent}30, ${colorScheme.primary}30)`,
-              }}
-            />
-
-            <div className="relative z-10">
-              <div className="flex flex-col md:flex-row gap-6 items-center mb-6">
-                <div className="bg-gray-100 p-4 rounded-full">
-                  {React.createElement(
-                    inkongruenzTypen[activeInkongruenzIndex].icon,
-                    {
-                      size: 48,
-                      style: { color: colorScheme.primary },
-                    },
-                  )}
-                </div>
-                <div>
-                  <h3
-                    className="text-2xl font-semibold"
-                    style={{ color: colorScheme.primary }}
-                  >
-                    {inkongruenzTypen[activeInkongruenzIndex].title}
-                  </h3>
-                </div>
-              </div>
-
-              <p className="text-gray-700 mb-8">
-                {inkongruenzTypen[activeInkongruenzIndex].description}
-              </p>
-
-              <h4
-                className="font-semibold mb-3"
-                style={{ color: colorScheme.accent }}
-              >
-                Kommt dir das bekannt vor?
-              </h4>
-              <ul className="space-y-3 mb-8">
-                {inkongruenzTypen[activeInkongruenzIndex].examples.map(
-                  (item, i) => (
-                    <li key={i} className="flex items-start">
-                      <span
-                        className="mr-2 mt-1 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center"
-                        style={{ background: colorScheme.primary }}
-                      >
-                        <Check size={12} className="text-white" />
-                      </span>
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ),
-                )}
-              </ul>
-
-              <div
-                className="p-4 bg-gray-50 rounded-lg border-l-4"
-                style={{ borderColor: colorScheme.accent }}
-              >
-                <p className="text-gray-700">
-                  <strong>Die KLARE Methode:</strong> Ein strukturierter
-                  5-Schritte-Prozess, der dir hilft, diesen inneren Konflikt zu
-                  lösen und ein stimmiges Leben zu führen – ohne komplizierte
-                  Theorien, sondern mit praktischen Werkzeugen für den Alltag.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Stepper navigation for types */}
-          <div className="flex justify-center gap-2 mb-8">
-            {inkongruenzTypen.map((_, index) => (
-              <button
-                key={index}
-                className="w-3 h-3 rounded-full transition-all duration-300"
-                style={{
-                  backgroundColor:
-                    activeInkongruenzIndex === index
-                      ? colorScheme.primary
-                      : "#e5e7eb",
-                }}
-                onClick={() => setActiveInkongruenzIndex(index)}
-              />
-            ))}
-          </div>
-        </section>
-
+        {/* Inkongruenz Typen */}
+        <InkongruenzTypenSection colorScheme={colorScheme} />
         {/* KLARE Kongruenz-Methode Preview */}
-        <section className="py-12">
-          <MethodSteps colorScheme={colorScheme} />
-        </section>
+        <MethodSteps colorScheme={colorScheme} />
         <section className="py-12">
           <DailyPrinciple colorScheme={colorScheme} />
         </section>
         {/* Why Kongruenz Instead of Optimization */}
-        <section
-          className="py-12"
-          style={{
-            background: `linear-gradient(to bottom, ${colorScheme.background}40, white)`,
-          }}
-        >
-          <h2
-            className="text-2xl font-semibold mb-8 text-center"
-            style={{ color: colorScheme.text }}
-          >
-            Warum <span style={{ color: colorScheme.primary }}>Kongruenz</span>{" "}
-            statt Optimierung?
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto px-4">
-            <div
-              className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-              style={{ borderTop: `3px solid ${colorScheme.primary}` }}
-            >
-              <h3
-                className="text-xl font-medium mb-2 flex items-center"
-                style={{ color: colorScheme.primary }}
-              >
-                <Compass className="mr-3" size={24} />
-                Menschen sind keine Unternehmen
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Viele Transformationsansätze behandeln Menschen wie Systeme oder
-                Unternehmen, die "optimiert" werden müssen. Die KLARE Methode
-                respektiert dich als einzigartiges Individuum mit komplexen
-                Bedürfnissen und Emotionen.
-              </p>
-              <div className="bg-gray-50 p-3 rounded">
-                <p className="text-sm italic text-gray-600">
-                  "Ich habe jahrelang versucht, mich wie eine Maschine zu
-                  optimieren. Die Kongruenz-Methode hat mir gezeigt, dass wahre
-                  Transformation von innen kommt."
-                </p>
-              </div>
-            </div>
-
-            <div
-              className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-              style={{ borderTop: `3px solid ${colorScheme.accent}` }}
-            >
-              <h3
-                className="text-xl font-medium mb-2 flex items-center"
-                style={{ color: colorScheme.accent }}
-              >
-                <Heart className="mr-3" size={24} />
-                Ganzheitliche Integration
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Statt einzelne Lebensbereiche isoliert zu verbessern, bringt die
-                KLARE Methode dein gesamtes Leben in Einklang. Das Ergebnis:
-                Natürliche Leichtigkeit statt Erschöpfung durch fragmentierte
-                Ziele.
-              </p>
-              <div className="bg-gray-50 p-3 rounded">
-                <p className="text-sm italic text-gray-600">
-                  "Der größte Unterschied: Ich muss mich nicht mehr zwischen
-                  meinem beruflichen Erfolg und meinem Familienleben
-                  entscheiden. Beide Bereiche nähren sich gegenseitig."
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <WhyKongruenzSection colorScheme={colorScheme} />
 
         {/* Feature teasers */}
-        <section className="py-12">
-          <h2
-            className="text-2xl font-semibold mb-8 text-center"
-            style={{ color: colorScheme.text }}
-          >
-            Was dich{" "}
-            <span style={{ color: colorScheme.primary }}>erwartet</span>
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto px-4">
-            {comingSoonFeatures.map((feature, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-                style={{
-                  borderTop:
-                    index < 2 ? `3px solid ${colorScheme.primary}` : "",
-                  borderTopColor:
-                    index === 1 ? colorScheme.accent : colorScheme.primary,
-                }}
-              >
-                <h3
-                  className="text-xl font-medium mb-2 flex items-center"
-                  style={{
-                    color:
-                      index === 1 ? colorScheme.accent : colorScheme.primary,
-                  }}
-                >
-                  <span className="mr-3 text-2xl">{feature.icon}</span>
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <FeatureTeaserSection colorScheme={colorScheme} />
 
         {/* Newsletter signup */}
         <section
           id="newsletter"
           className="py-16"
           style={{
-            background: `linear-gradient(to bottom, white, ${colorScheme.background}20)`,
+            // background: `linear-gradient(to bottom, white, ${colorScheme.background}20)`,
             borderTop: `1px solid ${colorScheme.primary}20`,
           }}
         >
@@ -501,9 +281,11 @@ const KlareMaintenanceModeContent: React.FC = () => {
         <section
           id="launch-date"
           className="py-12"
-          style={{
-            background: `linear-gradient(to bottom, ${colorScheme.background}10, white)`,
-          }}
+          style={
+            {
+              // background: `linear-gradient(to bottom, ${colorScheme.background}10, white)`,
+            }
+          }
         >
           <div
             className="bg-white rounded-lg shadow-lg p-8 mb-16 max-w-3xl mx-auto"
@@ -589,12 +371,10 @@ const KlareMaintenanceModeContent: React.FC = () => {
                   Kohler
                 </div>
               </div>
-              <p className="text-gray-400 text-sm mb-1">
-                Die KLARE Kongruenz-Methode
-              </p>
+              <p className="text-gray-400 text-sm mb-1">Die KLARE-Methode</p>
               <div className="flex flex-wrap gap-2 mt-3">
                 <span className="inline-block px-2 py-1 bg-gray-800 rounded-md text-xs text-gray-300">
-                  LSB in A.
+                  LSB in A.u.SV.
                 </span>
                 <span className="inline-block px-2 py-1 bg-gray-800 rounded-md text-xs text-gray-300">
                   NLP-Master
@@ -611,7 +391,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
                 vorbehalten.
               </div>
               <div className="mb-2 font-medium text-gray-300">
-                "Entfalten Sie sich selbst, statt sich zu optimieren"
+                "Entfalte Dich selbst, statt Dich immer nur zu optimieren"
               </div>
               <div className="text-xs text-gray-500 mb-2">
                 Die KLARE-Methode | Vorträge | Workshops | Coaching

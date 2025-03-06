@@ -2,7 +2,14 @@
 import React, { useState } from "react";
 import { useColorScheme } from "@/contexts/ColorSchemeContext";
 import { colorSchemes } from "@/utils/colorSchemes";
-import { Palette, ChevronUp, ChevronDown, Check } from "lucide-react";
+import { Palette, Check, Settings } from "lucide-react";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface ColorSchemeSelectorProps {
   isFooterVisible?: boolean;
@@ -12,8 +19,8 @@ const ContextAwareColorSchemeSelector: React.FC<ColorSchemeSelectorProps> = ({
   isFooterVisible = false,
 }) => {
   const { colorScheme, setColorScheme } = useColorScheme();
-  const [isPanelOpen, setIsPanelOpen] = useState(false);
-  
+  const [open, setOpen] = useState(false);
+
   // Stile für das Ausblenden, wenn der Footer sichtbar ist
   const visibilityStyle = {
     opacity: isFooterVisible ? 0 : 1,
@@ -23,139 +30,77 @@ const ContextAwareColorSchemeSelector: React.FC<ColorSchemeSelectorProps> = ({
     transition: "opacity 0.5s ease, visibility 0.5s ease",
   };
 
-  const togglePanel = () => {
-    setIsPanelOpen(!isPanelOpen);
-  };
-
   return (
-    <div className="fixed bottom-8 left-8 z-50" style={visibilityStyle}>
-      {/* Color Selector Button mit verbesserter Erkennbarkeit */}
-      <div 
-        className="flex flex-col items-start mb-2"
-        style={{
-          backgroundColor: `${colorScheme.primary}15`,
-          padding: "0.5rem",
-          borderRadius: "0.5rem",
-          backdropFilter: "blur(5px)",
-          boxShadow: "0 2px 10px rgba(0,0,0,0.1)"
-        }}
-      >
-        <div className="flex items-center mb-1">
-          <Palette 
-            size={16} 
-            className="mr-2" 
-            style={{ color: colorScheme.primary }} 
-          />
-          <p 
-            className="text-sm font-medium"
-            style={{ color: colorScheme.text }}
+    <div
+      className="fixed bottom-3 left-3 z-50 md:bottom-5 md:right-5"
+      style={visibilityStyle}
+    >
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <Button
+            variant="outline"
+            size="icon"
+            className="h-8 w-8 rounded-full shadow-md bg-white/80 backdrop-blur-sm border-0 hover:bg-white/90"
+            style={{
+              color: colorScheme.primary,
+            }}
+            aria-label="Farbschema ändern"
           >
-            Farbschema wählen
-          </p>
-        </div>
-        <button
-          className="p-2 rounded-lg shadow-lg text-white w-full flex items-center justify-between"
-          style={{ 
-            background: `linear-gradient(to right, ${colorScheme.primary}, ${colorScheme.accent})`,
-          }}
-          onClick={togglePanel}
-          aria-expanded={isPanelOpen}
-          aria-label="Farbschema-Auswahl öffnen"
+            <Settings size={14} className="opacity-70" />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent
+          className="w-56 p-2 mr-2 mb-2"
+          align="end"
+          alignOffset={-5}
+          sideOffset={5}
         >
-          <span className="flex items-center">
-            <div
-              className="w-4 h-4 rounded-full mr-2"
-              style={{
-                background: `linear-gradient(135deg, ${colorScheme.primary}, ${colorScheme.accent})`, 
-                border: "1px solid white"
-              }}
-            ></div>
-            <span className="text-xs font-medium">{colorScheme.name}</span>
-          </span>
-          {isPanelOpen ? 
-            <ChevronUp size={16} /> : 
-            <ChevronDown size={16} />
-          }
-        </button>
-      </div>
+          <div className="space-y-1">
+            <div className="px-1 py-1.5">
+              <p className="text-xs font-medium text-muted-foreground">
+                Farbschema wählen
+              </p>
+            </div>
 
-      {/* Color Scheme Panel */}
-      <div
-        className={`bg-white p-4 rounded-lg shadow-xl transition-all duration-300 ${
-          isPanelOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
-        }`}
-        style={{
-          maxHeight: "60vh",
-          overflowY: "auto",
-          backgroundColor: colorScheme.name === "Elegantes Gold & Schwarz" ? "#272725" : "white",
-          border: colorScheme.name === "Elegantes Gold & Schwarz" ? `1px solid ${colorScheme.primary}40` : "none",
-          transformOrigin: "bottom left",
-          maxWidth: "250px"
-        }}
-      >
-        <h3
-          className="text-md font-semibold mb-3 flex items-center"
-          style={{ color: colorScheme.primary }}
-        >
-          <Palette size={18} className="mr-2" />
-          Wähle dein Farbschema
-        </h3>
-        
-        <div className="space-y-2">
-          {colorSchemes.map((scheme) => (
-            <button
-              key={scheme.name}
-              className="w-full text-left p-2 rounded-md transition-all duration-200 flex items-center hover:shadow-md"
-              style={{
-                backgroundColor: scheme.name === colorScheme.name ? `${scheme.accent}20` : "transparent",
-                color: scheme.primary,
-                transform: scheme.name === colorScheme.name ? "scale(1.02)" : "scale(1)"
-              }}
-              onClick={() => {
-                setColorScheme(scheme);
-                setIsPanelOpen(false);
-              }}
-              aria-label={`Farbschema ${scheme.name} auswählen`}
-              aria-selected={scheme.name === colorScheme.name}
-            >
-              <div className="relative">
-                <div
-                  className="w-8 h-8 rounded-full mr-3 flex-shrink-0 border-2"
-                  style={{
-                    background: `linear-gradient(135deg, ${scheme.primary}, ${scheme.accent})`,
-                    borderColor: scheme.name === colorScheme.name ? scheme.primary : "transparent"
-                  }}
-                ></div>
-                {scheme.name === colorScheme.name && (
-                  <div 
-                    className="absolute -top-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center shadow-sm"
-                    style={{ color: scheme.primary }}
-                  >
-                    <Check size={12} />
-                  </div>
-                )}
-              </div>
-              <div className="flex flex-col">
-                <span
-                  className="font-medium"
-                  style={{
-                    color:
-                      colorScheme.name === "Elegantes Gold & Schwarz" &&
-                      scheme.name !== colorScheme.name
-                        ? "#f0f0f0"
-                        : scheme.primary,
+            <div className="grid grid-cols-1 gap-1">
+              {colorSchemes.map((scheme) => (
+                <Button
+                  key={scheme.name}
+                  variant="ghost"
+                  className={cn(
+                    "text-xs justify-start font-normal h-8",
+                    scheme.name === colorScheme.name && "bg-muted",
+                  )}
+                  style={{ color: scheme.primary }}
+                  onClick={() => {
+                    setColorScheme(scheme);
+                    setOpen(false);
                   }}
                 >
-                  {scheme.name}
-                </span>
-                <span className="text-xs opacity-80" style={{ color: scheme.text }}>
-                  Klicken zum Anwenden
-                </span>
-              </div>
-            </button>
-          ))}
-        </div>
-      </div>
+                  <div className="flex items-center w-full">
+                    <div
+                      className="h-4 w-4 rounded-full mr-2 flex-shrink-0 border"
+                      style={{
+                        background: `linear-gradient(135deg, ${scheme.primary}, ${scheme.accent})`,
+                        borderColor:
+                          scheme.name === colorScheme.name
+                            ? scheme.primary
+                            : "transparent",
+                      }}
+                    ></div>
+                    <span className="flex-1 text-left truncate">
+                      {scheme.name}
+                    </span>
+                    {scheme.name === colorScheme.name && (
+                      <Check className="h-3.5 w-3.5 ml-auto" />
+                    )}
+                  </div>
+                </Button>
+              ))}
+            </div>
+          </div>
+        </PopoverContent>
+      </Popover>
     </div>
   );
 };

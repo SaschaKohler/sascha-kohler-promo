@@ -37,6 +37,7 @@ const TeaserSection: React.FC<TeaserSectionProps> = ({ colorScheme }) => {
                   alt="Sascha Kohler"
                   width={300}
                   height={300}
+                  objectPosition="bottom"
                   className="object-cover w-full h-full"
                   priority
                 />
@@ -83,7 +84,7 @@ const TeaserSection: React.FC<TeaserSectionProps> = ({ colorScheme }) => {
         <KongruenzAccordion colorScheme={colorScheme} />
 
         {/* K.L.A.R.E.-Methode Einführung */}
-        <p className="text-md text-gray-600 mb-6">
+        <p className="text-md text-gray-600 mb-6 pt-3">
           Die <strong>K.L.A.R.E.</strong>-Methode steht für: <strong>K</strong>
           larheit, <strong>L</strong>ebendigkeit, <strong>A</strong>usrichtung,{" "}
           <strong>R</strong>ealisierung, <strong>E</strong>ntfaltung

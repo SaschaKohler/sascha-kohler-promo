@@ -45,7 +45,7 @@ const TargetPersonaIndicator: React.FC<TargetPersonaIndicatorProps> = ({
 
   return (
     <div
-      className="fixed bottom-8 right-8 hidden md:block"
+      className="fixed bottom-8 right-8 hidden md:block z-50"
       style={visibilityStyle}
     >
       <div className="bg-white rounded-lg shadow-md p-3 flex items-center max-w-xs transform transition-all duration-300 hover:scale-105">

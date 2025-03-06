@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "K.L.A.R.E. Kongruenz-Methode | Sascha Kohler | Coming Soon",
+  title: "KLARE-Methode | Kongruenz statt Optimierung | Sascha Kohler",
   description:
-    "Entdecke die K.L.A.R.E. Kongruenz-Methode: In 5 Schritten zur vollständigen Übereinstimmung in allen Lebensbereichen. Reflexion, Identifikation, Gestaltung, Handlung, Transformation - Ein ganzheitlicher Ansatz von Sascha Kohler.",
+    "Entdecke die KLARE-Methode: In 5 Schritten zur vollständigen Kongruenz. Klarheit, Lebendigkeit, Ausrichtung, Realisierung, Entfaltung - Ein ganzheitlicher Ansatz von Sascha Kohler, Lebens- und Sozialberater, NLP-Master und Trainer.",
   applicationName: "Sascha Kohler Website",
   authors: [{ name: "Sascha Kohler" }],
   creator: "Sascha Kohler",
@@ -30,18 +30,35 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  keywords: [
+    "KLARE-Methode",
+    "Lebensberatung",
+    "Kongruenz",
+    "Lebens- und Sozialberater",
+    "Persönlichkeitsentwicklung",
+    "Selbstentfaltung",
+    "NLP-Master",
+    "Coaching",
+    "Workshop",
+    "Transformation",
+    "Klarheit",
+    "Lebendigkeit",
+    "Ausrichtung",
+    "Realisierung",
+    "Entfaltung",
+  ],
   openGraph: {
-    title: "K.L.A.R.E. Kongruenz-Methode | Sascha Kohler",
+    title: "KLARE-Methode | Kongruenz statt Optimierung | Sascha Kohler",
     description:
-      "Der 5-Schritte-Prozess für vollständige Kongruenz und natürliche Manifestation deiner Ziele. Eine für Menschen konzipierte Transformationsmethode.",
+      "Entdecke den 5-Schritte-Prozess der KLARE-Methode für vollständige Kongruenz in allen Lebensbereichen. Klarheit, Lebendigkeit, Ausrichtung, Realisierung, Entfaltung - Der Weg zur Selbstentfaltung statt Selbstoptimierung.",
     url: "https://sascha-kohler.at",
-    siteName: "Sascha Kohler - Kongruenz-Methode",
+    siteName: "Sascha Kohler - KLARE-Methode",
     images: [
       {
         url: "https://sascha-kohler.at/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "R.I.G.H.T. Kongruenz-Methode",
+        alt: "KLARE-Methode",
       },
     ],
     locale: "de_AT",
@@ -49,9 +66,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "K.L.A.R.E. Kongruenz-Methode | Sascha Kohler",
+    title: "KLARE-Methode | Kongruenz statt Optimierung | Sascha Kohler",
     description:
-      "Reflexion, Identifikation, Gestaltung, Handlung, Transformation - Der 5-Schritte-Prozess für vollständige Kongruenz in allen Lebensbereichen.",
+      "Entfalte Dich selbst, statt Dich immer nur zu optimieren. Die KLARE-Methode bietet einen ganzheitlichen Ansatz für ein kongruentes Leben mit Deinen wahren Wünschen und Zielen.",
     images: ["https://sascha-kohler.at/twitter-image.jpg"],
   },
   icons: {
@@ -73,15 +90,6 @@ export const metadata: Metadata = {
   },
   themeColor: "#ffffff",
   manifest: "/site.webmanifest",
-  keywords: [
-    "Kongruenz-Methode",
-    "K.L.A.R.E. Methode",
-    "persönliche Transformation",
-    "Sascha Kohler",
-    "Coaching",
-    "NLP",
-    "persönliche Entwicklung",
-  ],
 };
 
 export default function RootLayout({
@@ -96,21 +104,28 @@ export default function RootLayout({
       >
         {children}
 
-        {/* JSON-LD kann in Next.js 13+ als Script-Tag im Body hinzugefügt werden */}
+        {/* JSON-LD für Website */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "R.I.G.H.T. Kongruenz-Methode | Sascha Kohler",
+              name: "KLARE-Methode | Sascha Kohler",
               url: "https://sascha-kohler.at",
               description:
-                "Ein 5-Schritte-Prozess für persönliche Transformation und Kongruenz in allen Lebensbereichen.",
+                "Ein 5-Schritte-Prozess für persönliche Transformation und Kongruenz in allen Lebensbereichen durch die KLARE-Methode.",
+              potentialAction: {
+                "@type": "SearchAction",
+                target:
+                  "https://sascha-kohler.at/search?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
             }),
           }}
         />
 
+        {/* JSON-LD für Person */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -120,12 +135,64 @@ export default function RootLayout({
               name: "Sascha Kohler",
               url: "https://sascha-kohler.at",
               jobTitle:
-                "Speaker & Trainer, Entwickler der R.I.G.H.T. Kongruenz-Methode",
+                "Lebens- und Sozialberater (i.A.u.SV.), NLP-Master, Speaker & Trainer",
               description:
-                "Entwickler der R.I.G.H.T. Kongruenz-Methode für persönliche Transformation",
+                "Entwickler der KLARE-Methode für persönliche Transformation und Kongruenz",
               sameAs: [
                 "https://www.linkedin.com/in/sascha-kohler/",
                 "https://www.xing.com/profile/Sascha_Kohler/",
+              ],
+              knowsAbout: [
+                "KLARE-Methode",
+                "Lebensberatung",
+                "Coaching",
+                "Persönlichkeitsentwicklung",
+                "NLP",
+                "Kongruenz",
+                "Selbstentfaltung",
+              ],
+            }),
+          }}
+        />
+
+        {/* JSON-LD für Professional Service */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              name: "Sascha Kohler - Lebens- und Sozialberatung",
+              description:
+                "Ganzheitliche Lebensberatung und Coaching mit der KLARE-Methode für vollständige Kongruenz in allen Lebensbereichen.",
+              url: "https://sascha-kohler.at",
+              founder: {
+                "@type": "Person",
+                name: "Sascha Kohler",
+              },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Wien",
+                addressCountry: "AT",
+              },
+              sameAs: [
+                "https://www.linkedin.com/in/sascha-kohler/",
+                "https://www.xing.com/profile/Sascha_Kohler/",
+              ],
+              offers: {
+                "@type": "Offer",
+                name: "KLARE-Methode Coaching",
+                description:
+                  "Persönliche Beratung und Coaching zur Erreichung von Kongruenz mit der KLARE-Methode.",
+              },
+              keywords: [
+                "KLARE-Methode",
+                "Lebensberatung",
+                "Sozialberatung",
+                "Coaching",
+                "Persönlichkeitsentwicklung",
+                "Kongruenz",
+                "NLP",
               ],
             }),
           }}

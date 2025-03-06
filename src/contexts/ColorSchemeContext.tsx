@@ -1,6 +1,9 @@
 "use client";
-import React, { createContext, useState, useContext, ReactNode } from 'react';
-import { ColorScheme, maintenanceTheme, colorSchemes } from '@/utils/colorSchemes';
+import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import { ColorScheme, maintenanceTheme, colorSchemes, findSchemeByName } from '@/utils/colorSchemes';
+
+// Name des localStorage Keys
+const COLOR_SCHEME_STORAGE_KEY = "sascha-kohler-color-scheme";
 
 // Kontext mit Defaultwerten
 type ColorSchemeContextType = {
@@ -27,6 +30,23 @@ export const ColorSchemeProvider: React.FC<{
   initialColorScheme = maintenanceTheme // Standard: Wartungsmodus-Farbschema
 }) => {
   const [colorScheme, setColorScheme] = useState<ColorScheme>(initialColorScheme);
+  
+  // Beim ersten Laden, versuche das Farbschema aus dem localStorage zu laden
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const savedSchemeName = localStorage.getItem(COLOR_SCHEME_STORAGE_KEY);
+        if (savedSchemeName) {
+          const savedScheme = findSchemeByName(savedSchemeName);
+          if (savedScheme) {
+            setColorScheme(savedScheme);
+          }
+        }
+      } catch (error) {
+        console.error('Fehler beim Laden des Farbschemas aus localStorage:', error);
+      }
+    }
+  }, []);
   
   return (
     <ColorSchemeContext.Provider value={{ colorScheme, setColorScheme }}>

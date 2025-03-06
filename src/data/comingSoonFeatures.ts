@@ -8,25 +8,25 @@ export const comingSoonFeatures: ComingSoonFeature[] = [
   {
     title: "Die KLARE Kongruenz-Methode",
     description:
-      "Entdecke den 5-Schritte-Prozess für nachhaltige persönliche Transformation und vollständige Kongruenz.",
+      "Entdecken sie den 5-Schritte-Prozess für nachhaltige persönliche Veränderung und vollständige Kongruenz.",
     icon: "✨",
   },
   {
     title: "Interaktiver Kongruenz-Check",
     description:
-      "Finde heraus, in welchen Lebensbereichen du bereits kongruent bist und wo noch Potenzial liegt.",
+      "Finden Sie heraus, in welchen Lebensbereichen sie bereits kongruent sind und wo noch Potenzial liegt.",
     icon: "📊",
   },
   {
     title: "Transformation-Workshops",
     description:
-      "Erfahre von kommenden Workshops und Events zur KLARE Kongruenz-Methode.",
+      "Erfahren sie von kommenden Workshops und Events zur KLARE-Methode.",
     icon: "📅",
   },
   {
     title: "Ressourcen-Bibliothek",
     description:
-      "Zugang zu Artikeln, Übungen und Tools für deine persönliche Transformation.",
+      "Zugang zu Artikeln, Übungen und Tools für ihre persönlichen Veränderungen.",
     icon: "📚",
   },
 ];

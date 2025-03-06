@@ -13,12 +13,12 @@ const TargetPersonaIndicator: React.FC<TargetPersonaIndicatorProps> = ({
 }) => {
   // Array von Zielgruppen-Texten
   const targetTexts = [
-    "Wenn Du authentischen Erfolg statt bloßer Optimierung suchst",
-    "Wenn Du nach einem ganzheitlichen Weg zur Integration Deiner verschiedenen Lebensbereiche suchst",
-    "Wenn Du Erfolg mit persönlicher Erfüllung in Einklang bringen willst",
-    "Wenn Du dich in einer beruflichen oder persönlichen Übergangsphase befindest",
-    "Du bist Berater oder Coach und bevorzugst eine humanistische Methode anstatt technischer Optimierungsansätze",
-    "Du willst Deine inneren Widersprüche auflösen und ein authentisches, kongruentes Leben führen",
+    "Wenn Sie authentischen Erfolg statt bloßer Optimierung suchen",
+    "Wenn Sie nach einem ganzheitlichen Weg zur Integration Ihrer verschiedenen Lebensbereiche suchen",
+    "Wenn Sie Erfolg mit persönlicher Erfüllung in Einklang bringen wollen",
+    "Wenn Sie sich in einer beruflichen oder persönlichen Übergangsphase befinden",
+    "Sie sind Berater oder Coach und bevorzugen eine  Methode anstatt technischer Optimierungsansätze",
+    "Sie wollen Ihre inneren Widersprüche auflösen und ein authentisches, kongruentes Leben führen",
   ];
 
   const [activeTextIndex, setActiveTextIndex] = useState(0);
@@ -45,7 +45,7 @@ const TargetPersonaIndicator: React.FC<TargetPersonaIndicatorProps> = ({
 
   return (
     <div
-      className="fixed bottom-8 right-8 hidden md:block"
+      className="fixed bottom-8 right-8 hidden md:block z-50"
       style={visibilityStyle}
     >
       <div className="bg-white rounded-lg shadow-md p-3 flex items-center max-w-xs transform transition-all duration-300 hover:scale-105">
@@ -58,7 +58,7 @@ const TargetPersonaIndicator: React.FC<TargetPersonaIndicatorProps> = ({
           <Target size={24} className="text-white" />
         </div>
         <div>
-          <p className="text-xs text-gray-500">Ideal für</p>
+          <p className="text-xs text-gray-500">Ideal</p>
           <p
             className="text-sm font-medium"
             style={{ color: colorScheme.primary }}

@@ -5,7 +5,7 @@ import { useColorScheme } from '@/contexts/ColorSchemeContext';
 
 const GrowthJourneySection = () => {
   const { colorScheme } = useColorScheme();
-  const [activePhase, setActivePhase] = useState(null);
+  const [activePhase, setActivePhase] = useState<string | null>(null);
   const [expanded, setExpanded] = useState(false);
 
   // Die verschiedenen Wachstumsphasen mit zugehörigen Gedanken/Einsichten

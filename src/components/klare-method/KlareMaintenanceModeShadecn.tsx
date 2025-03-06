@@ -1,13 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import {
-  Sparkles,
-  Construction,
-  ChevronDown,
-  Heart,
-  Check,
-  Compass,
-} from "lucide-react";
+import { Construction, ChevronDown } from "lucide-react";
 import {
   ColorSchemeProvider,
   useColorScheme,
@@ -15,7 +8,6 @@ import {
 import ContextAwareColorSchemeSelector from "../ui/ContextAwareColorSchemeSelector";
 import useScrollToSection from "@/hooks/useScrollToSection";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
-import { comingSoonFeatures } from "@/data/comingSoonFeatures";
 import { inkongruenzTypen } from "@/data/inkongruenzTypen";
 import { kongruenzSteps } from "@/data/kongruenzSteps";
 import ThanksSection from "../main-site/ThanksSection";

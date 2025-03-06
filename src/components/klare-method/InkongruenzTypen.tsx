@@ -9,7 +9,7 @@ import {
   Activity,
   Brain,
 } from "lucide-react";
-import { ColorScheme } from "./ColorSchemeSelector";
+import { ColorScheme } from "@/utils/colorSchemes";
 
 interface InkongruenzTypenProps {
   colorScheme: ColorScheme;

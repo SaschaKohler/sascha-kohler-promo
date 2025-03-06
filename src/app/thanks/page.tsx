@@ -2,10 +2,7 @@
 import React from "react";
 import { Heart, ExternalLink, ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import {
-  ColorScheme,
-  colorSchemes,
-} from "../../data/components/common/ColorSchemeSelector";
+import { colorSchemes } from "@/utils/colorSchemes";
 
 // Da wir keine Props von außen bekommen, nutzen wir ein Standard-Farbschema
 const defaultColorScheme = colorSchemes[0];

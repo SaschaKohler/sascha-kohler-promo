@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
         success: true,
         message: 'Vielen Dank für Ihre Anmeldung!',
       });
-    } catch (error) {
+    } catch (error instanceof Error) {
       console.error('Error sending to newsletter service:', error);
       return NextResponse.json(
         {

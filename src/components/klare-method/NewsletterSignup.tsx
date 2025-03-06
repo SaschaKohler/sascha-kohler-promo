@@ -61,10 +61,11 @@ export default function NewsletterSignup({
       } else {
         throw new Error(data.message || 'Ein Fehler ist aufgetreten.');
       }
-    } catch (error: unknown) {
+    } catch (error) {
       toast({
         title: 'Anmeldung fehlgeschlagen',
-        description: error.message || 'Bitte versuchen Sie es später erneut.',
+        description:
+          error instanceof Error ? error.message : 'Bitte versuchen Sie es später erneut.',
         variant: 'destructive',
       });
     } finally {

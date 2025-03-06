@@ -5,8 +5,31 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { email } = body;
-    const webhookurl = process.env.MAKE_WEBHOOK_URL;
+    // Get webhook URL from environment variable
+    const webhookUrl = process.env.NEXT_PUBLIC_MAKE_WEBHOOK_URL;
 
+    // Check if webhook URL is defined
+    if (!webhookUrl) {
+      console.error("NEXT_PUBLIC_MAKE_WEBHOOK_URL is not defined");
+      return NextResponse.json(
+        { success: false, message: "Server configuration error" },
+        { status: 500 },
+      );
+    }
+
+    // Send data to Make.com webhook
+    const response = await fetch(webhookUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        type: "newsletter",
+        source: "maintenance-page",
+        timestamp: new Date().toISOString(),
+      }),
+    });
     if (!email) {
       return NextResponse.json(
         { success: false, message: "Email ist erforderlich" },

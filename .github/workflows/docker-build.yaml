@@ -23,5 +23,3 @@ jobs:
         with:
           push: true
           tags: ghcr.io/saschakohler/sascha-kohler-website:latest
-          build-args: |
-            MAKE_WEBHOOK_URL=${{ secrets.MAKE_WEBHOOK_URL }}

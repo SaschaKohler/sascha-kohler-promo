@@ -16,7 +16,7 @@ COPY . .
 # Build the Next.js application with the webhook URL
 # This can be overridden during the build process
 # ARG WEBHOOK_URL=https://hook.eu1.make.com/your-webhook-path
-RUN MAKE_WEBHOOK_URL=${MAKE_WEBHOOK_URL} npm run build
+RUN MAKE_WEBHOOK_URL=https://hook.eu2.make.com/cpcfe88m1c657r7qs3osjdfkp97nfnno npm run build
 
 # Production stage with Nginx
 FROM nginx:alpine

@@ -7,9 +7,8 @@ import HeroSection from './klare-method/HeroSection';
 import ContextAwareColorSchemeSelector from './ui/ContextAwareColorSchemeSelector';
 import { useScrollProgress } from '@/hooks/useScrollProgress';
 import { useActiveSection } from '@/hooks/useActiveSection';
-import { ColorSchemeProvider, useColorScheme } from '@/contexts/ColorSchemeContext';
+import { ColorSchemeProvider } from '@/contexts/ColorSchemeContext';
 import GrowthJourneySection from './GrowthJourneySection';
-import ThanksSectionFamily from './ThanksSectionFamily';
 
 // Hauptkomponente
 const SaschaKohlerWebsiteContent: React.FC = () => {

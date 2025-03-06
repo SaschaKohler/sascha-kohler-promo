@@ -1,5 +1,5 @@
+import { ColorScheme } from '@/utils/colorSchemes';
 import React, { useState } from 'react';
-import { ColorScheme } from './ColorSchemeSelector.tsx.old';
 
 interface ValueCardsProps {
   colorScheme: ColorScheme;

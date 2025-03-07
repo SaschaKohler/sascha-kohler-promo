@@ -70,6 +70,7 @@ const KongruenzAccordion: React.FC<KongruenzAccordionProps> = ({ colorScheme, cl
     <Accordion
       type="single"
       collapsible
+      defaultValue="kongruenz-definition"
       className={cn('w-full max-w-3xl mx-auto rounded-md shadow-sm', className)}
     >
       <AccordionItem

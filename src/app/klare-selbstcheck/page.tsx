@@ -1,5 +1,5 @@
 import React from 'react';
-import KlareSelbstCheck from '@/components/KlareSelbstCheck';
+import { KlareSelbstCheck } from '@/components/selbstcheck';
 import { Viewport } from 'next';
 
 export const viewport: Viewport = {

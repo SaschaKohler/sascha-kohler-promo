@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { kongruenzSteps, getStepColor } from '@/data/kongruenzSteps';
+import { kongruenzSteps, getStepColor } from '@/data/klare-methode/kongruenzSteps';
 import { ColorScheme } from '@/utils/colorSchemes';
 import { ChevronRight } from 'lucide-react';
 

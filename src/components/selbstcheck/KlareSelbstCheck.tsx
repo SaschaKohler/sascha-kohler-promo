@@ -4,10 +4,12 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import klareData, { AddressMode, SectionKey } from '@/data/klareData';
-import { AddressSelection } from '@/components/address-selection';
-import { InstructionsCard } from '@/components/instructions-card';
-import { KlareSection } from '@/components/klare-section';
-import { ResultsDisplay } from '@/components/results-display';
+import {
+  AddressSelection,
+  InstructionsCard,
+  KlareSection,
+  ResultsDisplay,
+} from '@/components/selbstcheck';
 
 /**
  * KLARE Selbstcheck Komponente mit shadcn/ui Integration

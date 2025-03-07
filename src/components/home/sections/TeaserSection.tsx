@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { ChevronDown } from 'lucide-react';
-import { kongruenzSteps, getStepColor } from '@/data/kongruenzSteps';
+import { kongruenzSteps, getStepColor } from '@/data/klare-methode/kongruenzSteps';
 import useScrollToSection from '@/hooks/useScrollToSection';
 import { ColorScheme } from '@/utils/colorSchemes';
-import KongruenzAccordion from '../klare-method/KongruenzAccordion';
+import KongruenzAccordion from '@/components/klare-method/KongruenzAccordion';
 
 interface TeaserSectionProps {
   colorScheme: ColorScheme;

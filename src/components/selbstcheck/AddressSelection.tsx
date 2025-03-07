@@ -13,7 +13,12 @@ interface AddressSelectionProps {
   onSelect: (mode: AddressMode) => void;
 }
 
-export function AddressSelection({ title, description, options, onSelect }: AddressSelectionProps) {
+export default function AddressSelection({
+  title,
+  description,
+  options,
+  onSelect,
+}: AddressSelectionProps) {
   return (
     <Card className="w-full max-w-4xl mx-auto">
       <CardHeader className="text-center bg-gradient-to-r from-indigo-700 to-indigo-500 text-white">

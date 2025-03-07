@@ -1,10 +1,10 @@
 'use client';
 import React from 'react';
-import Navigation from './layout/Navigation';
-import Footer from './layout/Footer';
+import { Navigation } from '@/components/layout/navigation';
+import { Footer } from '@/components/layout/footer';
 import ScrollToTop from './layout/ScrollToTop';
 import HeroSection from './klare-method/HeroSection';
-import ContextAwareColorSchemeSelector from './ui/ContextAwareColorSchemeSelector';
+import { ContextAwareColorSchemeSelector } from '@/components/common/theme';
 import { useScrollProgress } from '@/hooks/useScrollProgress';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { ColorSchemeProvider } from '@/contexts/ColorSchemeContext';

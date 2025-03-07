@@ -1,8 +1,10 @@
 import React from 'react';
-import KongruenzMethode from './KongruenzMethode';
-import TransformationPathway from './klare-method/TransformationPathway';
-import KongruenzDifferenzierung from './KongruenzDifferenzierung';
-import { ColorScheme } from './common/ColorSchemeSelector';
+import {
+  TransformationPathway,
+  KongruenzDifferenzierung,
+  KongruenzMethode,
+} from '@/components/kongruenz-methode';
+import { ColorScheme } from '@/components/common/theme';
 
 // Sample expertise content focused on the Kongruenz-Methode
 const expertiseAreas = [

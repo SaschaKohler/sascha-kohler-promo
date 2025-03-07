@@ -1,4 +1,3 @@
-// components/klare-section.tsx
 'use client';
 
 import { useState } from 'react';
@@ -15,7 +14,7 @@ interface KlareSectionProps {
   answers: Record<string, number>;
 }
 
-export function KlareSection({
+export default function KlareSection({
   sectionKey,
   sectionData,
   addressMode,

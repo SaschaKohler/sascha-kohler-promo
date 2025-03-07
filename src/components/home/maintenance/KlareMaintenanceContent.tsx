@@ -2,20 +2,20 @@
 import React, { useState, useEffect } from 'react';
 import { Construction, ChevronDown } from 'lucide-react';
 import { useColorScheme } from '@/contexts/ColorSchemeContext';
-import ContextAwareColorSchemeSelector from '../ui/ContextAwareColorSchemeSelector';
+import { ContextAwareColorSchemeSelector } from '@/components/common/theme';
 import useScrollToSection from '@/hooks/useScrollToSection';
 import { inkongruenzTypen } from '@/data/inkongruenzTypen';
-import { kongruenzSteps } from '@/data/kongruenzSteps';
-import ThanksSection from '../main-site/ThanksSection';
-import MethodSteps from './MethodStepsShadecn';
-import DailyPrinciple from './dailyPrinciple';
+import { kongruenzSteps } from '@/data/klare-methode/kongruenzSteps';
+import ThanksSection from '@/components/main-site/ThanksSection';
+import MethodSteps from '@/components/klare-method/MethodStepsShadecn';
+import DailyPrinciple from '@/components/klare-method/dailyPrinciple';
 import useElementVisibility from '@/hooks/useElementVisibility';
-import TargetPersonaIndicator from './TargetPersonaIndicator';
+import TargetPersonaIndicator from '@/components/klare-method/TargetPersonaIndicator';
 import TeaserSection from '../sections/TeaserSection';
 import InkongruenzTypenSection from '../sections/InkongruenzTypenSection';
 import WhyKongruenzSection from '../sections/WhyKongruenzSection';
 import FeatureTeaserSection from '../sections/FeatureTeaserSection';
-import NewsletterSignup from './NewsletterSignup';
+import NewsletterSignup from '@/components/klare-method/NewsletterSignup';
 
 const KlareMaintenanceModeContent: React.FC = () => {
   // Client-Side State - wird nur nach der Hydration gesetzt

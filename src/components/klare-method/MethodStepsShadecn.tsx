@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { useState } from 'react';
-import { kongruenzSteps, getStepColor } from '@/data/kongruenzSteps';
+import { kongruenzSteps, getStepColor } from '@/data/klare-methode/kongruenzSteps';
 import { ColorScheme } from '@/utils/colorSchemes';
 import useScrollToSection from '@/hooks/useScrollToSection';
 import { Search, Zap, Compass, Hammer, Sparkles, ChevronRight, ChevronLeft } from 'lucide-react';

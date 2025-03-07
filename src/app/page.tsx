@@ -1,6 +1,6 @@
 import '@/app/styles/gradients.css';
 import '@/app/styles/animations.css';
-import KlareMaintenanceMode from '@/components/klare-method/KlareMaintenanceMode';
+import KlareMaintenanceMode from '@/components/home/maintenance/KlareMaintenanceMode';
 import SaschaKohlerWebsite from '@/components/SaschaKohlerWebsite';
 
 export default function Home() {

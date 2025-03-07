@@ -2,7 +2,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { AddressMode, SectionKey, getLocalizedText } from '@/data/klareData';
-import { ResultSection } from './result-section';
+import { ResultSection } from '@/components/result-section';
 
 interface ResultsDisplayProps {
   title: {
@@ -24,7 +24,12 @@ interface ResultsDisplayProps {
   addressMode: AddressMode;
 }
 
-export function ResultsDisplay({ title, nextSteps, scores, addressMode }: ResultsDisplayProps) {
+export default function ResultsDisplay({
+  title,
+  nextSteps,
+  scores,
+  addressMode,
+}: ResultsDisplayProps) {
   const sectionColors = {
     k: 'bg-indigo-600',
     l: 'bg-violet-600',

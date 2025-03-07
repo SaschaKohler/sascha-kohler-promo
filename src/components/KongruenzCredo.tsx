@@ -1,6 +1,6 @@
 import React from 'react';
 import { Star, ArrowRight } from 'lucide-react';
-import { ColorScheme } from './common/ColorSchemeSelector';
+import { ColorScheme } from '@/components/common/theme';
 
 interface CredoProps {
   colorScheme: ColorScheme;

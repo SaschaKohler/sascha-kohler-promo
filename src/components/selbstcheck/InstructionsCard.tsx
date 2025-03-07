@@ -19,7 +19,7 @@ interface InstructionsCardProps {
   addressMode: AddressMode;
 }
 
-export function InstructionsCard({
+export default function InstructionsCard({
   title,
   intro,
   scaleDescription,

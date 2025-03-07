@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Heart, X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
-import { ColorScheme } from '../common/ColorSchemeSelector';
+import { ColorScheme } from '@/components/common/theme';
 
 interface ThanksSectionProps {
   colorScheme: ColorScheme;

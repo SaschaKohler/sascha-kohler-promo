@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
-import { ColorScheme } from '../common/ColorSchemeSelector';
-import { transformationPathway } from '@/data/transformationPathway';
+import { ColorScheme } from '@/components/common/theme';
+import { transformationPathway } from '@/data/klare-methode/transformationPathway';
 
 interface TransformationPathwayProps {
   colorScheme: ColorScheme;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
-import { ColorScheme } from '../common/ColorSchemeSelector';
+import { ColorScheme } from '@/components/common/theme';
 
 interface KlareMethodStepsProps {
   colorScheme: ColorScheme;

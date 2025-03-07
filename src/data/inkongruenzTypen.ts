@@ -59,7 +59,7 @@ export const inkongruenzTypen: InkongruenzTyp[] = [
       'Ihre Ziele sind klar, aber die Wege, die sie einschlagen, führen nicht dorthin. Diese Inkongruenz führt zu Frustration und dem Gefühl, trotz Anstrengung nicht voranzukommen.',
     examples: [
       'Sie wollen finanzielle Freiheit, aber ihre täglichen Entscheidungen führen zu mehr Schulden',
-      'Sie strebes nach beruflichem Aufstieg, investieres aber kaum in ihre Fähigkeiten',
+      'Sie streben nach beruflichem Aufstieg, investieren aber kaum in ihre Fähigkeiten',
       'Sie wünschen sich tiefe Beziehungen, vermeiden aber echte Verletzlichkeit',
     ],
     icon: RefreshCcw,

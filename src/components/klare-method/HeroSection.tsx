@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { ChevronDown } from 'lucide-react';
 import { useColorScheme } from '@/contexts/ColorSchemeContext';
 
@@ -162,7 +162,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
                 <Image
                   src="/images/me.jpeg"
                   alt="Sascha Kohler"
-                  fill
                   sizes="(max-width: 768px) 288px, 384px"
                   className="object-cover object-top transform transition-transform duration-500"
                   style={{

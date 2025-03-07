@@ -41,7 +41,7 @@ const TeaserSection: React.FC<TeaserSectionProps> = ({ colorScheme }) => {
                     objectFit: 'cover',
                     objectPosition: 'center',
                   }}
-                  className="w-full h-full"
+                  className="object-cover w-full h-full"
                   priority
                 />
               </div>

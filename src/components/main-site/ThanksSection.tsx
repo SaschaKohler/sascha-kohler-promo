@@ -1,23 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Heart, X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import { ColorScheme } from '../common/ColorSchemeSelector';
 
 interface ThanksSectionProps {
   colorScheme: ColorScheme;
+  onSidebarVisibilityChange?: (isVisible: boolean) => void;
 }
 
-const ThanksSection: React.FC<ThanksSectionProps> = ({ colorScheme }) => {
+const ThanksSection: React.FC<ThanksSectionProps> = ({
+  colorScheme,
+  onSidebarVisibilityChange,
+}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const togglePanel = () => {
-    setIsOpen(!isOpen);
+    const newIsOpen = !isOpen;
+    setIsOpen(newIsOpen);
+    // Benachrichtige übergeordnete Komponente über Änderung der Sichtbarkeit
+    if (onSidebarVisibilityChange) {
+      onSidebarVisibilityChange(newIsOpen);
+    }
   };
+
+  // Stellen Sie sicher, dass der Visibility-Handler beim Unmount der Komponente aufgerufen wird
+  useEffect(() => {
+    return () => {
+      if (onSidebarVisibilityChange) {
+        onSidebarVisibilityChange(false);
+      }
+    };
+  }, [onSidebarVisibilityChange]);
 
   return (
     <>
       {/* Trigger Button - nur sichtbar wenn Panel geschlossen ist */}
       <button
-        className={`fixed right-0 top-1/2 -translate-y-1/2 z-30 p-3 shadow-lg rounded-l-lg transition-all duration-300 ${
+        className={`fixed right-0 top-1/2 -translate-y-1/2 z-50 p-3 shadow-lg rounded-l-lg transition-all duration-300 ${
           isOpen ? 'opacity-0 pointer-events-none translate-x-20' : 'opacity-100 translate-x-0'
         }`}
         style={{
@@ -33,7 +51,7 @@ const ThanksSection: React.FC<ThanksSectionProps> = ({ colorScheme }) => {
 
       {/* Slide-in Panel */}
       <div
-        className={`fixed top-0 right-0 h-full max-w-md w-full shadow-lg z-40 transition-transform duration-500 ease-in-out transform ${
+        className={`fixed top-0 right-0 h-full max-w-md w-full shadow-lg z-50 transition-transform duration-500 ease-in-out transform ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{
@@ -165,7 +183,7 @@ const ThanksSection: React.FC<ThanksSectionProps> = ({ colorScheme }) => {
       {/* Overlay when panel is open */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-20 z-30 transition-opacity duration-500"
+          className="fixed inset-0 bg-black bg-opacity-20 z-40 transition-opacity duration-500"
           onClick={togglePanel}
         />
       )}

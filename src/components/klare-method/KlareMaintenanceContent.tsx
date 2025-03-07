@@ -39,6 +39,12 @@ const KlareMaintenanceModeContent: React.FC = () => {
     threshold: 0.2, // Trigger when 20% of the footer is visible
     rootMargin: '0px 0px 0px 0px',
   });
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+
+  // Handler für die Sichtbarkeitsänderung der Sidebar
+  const handleSidebarVisibilityChange = (isVisible: boolean) => {
+    setIsSidebarVisible(isVisible);
+  };
 
   // Stellen sicher, dass wir nur clientseitig ausgeführt werden
   useEffect(() => {
@@ -288,7 +294,10 @@ const KlareMaintenanceModeContent: React.FC = () => {
         </section>
       </main>
 
-      <ThanksSection colorScheme={colorScheme} />
+      <ThanksSection
+        colorScheme={colorScheme}
+        onSidebarVisibilityChange={handleSidebarVisibilityChange}
+      />
 
       {/* Footer */}
       <footer
@@ -340,7 +349,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
               <div className="text-xs text-gray-500">
                 <span className="mr-2">Design & Entwicklung: Sascha Kohler</span>
                 <a
-                  href="https://sascha-kohler.at/it"
+                  href="https://skit.sascha-kohler.at"
                   className="text-gray-400 hover:text-white transition-colors duration-300"
                 >
                   IT-Dienstleistungen & Webentwicklung
@@ -352,7 +361,11 @@ const KlareMaintenanceModeContent: React.FC = () => {
       </footer>
 
       {/* Target Persona Indicator */}
-      <TargetPersonaIndicator colorScheme={colorScheme} isFooterVisible={isFooterVisible} />
+      <TargetPersonaIndicator
+        colorScheme={colorScheme}
+        isFooterVisible={isFooterVisible}
+        isSidebarVisible={isSidebarVisible}
+      />
 
       <style jsx>{`
         @keyframes float {

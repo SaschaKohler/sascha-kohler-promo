@@ -5,11 +5,13 @@ import { ColorScheme } from '@/utils/colorSchemes';
 interface TargetPersonaIndicatorProps {
   colorScheme: ColorScheme;
   isFooterVisible?: boolean;
+  isSidebarVisible?: boolean;
 }
 
 const TargetPersonaIndicator: React.FC<TargetPersonaIndicatorProps> = ({
   colorScheme,
   isFooterVisible = false,
+  isSidebarVisible = false,
 }) => {
   // Array von Zielgruppen-Texten
   const targetTexts = [
@@ -34,15 +36,15 @@ const TargetPersonaIndicator: React.FC<TargetPersonaIndicatorProps> = ({
     };
   }, [targetTexts.length]);
 
-  // Stile für das Ausblenden, wenn der Footer sichtbar ist
+  // Stile für das Ausblenden, wenn der Footer oder die Sidebar sichtbar ist
   const visibilityStyle = {
-    opacity: isFooterVisible ? 0 : 1,
-    visibility: isFooterVisible ? 'hidden' : ('visible' as 'hidden' | 'visible'),
+    opacity: isFooterVisible || isSidebarVisible ? 0 : 1,
+    visibility: isFooterVisible || isSidebarVisible ? 'hidden' : ('visible' as 'hidden' | 'visible'),
     transition: 'opacity 0.5s ease, visibility 0.5s ease',
   };
 
   return (
-    <div className="fixed bottom-8 right-8 hidden md:block z-50" style={visibilityStyle}>
+    <div className="fixed bottom-8 right-8 hidden md:block z-40" style={visibilityStyle}>
       <div className="bg-white rounded-lg shadow-md p-3 flex items-center max-w-xs transform transition-all duration-300 hover:scale-105">
         <div
           className="w-12 h-12 rounded-full flex items-center justify-center mr-3"

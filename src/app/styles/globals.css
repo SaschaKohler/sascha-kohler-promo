@@ -2,14 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Allgemeiner Theme-Übergang */
 body {
-  /*font-family: Arial, Helvetica, sans-serif;*/
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Verstecke den Content während des Theme-Ladens, wenn nötig */
+body.theme-loading {
+  visibility: hidden;
+}
+
+/* Styled Theme-Wechsler-Übergang */
+.theme-transition {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Custom Gradient Transitions */
+.gradient-background {
+  transition: background-image 0.5s ease;
+  background-size: 200% 200%;
+}
+
+/* Element Transitions für Theme-Komponenten */
+.theme-element {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 /*---break---*/
 
 @layer base {
   :root {
+    --initial-theme-loaded: false;
+
     --background: 0 0% 100%;
 
     --foreground: 0 0% 3.9%;

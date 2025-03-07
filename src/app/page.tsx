@@ -1,6 +1,6 @@
 import '@/app/styles/gradients.css';
 import '@/app/styles/animations.css';
-import KlareMaintenanceMode from '@/components/klare-method/KlareMaintenanceModeShadecn';
+import KlareMaintenanceMode from '@/components/klare-method/KlareMaintenanceMode';
 import SaschaKohlerWebsite from '@/components/SaschaKohlerWebsite';
 
 export default function Home() {
@@ -8,5 +8,9 @@ export default function Home() {
   // z.B. basierend auf Umgebungsvariablen oder einem API-Aufruf
   const isMaintenanceMode = true;
 
-  return <main>{isMaintenanceMode ? <KlareMaintenanceMode /> : <SaschaKohlerWebsite />}</main>;
+  return (
+    <main className="theme-transition">
+      {isMaintenanceMode ? <KlareMaintenanceMode /> : <SaschaKohlerWebsite />}
+    </main>
+  );
 }

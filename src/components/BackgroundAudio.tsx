@@ -84,10 +84,20 @@ const BackgroundAudio: React.FC<BackgroundAudioProps> = ({
           value={volume}
           onChange={handleVolumeChange}
           className="w-20 accent-white"
+          aria-label="Lautstärke"
         />
       </div>
 
-      <audio ref={audioRef} src={audioSrc} loop />
+      {/* Audio-Element mit Track für Barrierefreiheit */}
+      <audio ref={audioRef} src={audioSrc} loop>
+        <track kind="captions" src="" label="Keine Untertitel verfügbar" default />
+      </audio>
+
+      {/* Für bessere Barrierefreiheit fügen wir auch eine kurze Beschreibung hinzu */}
+      <span className="sr-only">
+        Hintergrundmusik-Steuerung. Verwenden Sie die Schaltfläche, um die Musik ein- oder
+        auszuschalten.
+      </span>
     </div>
   );
 };

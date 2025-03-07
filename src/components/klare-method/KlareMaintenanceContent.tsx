@@ -1,10 +1,9 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { Construction, ChevronDown } from 'lucide-react';
-import { ColorSchemeProvider, useColorScheme } from '@/contexts/ColorSchemeContext';
+import { useColorScheme } from '@/contexts/ColorSchemeContext';
 import ContextAwareColorSchemeSelector from '../ui/ContextAwareColorSchemeSelector';
 import useScrollToSection from '@/hooks/useScrollToSection';
-import { useScrollProgress } from '@/hooks/useScrollProgress';
 import { inkongruenzTypen } from '@/data/inkongruenzTypen';
 import { kongruenzSteps } from '@/data/kongruenzSteps';
 import ThanksSection from '../main-site/ThanksSection';
@@ -17,9 +16,9 @@ import InkongruenzTypenSection from '../sections/InkongruenzTypenSection';
 import WhyKongruenzSection from '../sections/WhyKongruenzSection';
 import FeatureTeaserSection from '../sections/FeatureTeaserSection';
 import NewsletterSignup from './NewsletterSignup';
-import BackgroundAudio from '../BackgroundAudio';
 
 const KlareMaintenanceModeContent: React.FC = () => {
+  // Client-Side State - wird nur nach der Hydration gesetzt
   const [countdown, setCountdown] = useState({
     days: 0,
     hours: 0,
@@ -32,19 +31,25 @@ const KlareMaintenanceModeContent: React.FC = () => {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const [activeInkongruenzIndex, setActiveInkongruenzIndex] = useState(0);
   const [activePathwayIndex, setActivePathwayIndex] = useState(0);
+  const [hasMounted, setHasMounted] = useState(false);
+
   const { colorScheme } = useColorScheme();
   const scrollToSection = useScrollToSection();
   const [footerRef, isFooterVisible] = useElementVisibility({
     threshold: 0.2, // Trigger when 20% of the footer is visible
     rootMargin: '0px 0px 0px 0px',
   });
-  // Set launch date to 4 weeks from now
-  const launchDate = new Date();
-  launchDate.setDate(launchDate.getDate() + 28);
 
-  // Update countdown timer
+  // Stellen sicher, dass wir nur clientseitig ausgeführt werden
   useEffect(() => {
-    const interval = setInterval(() => {
+    setHasMounted(true);
+
+    // Setze das Launch-Datum
+    const launchDate = new Date();
+    launchDate.setDate(launchDate.getDate() + 28);
+
+    // Countdown-Timer aktualisieren
+    const updateCountdown = () => {
       const now = new Date();
       const difference = launchDate.getTime() - now.getTime();
 
@@ -56,13 +61,18 @@ const KlareMaintenanceModeContent: React.FC = () => {
 
         setCountdown({ days, hours, minutes, seconds });
       }
-    }, 1000);
+    };
+
+    const interval = setInterval(updateCountdown, 1000);
+    updateCountdown(); // Sofort aktualisieren
 
     return () => clearInterval(interval);
   }, []);
 
   // Handle scroll events to update progress
   useEffect(() => {
+    if (!hasMounted) return;
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
@@ -78,10 +88,12 @@ const KlareMaintenanceModeContent: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [hasMounted]);
 
-  // Auto-rotate active step, inkongruenz type and pathway
+  // Auto-rotate active step and inkongruenz type
   useEffect(() => {
+    if (!hasMounted) return;
+
     const stepInterval = setInterval(() => {
       setActiveStepIndex(prevIndex => (prevIndex + 1) % kongruenzSteps.length);
     }, 7000);
@@ -90,18 +102,11 @@ const KlareMaintenanceModeContent: React.FC = () => {
       setActiveInkongruenzIndex(prevIndex => (prevIndex + 1) % inkongruenzTypen.length);
     }, 7000);
 
-    // const pathwayInterval = setInterval(() => {
-    //   setActivePathwayIndex(
-    //     (prevIndex) => (prevIndex + 1) % transformationPathway.length,
-    //   );
-    // }, 7000);
-
     return () => {
       clearInterval(stepInterval);
       clearInterval(inkongruenzInterval);
-      // clearInterval(pathwayInterval);
     };
-  }, []);
+  }, [hasMounted]);
 
   // Handle email subscription
   const handleSubscribe = (e: React.FormEvent) => {
@@ -118,6 +123,33 @@ const KlareMaintenanceModeContent: React.FC = () => {
       behavior: 'smooth',
     });
   };
+
+  // Während SSR oder vor der Hydration
+  if (!hasMounted) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        {/* Minimale Darstellung für SSR und erste Hydration */}
+        <nav className="fixed top-0 left-0 w-full bg-opacity-90 border-b z-40 transition-all duration-300">
+          <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div className="flex items-center">
+              <div className="text-3xl tracking-wider font-light">SASCHA KOHLER</div>
+            </div>
+            <div className="flex items-center space-x-3">
+              <Construction size={20} />
+              <span className="hidden sm:inline text-sm tracking-wide">WEBSITE IM AUFBAU</span>
+            </div>
+          </div>
+        </nav>
+        <main className="flex-grow container mx-auto px-4 md:px-8 pt-24 pb-12 flex flex-col">
+          <div className="h-64 flex items-center justify-center">
+            <div className="text-center">
+              <div className="animate-pulse mb-4">Website wird geladen...</div>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -199,16 +231,9 @@ const KlareMaintenanceModeContent: React.FC = () => {
 
         {/* Newsletter signup */}
         <NewsletterSignup colorScheme={colorScheme} />
+
         {/* Countdown */}
-        <section
-          id="launch-date"
-          className="py-12"
-          style={
-            {
-              // background: `linear-gradient(to bottom, ${colorScheme.background}10, white)`,
-            }
-          }
-        >
+        <section id="launch-date" className="py-12">
           <div
             className="bg-white rounded-lg shadow-lg p-8 mb-16 max-w-3xl mx-auto"
             style={{
@@ -262,7 +287,9 @@ const KlareMaintenanceModeContent: React.FC = () => {
           </div>
         </section>
       </main>
+
       <ThanksSection colorScheme={colorScheme} />
+
       {/* Footer */}
       <footer
         className="bg-gray-900 text-white py-8 px-4 md:px-8 mt-auto"
@@ -323,7 +350,8 @@ const KlareMaintenanceModeContent: React.FC = () => {
           </div>
         </div>
       </footer>
-      {/* Target Persona Indicator - Verwende die neue ausgelagerte Komponente */}
+
+      {/* Target Persona Indicator */}
       <TargetPersonaIndicator colorScheme={colorScheme} isFooterVisible={isFooterVisible} />
 
       <style jsx>{`
@@ -347,15 +375,4 @@ const KlareMaintenanceModeContent: React.FC = () => {
   );
 };
 
-// Wrapper-Komponente mit Context Provider
-const KlareMaintenanceMode: React.FC = () => {
-  const { scrollProgress } = useScrollProgress();
-
-  return (
-    <ColorSchemeProvider scrollProgress={scrollProgress}>
-      <KlareMaintenanceModeContent />
-    </ColorSchemeProvider>
-  );
-};
-
-export default KlareMaintenanceMode;
+export default KlareMaintenanceModeContent;

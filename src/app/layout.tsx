@@ -1,5 +1,5 @@
 // app/layout.tsx
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import '@/app/styles/globals.css';
 import '@/app/styles/gradients.css';
@@ -14,6 +14,10 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 });
+
+export const viewport: Viewport = {
+  themeColor: '#ffffff',
+};
 
 export const metadata: Metadata = {
   title: 'KLARE-Methode | Kongruenz statt Optimierung | Sascha Kohler',
@@ -87,7 +91,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  themeColor: '#ffffff',
   manifest: '/site.webmanifest',
 };
 

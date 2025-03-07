@@ -37,8 +37,11 @@ const TeaserSection: React.FC<TeaserSectionProps> = ({ colorScheme }) => {
                   alt="Sascha Kohler"
                   width={300}
                   height={300}
-                  objectPosition="bottom"
-                  className="object-cover w-full h-full"
+                  style={{
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                  }}
+                  className="w-full h-full"
                   priority
                 />
               </div>

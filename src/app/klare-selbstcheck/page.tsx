@@ -1,5 +1,10 @@
 import React from 'react';
 import KlareSelbstCheck from '@/components/KlareSelbstCheck';
+import { Viewport } from 'next';
+
+export const viewport: Viewport = {
+  themeColor: '#ffffff',
+};
 
 export const metadata = {
   title: 'KLARE Kongruenz-Methode Selbstcheck',

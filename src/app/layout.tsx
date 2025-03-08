@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import '@/app/styles/globals.css';
 import '@/app/styles/gradients.css';
+import '@/app/styles/daily-gradients.css';
 import { Toaster } from '@/components/ui/toaster';
 
 const geistSans = Geist({

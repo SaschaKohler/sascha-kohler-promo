@@ -1,0 +1,162 @@
+/* src/app/styles/daily-gradients.css */
+
+/* Sanfte Wellen */
+@keyframes wave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-sanfte-wellen {
+  background: linear-gradient(
+    135deg,
+    var(--color-background),
+    var(--color-primary),
+    var(--color-accent),
+    var(--color-primary),
+    var(--color-background)
+  );
+  background-size: 400% 400%;
+  animation: wave 15s ease infinite;
+}
+
+/* Atmender Morgen */
+@keyframes breathe {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-atmender-morgen {
+  background: linear-gradient(135deg, #fff8e1, #ffecb3, #ffe0b2, #ffecb3, #fff8e1);
+  background-size: 400% 400%;
+  animation: breathe 15s ease infinite;
+}
+
+/* Fließende Klarheit */
+@keyframes flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-fliessende-klarheit {
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9, #a5d6a7, #c8e6c9, #e8f5e9);
+  background-size: 400% 400%;
+  animation: flow 15s ease infinite;
+}
+
+/* Sanfte Transformation */
+@keyframes transform {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-sanfte-transformation {
+  background: linear-gradient(135deg, #e1f5fe, #b3e5fc, #81d4fa, #b3e5fc, #e1f5fe);
+  background-size: 400% 400%;
+  animation: transform 20s ease infinite;
+}
+
+/* Violette Reflexion */
+@keyframes reflect {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-violette-reflexion {
+  background: linear-gradient(135deg, #f3e5f5, #e1bee7, #ce93d8, #e1bee7, #f3e5f5);
+  background-size: 400% 400%;
+  animation: reflect 18s ease infinite;
+}
+
+/* Klare Himmel - statisch */
+.bg-klare-himmel {
+  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 50%, #80deea 100%);
+}
+
+/* Morgenröte - statisch */
+.bg-morgenroete {
+  background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 50%, #ffe0b2 100%);
+}
+
+/* Klare Gedanken - statisch */
+.bg-klare-gedanken {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+}
+
+/* Selbstreflexion - statisch */
+.bg-selbstreflexion {
+  background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 50%, #81d4fa 100%);
+}
+
+/* Klarheit - statisch */
+.bg-klarheit {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 50%, #ce93d8 100%);
+}
+
+/* Container-Klasse für täglichen Gradienten */
+.daily-gradient-container {
+  min-height: 100vh;
+  transition: background 1s ease;
+}
+
+/* Info-Card für das tägliche Prinzip */
+.daily-principle-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--color-primary);
+}
+
+/* Animationen für das Erscheinen des täglichen Prinzips */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.daily-principle-card {
+  animation: fadeIn 0.8s ease-out forwards;
+}

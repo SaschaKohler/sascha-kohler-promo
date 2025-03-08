@@ -20,8 +20,8 @@ interface NewsletterSignupProps {
 }
 
 export default function NewsletterSignup({
-  title = 'Erfahren Sie hier mehr zum Launch',
-  description = 'Melden Sie sich für den Newsletter an und erhalten sie schon jetzt exklusive Einblicke in die KLARE-Methode.',
+  title = 'Wie kongruent sind Sie wirklich?',
+  description = 'Melden Sie sich für den Newsletter an und machen Sie auch gleich den KLARE-Kongruenz-Selbstcheck!',
   buttonText = 'Anmelden',
   colorScheme = {
     primary: '#4338ca', // indigo-700

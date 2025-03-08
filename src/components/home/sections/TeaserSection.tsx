@@ -56,17 +56,64 @@ const TeaserSection: React.FC<TeaserSectionProps> = ({ colorScheme }) => {
           {/* Titeltext und Beschreibung */}
           <div className="w-full md:w-7/12 px-4 text-left md:text-left">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              <span style={{ color: colorScheme.primary }}>Die KLARE</span>
-              <span
-                style={{
-                  backgroundImage: `linear-gradient(to right, ${colorScheme.primary}, ${colorScheme.accent})`,
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  color: 'transparent',
-                }}
-              >
-                -Methode
+              <span className="mr-2 inline-block">Die</span>
+
+              {/* KLARE SVG Group mit Letter-SVGs aus dem public Ordner */}
+              <div className="flex items-center justify-start mb-2">
+                <Image
+                  src="/klare-svg/K-circle.svg"
+                  alt="K"
+                  width={64}
+                  height={64}
+                  className="h-16 sm:h-20 md:h-24 -ml-1"
+                  style={{ filter: `drop-shadow(0 0 2px ${colorScheme.primary})` }}
+                />
+                <Image
+                  src="/klare-svg/L-circle.svg"
+                  alt="L"
+                  width={64}
+                  height={64}
+                  className="h-16 sm:h-20 md:h-24 -ml-1"
+                  style={{ filter: `drop-shadow(0 0 2px ${colorScheme.primary})` }}
+                />
+                <Image
+                  src="/klare-svg/A-circle.svg"
+                  alt="A"
+                  width={64}
+                  height={64}
+                  className="h-16 sm:h-20 md:h-24 -ml-1"
+                  style={{ filter: `drop-shadow(0 0 2px ${colorScheme.primary})` }}
+                />
+                <Image
+                  src="/klare-svg/R-circle.svg"
+                  alt="R"
+                  width={64}
+                  height={64}
+                  className="h-16 sm:h-20 md:h-24 -ml-1"
+                  style={{ filter: `drop-shadow(0 0 2px ${colorScheme.primary})` }}
+                />
+                <Image
+                  src="/klare-svg/E-circle.svg"
+                  alt="E"
+                  width={64}
+                  height={64}
+                  className="h-16 sm:h-20 md:h-24 -ml-1"
+                  style={{ filter: `drop-shadow(0 0 2px ${colorScheme.primary})` }}
+                />
+              </div>
+
+              <span className="ml-2 inline-block">
+                <span
+                  style={{
+                    backgroundImage: `linear-gradient(to right, ${colorScheme.primary}, ${colorScheme.accent})`,
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    color: 'transparent',
+                  }}
+                >
+                  Methode
+                </span>
               </span>
             </h1>
             <h2

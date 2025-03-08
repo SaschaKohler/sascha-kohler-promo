@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KLARE-Methode Website | Sascha Kohler
 
-## Getting Started
+Eine moderne, reaktionsschnelle Website zur Präsentation der KLARE-Methode und professionellen Angebote von Sascha Kohler, basierend auf Next.js 15 und React 19.
 
-First, run the development server:
+## 🌟 Projektübersicht
+
+Diese Website dient als digitale Präsenz für Sascha Kohlers professionelle Arbeit als Lebens- und Sozialberater mit Fokus auf die KLARE-Methode:
+
+- **K**larheit 
+- **L**ebendigkeit 
+- **A**usrichtung 
+- **R**ealisierung 
+- **E**ntfaltung
+
+## 🚀 Technologie-Stack
+
+- **Frontend**: Next.js 15.x, React 19.x, TypeScript
+- **Styling**: Tailwind CSS, CSS-Module
+- **UI-Komponenten**: Radix UI
+- **Containerisierung**: Docker
+- **CI/CD**: GitHub Actions
+- **Hosting**: Kubernetes/K3s Cluster
+
+## 🔧 Lokale Entwicklung
+
+### Voraussetzungen
+
+- Node.js 18 oder höher
+- npm, yarn oder pnpm
+
+### Installation
+
+```bash
+# Repository klonen
+git clone https://github.com/SaschaKohler/sascha-kohler-promo.git
+cd sascha-kohler-promo
+
+# Abhängigkeiten installieren
+npm install
+# oder
+yarn 
+# oder
+pnpm install
+```
+
+### Entwicklungsserver starten
 
 ```bash
 npm run dev
-# or
+# oder
 yarn dev
-# or
+# oder
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Der Entwicklungsserver startet auf [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build für Produktion
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+# oder
+yarn build
+# oder
+pnpm build
+```
 
-## Learn More
+## 🔄 CI/CD Pipeline
 
-To learn more about Next.js, take a look at the following resources:
+Dieses Projekt verwendet GitHub Actions für kontinuierliche Integration und Deployment:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Bei jedem Push auf den `main`-Branch wird automatisch ein Docker-Image gebaut
+2. Das Image wird auf DockerHub unter dem Tag `blisha234/sascha-kohler-website` veröffentlicht
+3. Das Deployment auf dem K3s Cluster wird aktualisiert
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🏗 Projektstruktur
 
-## Deploy on Vercel
+```
+├── .github/           # GitHub Actions Workflows
+├── public/            # Statische Assets 
+├── src/               # Quellcode
+│   ├── app/           # Next.js App Router
+│   ├── components/    # React Komponenten
+│   ├── contexts/      # React Kontext Provider
+│   ├── hooks/         # Custom React Hooks
+│   ├── lib/           # Hilfsfunktionen und Bibliotheken
+│   ├── types/         # TypeScript Typdefinitionen
+│   └── utils/         # Utility-Funktionen
+├── Dockerfile         # Docker Build-Konfiguration
+└── next.config.js     # Next.js Konfiguration
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📋 Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Responsives Design für Desktop und Mobile
+- Farbschema-Wechsler mit lokaler Speicherung der Benutzerauswahl
+- SEO-Optimierung mit umfassenden Meta-Tags
+- Strukturierte Daten mit JSON-LD
+- Animation und Transition-Effekte
+- Optimierte Docker-Containerisierung
+- Automatisiertes Deployment
+
+## 🤝 Mitwirken
+
+Beiträge sind willkommen! Bitte folgen Sie diesem Prozess:
+
+1. Fork des Repositories
+2. Feature-Branch erstellen (`git checkout -b feature/amazing-feature`)
+3. Änderungen committen (`git commit -m 'Add some amazing feature'`)
+4. Push zum Branch (`git push origin feature/amazing-feature`)
+5. Pull Request öffnen
+
+## 📬 Kontakt
+
+Bei Fragen oder Anregungen, kontaktieren Sie Sascha Kohler unter sascha.kohler@sent.at oder über [LinkedIn](https://www.linkedin.com/in/sascha-kohler/).
+
+## 📄 Lizenz
+
+Dieses Projekt steht unter der [MIT-Lizenz](LICENSE.md).

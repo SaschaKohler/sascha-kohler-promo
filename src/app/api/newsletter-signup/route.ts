@@ -5,6 +5,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { email } = body;
+
     // Get webhook URL from environment variable
     const webhookUrl = process.env.NEXT_PUBLIC_MAKE_WEBHOOK_URL;
 
@@ -17,19 +18,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Send data to Make.com webhook
-    const response = await fetch(webhookUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email,
-        type: 'newsletter',
-        source: 'maintenance-page',
-        timestamp: new Date().toISOString(),
-      }),
-    });
+    // Validiere Email-Format
     if (!email) {
       return NextResponse.json(
         { success: false, message: 'Email ist erforderlich' },
@@ -37,7 +26,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validiere Email-Format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
@@ -46,27 +34,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // E-Mail an Make.com Webhook senden
+    // E-Mail an Make.com Webhook senden - nur einmal!
     try {
-      const response = await fetch(
-        // "https://hook.eu2.make.com/cpcfe88m1c657r7qs3osjdfkp97nfnno",
-        webhookUrl,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          source: 'website-newsletter',
+          timestamp: new Date().toISOString(),
+          // Optionale zusätzliche Informationen
+          metadata: {
+            page: 'launch-page',
           },
-          body: JSON.stringify({
-            email,
-            source: 'website-newsletter',
-            timestamp: new Date().toISOString(),
-            // Optionale zusätzliche Informationen, die Sie erfassen möchten
-            metadata: {
-              page: 'launch-page',
-            },
-          }),
-        }
-      );
+        }),
+      });
 
       if (!response.ok) {
         console.error('Webhook response status:', response.status);

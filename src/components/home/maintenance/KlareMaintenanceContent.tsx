@@ -14,6 +14,7 @@ import TargetPersonaIndicator from '@/components/klare-method/TargetPersonaIndic
 import TeaserSection from '../sections/TeaserSection';
 import InkongruenzTypenSection from '../sections/InkongruenzTypenSection';
 import WhyKongruenzSection from '../sections/WhyKongruenzSection';
+import NaturalResilienceSection from '../sections/NaturalResilienceSection';
 import FeatureTeaserSection from '../sections/FeatureTeaserSection';
 import NewsletterSignup from '@/components/klare-method/NewsletterSignup';
 
@@ -231,6 +232,9 @@ const KlareMaintenanceModeContent: React.FC = () => {
         </section>
         {/* Why Kongruenz Instead of Optimization */}
         <WhyKongruenzSection colorScheme={colorScheme} />
+
+        {/* Natural Resilience Section */}
+        {/* <NaturalResilienceSection colorScheme={colorScheme} /> */}
 
         {/* Feature teasers */}
         <FeatureTeaserSection colorScheme={colorScheme} />

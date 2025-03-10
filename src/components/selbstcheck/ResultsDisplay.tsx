@@ -72,7 +72,7 @@ export default function ResultsDisplay({
             asChild
             className="bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600"
           >
-            <a href="https://sascha-kohler.at/kontakt">
+            <a href="https://calendar.app.google/7PqGbBPAWCTgfzza9">
               {getLocalizedText(nextSteps.cta, addressMode)}
             </a>
           </Button>

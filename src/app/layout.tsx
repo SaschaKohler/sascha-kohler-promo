@@ -6,8 +6,9 @@ import '@/app/styles/gradients.css';
 import '@/app/styles/daily-gradients.css';
 import { Toaster } from '@/components/ui/toaster';
 import { GoogleTagManagerHead, GoogleTagManagerBody } from '@/components/GoogleTagManager';
-import GoogleTagManagerTracking from '@/components/GoogleTagManagerTracking';
-
+import { GoogleTagManagerTracking } from '@/components/GoogleTagManagerTracking';
+import { Suspense } from 'react';
+import { SearchParamsTracker } from '@/components/SearchParamsTracker';
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
@@ -107,6 +108,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <GoogleTagManagerBody />
         <GoogleTagManagerTracking />
+        {/* Falls du searchParams-Tracking brauchst, füge dies hinzu */}
+        <Suspense fallback={null}>
+          <SearchParamsTracker />
+        </Suspense>
         <Toaster />
         {children}
 

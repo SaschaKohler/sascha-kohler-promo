@@ -5,6 +5,8 @@ import '@/app/styles/globals.css';
 import '@/app/styles/gradients.css';
 import '@/app/styles/daily-gradients.css';
 import { Toaster } from '@/components/ui/toaster';
+import { GoogleTagManagerHead, GoogleTagManagerBody } from '@/components/GoogleTagManager';
+import GoogleTagManagerTracking from '@/components/GoogleTagManagerTracking';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -98,7 +100,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="de">
+      <head>
+        <GoogleTagManagerHead />
+      </head>
+
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <GoogleTagManagerBody />
+        <GoogleTagManagerTracking />
         <Toaster />
         {children}
 

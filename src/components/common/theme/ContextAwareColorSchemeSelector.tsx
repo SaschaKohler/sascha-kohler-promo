@@ -36,7 +36,7 @@ const ContextAwareColorSchemeSelector: React.FC<ColorSchemeSelectorProps> = ({
   if (!isThemeLoaded) return null;
 
   return (
-    <div className="fixed bottom-3 left-3 z-50 md:bottom-5 md:right-5" style={visibilityStyle}>
+    <div className="fixed bottom-28 left-3 z-50 md:bottom-32 md:right-5" style={visibilityStyle}>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button

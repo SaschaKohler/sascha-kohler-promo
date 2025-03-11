@@ -1,20 +1,20 @@
 'use client';
 import React from 'react';
 import { Navigation } from '@/components/layout/navigation';
-import { Footer } from '@/components/layout/footer';
+import { LegalFooter } from '@/components/layout/footer';
 import ScrollToTop from './layout/ScrollToTop';
 import HeroSection from './klare-method/HeroSection';
 import { ContextAwareColorSchemeSelector } from '@/components/common/theme';
 import { useScrollProgress } from '@/hooks/useScrollProgress';
 import { useActiveSection } from '@/hooks/useActiveSection';
-import { ColorSchemeProvider } from '@/contexts/ColorSchemeContext';
+import { ColorSchemeProvider, useColorScheme } from '@/contexts/ColorSchemeContext';
 import GrowthJourneySection from './GrowthJourneySection';
 
 // Hauptkomponente
 const SaschaKohlerWebsiteContent: React.FC = () => {
   const { scrollProgress, showScrollTop } = useScrollProgress();
   const { activeSection, scrollToSection, mobileMenuOpen, setMobileMenuOpen } = useActiveSection();
-
+  const { colorScheme } = useColorScheme();
   // Funktion zum Scrollen nach oben
   const scrollToTop = () => {
     window.scrollTo({
@@ -88,7 +88,7 @@ const SaschaKohlerWebsiteContent: React.FC = () => {
       {/* <ThanksSectionFamily /> */}
 
       {/* Footer */}
-      <Footer />
+      <LegalFooter colorScheme={colorScheme} />
 
       {/* CSS für Animationen */}
       <style jsx global>{`

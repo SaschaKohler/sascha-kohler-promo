@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Construction, ChevronDown } from 'lucide-react';
+import { Construction, ChevronDown, Link } from 'lucide-react';
 import { useColorScheme } from '@/contexts/ColorSchemeContext';
 import { ContextAwareColorSchemeSelector } from '@/components/common/theme';
 import useScrollToSection from '@/hooks/useScrollToSection';
@@ -17,6 +17,7 @@ import WhyKongruenzSection from '../sections/WhyKongruenzSection';
 import NaturalResilienceSection from '../sections/NaturalResilienceSection';
 import FeatureTeaserSection from '../sections/FeatureTeaserSection';
 import NewsletterSignup from '@/components/klare-method/NewsletterSignup';
+import { LegalFooter } from '@/components/layout/footer';
 
 const KlareMaintenanceModeContent: React.FC = () => {
   // Client-Side State - wird nur nach der Hydration gesetzt
@@ -36,7 +37,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
 
   const { colorScheme } = useColorScheme();
   const scrollToSection = useScrollToSection();
-  const [footerRef, isFooterVisible] = useElementVisibility({
+  const [footerRef, isFooterVisible] = useElementVisibility<HTMLDivElement>({
     threshold: 0.2, // Trigger when 20% of the footer is visible
     rootMargin: '0px 0px 0px 0px',
   });
@@ -304,65 +305,7 @@ const KlareMaintenanceModeContent: React.FC = () => {
       />
 
       {/* Footer */}
-      <footer
-        className="bg-gray-900 text-white py-8 px-4 md:px-8 mt-auto"
-        ref={footerRef as React.RefObject<HTMLDivElement>}
-      >
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0">
-              {/* Logo in Footer */}
-              <div className="flex items-center mb-3">
-                <div
-                  className="h-8 w-8 rounded-full relative overflow-hidden flex items-center justify-center"
-                  style={{
-                    background: `linear-gradient(135deg, ${colorScheme.primary}, ${colorScheme.accent})`,
-                  }}
-                >
-                  <span className="text-white font-bold text-sm">SK</span>
-                  <div className="absolute bottom-0 w-full h-1/4 bg-white bg-opacity-20"></div>
-                </div>
-                <div className="ml-2 text-xl font-semibold">
-                  <span style={{ color: colorScheme.accent }}>Sascha</span> Kohler
-                </div>
-              </div>
-              <p className="text-gray-400 text-sm mb-1">Die KLARE-Methode</p>
-              <div className="flex flex-wrap gap-2 mt-3">
-                <span className="inline-block px-2 py-1 bg-gray-800 rounded-md text-xs text-gray-300">
-                  LSB in A.u.SV.
-                </span>
-                <span className="inline-block px-2 py-1 bg-gray-800 rounded-md text-xs text-gray-300">
-                  NLP-Master
-                </span>
-                <span className="inline-block px-2 py-1 bg-gray-800 rounded-md text-xs text-gray-300">
-                  Speaker & Trainer
-                </span>
-              </div>
-            </div>
-
-            <div className="text-gray-400 text-sm text-center md:text-right">
-              <div className="mb-2">
-                © {new Date().getFullYear()} Sascha Kohler. Alle Rechte vorbehalten.
-              </div>
-              <div className="mb-2 font-medium text-gray-300">
-                "Entfalten Sie sich selbst, statt sich immer nur zu optimieren"
-              </div>
-              <div className="text-xs text-gray-500 mb-2">
-                Die KLARE-Methode | Vorträge | Workshops | Coaching
-              </div>
-              <div className="text-xs text-gray-500">
-                <span className="mr-2">Design & Entwicklung: Sascha Kohler</span>
-                <a
-                  href="https://skit.sascha-kohler.at"
-                  className="text-gray-400 hover:text-white transition-colors duration-300"
-                >
-                  IT-Dienstleistungen & Webentwicklung
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <LegalFooter colorScheme={colorScheme} footerRef={footerRef} />
 
       {/* Target Persona Indicator */}
       <TargetPersonaIndicator

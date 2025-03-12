@@ -11,6 +11,7 @@ import DailyPrinciple from '@/components/klare-method/dailyPrinciple';
 import useElementVisibility from '@/hooks/useElementVisibility';
 import TargetPersonaIndicator from '@/components/klare-method/TargetPersonaIndicator';
 import { LegalFooter } from '@/components/layout/footer';
+import Image from 'next/legacy/image';
 
 const LaunchAnnouncement: React.FC = () => {
   // Client-Side State - wird nur nach der Hydration gesetzt
@@ -27,6 +28,7 @@ const LaunchAnnouncement: React.FC = () => {
   const [hasMounted, setHasMounted] = useState(false);
   const [isEmailSubmitted, setIsEmailSubmitted] = useState(false);
 
+  const [isHovered, setIsHovered] = useState(false);
   const { colorScheme } = useColorScheme();
   const scrollToSection = useScrollToSection();
   const [footerRef, isFooterVisible] = useElementVisibility<HTMLDivElement>({
@@ -260,30 +262,62 @@ const LaunchAnnouncement: React.FC = () => {
               </button>
             </div>
           </div>
-          <div className="lg:w-1/2">
+          <div className="md:w-2/5 mt-8 md:mt-0">
             <div
-              className="relative rounded-2xl overflow-hidden shadow-2xl transform transition-transform hover:scale-[1.02]"
-              style={{ borderColor: colorScheme.accent }}
+              className="relative transition-all duration-500"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              style={{
+                transform: isHovered
+                  ? 'perspective(1000px) rotateY(-15deg) rotateX(10deg)'
+                  : 'perspective(1000px) rotateY(0) rotateX(0)',
+                transition: 'transform 0.5s ease',
+              }}
             >
               <div
-                className="absolute inset-0 bg-gradient-to-br opacity-60"
+                className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 shadow-xl mx-auto relative"
                 style={{
-                  backgroundImage: `linear-gradient(135deg, ${colorScheme.primary}40, ${colorScheme.accent}40)`,
+                  borderColor: colorScheme.accent,
+                  boxShadow: isHovered
+                    ? `0 25px 50px -12px ${colorScheme.primary}50`
+                    : `0 15px 30px -5px ${colorScheme.primary}30`,
                 }}
-              ></div>
-              <img
-                src="/images/hero-image.jpg"
-                alt="Kongruenz-Methode"
-                className="w-full h-auto object-cover filter"
-                onError={e => {
-                  // Fallback if image doesn't exist
-                  e.currentTarget.src =
-                    'https://via.placeholder.com/600x400?text=KLARE+Kongruenz-Methode';
+              >
+                <Image
+                  src="/images/me.jpeg"
+                  alt="Sascha Kohler"
+                  sizes="(max-width: 768px) 288px, 384px"
+                  className="object-cover object-top transform transition-transform duration-500"
+                  width="384"
+                  height="384"
+                  style={{
+                    transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+                  }}
+                  priority
+                />
+                {/* Hero image shine effect */}
+                <div
+                  className="absolute inset-0 bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 transition-opacity duration-500"
+                  style={{
+                    opacity: isHovered ? 0.2 : 0,
+                    transform: 'rotate(45deg)',
+                    backgroundSize: '200% 200%',
+                    animation: isHovered ? 'shimmer 1.5s infinite' : 'none',
+                  }}
+                />
+              </div>
+              <div
+                className="absolute -bottom-4 -right-2 bg-white p-4 rounded-lg shadow-lg transform transition-transform duration-500"
+                style={{
+                  transform: isHovered ? 'translateY(-5px) scale(1.05)' : 'translateY(0) scale(1)',
+                  boxShadow: isHovered
+                    ? `0 10px 25px -5px ${colorScheme.primary}40`
+                    : `0 4px 6px -1px ${colorScheme.primary}20`,
                 }}
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent text-white">
-                <h3 className="text-xl md:text-2xl font-bold mb-2">Lebens- und Sozialberatung</h3>
-                <p className="opacity-90">Ein ganzheitlicher Ansatz für persönliches Wachstum</p>
+              >
+                <p className="italic text-lg" style={{ color: colorScheme.primary }}>
+                  Sascha Kohler
+                </p>
               </div>
             </div>
           </div>
@@ -410,10 +444,12 @@ const LaunchAnnouncement: React.FC = () => {
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                         className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                        style={{
-                          focusOutline: 'none',
-                          focusRing: colorScheme.primary,
-                        }}
+                        style={
+                          {
+                            // focusOutline: 'none',
+                            // focusRing: colorScheme.primary,
+                          }
+                        }
                         placeholder="ihre-email@beispiel.de"
                         required
                         disabled={isEmailSubmitted}
@@ -532,9 +568,6 @@ const LaunchAnnouncement: React.FC = () => {
         colorScheme={colorScheme}
         onSidebarVisibilityChange={handleSidebarVisibilityChange}
       />
-
-      {/* Footer */}
-      <LegalFooter colorScheme={colorScheme} footerRef={footerRef} />
 
       {/* Target Persona Indicator */}
       <TargetPersonaIndicator

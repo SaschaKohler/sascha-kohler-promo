@@ -12,7 +12,6 @@ import {
   Palette,
   Church,
 } from 'lucide-react';
-import { LegalFooter } from '../layout/footer';
 
 interface LifeArea {
   id: string;

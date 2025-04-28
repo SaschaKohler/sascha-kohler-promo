@@ -86,7 +86,7 @@ const ThanksSection: React.FC<ThanksSectionProps> = ({
               <p className="text-md mb-6">
                 Mein besonderer Dank gilt der{' '}
                 <a
-                  href="https://www.rok-akademie.at"
+                  href="https://rokakademie.at/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center"

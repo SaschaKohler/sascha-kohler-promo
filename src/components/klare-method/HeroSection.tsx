@@ -163,6 +163,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
                   src="/images/me.jpeg"
                   alt="Sascha Kohler"
                   sizes="(max-width: 768px) 288px, 384px"
+                  width={384}
+                  height={384}
                   className="object-cover object-top transform transition-transform duration-500"
                   style={{
                     transform: isHovered ? 'scale(1.05)' : 'scale(1)',

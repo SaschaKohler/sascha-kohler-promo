@@ -1,0 +1,51 @@
+'use client';
+import React from 'react';
+import { useColorScheme } from '@/contexts/ColorSchemeContext';
+
+export default function LebensradPage() {
+  const { colorScheme } = useColorScheme();
+
+  return (
+    <div className="container mx-auto px-6 py-12">
+      <h1 className="text-4xl font-bold mb-8 text-center" style={{ color: colorScheme.primary }}>
+        Das Lebensrad der <span style={{ color: colorScheme.accent }}>KLARE-Methode</span>
+      </h1>
+      
+      <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
+        <p className="text-lg mb-6">
+          Das Lebensrad ist ein zentrales Instrument in der KLARE-Methode. Es hilft dir, eine visuelle Übersicht über die verschiedenen Bereiche deines Lebens zu erhalten und den Grad der Kongruenz in jedem dieser Bereiche zu erkennen.
+        </p>
+        
+        <h2 className="text-2xl font-semibold mb-4" style={{ color: colorScheme.primary }}>
+          Demnächst verfügbar
+        </h2>
+        
+        <p className="text-lg mb-6">
+          Wir arbeiten derzeit an einer interaktiven Version des Lebensrads, die du direkt hier auf der Website nutzen kannst. Bleibe dran für Updates!
+        </p>
+        
+        <div className="bg-gray-50 p-6 rounded-lg border-l-4 mb-8" style={{ borderColor: colorScheme.accent }}>
+          <h3 className="text-xl font-semibold mb-2">Vorteile des Lebensrads:</h3>
+          <ul className="list-disc list-inside space-y-2 ml-2">
+            <li>Visualisierung deiner aktuellen Lebenssituation</li>
+            <li>Identifikation von Inkongruenzen zwischen verschiedenen Lebensbereichen</li>
+            <li>Erkennen von Wechselwirkungen und Abhängigkeiten</li>
+            <li>Basis für eine ganzheitliche Transformation</li>
+            <li>Fortschrittsmessung während deiner Kongruenz-Reise</li>
+          </ul>
+        </div>
+        
+        <div className="text-center">
+          <button 
+            className="px-6 py-3 rounded-full text-white font-medium shadow-md hover:shadow-lg transition-all"
+            style={{
+              background: `linear-gradient(to right, ${colorScheme.primary}, ${colorScheme.accent})`,
+            }}
+          >
+            Werde informiert, wenn das Lebensrad verfügbar ist
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

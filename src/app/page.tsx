@@ -12,8 +12,8 @@ export default function Home() {
 
   return (
     <main className="theme-transition">
-      {/* {isMaintenanceMode ? <KlareMaintenanceMode /> : <SaschaKohlerWebsite />} */}
-      {isMaintenanceMode ? <LaunchAnnouncementContent /> : <SaschaKohlerWebsite />}
+      {isMaintenanceMode ? <KlareMaintenanceMode /> : <SaschaKohlerWebsite />}
+      {/* {isMaintenanceMode ? <LaunchAnnouncementContent /> : <SaschaKohlerWebsite />} */}
     </main>
   );
 }

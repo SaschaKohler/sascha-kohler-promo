@@ -358,7 +358,6 @@ const KlareMethodeShowcase: React.FC<KlareMethodeShowcaseProps> = ({ colorScheme
                 className="flex-grow px-4 py-3 rounded-l-lg border focus:outline-none focus:ring-2"
                 style={{
                   borderColor: `${colorScheme.primary}40`,
-                  focusRing: colorScheme.primary,
                 }}
               />
               <button

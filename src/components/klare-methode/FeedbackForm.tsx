@@ -14,15 +14,15 @@ const FeedbackForm: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setError('');
-    
+
     // Simulate API call
     try {
       // In a real implementation, you would send this data to your backend
       console.log('Submitting feedback:', { email, feedback, interest });
-      
+
       // Simulate processing time
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       // Success
       setIsSuccess(true);
       setEmail('');
@@ -48,7 +48,7 @@ const FeedbackForm: React.FC = () => {
     return (
       <div className="bg-white rounded-lg p-8 shadow-md">
         <div className="flex items-center justify-center mb-6">
-          <div 
+          <div
             className="h-16 w-16 rounded-full flex items-center justify-center text-3xl"
             style={{ backgroundColor: `${stepColors.E}20`, color: stepColors.E }}
           >
@@ -59,7 +59,8 @@ const FeedbackForm: React.FC = () => {
           Vielen Dank für dein Feedback!
         </h3>
         <p className="text-gray-600 text-center mb-6">
-          Wir haben deine Nachricht erhalten und werden dich auf dem Laufenden halten, sobald die KLARE-Methode App verfügbar ist.
+          Wir haben deine Nachricht erhalten und werden dich auf dem Laufenden halten, sobald die
+          KLARE-Methode App verfügbar ist.
         </p>
         <button
           onClick={() => setIsSuccess(false)}
@@ -77,13 +78,13 @@ const FeedbackForm: React.FC = () => {
       <h3 className="text-2xl font-bold mb-6" style={{ color: stepColors.K }}>
         Dein Feedback zur KLARE-Methode App
       </h3>
-      
+
       {error && (
         <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-6">
           <p className="text-red-700">{error}</p>
         </div>
       )}
-      
+
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
@@ -93,14 +94,14 @@ const FeedbackForm: React.FC = () => {
             type="email"
             id="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value)}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2"
-            style={{ borderColor: `${stepColors.K}40`, focusRing: stepColors.K }}
+            style={{ borderColor: `${stepColors.K}40` }}
             required
             placeholder="deine@email.de"
           />
         </div>
-        
+
         <div className="mb-4">
           <label htmlFor="interest" className="block text-gray-700 font-medium mb-2">
             Ich interessiere mich besonders für:
@@ -108,9 +109,9 @@ const FeedbackForm: React.FC = () => {
           <select
             id="interest"
             value={interest}
-            onChange={(e) => setInterest(e.target.value)}
+            onChange={e => setInterest(e.target.value)}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2"
-            style={{ borderColor: `${stepColors.L}40`, focusRing: stepColors.L }}
+            style={{ borderColor: `${stepColors.L}40` }}
           >
             <option value="">Bitte wählen...</option>
             <option value="K">K - Klarheit</option>
@@ -121,7 +122,7 @@ const FeedbackForm: React.FC = () => {
             <option value="all">Alle Aspekte</option>
           </select>
         </div>
-        
+
         <div className="mb-6">
           <label htmlFor="feedback" className="block text-gray-700 font-medium mb-2">
             Dein Feedback / Wünsche für die App
@@ -129,14 +130,14 @@ const FeedbackForm: React.FC = () => {
           <textarea
             id="feedback"
             value={feedback}
-            onChange={(e) => setFeedback(e.target.value)}
+            onChange={e => setFeedback(e.target.value)}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2"
-            style={{ borderColor: `${stepColors.A}40`, focusRing: stepColors.A }}
+            style={{ borderColor: `${stepColors.A}40` }}
             rows={4}
             placeholder="Was erhoffst du dir von der KLARE-Methode App? Welche Funktionen wünschst du dir?"
           />
         </div>
-        
+
         <button
           type="submit"
           disabled={isSubmitting}
